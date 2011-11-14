@@ -1,5 +1,7 @@
 package operator;
 
+import world.World;
+
 /**
  * Interfaz para operadores sobre mundos (Worlds).
  * 
