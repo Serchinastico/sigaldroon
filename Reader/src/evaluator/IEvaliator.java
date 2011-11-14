@@ -1,5 +1,7 @@
 package evaluator;
 
+import world.World;
+
 /**
  * Evaluador de mundos (World) para obtener el valor de una heurística a determinar.
  * 

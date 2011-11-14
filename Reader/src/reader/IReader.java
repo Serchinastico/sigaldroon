@@ -1,5 +1,7 @@
 package reader;
 
+import world.World;
+
 /**
  * Interfaz del lector.
  * 

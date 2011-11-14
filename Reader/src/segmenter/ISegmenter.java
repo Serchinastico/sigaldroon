@@ -1,5 +1,7 @@
 package segmenter;
 
+import world.World;
+
 /**
  * Interfaz para un creador de segmentos.
  * 
