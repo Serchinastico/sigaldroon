@@ -1,0 +1,1191 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Ontology1321288901646 "http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Ontology1321288901646="http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Accion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Accion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Actividad -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Actividad">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Apariencia -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Apariencia">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Atribucion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Atribucion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Relacional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Cambio -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Cambio">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Cognicion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Cognicion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Mental"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Competicion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Competicion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Conducta -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Conducta">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Conocimiento -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Conocimiento">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cognicion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Contacto -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Contacto">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Control -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Control">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Creacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Creacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Creencia -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Creencia">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cognicion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#CuidadoPersonal -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;CuidadoPersonal">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Denominacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Denominacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Desplazamiento -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Desplazamiento">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#DestruccionConsumo -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;DestruccionConsumo">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Emision -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Emision">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Espacio -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Espacio">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Existencial -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Existencial">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Fase -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Fase">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Existencial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Fisiologia -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Fisiologia">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Conducta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Hecho -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Hecho">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Localizacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Localizacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Mandato -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Mandato">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Verbal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ManeraMovimiento -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;ManeraMovimiento">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Material -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Material">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Mental -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Mental">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Meteorologia -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Meteorologia">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Modificacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Modificacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Orientacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Orientacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Percepcion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Percepcion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Mental"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Pertenencia -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Pertenencia">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Posesion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Posesion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Posesion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Relacional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#PosturaPosicion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;PosturaPosicion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Propiedad -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Propiedad">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Relacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Relacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#RelacionSocial -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;RelacionSocial">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Conducta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Relacional -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Relacional">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Sensacion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Sensacion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Mental"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Sustitucion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Sustitucion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Tiempo -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Tiempo">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Existencial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#TransferenciaTu -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;TransferenciaTu">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Posesion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#TransferenciaYo -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;TransferenciaYo">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Posesion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Union -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Union">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Uso -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Uso">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Hecho"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Valor -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Valor">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Valoracion -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Valoracion">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Verbal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Verbal -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Verbal">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#Vida -->
+
+    <owl:Class rdf:about="&Ontology1321288901646;Vida">
+        <rdfs:subClassOf rdf:resource="&Ontology1321288901646;Conducta"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#acabar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;acabar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Fase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#acoger -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;acoger">
+        <rdf:type rdf:resource="&Ontology1321288901646;RelacionSocial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#actuar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;actuar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Actividad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#adeudar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;adeudar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Posesion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#agachar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;agachar">
+        <rdf:type rdf:resource="&Ontology1321288901646;PosturaPosicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#agarrar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;agarrar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Control"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#aletear -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;aletear">
+        <rdf:type rdf:resource="&Ontology1321288901646;ManeraMovimiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#andar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;andar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Desplazamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#apuntar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;apuntar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Orientacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#atardecer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;atardecer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Meteorologia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#añadir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;añadir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Union"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#brillar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;brillar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Emision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#carecer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;carecer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Pertenencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#casar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;casar">
+        <rdf:type rdf:resource="&Ontology1321288901646;RelacionSocial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#cepillar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;cepillar">
+        <rdf:type rdf:resource="&Ontology1321288901646;CuidadoPersonal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#cobrar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;cobrar">
+        <rdf:type rdf:resource="&Ontology1321288901646;TransferenciaTu"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#cocinar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;cocinar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#coger -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;coger">
+        <rdf:type rdf:resource="&Ontology1321288901646;Control"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#comer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;comer">
+        <rdf:type rdf:resource="&Ontology1321288901646;DestruccionConsumo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#comportar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;comportar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Conducta"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#costar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;costar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Valor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#crear -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;crear">
+        <rdf:type rdf:resource="&Ontology1321288901646;Creacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#creer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;creer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Creencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#criticar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;criticar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Valoracion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#dar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;dar">
+        <rdf:type rdf:resource="&Ontology1321288901646;TransferenciaYo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#deber -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;deber">
+        <rdf:type rdf:resource="&Ontology1321288901646;Posesion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#decir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;decir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Verbal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#dejar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;dejar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Propiedad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#depender -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;depender">
+        <rdf:type rdf:resource="&Ontology1321288901646;Relacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#doler -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;doler">
+        <rdf:type rdf:resource="&Ontology1321288901646;Sensacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#durar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;durar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Tiempo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#eliminar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;eliminar">
+        <rdf:type rdf:resource="&Ontology1321288901646;DestruccionConsumo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#emitir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;emitir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Emision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#empezar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;empezar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Fase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#emplear -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;emplear">
+        <rdf:type rdf:resource="&Ontology1321288901646;Uso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#entender -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;entender">
+        <rdf:type rdf:resource="&Ontology1321288901646;Cognicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#equivaler -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;equivaler">
+        <rdf:type rdf:resource="&Ontology1321288901646;Relacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#escuchar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;escuchar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Percepcion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#estar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;estar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Propiedad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#fabricar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;fabricar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Creacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#felicitar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;felicitar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Valoracion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#gastar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;gastar">
+        <rdf:type rdf:resource="&Ontology1321288901646;DestruccionConsumo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#girar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;girar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#golpear -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;golpear">
+        <rdf:type rdf:resource="&Ontology1321288901646;Contacto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#guardar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;guardar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Propiedad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#gustar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;gustar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Sensacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#haber -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;haber">
+        <rdf:type rdf:resource="&Ontology1321288901646;Existencial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#hablar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;hablar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Verbal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#hervir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;hervir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Modificacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;ir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Desplazamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#juntar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;juntar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Union"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#lavar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;lavar">
+        <rdf:type rdf:resource="&Ontology1321288901646;CuidadoPersonal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#llamar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;llamar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Denominacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#llevar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;llevar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Desplazamiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#llorar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;llorar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Fisiologia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#llover -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;llover">
+        <rdf:type rdf:resource="&Ontology1321288901646;Meteorologia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#luchar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;luchar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Competicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#matar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;matar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Vida"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#mecer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;mecer">
+        <rdf:type rdf:resource="&Ontology1321288901646;ManeraMovimiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#medir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;medir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Valor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#mover -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;mover">
+        <rdf:type rdf:resource="&Ontology1321288901646;Espacio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#nacer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;nacer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Vida"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#nombrar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;nombrar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Denominacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ocurrir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;ocurrir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Existencial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#oler -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;oler">
+        <rdf:type rdf:resource="&Ontology1321288901646;Apariencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#opinar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;opinar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Creencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ordenar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;ordenar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Mandato"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#orinar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;orinar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Fisiologia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#pagar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;pagar">
+        <rdf:type rdf:resource="&Ontology1321288901646;TransferenciaYo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#pensar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;pensar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Cognicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#pintar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;pintar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Cambio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#poner -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;poner">
+        <rdf:type rdf:resource="&Ontology1321288901646;Localizacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#portar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;portar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Conducta"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#poseer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;poseer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Pertenencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#querer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;querer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Sensacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#recibir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;recibir">
+        <rdf:type rdf:resource="&Ontology1321288901646;TransferenciaTu"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#recordar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;recordar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Conocimiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#reemplazar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;reemplazar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Sustitucion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#romper -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;romper">
+        <rdf:type rdf:resource="&Ontology1321288901646;Modificacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#saber -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;saber">
+        <rdf:type rdf:resource="&Ontology1321288901646;Apariencia"/>
+        <rdf:type rdf:resource="&Ontology1321288901646;Conocimiento"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#secar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;secar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Modificacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#sentar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;sentar">
+        <rdf:type rdf:resource="&Ontology1321288901646;PosturaPosicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#sentir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;sentir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Mental"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ser -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;ser">
+        <rdf:type rdf:resource="&Ontology1321288901646;Atribucion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#señalar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;señalar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Orientacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#suplicar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;suplicar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Mandato"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#suplir -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;suplir">
+        <rdf:type rdf:resource="&Ontology1321288901646;Sustitucion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#tener -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;tener">
+        <rdf:type rdf:resource="&Ontology1321288901646;Pertenencia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#tocar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;tocar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Contacto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#trabajar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;trabajar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Actividad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#usar -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;usar">
+        <rdf:type rdf:resource="&Ontology1321288901646;Uso"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#vencer -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;vencer">
+        <rdf:type rdf:resource="&Ontology1321288901646;Competicion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321288901646.owl#ver -->
+
+    <owl:NamedIndividual rdf:about="&Ontology1321288901646;ver">
+        <rdf:type rdf:resource="&Ontology1321288901646;Percepcion"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
