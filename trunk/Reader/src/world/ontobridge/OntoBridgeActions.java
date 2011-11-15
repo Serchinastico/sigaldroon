@@ -16,7 +16,7 @@ public class OntoBridgeActions{
 	/**
 	 * Ruta de la ontología de nombres.
 	 * */
-	private static final String ACTIONS_ONTOLOGY_PATH = "";
+	private static final String ACTIONS_ONTOLOGY_PATH = "file:resources/ontologies/Acciones.owl";
 	
 	private static OntoBridge instance = null;
 	
@@ -27,8 +27,7 @@ public class OntoBridgeActions{
 	static public OntoBridge getInstance() {
 		if (instance == null) {
 			instance = new OntoBridge();
-			
-			instance.initWithOutReasoner();
+			instance.initWithPelletReasoner();
 			OntologyDocument mainOnto = new OntologyDocument("", ACTIONS_ONTOLOGY_PATH);
 			ArrayList<OntologyDocument> subOntologies = new ArrayList<OntologyDocument>();
 			instance.loadOntology(mainOnto, subOntologies, false);

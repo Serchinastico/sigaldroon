@@ -2,17 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/arq.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/concurrent.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/icu4j_3_4.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/iri.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/jena.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/json.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/wstx-asl-2.8.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/jena/xercesImpl.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/ontobridge.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/pellet/aterm-java-1.6.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/pellet/pellet.jar"/>
-	<classpathentry kind="lib" path="lib/ontobridge/pellet/servlet.jar"/>
+	<classpathentry kind="lib" path="lib/ontobridge2/ontobridge.jar"/>
+	<classpathentry kind="lib" path="lib/ontobridge2/pellet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

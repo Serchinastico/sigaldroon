@@ -2,6 +2,10 @@ package world.ontobridge;
 
 import java.util.ArrayList;
 
+import org.mindswap.pellet.Pellet;
+import org.mindswap.pellet.jena.PelletReasoner;
+import org.mindswap.pellet.jena.PelletReasonerFactory;
+
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import es.ucm.fdi.gaia.ontobridge.OntologyDocument;
 
@@ -12,11 +16,11 @@ import es.ucm.fdi.gaia.ontobridge.OntologyDocument;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  * */
 public class OntoBridgeNames {
-
+	
 	/**
 	 * Ruta de la ontología de nombres.
 	 * */
-	private static final String NAMES_ONTOLOGY_PATH = "";
+	private static final String NAMES_ONTOLOGY_PATH = "file:resources/ontologies/Nombres.owl";
 	
 	private static OntoBridge instance = null;
 	
@@ -27,8 +31,7 @@ public class OntoBridgeNames {
 	static public OntoBridge getInstance() {
 		if (instance == null) {
 			instance = new OntoBridge();
-			
-			instance.initWithOutReasoner();
+			instance.initWithPelletReasoner();
 			OntologyDocument mainOnto = new OntologyDocument("", NAMES_ONTOLOGY_PATH);
 			ArrayList<OntologyDocument> subOntologies = new ArrayList<OntologyDocument>();
 			instance.loadOntology(mainOnto, subOntologies, false);

@@ -29,11 +29,17 @@ public class Component {
 	 * */
 	private OntoBridgeComponent target;
 	
+	/**
+	 * Lugar donde sucede la acción.
+	 * */
+	private OntoBridgeComponent place;
+	
 	public Component() {
 		this.weight = -1.0f;
 		this.source = null;
 		this.action = null;
 		this.target = null;
+		this.place = null;
 	}
 	
 	/**
@@ -42,13 +48,16 @@ public class Component {
 	 * @param source Fuente
 	 * @param action Acción
 	 * @param target Objetivo
+	 * @param place Lugar
 	 * */
 	public Component(float weight, OntoBridgeComponent source,
-			OntoBridgeComponent action, OntoBridgeComponent target) {
+			OntoBridgeComponent action, OntoBridgeComponent target,
+			OntoBridgeComponent place) {
 		this.weight = weight;
 		this.source = source;
 		this.action = action;
 		this.target = target;
+		this.place = place;
 	}
 	
 	/**
@@ -59,7 +68,8 @@ public class Component {
 	public boolean instanceOf(Component pattern) {
 		return (source.isSubClassOf(pattern.source) && 
 				action.isSubClassOf(pattern.action) &&
-				target.isSubClassOf(pattern.target));
+				target.isSubClassOf(pattern.target) &&
+				place.isSubClassOf(pattern.place));
 	}
 	
 	/**
@@ -67,7 +77,8 @@ public class Component {
 	 * @return Una copia del componente.
 	 * */
 	public Component copy() {
-		Component copy = new Component(weight, source.copy(), action.copy(), target.copy());
+		Component copy = new Component(weight, source.copy(), action.copy(),
+				target.copy(), place.copy());
 		return copy;
 	}
 	
@@ -81,8 +92,9 @@ public class Component {
 			return false;
 		
 		Component c = (Component) o;		
-		return (c.weight == weight && c.source.equals(source) &&
-				c.action.equals(action) && c.target.equals(target));
+		return (c.weight == weight && c.source.equals(source)
+				&& c.action.equals(action) && c.target.equals(target) &&
+				c.place.equals(place));
 	}
 
 	/** 
@@ -91,7 +103,8 @@ public class Component {
 	@Override
 	public String toString() {
 		return "(" + weight + "), " + source +
-				"--{" + action + "}-->" + target;
+				"--{" + action + " at " + place + "}-->" + 
+				target;
 	}
 	
 	/**
@@ -148,6 +161,20 @@ public class Component {
 	 */
 	public void setTarget(OntoBridgeComponent target) {
 		this.target = target;
+	}
+	
+	/**
+	 * @return the place
+	 */
+	public OntoBridgeComponent getPlace() {
+		return place;
+	}
+
+	/**
+	 * @param place the place to set
+	 */
+	public void setPlace(OntoBridgeComponent place) {
+		this.place = place;
 	}
 	
 }
