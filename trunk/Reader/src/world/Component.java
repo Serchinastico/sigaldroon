@@ -29,6 +29,13 @@ public class Component {
 	 * */
 	private OntoBridgeComponent target;
 	
+	public Component() {
+		this.weight = -1.0f;
+		this.source = null;
+		this.action = null;
+		this.target = null;
+	}
+	
 	/**
 	 * Construye una instancia dados todos los atributos del componente como parámetros
 	 * @param weight Peso del componente
