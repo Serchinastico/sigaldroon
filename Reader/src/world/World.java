@@ -66,4 +66,19 @@ public class World implements Iterable<Component> {
 		return components.iterator();
 	}
 	
+	/**
+	 * @return El número de componentes que hay en el mundo.
+	 */
+	public int getNumComponents() {
+		return components.size();
+	}
+	
+	/**
+	 * Obtiene la i-ésima relación del listado de componentes.
+	 * @param i La i-ésima relación dentro del listado de componentes.
+	 * @return La relación número i.
+	 */
+	public Component getComponent(int i) {
+		return components.get(i);
+	}
 }

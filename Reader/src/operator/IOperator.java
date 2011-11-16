@@ -1,5 +1,7 @@
 package operator;
 
+import java.util.ArrayList;
+
 import world.World;
 
 /**
@@ -9,12 +11,12 @@ import world.World;
  *
  */
 public interface IOperator {
-
+	
 	/**
 	 * Genera todos los mundos posibles aplicando este operador a un mundo
 	 * pasado por parámentro.
 	 * @param w El mundo al que se le va a aplicar el operador.
 	 * @return Los mundos resultantes de aplicar el operador a todos sus elementos.
 	 */
-	public World[] generateWorlds(World w);
+	public ArrayList<World> generateWorlds(World w);
 }
