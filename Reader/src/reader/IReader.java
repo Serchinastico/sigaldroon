@@ -1,5 +1,7 @@
 package reader;
 
+import java.util.ArrayList;
+
 import world.World;
 
 /**
@@ -14,5 +16,5 @@ public interface IReader {
 	 * Genera una historia.
 	 * @return Los segmentos generados que contiene la historia.
 	 */
-	public World[] generateStory();
+	public ArrayList<World> generateStory();
 }

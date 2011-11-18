@@ -1,6 +1,7 @@
 package segmenter;
 
 import world.World;
+import world.WorldChanged;
 
 /**
  * Interfaz para un creador de segmentos.
@@ -16,6 +17,6 @@ public interface ISegmenter {
 	 * @param w Mundo que ha sufrido cambios.
 	 * @param c Cambios en el mundo w.
 	 */
-	public World generateSegment(World w, Changes c);
+	public World generateSegment(WorldChanged m);
 
 }
