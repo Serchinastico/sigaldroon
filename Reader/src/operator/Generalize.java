@@ -13,35 +13,90 @@ import world.ontobridge.OntoBridgeComponent;
  */
 public class Generalize implements IOperator {
 
-	/**
-	 * Modifica un elemento generalizando hacia el padre en la ontología.
-	 * @param c Acción a generalizar.
-	 * @param topClass Nombre de la superclase sobre la cual no se puede generalizar más.
-	 * @return Falso si ya está en el límite de la ontología y no puede generalizar.
-	 */
-	private boolean apply(OntoBridgeComponent c, String topClass){
-		if (c.getName().equals(topClass)) return false;
-		Iterator<String> it = c.listSuperClasses();
-		String parentName = it.next();
-		c.setName(parentName);
+	private boolean applyToAction(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+		
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getAction();
+		
+		// Si no puede subir más en la ontología, salimos
+		if (c.getName().equals("Accion")) return false;
+		
+		Iterator<String> itParents = c.listSuperClasses();
+		
+		while (itParents.hasNext()) {
+			String parentName = itParents.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getAction().setName(parentName);
+			gW.add(newWorld);
+		}
+		
 		return true;
 	}
+	
+	private boolean applyToSource(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+		
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getSource();
+		
+		// Si no puede subir más en la ontología, salimos
+		if (c.getName().equals("Actores")) return false;
+		
+		Iterator<String> itParents = c.listSuperClasses();
+		
+		while (itParents.hasNext()) {
+			String parentName = itParents.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getSource().setName(parentName);
+			gW.add(newWorld);
+		}
+		
+		return true;
+	}
+	
+	private boolean applyToTarget(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+		
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getTarget();
+		
+		// Si no puede subir más en la ontología, salimos
+		if (c.getName().equals("Actores")) return false;
+		
+		Iterator<String> itParents = c.listSuperClasses();
+		
+		while (itParents.hasNext()) {
+			String parentName = itParents.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getTarget().setName(parentName);
+			gW.add(newWorld);
+		}
+		
+		return true;
+	}
+	
+	private boolean applyToPlace(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+		
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getPlace();
+		
+		// Si no puede subir más en la ontología o si el lugar no está definido, salimos
+		if ((c == null) || (c.getName().equals("Lugares"))) return false;
+		
+		Iterator<String> itParents = c.listSuperClasses();
+		
+		while (itParents.hasNext()) {
+			String parentName = itParents.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getPlace().setName(parentName);
+			gW.add(newWorld);
+		}
+		
+		return true;
+	}
+
 	
 	@Override
 	public void generateWorlds(WorldChanged w, ArrayList<WorldChanged> generatedWorlds) {
 		for (int i = 0; i < w.getActualMind().getNumComponents(); i++) {
-			WorldChanged newWorld = w.copy();
-			if (apply(newWorld.getActualMind().getComponent(i).getAction(),"Accion"))
-				generatedWorlds.add(newWorld);
-			WorldChanged newWorld2 = w.copy();
-			if (apply(newWorld2.getActualMind().getComponent(i).getSource(),"Actores"))
-				generatedWorlds.add(newWorld2);
-			WorldChanged newWorld3 = w.copy();
-			if (apply(newWorld3.getActualMind().getComponent(i).getTarget(),"Actores"))
-				generatedWorlds.add(newWorld3);
-			WorldChanged newWorld4 = w.copy();
-			if (apply(newWorld4.getActualMind().getComponent(i).getPlace(),"Lugares"))
-				generatedWorlds.add(newWorld4);
+			applyToAction(w,generatedWorlds,i);
+			applyToSource(w,generatedWorlds,i);
+			applyToTarget(w,generatedWorlds,i);
+			applyToPlace(w,generatedWorlds,i);
 		}
 	}
 

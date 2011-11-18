@@ -3,7 +3,6 @@ package operator;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import utils.RandomSeed;
 import world.WorldChanged;
 import world.ontobridge.OntoBridgeComponent;
 
@@ -14,53 +13,133 @@ import world.ontobridge.OntoBridgeComponent;
  */
 public class Specialize implements IOperator {
 
-	/**
-	 * Modifica un elemento especializando hacia uno de los hijos al azar en la ontología.
-	 * @param c Elemento a especializar.
-	 * @return Falso si ya está instanciado y no se puede especializar.
-	 */
-	private boolean apply(OntoBridgeComponent c){
+	private boolean applyToAction(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getAction();
+
+		// Si ya está instanciado, no se puede especializar más
 		if (c.isInstance()) return false;
+
+		// Se crean los hijos mediante las subclases en la ontología
 		Iterator<String> itSubClasses = c.listSubClasses();
-		if (itSubClasses.hasNext()) {
-			ArrayList<String> subClassNames = new ArrayList<String>();
-			while (itSubClasses.hasNext()) {
-				subClassNames.add(itSubClasses.next());
-			}
-			int subClassChoice = RandomSeed.generateRandom(subClassNames.size());
-			String subClass = subClassNames.get(subClassChoice);
-			c.setName(subClass);
-			return true;
+
+		while (itSubClasses.hasNext()) {
+			String subClass = itSubClasses.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getAction().setName(subClass);
+			gW.add(newWorld);
 		}
-		else {
-			Iterator<String> itInstances = c.listInstances();
-			if (!itInstances.hasNext()) return false;
-			ArrayList<String> instances = new ArrayList<String>();
-			while (itInstances.hasNext()) {
-				instances.add(itInstances.next());
-			}
-			int instanceChoice = RandomSeed.generateRandom(instances.size());
-			String instance = instances.get(instanceChoice);
-			c.setName(instance);
-			return true;
+
+		// Se crean los hijos mediante las instancias de la clase
+		Iterator<String> itInstances = c.listInstances();
+
+		while (itInstances.hasNext()) {
+			String instanceName = itInstances.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getAction().setName(instanceName);
+			gW.add(newWorld);
 		}
+
+		return true;
 	}
-	
+
+	private boolean applyToSource(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getSource();
+
+		// Si ya está instanciado, no se puede especializar más
+		if (c.isInstance()) return false;
+
+		// Se crean los hijos mediante las subclases en la ontología
+		Iterator<String> itSubClasses = c.listSubClasses();
+
+		while (itSubClasses.hasNext()) {
+			String subClass = itSubClasses.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getSource().setName(subClass);
+			gW.add(newWorld);
+		}
+
+		// Se crean los hijos mediante las instancias de la clase
+		Iterator<String> itInstances = c.listInstances();
+
+		while (itInstances.hasNext()) {
+			String instanceName = itInstances.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getSource().setName(instanceName);
+			gW.add(newWorld);
+		}
+
+		return true;
+	}
+
+	private boolean applyToTarget(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getTarget();
+
+		// Si ya está instanciado, no se puede especializar más
+		if (c.isInstance()) return false;
+
+		// Se crean los hijos mediante las subclases en la ontología
+		Iterator<String> itSubClasses = c.listSubClasses();
+
+		while (itSubClasses.hasNext()) {
+			String subClass = itSubClasses.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getTarget().setName(subClass);
+			gW.add(newWorld);
+		}
+
+		// Se crean los hijos mediante las instancias de la clase
+		Iterator<String> itInstances = c.listInstances();
+
+		while (itInstances.hasNext()) {
+			String instanceName = itInstances.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getTarget().setName(instanceName);
+			gW.add(newWorld);
+		}
+
+		return true;
+	}
+
+	private boolean applyToPlace(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
+
+		OntoBridgeComponent c = w.getActualMind().getComponent(i).getPlace();
+
+		// Si ya está instanciado o no tiene especificado el lugar, no se puede especializar más
+		if ((c == null) || (c.isInstance())) return false;
+
+		// Se crean los hijos mediante las subclases en la ontología
+		Iterator<String> itSubClasses = c.listSubClasses();
+
+		while (itSubClasses.hasNext()) {
+			String subClass = itSubClasses.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getPlace().setName(subClass);
+			gW.add(newWorld);
+		}
+
+		// Se crean los hijos mediante las instancias de la clase
+		Iterator<String> itInstances = c.listInstances();
+
+		while (itInstances.hasNext()) {
+			String instanceName = itInstances.next();
+			WorldChanged newWorld = w.copy();
+			newWorld.getActualMind().getComponent(i).getPlace().setName(instanceName);
+			gW.add(newWorld);
+		}
+
+		return true;
+	}
+
 	@Override
 	public void generateWorlds(WorldChanged w, ArrayList<WorldChanged> generatedWorlds) {
 		for (int i = 0; i < w.getActualMind().getNumComponents(); i++) {
-			WorldChanged newWorld = w.copy();
-			if (apply(newWorld.getActualMind().getComponent(i).getAction()))
-				generatedWorlds.add(newWorld);
-			WorldChanged newWorld2 = w.copy();
-			if (apply(newWorld2.getActualMind().getComponent(i).getSource()))
-				generatedWorlds.add(newWorld2);
-			WorldChanged newWorld3 = w.copy();
-			if (apply(newWorld3.getActualMind().getComponent(i).getTarget()))
-				generatedWorlds.add(newWorld3);
-			WorldChanged newWorld4 = w.copy();
-			if (apply(newWorld4.getActualMind().getComponent(i).getPlace()))
-				generatedWorlds.add(newWorld4);
+			applyToAction(w,generatedWorlds,i);
+			applyToSource(w,generatedWorlds,i);
+			applyToTarget(w,generatedWorlds,i);
+			applyToPlace(w,generatedWorlds,i);
 		}
 	}
 
