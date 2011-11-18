@@ -34,30 +34,38 @@ public class Component {
 	 * */
 	private OntoBridgeComponent place;
 	
+	/**
+	 * Complemento directo.
+	 * */
+	private OntoBridgeComponent directObject;
+	
 	public Component() {
 		this.weight = -1.0f;
 		this.source = null;
 		this.action = null;
 		this.target = null;
 		this.place = null;
+		this.directObject = null;
 	}
 	
 	/**
-	 * Construye una instancia dados todos los atributos del componente como parámetros
+	 * Construye una instancia dados todos los atributos del componente como parámetros.
 	 * @param weight Peso del componente
 	 * @param source Fuente
 	 * @param action Acción
 	 * @param target Objetivo
 	 * @param place Lugar
+	 * @param directObject Complemento directo
 	 * */
 	public Component(float weight, OntoBridgeComponent source,
 			OntoBridgeComponent action, OntoBridgeComponent target,
-			OntoBridgeComponent place) {
+			OntoBridgeComponent place, OntoBridgeComponent directObject) {
 		this.weight = weight;
 		this.source = source;
 		this.action = action;
 		this.target = target;
 		this.place = place;
+		this.directObject = directObject;
 	}
 	
 	/**
@@ -69,7 +77,8 @@ public class Component {
 		return (source.isSubClassOf(pattern.source) && 
 				action.isSubClassOf(pattern.action) &&
 				target.isSubClassOf(pattern.target) &&
-				place.isSubClassOf(pattern.place));
+				place.isSubClassOf(pattern.place) &&
+				directObject.isSubClassOf(pattern.directObject));
 	}
 	
 	/**
@@ -78,7 +87,7 @@ public class Component {
 	 * */
 	public Component copy() {
 		Component copy = new Component(weight, source.copy(), action.copy(),
-				target.copy(), place.copy());
+				target.copy(), place.copy(), directObject.copy());
 		return copy;
 	}
 	
@@ -94,7 +103,7 @@ public class Component {
 		Component c = (Component) o;		
 		return (c.weight == weight && c.source.equals(source)
 				&& c.action.equals(action) && c.target.equals(target) &&
-				c.place.equals(place));
+				c.place.equals(place) && c.directObject.equals(directObject));
 	}
 
 	/** 
@@ -103,7 +112,7 @@ public class Component {
 	@Override
 	public String toString() {
 		return "(" + weight + "), " + source +
-				"--{" + action + " at " + place + "}-->" + 
+				"--{" + action + " [" + directObject + "] at " + place + "}-->" + 
 				target;
 	}
 	
@@ -175,6 +184,20 @@ public class Component {
 	 */
 	public void setPlace(OntoBridgeComponent place) {
 		this.place = place;
+	}
+	
+	/**
+	 * @return the direct object
+	 */
+	public OntoBridgeComponent getDirectObject() {
+		return directObject;
+	}
+
+	/**
+	 * @param directObject the direct object to set
+	 */
+	public void setDirectObject(OntoBridgeComponent directObject) {
+		this.directObject = directObject;
 	}
 	
 }

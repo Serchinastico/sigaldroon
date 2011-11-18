@@ -2,10 +2,6 @@ package world.ontobridge;
 
 import java.util.ArrayList;
 
-import org.mindswap.pellet.Pellet;
-import org.mindswap.pellet.jena.PelletReasoner;
-import org.mindswap.pellet.jena.PelletReasonerFactory;
-
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import es.ucm.fdi.gaia.ontobridge.OntologyDocument;
 
@@ -16,6 +12,10 @@ import es.ucm.fdi.gaia.ontobridge.OntologyDocument;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  * */
 public class OntoBridgeNames {
+	
+	public static void main(String[] args) {
+		OntoBridge ob = OntoBridgeNames.getInstance();
+	}
 	
 	/**
 	 * Ruta de la ontología de nombres.

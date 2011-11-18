@@ -53,6 +53,10 @@ public class World implements Iterable<Component> {
 				c.setSource(new OntoBridgeComponent(splittedLine[1].trim(), OntoBridgeComponent.NAME));
 				c.setAction(new OntoBridgeComponent(splittedLine[2].trim(), OntoBridgeComponent.ACTION));
 				c.setTarget(new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME));
+				if (!splittedLine[4].trim().equals(""))
+					c.setPlace(new OntoBridgeComponent(splittedLine[4].trim(), OntoBridgeComponent.NAME));
+				if (!splittedLine[5].trim().equals(""))
+					c.setDirectObject(new OntoBridgeComponent(splittedLine[5].trim(), OntoBridgeComponent.NAME));
 				
 				components.add(c);
 			}
