@@ -79,6 +79,22 @@ public class OntoBridgeComponent {
 	public Iterator<String> listSubClasses() {
 		return ontobridge.listSubClasses(name, false);
 	}
+	
+	/**
+	 * Devuelve todas las instancias de la clase dada.
+	 * @return Iterador de todas las subclases.
+	 * */
+	public Iterator<String> listInstances() {
+		return ontobridge.listInstances(name);
+	}
+	
+	/**
+	 * Comprueba si el componente es una instancia.
+	 * @return true si el componente es una instancia.
+	 * */
+	public boolean isInstance() {
+		return ontobridge.existsInstance(name);
+	}
 
 	/**
 	 * Copia el componente.

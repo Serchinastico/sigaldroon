@@ -2,7 +2,7 @@ package operator;
 
 import java.util.ArrayList;
 
-import world.World;
+import world.WorldChanged;
 
 /**
  * Interfaz para operadores sobre mundos (Worlds).
@@ -16,7 +16,7 @@ public interface IOperator {
 	 * Genera todos los mundos posibles aplicando este operador a un mundo
 	 * pasado por parámentro.
 	 * @param w El mundo al que se le va a aplicar el operador.
-	 * @return Los mundos resultantes de aplicar el operador a todos sus elementos.
+	 * @param changes Listado de mundos generados. Se añaden al final de la lista si no es vacía.
 	 */
-	public ArrayList<World> generateWorlds(World w);
+	public void generateWorlds(WorldChanged w, ArrayList<WorldChanged> generatedWorls);
 }
