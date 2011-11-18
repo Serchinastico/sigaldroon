@@ -13,6 +13,13 @@ import world.ontobridge.OntoBridgeComponent;
  */
 public class Generalize implements IOperator {
 
+	/**
+	 * Aplica el operador a una acción.
+	 * @param w Mundo a partir del cual operar.
+	 * @param gW Lista de mundos generados.
+	 * @param i Índice del elemento en el que reside la acción dentro del mundo.
+	 * @return Falso si no se puede generalizar.
+	 */
 	private boolean applyToAction(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
 		
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getAction();
@@ -32,6 +39,13 @@ public class Generalize implements IOperator {
 		return true;
 	}
 	
+	/**
+	 * Aplica el operador a un actor fuente.
+	 * @param w Mundo a partir del cual operar.
+	 * @param gW Lista de mundos generados.
+	 * @param i Índice del elemento en el que reside la acción dentro del mundo.
+	 * @return Falso si no se puede generalizar.
+	 */
 	private boolean applyToSource(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
 		
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getSource();
@@ -51,6 +65,13 @@ public class Generalize implements IOperator {
 		return true;
 	}
 	
+	/**
+	 * Aplica el operador a un actor destino.
+	 * @param w Mundo a partir del cual operar.
+	 * @param gW Lista de mundos generados.
+	 * @param i Índice del elemento en el que reside la acción dentro del mundo.
+	 * @return Falso si no se puede generalizar.
+	 */
 	private boolean applyToTarget(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
 		
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getTarget();
@@ -70,6 +91,13 @@ public class Generalize implements IOperator {
 		return true;
 	}
 	
+	/**
+	 * Aplica el operador a un lugar.
+	 * @param w Mundo a partir del cual operar.
+	 * @param gW Lista de mundos generados.
+	 * @param i Índice del elemento en el que reside la acción dentro del mundo.
+	 * @return Falso si no se puede generalizar.
+	 */
 	private boolean applyToPlace(WorldChanged w, ArrayList<WorldChanged> gW, int i) {
 		
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getPlace();
