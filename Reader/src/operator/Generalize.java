@@ -27,13 +27,20 @@ public class Generalize implements IOperator {
 		// Si no puede subir más en la ontología, salimos
 		if (c.getName().equals("Accion")) return false;
 		
-		Iterator<String> itParents = c.listSuperClasses();
+		Iterator<String> itParents;
+		
+		if (c.isInstance()) 
+			itParents = c.listDeclaredBelongingSuperClasses();
+		else 
+			itParents = c.listSuperClasses();
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			WorldChanged newWorld = w.copy();
-			newWorld.getActualMind().getComponent(i).getAction().setName(parentName);
-			gW.add(newWorld);
+			if (!parentName.contains("NamedIndividual")) {
+				WorldChanged newWorld = w.copy();
+				newWorld.getActualMind().getComponent(i).getAction().setName(parentName);
+				gW.add(newWorld);
+			}
 		}
 		
 		return true;
@@ -53,13 +60,20 @@ public class Generalize implements IOperator {
 		// Si no puede subir más en la ontología, salimos
 		if (c.getName().equals("Actores")) return false;
 		
-		Iterator<String> itParents = c.listSuperClasses();
+		Iterator<String> itParents;
+		
+		if (c.isInstance()) 
+			itParents = c.listDeclaredBelongingSuperClasses();
+		else 
+			itParents = c.listSuperClasses();
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			WorldChanged newWorld = w.copy();
-			newWorld.getActualMind().getComponent(i).getSource().setName(parentName);
-			gW.add(newWorld);
+			if (!parentName.contains("NamedIndividual")) {
+				WorldChanged newWorld = w.copy();
+				newWorld.getActualMind().getComponent(i).getSource().setName(parentName);
+				gW.add(newWorld);
+			}
 		}
 		
 		return true;
@@ -79,13 +93,20 @@ public class Generalize implements IOperator {
 		// Si no puede subir más en la ontología, salimos
 		if (c.getName().equals("Actores")) return false;
 		
-		Iterator<String> itParents = c.listSuperClasses();
+		Iterator<String> itParents;
+		
+		if (c.isInstance()) 
+			itParents = c.listDeclaredBelongingSuperClasses();
+		else 
+			itParents = c.listSuperClasses();
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			WorldChanged newWorld = w.copy();
-			newWorld.getActualMind().getComponent(i).getTarget().setName(parentName);
-			gW.add(newWorld);
+			if (!parentName.contains("NamedIndividual")) {
+				WorldChanged newWorld = w.copy();
+				newWorld.getActualMind().getComponent(i).getTarget().setName(parentName);
+				gW.add(newWorld);
+			}
 		}
 		
 		return true;
@@ -105,13 +126,20 @@ public class Generalize implements IOperator {
 		// Si no puede subir más en la ontología o si el lugar no está definido, salimos
 		if ((c == null) || (c.getName().equals("Lugares"))) return false;
 		
-		Iterator<String> itParents = c.listSuperClasses();
+		Iterator<String> itParents;
+		
+		if (c.isInstance()) 
+			itParents = c.listDeclaredBelongingSuperClasses();
+		else 
+			itParents = c.listSuperClasses();
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			WorldChanged newWorld = w.copy();
-			newWorld.getActualMind().getComponent(i).getPlace().setName(parentName);
-			gW.add(newWorld);
+			if (!parentName.contains("NamedIndividual")) {
+				WorldChanged newWorld = w.copy();
+				newWorld.getActualMind().getComponent(i).getPlace().setName(parentName);
+				gW.add(newWorld);
+			}
 		}
 		
 		return true;

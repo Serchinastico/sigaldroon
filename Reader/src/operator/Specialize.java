@@ -38,7 +38,7 @@ public class Specialize implements IOperator {
 		}
 
 		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listInstances();
+		Iterator<String> itInstances = c.listDeclaredInstances();
 
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
@@ -75,7 +75,7 @@ public class Specialize implements IOperator {
 		}
 
 		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listInstances();
+		Iterator<String> itInstances = c.listDeclaredInstances();
 
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
@@ -112,7 +112,7 @@ public class Specialize implements IOperator {
 		}
 
 		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listInstances();
+		Iterator<String> itInstances = c.listDeclaredInstances();
 
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
@@ -149,7 +149,7 @@ public class Specialize implements IOperator {
 		}
 
 		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listInstances();
+		Iterator<String> itInstances = c.listDeclaredInstances();
 
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();

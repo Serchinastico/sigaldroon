@@ -1,5 +1,8 @@
 package reader;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import segmenter.Segmenter;
@@ -43,6 +46,14 @@ public class Reader implements IReader {
 	 */
 	public void createMind() {
 		storySoFar = new ArrayList<World>();
+		InputStream txt = null;
+		try {
+			 txt = new FileInputStream("resources/MundoDisco.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mind = new World(txt);
 		storySoFar.add(mind);
 	}
 	
@@ -67,4 +78,15 @@ public class Reader implements IReader {
 		return storySoFar;
 	}
 
+	/**
+	 * Testing.
+	 * @param args nanai
+	 */
+	public static void main(String[] args) {
+		Reader r = new Reader();
+		ArrayList<World> story = r.generateStory();
+		for (World w : story) {
+			System.out.println(w.toString());
+		}
+	}
 }

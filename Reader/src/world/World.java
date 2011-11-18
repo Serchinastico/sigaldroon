@@ -64,7 +64,7 @@ public class World implements Iterable<Component> {
 			System.err.println("Error leyendo el estado del mundo: " + e.getMessage());
 		}
 	}
-	
+
 	@Override
 	public Iterator<Component> iterator() {
 		return components.iterator();
@@ -84,5 +84,10 @@ public class World implements Iterable<Component> {
 	 */
 	public Component getComponent(int i) {
 		return components.get(i);
+	}
+	
+	@Override
+	public String toString() {
+		return "World [components=" + components.toString() + "]";
 	}
 }

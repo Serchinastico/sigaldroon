@@ -92,5 +92,10 @@ public class WorldChanged {
 		this.value = value;
 	}
 	
+	@Override
+	public String toString() {
+		return "WorldChanged [actualMind=" + actualMind.toString() + ", changes="
+				+ changes.toString() + ", value=" + value + "]";
+	}
 	
 }
