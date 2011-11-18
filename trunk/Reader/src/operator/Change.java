@@ -93,5 +93,11 @@ public class Change {
 	public Change copy() {
 		return new Change(before.copy(), after.copy(), operator);
 	}
+
+	@Override
+	public String toString() {
+		return "Change [after=" + after.toString() + ", before=" + before.toString() + ", operator="
+				+ operator + "]";
+	}
 	
 }

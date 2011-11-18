@@ -73,11 +73,27 @@ public class OntoBridgeComponent {
 	}
 	
 	/**
+	 * Devuelve todas las superclases de la instancia dada.
+	 * @return Iterador de todas las superclases de la instancia.
+	 * */
+	public Iterator<String> listDeclaredBelongingSuperClasses() {
+		return ontobridge.listDeclaredBelongingClasses(name);
+	}
+	
+	/**
 	 * Devuelve todas las subclases de la clase dada.
 	 * @return Iterador de todas las subclases.
 	 * */
 	public Iterator<String> listSubClasses() {
-		return ontobridge.listSubClasses(name, false);
+		return ontobridge.listSubClasses(name, true);
+	}
+	
+	/**
+	 * Devuelve todas las instancias declaradas en la clase dada.
+	 * @return Iterador de todas las subclases.
+	 * */
+	public Iterator<String> listDeclaredInstances() {
+		return ontobridge.listDeclaredInstances(name);
 	}
 	
 	/**
@@ -122,7 +138,12 @@ public class OntoBridgeComponent {
 	 */
 	@Override
 	public String toString() {
-		return name;
+		if (name.contains("#")) {
+			String[] splitted = name.split("#");
+			return splitted[1];
+		}
+		else
+			return name;
 	}
 	
 	
