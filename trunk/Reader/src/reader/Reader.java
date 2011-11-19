@@ -4,6 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
+import evaluator.IEvaluator;
+import evaluator.SimpleEvaluator;
 
 import segmenter.Segmenter;
 
@@ -17,7 +22,7 @@ import world.WorldChanged;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class Reader implements IReader {
+public class Reader extends Observable implements IReader{
 	
 	/**
 	 * Segmentos en orden que forman la historia hasta el momento.
@@ -35,10 +40,17 @@ public class Reader implements IReader {
 	private int maxSegments;
 	
 	/**
+	 * Evaluador de los mundos generados.
+	 * */
+	private IEvaluator evaluator;
+	
+	/**
 	 * Constructora por defecto.
 	 */
 	public Reader() {
 		maxSegments = 10;
+		evaluator = new SimpleEvaluator();
+		addObserver((Observer) evaluator);
 	}
 	
 	/**
@@ -65,7 +77,7 @@ public class Reader implements IReader {
 		for (int i = 0; i < maxSegments; i++) {
 			
 			// Opera con la mente para evolucionarla
-			MindEvolver evolver = new MindEvolver();
+			MindEvolver evolver = new MindEvolver(evaluator);
 			WorldChanged worldChanged = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
@@ -73,9 +85,17 @@ public class Reader implements IReader {
 			storySoFar.add(segmenter.generateSegment(worldChanged));
 			mind = worldChanged.getActualMind();
 			
+			notifyObservers();
 		}
 		
 		return storySoFar;
+	}
+
+	/**
+	 * @return the maxSegments
+	 */
+	public int getMaxSegments() {
+		return maxSegments;
 	}
 
 	/**

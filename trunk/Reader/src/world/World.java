@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import world.ontobridge.OntoBridgeComponent;
-
 public class World implements Iterable<Component> {
 
 	/**
@@ -44,20 +42,10 @@ public class World implements Iterable<Component> {
 			
 			String line;
 			while ((line = br.readLine()) != null) {
+				// Se pueden insertar comentarios iniciando la linea con "//"
 				if (line.startsWith("//"))
 					continue;
-				
-				String[] splittedLine = line.split(",");
-				Component c = new Component();
-				c.setWeight(Float.parseFloat(splittedLine[0].trim()));
-				c.setSource(new OntoBridgeComponent(splittedLine[1].trim(), OntoBridgeComponent.NAME));
-				c.setAction(new OntoBridgeComponent(splittedLine[2].trim(), OntoBridgeComponent.ACTION));
-				c.setTarget(new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME));
-				if (!splittedLine[4].trim().equals(""))
-					c.setPlace(new OntoBridgeComponent(splittedLine[4].trim(), OntoBridgeComponent.NAME));
-				if (!splittedLine[5].trim().equals(""))
-					c.setDirectObject(new OntoBridgeComponent(splittedLine[5].trim(), OntoBridgeComponent.NAME));
-				
+				Component c = new Component(line);
 				components.add(c);
 			}
 		} catch (Exception e) {

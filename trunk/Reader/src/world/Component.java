@@ -49,6 +49,24 @@ public class Component {
 	}
 	
 	/**
+	 * Construye un componente del mundo mediante un string con sus atributos
+	 * separados por comas.
+	 * @para str El string del que extraer la información del componente.
+	 * */
+	public Component(String str) {
+		String[] splittedLine = str.split(",");
+		
+		weight = Float.parseFloat(splittedLine[0].trim());
+		source = new OntoBridgeComponent(splittedLine[1].trim(), OntoBridgeComponent.NAME);
+		action = new OntoBridgeComponent(splittedLine[2].trim(), OntoBridgeComponent.ACTION);
+		target = new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME);
+		if (!splittedLine[4].trim().equals(""))
+			place = new OntoBridgeComponent(splittedLine[4].trim(), OntoBridgeComponent.NAME);
+		if (!splittedLine[5].trim().equals(""))
+			directObject = new OntoBridgeComponent(splittedLine[5].trim(), OntoBridgeComponent.NAME);
+	}
+	
+	/**
 	 * Construye una instancia dados todos los atributos del componente como parámetros.
 	 * @param weight Peso del componente
 	 * @param source Fuente
