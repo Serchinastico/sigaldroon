@@ -23,7 +23,7 @@ public class Reader implements IReader {
 	 * Segmentos en orden que forman la historia hasta el momento.
 	 */
 	private ArrayList<World> storySoFar;
-	
+
 	/**
 	 * Mundo tal y como lo concibe la mente del lector.
 	 */
@@ -78,6 +78,14 @@ public class Reader implements IReader {
 		return storySoFar;
 	}
 
+	/**
+	 * Getter para los segmentos generados de la historia.
+	 * @return
+	 */
+	public ArrayList<World> getStorySoFar() {
+		return storySoFar;
+	}
+	
 	/**
 	 * Testing.
 	 * @param args nanai
