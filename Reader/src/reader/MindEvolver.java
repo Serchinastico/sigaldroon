@@ -1,6 +1,11 @@
 package reader;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
+import evaluator.IEvaluator;
+import evaluator.SimpleEvaluator;
 
 import operator.Generalize;
 import operator.Specialize;
@@ -20,15 +25,21 @@ public class MindEvolver implements IMindEvolver {
 	 * Máximo número de padres a engendrar.
 	 */
 	private int maxMindExpansions;
+	
+	/**
+	 * Evaluador de los mundos generados.
+	 * */
+	private IEvaluator evaluator;
 
 	/**
 	 * Pila de mentes creadas hasta el momento.
 	 */
 	private ArrayList<WorldChanged> mindsGenerated;
 	
-	public MindEvolver() {
+	public MindEvolver(IEvaluator evaluator) {
 		maxMindExpansions = 10;
 		mindsGenerated = new ArrayList<WorldChanged>();
+		this.evaluator = evaluator;
 	}
 	
 	@Override
@@ -45,6 +56,7 @@ public class MindEvolver implements IMindEvolver {
 			ArrayList<WorldChanged> mindSons = operateMind(operatedMind);
 			
 			// Evalúa los hijos generados
+			evalWorlds(mindSons);
 			
 			// Inserta los hijos en el total de mentes generadas y ordenados según su valor
 			insertWorlds(mindSons);
@@ -70,6 +82,16 @@ public class MindEvolver implements IMindEvolver {
 		generalizeOp.generateWorlds(w, sons);
 		
 		return sons;
+	}
+	
+	/**
+	 * Evalúa los mundos generados asignándoles a cada uno un valor heurístico.
+	 * @param sons Mundos para evaluar.
+	 * */
+	private void evalWorlds(ArrayList<WorldChanged> sons) {
+		for (WorldChanged w : sons) {
+			w.setValue(evaluator.eval(w.getActualMind()));
+		}
 	}
 	
 	/**
