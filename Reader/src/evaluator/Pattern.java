@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import world.Component;
 
+/**
+ * Clase que implementa el patrón de las expectativas/preguntas usadas por el evaluador.
+ * 
+ * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
+ *
+ */
 public class Pattern {
 	
 	/**

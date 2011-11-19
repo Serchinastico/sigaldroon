@@ -50,6 +50,10 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 		loadPatterns(PATTERNS_PATH[state]);
 	}
 	
+	/**
+	 * Carga en memoria los patrones contenidos en un fichero.
+	 * @param path Ruta al fichero que contiene los patrones.
+	 * */
 	private void loadPatterns(String path) {
 		patterns = new ArrayList<Pattern>();
 		
