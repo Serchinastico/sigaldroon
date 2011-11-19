@@ -8,7 +8,7 @@ import world.World;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public interface IEvaliator {
+public interface IEvaluator {
 
 	/**
 	 * Evalúa un mundo para la búsqueda informada que tiene en cuenta
