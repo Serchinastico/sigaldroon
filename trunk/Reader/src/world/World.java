@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Implementación del mundo desde el punto de vista del lector.
+ * 
+ * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
+ *
+ */
 public class World implements Iterable<Component> {
 
 	/**
@@ -77,5 +83,13 @@ public class World implements Iterable<Component> {
 	@Override
 	public String toString() {
 		return "World [components=" + components.toString() + "]";
+	}
+	
+	public String toShortString() {
+		String shortStr = "";
+		for (Component c : components) {
+			shortStr += c.toShortString();
+		}
+		return shortStr;
 	}
 }
