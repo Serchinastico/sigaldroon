@@ -74,11 +74,16 @@ public class Component {
 	 * @return Valor booleano indicando si el componente es una instancia del patrón.
 	 * */
 	public boolean instanceOf(Component pattern) {
+		boolean placeIsInstanceOf = (place == null && pattern.place == null) ||
+				(place != null && place.equals(pattern.place));
+		boolean directObjectIsInstanceOf = (directObject == null && pattern.directObject == null) ||
+				(directObject != null && directObject.equals(pattern.directObject));
+		
 		return (source.isSubClassOf(pattern.source) && 
 				action.isSubClassOf(pattern.action) &&
 				target.isSubClassOf(pattern.target) &&
-				place.isSubClassOf(pattern.place) &&
-				directObject.isSubClassOf(pattern.directObject));
+				placeIsInstanceOf &&
+				directObjectIsInstanceOf);
 	}
 	
 	/**
@@ -87,7 +92,9 @@ public class Component {
 	 * */
 	public Component copy() {
 		Component copy = new Component(weight, source.copy(), action.copy(),
-				target.copy(), place.copy(), directObject.copy());
+				target.copy(),
+				(place == null) ? null : place.copy(),
+				(directObject == null) ? null : directObject.copy());
 		return copy;
 	}
 	
@@ -99,11 +106,16 @@ public class Component {
 	public boolean equals(Object o) {
 		if (!(o instanceof Component))
 			return false;
+		Component c = (Component) o;
 		
-		Component c = (Component) o;		
+		boolean placeEq = (place == null && c.place == null) || 
+				(place != null && place.equals(c.place));
+		boolean directObjectEq = (directObject == null && c.directObject == null) || 
+				(directObject != null && directObject.equals(c.directObject));
+		
 		return (c.weight == weight && c.source.equals(source)
 				&& c.action.equals(action) && c.target.equals(target) &&
-				c.place.equals(place) && c.directObject.equals(directObject));
+				placeEq && directObjectEq);
 	}
 
 	/** 
@@ -112,7 +124,9 @@ public class Component {
 	@Override
 	public String toString() {
 		return "(" + weight + "), " + source +
-				"--{" + action + " [" + directObject + "] at " + place + "}-->" + 
+				"--{" + action +
+				((directObject == null) ? "" : " [" + directObject + "]") + 
+				((place == null) ? "" : " at " + place) + "}-->" + 
 				target;
 	}
 	
