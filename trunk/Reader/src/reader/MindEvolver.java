@@ -66,12 +66,7 @@ public class MindEvolver implements IMindEvolver {
 			
 			if (operatedMind.compareTo(theBestWorld) >= 0) 
 				theBestWorld = operatedMind.copy();
-			
-			if (operatedMind == null) {
-				int x = 3;
-				x = x +4;
-			}
-			
+		
 			// Genera los hijos como resultado de operar esa mente
 			ArrayList<WorldChanged> mindSons = operateMind(operatedMind);
 			
