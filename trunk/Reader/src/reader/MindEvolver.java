@@ -61,11 +61,8 @@ public class MindEvolver implements IMindEvolver {
 		
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
-			// Obtiene la mente más favorable de la lista (por ahora la primera)
+			// Obtiene la mente más favorable de la lista
 			WorldChanged operatedMind = mindsGenerated.poll(); // Saca la cima y la borra
-			
-			if (operatedMind.compareTo(theBestWorld) >= 0) 
-				theBestWorld = operatedMind.copy();
 		
 			// Genera los hijos como resultado de operar esa mente
 			ArrayList<WorldChanged> mindSons = operateMind(operatedMind);
@@ -75,6 +72,8 @@ public class MindEvolver implements IMindEvolver {
 			
 			// Inserta los hijos en el total de mentes generadas y ordenados según su valor
 			insertWorlds(mindSons);
+			
+			updateBestWorld();
 			
 		}
 		
@@ -118,6 +117,15 @@ public class MindEvolver implements IMindEvolver {
 		for (WorldChanged w: sons) {
 			mindsGenerated.add(w);
 		}
+	}
+	
+	private void updateBestWorld() {
+		
+		// Obtiene la mente más favorable de la lista
+		WorldChanged bestInQueue = mindsGenerated.peek();
+		
+		if (bestInQueue.compareTo(theBestWorld) >= 0) 
+			theBestWorld = bestInQueue.copy();
 	}
 
 }
