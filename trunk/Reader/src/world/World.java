@@ -85,6 +85,10 @@ public class World implements Iterable<Component> {
 		return "World [components=" + components.toString() + "]";
 	}
 	
+	/**
+	 * Devuelve un string reducido pensado para usarse en un hasheo posterior.
+	 * @return String reducido que identifica la instancia.
+	 * */
 	public String toShortString() {
 		String shortStr = "";
 		for (Component c : components) {

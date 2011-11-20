@@ -57,11 +57,11 @@ public class Reader extends Observable implements IReader{
 	/**
 	 * Inicializa la mente del lector con un mundo.
 	 */
-	public void createMind() {
+	public void createMind(String file) {
 		storySoFar = new ArrayList<World>();
 		InputStream txt = null;
 		try {
-			 txt = new FileInputStream("resources/MundoDisco.txt");
+			 txt = new FileInputStream(file);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class Reader extends Observable implements IReader{
 		
 		if (storySoFar.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
-			MindEvolver evolver = new MindEvolver();
+			MindEvolver evolver = new MindEvolver(evaluator);
 			WorldChanged worldChanged = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
