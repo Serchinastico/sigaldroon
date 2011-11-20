@@ -49,6 +49,7 @@ public class Reader extends Observable implements IReader{
 	 */
 	public Reader() {
 		maxSegments = 10;
+		mind = null;
 		evaluator = new SimpleEvaluator();
 		addObserver((Observer) evaluator);
 	}
@@ -72,8 +73,6 @@ public class Reader extends Observable implements IReader{
 	@Override
 	public ArrayList<World> generateStory() {
 		
-		createMind();
-		
 		for (int i = 0; i < maxSegments; i++) {
 			
 			// Opera con la mente para evolucionarla
@@ -86,6 +85,22 @@ public class Reader extends Observable implements IReader{
 			mind = worldChanged.getActualMind();
 			
 			notifyObservers();
+		}
+		
+		return storySoFar;
+	}
+	
+	public ArrayList<World> generateNextSegment() {
+		
+		if (storySoFar.size() < maxSegments) {
+			// Opera con la mente para evolucionarla
+			MindEvolver evolver = new MindEvolver();
+			WorldChanged worldChanged = evolver.evolveMind(mind);
+			
+			// Extrae un segmento nuevo con la mente cambiada
+			Segmenter segmenter = new Segmenter();
+			storySoFar.add(segmenter.generateSegment(worldChanged));
+			mind = worldChanged.getActualMind();
 		}
 		
 		return storySoFar;
@@ -104,6 +119,10 @@ public class Reader extends Observable implements IReader{
 	 */
 	public ArrayList<World> getStorySoFar() {
 		return storySoFar;
+	}
+	
+	public boolean isInitialized() {
+		return mind != null;
 	}
 	
 	/**
