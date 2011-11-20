@@ -92,4 +92,12 @@ public class World implements Iterable<Component> {
 		}
 		return shortStr;
 	}
+	
+	public String toStringSegment() {
+		String retVal = "Segmento\n";
+		for (int i = 0; i < components.size(); i++) {
+			retVal += components.get(i).toStringRelation() + "\n";
+		}
+		return retVal;
+	}
 }

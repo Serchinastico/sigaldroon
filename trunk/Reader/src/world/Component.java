@@ -245,4 +245,16 @@ public class Component {
 		this.directObject = directObject;
 	}
 	
+	public String toStringRelation() {
+		String retVal = "Relación\n";
+		retVal += toString() + "\n";
+		retVal += "Peso: " + this.weight + "\n";
+		if (this.source != null) retVal += "Fuente: " + source.toString() + "\n";
+		if (this.action != null) retVal += "Acción: " + action.toString() + "\n";
+		if (this.target != null) retVal += "Destino: " + target.toString() + "\n";
+		if (this.directObject != null) retVal += "Objeto directo: " + directObject.toString() + "\n";
+		if (this.place != null) retVal += "Lugar: " + place.toString() + "\n";
+		return retVal;
+	}
+	
 }
