@@ -2,7 +2,14 @@ package ui;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-public class StoryMutableTreeNode extends DefaultMutableTreeNode{
+/**
+ * Clase que sirve como nodo del árbol para mostrar segmentos y relaciones
+ * en la vista jerárquica del mito.
+ * 
+ * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
+ *
+ */
+public class StoryMutableTreeNode extends DefaultMutableTreeNode {
 
 	/**
 	 * 

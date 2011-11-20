@@ -11,8 +11,11 @@
 
 package ui;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -20,9 +23,10 @@ import javax.swing.tree.DefaultTreeModel;
 
 import reader.Reader;
 import world.World;
+
 /**
  *
- * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
+ * @author Israel
  */
 public class StoryJFrame extends javax.swing.JFrame {
 
@@ -31,39 +35,9 @@ public class StoryJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    private void createJTree() {
-    	titleTree = new DefaultMutableTreeNode("Mito");
-        model = new DefaultTreeModel(titleTree);
-        jTree1 = new javax.swing.JTree(model);
-        jTree1.addTreeSelectionListener(new TreeSelectionListener() {
-            public void valueChanged(TreeSelectionEvent e) {
-                DefaultMutableTreeNode node = (DefaultMutableTreeNode)
-                                   jTree1.getLastSelectedPathComponent();
-
-                if (node == null) return;
-
-                int profLevel = node.getLevel();
-                
-                switch (profLevel) {
-                case 1:
-                	// Es un segmento
-                	StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
-                	String segmentContent = reader.getStorySoFar().get(segment.getSegmentPosition()).toString();
-                	jTextArea1.setText(segmentContent);
-                	break;
-                case 2:
-                	// Es una relación
-                	StoryMutableTreeNode relation = (StoryMutableTreeNode) node;
-                	String relationContent = reader.getStorySoFar().get(relation.getSegmentPosition()).getComponent(relation.getRelationPosition()).toString();
-                	jTextArea1.setText(relationContent);
-                	break;
-                }
-                               
-            }
-        });
-        
-        jScrollPane1.setViewportView(jTree1);
-    }
+    private DefaultTreeModel model;
+    private DefaultMutableTreeNode titleTree;
+    private Reader reader = null;
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -77,54 +51,71 @@ public class StoryJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         createJTree();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        textAreaVisualizacion = new javax.swing.JTextArea();
+        labelVisualizacion = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuArchivo = new javax.swing.JMenu();
+        menuItemArchivo = new javax.swing.JMenuItem();
+        menuItemSalir = new javax.swing.JMenuItem();
+        menuGeneracion = new javax.swing.JMenu();
+        menuItemSiguiente = new javax.swing.JMenuItem();
+        menuItemCompleta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        //jScrollPane1.setViewportView(treeViewer);
+
+        textAreaVisualizacion.setColumns(20);
+        textAreaVisualizacion.setRows(5);
+        textAreaVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18));
+        jScrollPane2.setViewportView(textAreaVisualizacion);
+
+        labelVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
+        labelVisualizacion.setText("Visualización de selección:");
+        labelVisualizacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        menuArchivo.setText("Archivo");
+
+        menuItemArchivo.setText("Comenzar desde archivo");
+        menuItemArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuItemArchivoMouseClicked(evt);
+            }
+        });
+        menuArchivo.add(menuItemArchivo);
+
+        menuItemSalir.setText("Salir");
+        menuItemSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuItemSalirMouseClicked(evt);
+            }
+        });
+        menuArchivo.add(menuItemSalir);
+
+        jMenuBar1.add(menuArchivo);
+
+        menuGeneracion.setText("Generación");
+        
+        menuItemSiguiente.setText("Siguiente segmento");
+        menuItemSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuItemSiguienteMouseClicked(evt);
+            }
+        });
+        
+        menuGeneracion.add(menuItemSiguiente);
+
+        menuItemCompleta.setText("Completa");
+        menuItemCompleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuItemCompletaMouseClicked(evt);
+            }
+        });
+        
+        menuGeneracion.add(menuItemCompleta);
         
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setFont(new java.awt.Font("Garamond", 0, 16));
-        jScrollPane2.setViewportView(jTextArea1);
-
-        jLabel1.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
-        jLabel1.setText("Visualización de selección:");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jMenu1.setText("Archivo");
-
-        jMenuItem1.setText("Comenzar desde archivo");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem1MouseClicked(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Salir");
-        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem2MouseClicked(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Generación");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuGeneracion);
 
         setJMenuBar(jMenuBar1);
 
@@ -138,7 +129,7 @@ public class StoryJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -147,7 +138,7 @@ public class StoryJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
@@ -156,41 +147,100 @@ public class StoryJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void createJTree() {
+    	titleTree = new DefaultMutableTreeNode("Mito");
+        model = new DefaultTreeModel(titleTree);
+        treeViewer = new javax.swing.JTree(model);
+        treeViewer.addTreeSelectionListener(new TreeSelectionListener() {
+            public void valueChanged(TreeSelectionEvent e) {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode)
+                                   treeViewer.getLastSelectedPathComponent();
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        reader = new Reader();
-        createJTree();
-        ArrayList<World> story = reader.generateStory();
-        for (int i = 0; i < story.size(); i++) {
+                if (node == null) return;
+
+                int depthLevel = node.getLevel();
+                
+                switch (depthLevel) {
+                case 1:
+                	// Es un segmento
+                	StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
+                	String segmentContent = reader.getStorySoFar().get(segment.getSegmentPosition()).toStringSegment();
+                	textAreaVisualizacion.setText(segmentContent);
+                	break;
+                case 2:
+                	// Es una relación
+                	StoryMutableTreeNode relation = (StoryMutableTreeNode) node;
+                	String relationContent = reader.getStorySoFar().get(relation.getSegmentPosition()).getComponent(relation.getRelationPosition()).toStringRelation();
+                	textAreaVisualizacion.setText(relationContent);
+                	break;
+                }
+                               
+            }
+        });
+        
+        jScrollPane1.setViewportView(treeViewer);
+    }
+    
+    private void insertStory(ArrayList<World> story) {
+    	for (int i = 0; i < story.size(); i++) {
         	StoryMutableTreeNode segment = new StoryMutableTreeNode("Segmento "+i,i);
         	model.insertNodeInto(segment, titleTree, i);
         	for (int j = 0; j < story.get(i).getNumComponents(); j++) {
-        		StoryMutableTreeNode relation = new StoryMutableTreeNode("Relation "+j,i,j);
+        		StoryMutableTreeNode relation = new StoryMutableTreeNode("Relación "+j,i,j);
         		model.insertNodeInto(relation, segment, j);
         	}
         }
-        model.reload();
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }
 
-    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1MouseClicked
-
-    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
-    	// TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2MouseClicked
-
-    private DefaultTreeModel model;
-    private DefaultMutableTreeNode titleTree;
-    private Reader reader = null;
+    private void menuItemSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemSiguienteMouseClicked
+    	if ((reader != null) && reader.isInitialized()) {
+	    	createJTree();
+	        insertStory(reader.generateNextSegment());
+	        model.reload();
+    	}
+        else {
+        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
+        }
+    }//GEN-LAST:event_menuItemSiguienteMouseClicked
     
+    private void menuItemCompletaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemCompletaMouseClicked
+        if ((reader != null) && reader.isInitialized()) {
+	    	createJTree();
+	        insertStory(reader.generateStory());
+	        model.reload();
+        }
+        else {
+        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
+        }
+    }//GEN-LAST:event_menuItemCompletaMouseClicked
+
+    private void menuItemArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemArchivoMouseClicked
+        // TODO add your handling code here:
+    	JFileChooser fc = new JFileChooser();
+    	int returnVal = fc.showOpenDialog(this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            reader = new Reader();
+            reader.createMind(file.getPath());
+            createJTree();
+            insertStory(reader.getStorySoFar());
+	        model.reload();
+        }
+    }//GEN-LAST:event_menuItemArchivoMouseClicked
+
+    private void menuItemSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemSalirMouseClicked
+    	this.dispose();
+    }//GEN-LAST:event_menuItemSalirMouseClicked
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                StoryJFrame sJF = new StoryJFrame();
+            	StoryJFrame sJF = new StoryJFrame();
                 sJF.setTitle("Generador de Historias");
                 sJF.setVisible(true);
             }
@@ -198,16 +248,18 @@ public class StoryJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JLabel labelVisualizacion;
+    private javax.swing.JMenu menuArchivo;
+    private javax.swing.JMenu menuGeneracion;
+    private javax.swing.JMenuItem menuItemArchivo;
+    private javax.swing.JMenuItem menuItemSiguiente;
+    private javax.swing.JMenuItem menuItemCompleta;
+    private javax.swing.JMenuItem menuItemSalir;
+    private javax.swing.JTextArea textAreaVisualizacion;
+    private javax.swing.JTree treeViewer;
     // End of variables declaration//GEN-END:variables
 
 }

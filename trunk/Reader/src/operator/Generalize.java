@@ -3,6 +3,7 @@ package operator;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import world.Component;
 import world.WorldChanged;
 import world.ontobridge.OntoBridgeComponent;
 
@@ -12,6 +13,11 @@ import world.ontobridge.OntoBridgeComponent;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  */
 public class Generalize implements IOperator {
+	
+	/**
+	 * Peso del operador.
+	 */
+	private float opWeight = 0.6f;
 
 	/**
 	 * Aplica el operador a una acción.
@@ -38,7 +44,15 @@ public class Generalize implements IOperator {
 			String parentName = itParents.next();
 			if (!parentName.contains("NamedIndividual")) {
 				WorldChanged newWorld = w.copy();
+				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getAction().setName(parentName);
+				// Cambio del peso
+				float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+				newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+				// Guardado del cambio
+				Component before = w.getActualMind().getComponent(i);
+				Component after = newWorld.getActualMind().getComponent(i);
+				newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
 				gW.add(newWorld);
 			}
 		}
@@ -71,7 +85,15 @@ public class Generalize implements IOperator {
 			String parentName = itParents.next();
 			if (!parentName.contains("NamedIndividual")) {
 				WorldChanged newWorld = w.copy();
+				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getSource().setName(parentName);
+				// Cambio del peso
+				float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+				newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+				// Guardado del cambio
+				Component before = w.getActualMind().getComponent(i);
+				Component after = newWorld.getActualMind().getComponent(i);
+				newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
 				gW.add(newWorld);
 			}
 		}
@@ -104,7 +126,15 @@ public class Generalize implements IOperator {
 			String parentName = itParents.next();
 			if (!parentName.contains("NamedIndividual")) {
 				WorldChanged newWorld = w.copy();
+				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getTarget().setName(parentName);
+				// Cambio del peso
+				float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+				newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+				// Guardado del cambio
+				Component before = w.getActualMind().getComponent(i);
+				Component after = newWorld.getActualMind().getComponent(i);
+				newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
 				gW.add(newWorld);
 			}
 		}
@@ -137,7 +167,15 @@ public class Generalize implements IOperator {
 			String parentName = itParents.next();
 			if (!parentName.contains("NamedIndividual")) {
 				WorldChanged newWorld = w.copy();
+				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getPlace().setName(parentName);
+				// Cambio del peso
+				float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+				newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+				// Guardado del cambio
+				Component before = w.getActualMind().getComponent(i);
+				Component after = newWorld.getActualMind().getComponent(i);
+				newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
 				gW.add(newWorld);
 			}
 		}
