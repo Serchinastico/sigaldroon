@@ -149,16 +149,16 @@ public class Component {
 	}
 	
 	/**
-	 * Devuelve un string reducido pensado para usarse en su hash
+	 * Devuelve un string reducido pensado para usarse en un hasheo posterior.
 	 * @return String reducido que identifica la instancia.
 	 * */
 	public String toShortString() {
 		// TODO Tener en cuenta el peso? Comentar con Israel
-		return source.getName().substring(0, 3) + 
-				action.getName().substring(0, 3) + 
-				target.getName().substring(0, 3) + 
-				((place == null) ? "" : place.getName().substring(0, 3)) +
-				((directObject == null) ? "" : directObject.getName().substring(0, 3));
+		return source.getName() + 
+				action.getName() + 
+				target.getName() + 
+				((place == null) ? "" : place.getName()) +
+				((directObject == null) ? "" : directObject.getName());
 	}
 	
 	/**
