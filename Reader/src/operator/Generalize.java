@@ -42,7 +42,7 @@ public class Generalize implements IOperator {
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class"))) {
+			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
 				WorldChanged newWorld = w.copy();
 				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getAction().setName(parentName);
@@ -83,7 +83,7 @@ public class Generalize implements IOperator {
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class"))) {
+			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
 				WorldChanged newWorld = w.copy();
 				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getSource().setName(parentName);
@@ -124,7 +124,7 @@ public class Generalize implements IOperator {
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class"))) {
+			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
 				WorldChanged newWorld = w.copy();
 				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getTarget().setName(parentName);
@@ -165,7 +165,7 @@ public class Generalize implements IOperator {
 		
 		while (itParents.hasNext()) {
 			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class"))) {
+			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
 				WorldChanged newWorld = w.copy();
 				// Cambio del componente
 				newWorld.getActualMind().getComponent(i).getPlace().setName(parentName);
