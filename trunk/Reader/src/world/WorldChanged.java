@@ -12,7 +12,7 @@ import operator.Change;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class WorldChanged {
+public class WorldChanged implements Comparable {
 
 	/**
 	 * Cambios efectuados en orden para obtener la mente actual.
@@ -96,6 +96,20 @@ public class WorldChanged {
 	public String toString() {
 		return "WorldChanged [actualMind=" + actualMind.toString() + ", changes="
 				+ changes.toString() + ", value=" + value + "]";
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		
+		if(!(arg0 instanceof WorldChanged)){
+            throw new ClassCastException("Invalid object");
+        }
+		
+		WorldChanged w = (WorldChanged) arg0;
+		
+		if (this.value > w.value) return 1;
+		else if (this.value < w.value) return -1;
+		else return 0;
 	}
 	
 }

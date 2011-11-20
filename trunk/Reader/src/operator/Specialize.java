@@ -31,7 +31,7 @@ public class Specialize implements IOperator {
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getAction();
 
 		// Si ya está instanciado, no se puede especializar más
-		if (c.isInstance()) return false;
+		//if (c.isInstance()) return false;
 
 		// Se crean los hijos mediante las subclases en la ontología
 		Iterator<String> itSubClasses = c.listSubClasses();
@@ -84,7 +84,7 @@ public class Specialize implements IOperator {
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getSource();
 
 		// Si ya está instanciado, no se puede especializar más
-		if (c.isInstance()) return false;
+		//if (c.isInstance()) return false;
 
 		// Se crean los hijos mediante las subclases en la ontología
 		Iterator<String> itSubClasses = c.listSubClasses();
@@ -137,7 +137,7 @@ public class Specialize implements IOperator {
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getTarget();
 
 		// Si ya está instanciado, no se puede especializar más
-		if (c.isInstance()) return false;
+		//if (c.isInstance()) return false;
 
 		// Se crean los hijos mediante las subclases en la ontología
 		Iterator<String> itSubClasses = c.listSubClasses();
@@ -190,7 +190,7 @@ public class Specialize implements IOperator {
 		OntoBridgeComponent c = w.getActualMind().getComponent(i).getPlace();
 
 		// Si ya está instanciado o no tiene especificado el lugar, no se puede especializar más
-		if ((c == null) || (c.isInstance())) return false;
+		if (c == null) return false;
 
 		// Se crean los hijos mediante las subclases en la ontología
 		Iterator<String> itSubClasses = c.listSubClasses();
