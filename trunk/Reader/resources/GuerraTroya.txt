@@ -1,0 +1,4 @@
+1.0, Tetis, casar, Gelon, Creta, 
+1.0, Hera, criticar, Tetis, Olimpo, 
+1.0, Hera, emitir, Tetis, Creta, Manzana
+1.0, Afrodita, comer, Gelon, Creta, Manzana
