@@ -3,6 +3,7 @@ package operator;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import world.Component;
 import world.WorldChanged;
 import world.ontobridge.OntoBridgeComponent;
 
@@ -13,6 +14,11 @@ import world.ontobridge.OntoBridgeComponent;
  */
 public class Specialize implements IOperator {
 
+	/**
+	 * Peso del operador.
+	 */
+	private float opWeight = 0.8f;
+	
 	/**
 	 * Aplica el operador a una acción.
 	 * @param w Mundo a partir del cual operar.
@@ -33,7 +39,15 @@ public class Specialize implements IOperator {
 		while (itSubClasses.hasNext()) {
 			String subClass = itSubClasses.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getAction().setName(subClass);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -43,7 +57,15 @@ public class Specialize implements IOperator {
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getAction().setName(instanceName);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -70,7 +92,15 @@ public class Specialize implements IOperator {
 		while (itSubClasses.hasNext()) {
 			String subClass = itSubClasses.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getSource().setName(subClass);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -80,7 +110,15 @@ public class Specialize implements IOperator {
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getSource().setName(instanceName);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -107,7 +145,15 @@ public class Specialize implements IOperator {
 		while (itSubClasses.hasNext()) {
 			String subClass = itSubClasses.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getTarget().setName(subClass);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -117,7 +163,15 @@ public class Specialize implements IOperator {
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getTarget().setName(instanceName);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -144,7 +198,15 @@ public class Specialize implements IOperator {
 		while (itSubClasses.hasNext()) {
 			String subClass = itSubClasses.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getPlace().setName(subClass);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
@@ -154,7 +216,15 @@ public class Specialize implements IOperator {
 		while (itInstances.hasNext()) {
 			String instanceName = itInstances.next();
 			WorldChanged newWorld = w.copy();
+			// Cambio del componente
 			newWorld.getActualMind().getComponent(i).getPlace().setName(instanceName);
+			// Cambio del peso
+			float componentWeight = newWorld.getActualMind().getComponent(i).getWeight() * opWeight;
+			newWorld.getActualMind().getComponent(i).setWeight(componentWeight);
+			// Guardado del cambio
+			Component before = w.getActualMind().getComponent(i);
+			Component after = newWorld.getActualMind().getComponent(i);
+			newWorld.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
 			gW.add(newWorld);
 		}
 
