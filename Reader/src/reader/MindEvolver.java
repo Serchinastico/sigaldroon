@@ -3,6 +3,7 @@ package reader;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.PriorityQueue;
 
 import evaluator.IEvaluator;
 import evaluator.SimpleEvaluator;
@@ -34,23 +35,42 @@ public class MindEvolver implements IMindEvolver {
 	/**
 	 * Pila de mentes creadas hasta el momento.
 	 */
-	private ArrayList<WorldChanged> mindsGenerated;
+	private PriorityQueue<WorldChanged> mindsGenerated;
 	
+	/**
+	 * El mejor mundo en evolución.
+	 */
+	private WorldChanged theBestWorld;
+	
+	/**
+	 * Constructora para el evolucionador.
+	 * @param evaluator Evaluador a usar por el evolucionador de mundos.
+	 */
 	public MindEvolver(IEvaluator evaluator) {
-		maxMindExpansions = 10;
-		mindsGenerated = new ArrayList<WorldChanged>();
+		maxMindExpansions = 3;
+		mindsGenerated = new PriorityQueue<WorldChanged>();
 		this.evaluator = evaluator;
 	}
 	
 	@Override
 	public WorldChanged evolveMind(World mind) {
 		
-		mindsGenerated.add(new WorldChanged(mind));
+		mindsGenerated = new PriorityQueue<WorldChanged>();
+		theBestWorld = new WorldChanged(mind);
+		mindsGenerated.add(theBestWorld);
 		
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista (por ahora la primera)
-			WorldChanged operatedMind = mindsGenerated.get(0);
+			WorldChanged operatedMind = mindsGenerated.poll(); // Saca la cima y la borra
+			
+			if (operatedMind.compareTo(theBestWorld) >= 0) 
+				theBestWorld = operatedMind.copy();
+			
+			if (operatedMind == null) {
+				int x = 3;
+				x = x +4;
+			}
 			
 			// Genera los hijos como resultado de operar esa mente
 			ArrayList<WorldChanged> mindSons = operateMind(operatedMind);
@@ -63,7 +83,7 @@ public class MindEvolver implements IMindEvolver {
 			
 		}
 		
-		return mindsGenerated.get(0); // la más favorable según su valor
+		return theBestWorld; // la más favorable según su valor
 	}
 	
 	/**
