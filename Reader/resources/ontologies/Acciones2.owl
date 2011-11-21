@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.owl-ontologies.com/Ontology1321840521.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1321840521.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Relacion"/>
+  <owl:Class rdf:ID="BuenaAccion"/>
+  <owl:Class rdf:ID="MalaAccion"/>
+  <BuenaAccion rdf:ID="Salvar"/>
+  <Relacion rdf:ID="Madre"/>
+  <Relacion rdf:ID="Hermano"/>
+  <Relacion rdf:ID="Enemigo"/>
+  <Relacion rdf:ID="Padre"/>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <owl:Thing rdf:ID="Nacer"/>
+      <owl:Thing rdf:ID="Ser"/>
+      <Relacion rdf:about="#Padre"/>
+      <Relacion rdf:about="#Madre"/>
+      <Relacion rdf:about="#Hermano"/>
+      <Relacion rdf:ID="Amigo"/>
+      <Relacion rdf:about="#Enemigo"/>
+      <owl:Thing rdf:ID="Tener"/>
+      <owl:Thing rdf:ID="Querer"/>
+      <MalaAccion rdf:ID="Odiar"/>
+      <BuenaAccion rdf:ID="Amar"/>
+      <MalaAccion rdf:ID="Matar"/>
+      <BuenaAccion rdf:ID="Proteger"/>
+      <MalaAccion rdf:ID="Provocar"/>
+      <MalaAccion rdf:ID="Herir"/>
+      <MalaAccion rdf:ID="Atacar"/>
+      <MalaAccion rdf:ID="Pegar"/>
+      <MalaAccion rdf:ID="Castigar"/>
+      <owl:Thing rdf:ID="Enojar"/>
+      <BuenaAccion rdf:about="#Salvar"/>
+      <owl:Thing rdf:ID="PonerAPrueba"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

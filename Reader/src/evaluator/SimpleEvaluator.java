@@ -84,12 +84,17 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 			boolean fitPattern = true;
 			
 			// Se comprueba si encajan todas las 'expectativas'/'expresiones' del patrón
-			for (Component exp : p.getExprs()) {
+			for (int iExp = 0; iExp < p.getExprs().size(); iExp++) {
+				Component exp = p.getExprs().get(iExp);
+				
 				boolean fitExp = false;
 				
 				for (Component worldComp : w) {
 					if (worldComp.instanceOf(exp)) {
-						fitExp = true;
+						// Si se ha encontrado y no se busca la expresión negada se sale con éxito
+						if (!p.getNegExprs().get(iExp)) {
+							fitExp = true;
+						}
 						break;
 					}
 				}

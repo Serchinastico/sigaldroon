@@ -1,0 +1,5 @@
+1.0 - Heroes, Nacer, , , 
+1.0 - Actores, Ser, Caracteristica, , 
+1.0 - Actores, Relacion, Actores, , 
+1.0 - Deidades, Odiar, Actores, , 
+1.0 - Deidades, Tener, ObjetoMagico, , 
