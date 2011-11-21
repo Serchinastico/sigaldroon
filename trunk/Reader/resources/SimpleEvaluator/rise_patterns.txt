@@ -1,0 +1,6 @@
+0.5 - Heroes, Querer, ObjetoMagico, , / ! Heroes, Tener, ObjetoMagico, , 
+0.5 - Heroes, Querer, ObjetoMagico, , / ! Heroes, Tener, ObjetoMagico, , / PersonajeMitico, Tener, ObjetoMagico, , 
+1.0 - Heroes, Relacion, Humanos, , / PersonajeMitico, MalaAccion, Humanos, , 
+1.0 - Deidades, PonerAPrueba, Heroes, , 
+1.0 - Heroes, Relacion, Humanos, , / Humanos, Ser, Enfermo, , 
+1.0 - Nobles, Enojar, PersonajeMitico, , / PersonajeMitico, MalaAccion, Nobles, , 

@@ -18,6 +18,12 @@ public class Pattern {
 	private ArrayList<Component> exprs;
 	
 	/**
+	 * Lista de booleanos que indica si el patrón i-ésimo es negado o no.
+	 * */
+	private ArrayList<Boolean> negExprs;
+	
+	
+	/**
 	 * Valor del patrón. Cuánto más alto sea este valor mejor será la historia
 	 * que lo contenga.
 	 * */
@@ -29,19 +35,28 @@ public class Pattern {
 	 * La cadena de caracteres ha de tener el siguiente formato (sin corchetes):
 	 * [valor] - [exp1]/[exp2]/.../[expN]
 	 * 	valor: float.
-	 * 	expX: expresión como los componentes del mundo pero sin valor.  
+	 * 	expX: expresión como los componentes del mundo pero sin valor. El símbolo '!'
+	 * 			al principio indica que la expresión está negada.
 	 * */
 	public Pattern(String str) {
 		exprs = new ArrayList<Component>();
+		negExprs = new ArrayList<Boolean>();
 		
 		String[] splittedStr = str.split("-");
 		value = Float.parseFloat(splittedStr[0].trim());
-		String[] exps = splittedStr[1].trim().split("/");
+		String[] exps = splittedStr[1].split("/");
 		for (String strComponent : exps) {
-			exprs.add(new Component("0.0," + strComponent));
+			String strExp = strComponent;
+			if (strExp.startsWith("!")) {
+				strExp = strExp.substring(1);
+				negExprs.add(true);
+			}
+			else {
+				negExprs.add(false);
+			}
+			exprs.add(new Component("0.0, " + strExp));
 		}
 	}
-	
 	
 	/**
 	 * @return the value
@@ -71,5 +86,19 @@ public class Pattern {
 	 */
 	public void setExprs(ArrayList<Component> exprs) {
 		this.exprs = exprs;
+	}
+
+	/**
+	 * @return the negExprs
+	 */
+	public ArrayList<Boolean> getNegExprs() {
+		return negExprs;
+	}
+
+	/**
+	 * @param negExprs the negExprs to set
+	 */
+	public void setNegExprs(ArrayList<Boolean> negExprs) {
+		this.negExprs = negExprs;
 	}
 }

@@ -59,7 +59,8 @@ public class Component {
 		weight = Float.parseFloat(splittedLine[0].trim());
 		source = new OntoBridgeComponent(splittedLine[1].trim(), OntoBridgeComponent.NAME);
 		action = new OntoBridgeComponent(splittedLine[2].trim(), OntoBridgeComponent.ACTION);
-		target = new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME);
+		if (!splittedLine[3].trim().equals(""))
+			target = new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME);
 		if (!splittedLine[4].trim().equals(""))
 			place = new OntoBridgeComponent(splittedLine[4].trim(), OntoBridgeComponent.NAME);
 		if (!splittedLine[5].trim().equals(""))
@@ -92,6 +93,8 @@ public class Component {
 	 * @return Valor booleano indicando si el componente es una instancia del patrón.
 	 * */
 	public boolean instanceOf(Component pattern) {
+		boolean targetIsInstanceOf = (target == null && pattern.target == null) ||
+				(target != null && target.equals(pattern.target));
 		boolean placeIsInstanceOf = (place == null && pattern.place == null) ||
 				(place != null && place.equals(pattern.place));
 		boolean directObjectIsInstanceOf = (directObject == null && pattern.directObject == null) ||
@@ -99,7 +102,7 @@ public class Component {
 		
 		return (source.isSubClassOf(pattern.source) && 
 				action.isSubClassOf(pattern.action) &&
-				target.isSubClassOf(pattern.target) &&
+				targetIsInstanceOf &&
 				placeIsInstanceOf &&
 				directObjectIsInstanceOf);
 	}
@@ -110,7 +113,7 @@ public class Component {
 	 * */
 	public Component copy() {
 		Component copy = new Component(weight, source.copy(), action.copy(),
-				target.copy(),
+				(target == null) ? null : target.copy(),
 				(place == null) ? null : place.copy(),
 				(directObject == null) ? null : directObject.copy());
 		return copy;
@@ -126,14 +129,16 @@ public class Component {
 			return false;
 		Component c = (Component) o;
 		
+		boolean targetEq = (target == null && c.target == null) || 
+				(target != null && target.equals(c.target));
 		boolean placeEq = (place == null && c.place == null) || 
 				(place != null && place.equals(c.place));
 		boolean directObjectEq = (directObject == null && c.directObject == null) || 
 				(directObject != null && directObject.equals(c.directObject));
 		
 		return (c.weight == weight && c.source.equals(source)
-				&& c.action.equals(action) && c.target.equals(target) &&
-				placeEq && directObjectEq);
+				&& c.action.equals(action) &&
+				targetEq &&	placeEq && directObjectEq);
 	}
 
 	/** 
@@ -144,8 +149,8 @@ public class Component {
 		return "(" + weight + "), " + source +
 				"--{" + action +
 				((directObject == null) ? "" : " [" + directObject + "]") + 
-				((place == null) ? "" : " at " + place) + "}-->" + 
-				target;
+				((place == null) ? "" : " at " + place) + "}" + 
+				((target == null) ? "" : "-->" + target);
 	}
 	
 	/**
@@ -156,7 +161,7 @@ public class Component {
 		// TODO Tener en cuenta el peso? Comentar con Israel
 		return source.getName() + 
 				action.getName() + 
-				target.getName() + 
+				((target == null) ? "" : target.getName()) + 
 				((place == null) ? "" : place.getName()) +
 				((directObject == null) ? "" : directObject.getName());
 	}
