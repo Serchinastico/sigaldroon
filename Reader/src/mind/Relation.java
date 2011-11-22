@@ -1,14 +1,14 @@
-package world;
+package mind;
 
-import world.ontobridge.OntoBridgeComponent;
+import mind.ontobridge.OntoBridgeComponent;
 
 /**
- * Componente fundamental del mundo del lector.
+ * Componente fundamental de la mente del lector.
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class Component {
+public class Relation {
 	/**
 	 * Peso de veracidad
 	 * */
@@ -39,7 +39,7 @@ public class Component {
 	 * */
 	private OntoBridgeComponent directObject;
 	
-	public Component() {
+	public Relation() {
 		this.weight = -1.0f;
 		this.source = null;
 		this.action = null;
@@ -49,11 +49,11 @@ public class Component {
 	}
 	
 	/**
-	 * Construye un componente del mundo mediante un string con sus atributos
+	 * Construye un componente de la mente mediante un string con sus atributos
 	 * separados por comas.
 	 * @para str El string del que extraer la información del componente.
 	 * */
-	public Component(String str) {
+	public Relation(String str) {
 		String[] splittedLine = str.split(",");
 		
 		weight = Float.parseFloat(splittedLine[0].trim());
@@ -76,7 +76,7 @@ public class Component {
 	 * @param place Lugar
 	 * @param directObject Complemento directo
 	 * */
-	public Component(float weight, OntoBridgeComponent source,
+	public Relation(float weight, OntoBridgeComponent source,
 			OntoBridgeComponent action, OntoBridgeComponent target,
 			OntoBridgeComponent place, OntoBridgeComponent directObject) {
 		this.weight = weight;
@@ -92,13 +92,13 @@ public class Component {
 	 * @param pattern Patrón del componente.
 	 * @return Valor booleano indicando si el componente es una instancia del patrón.
 	 * */
-	public boolean instanceOf(Component pattern) {
-		boolean targetIsInstanceOf = (target == null && pattern.target == null) ||
-				(target != null && target.equals(pattern.target));
-		boolean placeIsInstanceOf = (place == null && pattern.place == null) ||
-				(place != null && place.equals(pattern.place));
-		boolean directObjectIsInstanceOf = (directObject == null && pattern.directObject == null) ||
-				(directObject != null && directObject.equals(pattern.directObject));
+	public boolean instanceOf(Relation pattern) {
+		boolean targetIsInstanceOf = (pattern.target == null) ||
+				(pattern.target != null && pattern.target.isSuperClassOf(target));
+		boolean placeIsInstanceOf = (pattern.place == null) ||
+				(pattern.place != null && pattern.place.isSuperClassOf(place));
+		boolean directObjectIsInstanceOf = (pattern.directObject == null) ||
+				(pattern.directObject != null && pattern.directObject.isSuperClassOf(directObject));
 		
 		return (source.isSubClassOf(pattern.source) && 
 				action.isSubClassOf(pattern.action) &&
@@ -111,8 +111,8 @@ public class Component {
 	 * Copia el componente.
 	 * @return Una copia del componente.
 	 * */
-	public Component copy() {
-		Component copy = new Component(weight, source.copy(), action.copy(),
+	public Relation copy() {
+		Relation copy = new Relation(weight, source.copy(), action.copy(),
 				(target == null) ? null : target.copy(),
 				(place == null) ? null : place.copy(),
 				(directObject == null) ? null : directObject.copy());
@@ -125,9 +125,9 @@ public class Component {
 	 * @return Valor booleano indicando el resultado de la comparación.
 	 * */
 	public boolean equals(Object o) {
-		if (!(o instanceof Component))
+		if (!(o instanceof Relation))
 			return false;
-		Component c = (Component) o;
+		Relation c = (Relation) o;
 		
 		boolean targetEq = (target == null && c.target == null) || 
 				(target != null && target.equals(c.target));

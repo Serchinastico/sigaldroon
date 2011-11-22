@@ -2,7 +2,8 @@ package reader;
 
 import java.util.ArrayList;
 
-import world.World;
+import mind.Mind;
+
 
 /**
  * Interfaz del lector.
@@ -16,5 +17,5 @@ public interface IReader {
 	 * Genera una historia.
 	 * @return Los segmentos generados que contiene la historia.
 	 */
-	public ArrayList<World> generateStory();
+	public ArrayList<Mind> generateStory();
 }

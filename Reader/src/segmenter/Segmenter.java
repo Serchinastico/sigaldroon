@@ -1,7 +1,7 @@
 package segmenter;
 
-import world.World;
-import world.WorldChanged;
+import mind.Mind;
+import mind.ChangedMind;
 
 /**
  * Crea segmentos a partir de cambios producidos en un mundo conceptual (World).
@@ -12,7 +12,7 @@ import world.WorldChanged;
 public class Segmenter implements ISegmenter {
 
 	@Override
-	public World generateSegment(WorldChanged m) {
+	public Mind generateSegment(ChangedMind m) {
 		//TODO: la generación del segmento
 		return m.getActualMind();
 	}

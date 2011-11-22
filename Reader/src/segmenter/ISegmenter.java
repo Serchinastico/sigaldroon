@@ -1,7 +1,7 @@
 package segmenter;
 
-import world.World;
-import world.WorldChanged;
+import mind.Mind;
+import mind.ChangedMind;
 
 /**
  * Interfaz para un creador de segmentos.
@@ -12,11 +12,11 @@ import world.WorldChanged;
 public interface ISegmenter {
 	
 	/**
-	 * Genera un mini-mundo con los elementos y relaciones nuevos
-	 * que se han generado en el mundo w teniendo encuenta los cambios.
-	 * @param w Mundo que ha sufrido cambios.
-	 * @param c Cambios en el mundo w.
+	 * Genera una mini-mente con los elementos y relaciones nuevos
+	 * que se han generado en la mente m teniendo en cuenta los cambios.
+	 * @param m Mente que ha sufrido cambios.
+	 * @param c Cambios en la mente m.
 	 */
-	public World generateSegment(WorldChanged m);
+	public Mind generateSegment(ChangedMind m);
 
 }

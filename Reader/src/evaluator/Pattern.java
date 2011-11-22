@@ -2,7 +2,8 @@ package evaluator;
 
 import java.util.ArrayList;
 
-import world.Component;
+import mind.Relation;
+
 
 /**
  * Clase que implementa el patrón de las expectativas/preguntas usadas por el evaluador.
@@ -13,9 +14,9 @@ import world.Component;
 public class Pattern {
 	
 	/**
-	 * Patrón en forma de lista de componentes del mundo (generalizadas).
+	 * Patrón en forma de lista de componentes de la mente (generalizadas).
 	 * */
-	private ArrayList<Component> exprs;
+	private ArrayList<Relation> exprs;
 	
 	/**
 	 * Lista de booleanos que indica si el patrón i-ésimo es negado o no.
@@ -35,11 +36,11 @@ public class Pattern {
 	 * La cadena de caracteres ha de tener el siguiente formato (sin corchetes):
 	 * [valor] - [exp1]/[exp2]/.../[expN]
 	 * 	valor: float.
-	 * 	expX: expresión como los componentes del mundo pero sin valor. El símbolo '!'
+	 * 	expX: expresión como los componentes de la mente pero sin valor. El símbolo '!'
 	 * 			al principio indica que la expresión está negada.
 	 * */
 	public Pattern(String str) {
-		exprs = new ArrayList<Component>();
+		exprs = new ArrayList<Relation>();
 		negExprs = new ArrayList<Boolean>();
 		
 		String[] splittedStr = str.split("-");
@@ -54,7 +55,7 @@ public class Pattern {
 			else {
 				negExprs.add(false);
 			}
-			exprs.add(new Component("0.0, " + strExp));
+			exprs.add(new Relation("0.0, " + strExp));
 		}
 	}
 	
@@ -76,7 +77,7 @@ public class Pattern {
 	/**
 	 * @return the pattern
 	 */
-	public ArrayList<Component> getExprs() {
+	public ArrayList<Relation> getExprs() {
 		return exprs;
 	}
 
@@ -84,7 +85,7 @@ public class Pattern {
 	/**
 	 * @param pattern the pattern to set
 	 */
-	public void setExprs(ArrayList<Component> exprs) {
+	public void setExprs(ArrayList<Relation> exprs) {
 		this.exprs = exprs;
 	}
 

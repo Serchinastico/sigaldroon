@@ -1,18 +1,16 @@
 package reader;
 
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.PriorityQueue;
 
+import mind.Mind;
+import mind.ChangedMind;
+
 import evaluator.IEvaluator;
-import evaluator.SimpleEvaluator;
 
 import operator.Generalize;
 import operator.Specialize;
 
-import world.World;
-import world.WorldChanged;
 
 /**
  * Crea una mente nueva aplicando operadores de generalización y especialización.
@@ -28,104 +26,104 @@ public class MindEvolver implements IMindEvolver {
 	private int maxMindExpansions;
 	
 	/**
-	 * Evaluador de los mundos generados.
+	 * Evaluador de las mentes generadas.
 	 * */
 	private IEvaluator evaluator;
 
 	/**
 	 * Pila de mentes creadas hasta el momento.
 	 */
-	private PriorityQueue<WorldChanged> mindsGenerated;
+	private PriorityQueue<ChangedMind> mindsGenerated;
 	
 	/**
-	 * El mejor mundo en evolución.
+	 * La mejor mente en evolución.
 	 */
-	private WorldChanged theBestWorld;
+	private ChangedMind bestMind;
 	
 	/**
 	 * Constructora para el evolucionador.
-	 * @param evaluator Evaluador a usar por el evolucionador de mundos.
+	 * @param evaluator Evaluador a usar por el evolucionador de mentes.
 	 */
 	public MindEvolver(IEvaluator evaluator) {
 		maxMindExpansions = 3;
-		mindsGenerated = new PriorityQueue<WorldChanged>();
+		mindsGenerated = new PriorityQueue<ChangedMind>();
 		this.evaluator = evaluator;
 	}
 	
 	@Override
-	public WorldChanged evolveMind(World mind) {
+	public ChangedMind evolveMind(Mind mind) {
 		
-		mindsGenerated = new PriorityQueue<WorldChanged>();
-		theBestWorld = new WorldChanged(mind);
-		mindsGenerated.add(theBestWorld);
+		mindsGenerated = new PriorityQueue<ChangedMind>();
+		bestMind = new ChangedMind(mind);
+		mindsGenerated.add(bestMind);
 		
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista
-			WorldChanged operatedMind = mindsGenerated.poll(); // Saca la cima y la borra
+			ChangedMind operatedMind = mindsGenerated.poll(); // Saca la cima y la borra
 		
 			// Genera los hijos como resultado de operar esa mente
-			ArrayList<WorldChanged> mindSons = operateMind(operatedMind);
+			ArrayList<ChangedMind> mindSons = operateMind(operatedMind);
 			
 			// Evalúa los hijos generados
-			evalWorlds(mindSons);
+			evalMinds(mindSons);
 			
 			// Inserta los hijos en el total de mentes generadas y ordenados según su valor
-			insertWorlds(mindSons);
+			insertMinds(mindSons);
 			
-			updateBestWorld();
+			updateBestMind();
 			
 		}
 		
-		return theBestWorld; // la más favorable según su valor
+		return bestMind; // la más favorable según su valor
 	}
 	
 	/**
-	 * Aplica los operadores a un mundo para generar todos los posibles hijos.
-	 * @param w Mundo que operar.
+	 * Aplica los operadores a una mente para generar todos los posibles hijos.
+	 * @param m Mente que operar.
 	 * @return Los hijos generados tras aplicar operadores.
 	 */
-	private ArrayList<WorldChanged> operateMind(WorldChanged w) {
+	private ArrayList<ChangedMind> operateMind(ChangedMind m) {
 		
-		ArrayList<WorldChanged> sons = new ArrayList<WorldChanged>();
+		ArrayList<ChangedMind> sons = new ArrayList<ChangedMind>();
 		
 		Specialize specializeOp = new Specialize();
-		specializeOp.generateWorlds(w, sons);
+		specializeOp.generateMinds(m, sons);
 		
 		Generalize generalizeOp = new Generalize();
-		generalizeOp.generateWorlds(w, sons);
+		generalizeOp.generateMinds(m, sons);
 		
 		return sons;
 	}
 	
 	/**
-	 * Evalúa los mundos generados asignándoles a cada uno un valor heurístico.
-	 * @param sons Mundos para evaluar.
+	 * Evalúa las mentes generadas asignándoles a cada una un valor heurístico.
+	 * @param sons Mentes para evaluar.
 	 * */
-	private void evalWorlds(ArrayList<WorldChanged> sons) {
-		for (WorldChanged w : sons) {
+	private void evalMinds(ArrayList<ChangedMind> sons) {
+		for (ChangedMind w : sons) {
 			w.setValue(evaluator.eval(w.getActualMind()));
 		}
 	}
 	
 	/**
-	 * Inserta los mundos en la cola de prioridad de mundos generados.
-	 * @param sons Mundos a insertar.
+	 * Inserta las mentes en la cola de prioridad de mentes generados.
+	 * @param sons Mentes a insertar.
 	 */
-	private void insertWorlds(ArrayList<WorldChanged> sons) {
-		//TODO: implementar la inserción de mundos en la cola de prioridad
-		for (WorldChanged w: sons) {
+	private void insertMinds(ArrayList<ChangedMind> sons) {
+		//TODO: implementar la inserción de mentes en la cola de prioridad
+		for (ChangedMind w: sons) {
 			mindsGenerated.add(w);
 		}
 	}
 	
-	private void updateBestWorld() {
+	private void updateBestMind() {
 		
 		// Obtiene la mente más favorable de la lista
-		WorldChanged bestInQueue = mindsGenerated.peek();
+		ChangedMind bestInQueue = mindsGenerated.peek();
 		
-		if (bestInQueue.compareTo(theBestWorld) >= 0) 
-			theBestWorld = bestInQueue.copy();
+		if (bestInQueue.compareTo(bestMind) >= 0) 
+			bestMind = bestInQueue.copy();
 	}
 
 }

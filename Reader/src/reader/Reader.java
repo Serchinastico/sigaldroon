@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import mind.Mind;
+import mind.ChangedMind;
+
 import evaluator.IEvaluator;
 import evaluator.SimpleEvaluator;
 
 import segmenter.Segmenter;
 
-import world.World;
-import world.WorldChanged;
 
 /**
  * Clase del lector que implementa el método principal de 
@@ -27,12 +28,12 @@ public class Reader extends Observable implements IReader{
 	/**
 	 * Segmentos en orden que forman la historia hasta el momento.
 	 */
-	private ArrayList<World> storySoFar;
+	private ArrayList<Mind> storySoFar;
 
 	/**
-	 * Mundo tal y como lo concibe la mente del lector.
+	 * Mente del lector.
 	 */
-	private World mind;
+	private Mind mind;
 	
 	/**
 	 * Número de segmentos que contendrá la historia como máximo.
@@ -40,7 +41,7 @@ public class Reader extends Observable implements IReader{
 	private int maxSegments;
 	
 	/**
-	 * Evaluador de los mundos generados.
+	 * Evaluador de los mentes generadas.
 	 * */
 	private IEvaluator evaluator;
 	
@@ -55,10 +56,10 @@ public class Reader extends Observable implements IReader{
 	}
 	
 	/**
-	 * Inicializa la mente del lector con un mundo.
+	 * Inicializa la mente del lector mediante un fichero.
 	 */
 	public void createMind(String file) {
-		storySoFar = new ArrayList<World>();
+		storySoFar = new ArrayList<Mind>();
 		InputStream txt = null;
 		try {
 			 txt = new FileInputStream(file);
@@ -66,23 +67,23 @@ public class Reader extends Observable implements IReader{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mind = new World(txt);
+		mind = new Mind(txt);
 		storySoFar.add(mind);
 	}
 	
 	@Override
-	public ArrayList<World> generateStory() {
+	public ArrayList<Mind> generateStory() {
 		
 		for (int i = 0; i < maxSegments; i++) {
 			
 			// Opera con la mente para evolucionarla
 			MindEvolver evolver = new MindEvolver(evaluator);
-			WorldChanged worldChanged = evolver.evolveMind(mind);
+			ChangedMind changedMind = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
 			Segmenter segmenter = new Segmenter();
-			storySoFar.add(segmenter.generateSegment(worldChanged));
-			mind = worldChanged.getActualMind();
+			storySoFar.add(segmenter.generateSegment(changedMind));
+			mind = changedMind.getActualMind();
 			
 			notifyObservers();
 		}
@@ -90,17 +91,17 @@ public class Reader extends Observable implements IReader{
 		return storySoFar;
 	}
 	
-	public ArrayList<World> generateNextSegment() {
+	public ArrayList<Mind> generateNextSegment() {
 		
 		if (storySoFar.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
 			MindEvolver evolver = new MindEvolver(evaluator);
-			WorldChanged worldChanged = evolver.evolveMind(mind);
+			ChangedMind changedMind = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
 			Segmenter segmenter = new Segmenter();
-			storySoFar.add(segmenter.generateSegment(worldChanged));
-			mind = worldChanged.getActualMind();
+			storySoFar.add(segmenter.generateSegment(changedMind));
+			mind = changedMind.getActualMind();
 		}
 		
 		return storySoFar;
@@ -117,7 +118,7 @@ public class Reader extends Observable implements IReader{
 	 * Getter para los segmentos generados de la historia.
 	 * @return
 	 */
-	public ArrayList<World> getStorySoFar() {
+	public ArrayList<Mind> getStorySoFar() {
 		return storySoFar;
 	}
 	
@@ -131,8 +132,8 @@ public class Reader extends Observable implements IReader{
 	 */
 	public static void main(String[] args) {
 		Reader r = new Reader();
-		ArrayList<World> story = r.generateStory();
-		for (World w : story) {
+		ArrayList<Mind> story = r.generateStory();
+		for (Mind w : story) {
 			System.out.println(w.toString());
 		}
 	}

@@ -21,8 +21,9 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
+import mind.Mind;
+
 import reader.Reader;
-import world.World;
 
 /**
  *
@@ -171,7 +172,7 @@ public class StoryJFrame extends javax.swing.JFrame {
                 case 2:
                 	// Es una relación
                 	StoryMutableTreeNode relation = (StoryMutableTreeNode) node;
-                	String relationContent = reader.getStorySoFar().get(relation.getSegmentPosition()).getComponent(relation.getRelationPosition()).toStringRelation();
+                	String relationContent = reader.getStorySoFar().get(relation.getSegmentPosition()).getRelation(relation.getRelationPosition()).toStringRelation();
                 	textAreaVisualizacion.setText(relationContent);
                 	break;
                 }
@@ -182,11 +183,11 @@ public class StoryJFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(treeViewer);
     }
     
-    private void insertStory(ArrayList<World> story) {
+    private void insertStory(ArrayList<Mind> story) {
     	for (int i = 0; i < story.size(); i++) {
         	StoryMutableTreeNode segment = new StoryMutableTreeNode("Segmento "+i,i);
         	model.insertNodeInto(segment, titleTree, i);
-        	for (int j = 0; j < story.get(i).getNumComponents(); j++) {
+        	for (int j = 0; j < story.get(i).getNumRelations(); j++) {
         		StoryMutableTreeNode relation = new StoryMutableTreeNode("Relación "+j,i,j);
         		model.insertNodeInto(relation, segment, j);
         	}

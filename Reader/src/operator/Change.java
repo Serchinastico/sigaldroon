@@ -1,6 +1,6 @@
 package operator;
 
-import world.Component;
+import mind.Relation;
 
 /**
  * Clase contenedora para la información de un cambio producido
@@ -14,12 +14,12 @@ public class Change {
 	/**
 	 * Componente afectado en el cambio antes del mismo.
 	 */
-	private Component before;
+	private Relation before;
 	
 	/**
 	 * Componente resultando del cambio.
 	 */
-	private Component after;
+	private Relation after;
 	
 	/**
 	 * Operador usado en el cambio.
@@ -32,7 +32,7 @@ public class Change {
 	 * @param a Componente después del cambio.
 	 * @param op Operador usado para el cambio.
 	 */
-	public Change(Component b, Component a, int op) {
+	public Change(Relation b, Relation a, int op) {
 		setBefore(b);
 		setAfter(a);
 		setOperator(op);
@@ -42,7 +42,7 @@ public class Change {
 	 * Setter para el componente antes del cambio.
 	 * @param before
 	 */
-	public void setBefore(Component before) {
+	public void setBefore(Relation before) {
 		this.before = before;
 	}
 
@@ -50,7 +50,7 @@ public class Change {
 	 * Getter para el componente antes del cambio.
 	 * @return
 	 */
-	public Component getBefore() {
+	public Relation getBefore() {
 		return before;
 	}
 
@@ -58,7 +58,7 @@ public class Change {
 	 * Setter para el componente después del cambio.
 	 * @param after
 	 */
-	public void setAfter(Component after) {
+	public void setAfter(Relation after) {
 		this.after = after;
 	}
 
@@ -66,7 +66,7 @@ public class Change {
 	 * Getter para el componente después del cambio.
 	 * @return
 	 */
-	public Component getAfter() {
+	public Relation getAfter() {
 		return after;
 	}
 
