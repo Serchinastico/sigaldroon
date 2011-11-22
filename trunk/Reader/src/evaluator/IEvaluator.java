@@ -1,9 +1,9 @@
 package evaluator;
 
-import world.World;
+import mind.Mind;
 
 /**
- * Evaluador de mundos (World) para obtener el valor de una heurística a determinar.
+ * Evaluador de mentes (Mind) para obtener el valor de una heurística a determinar.
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
@@ -11,11 +11,11 @@ import world.World;
 public interface IEvaluator {
 
 	/**
-	 * Evalúa un mundo para la búsqueda informada que tiene en cuenta
+	 * Evalúa una mente para la búsqueda informada que tiene en cuenta
 	 * la heurística.
-	 * @param w Mundo a evaluar.
-	 * @return El valor calculado para el mundo.
+	 * @param m Mente a evaluar.
+	 * @return El valor calculado para la mente.
 	 */
-	public float eval(World w);
+	public float eval(Mind m);
 	
 }

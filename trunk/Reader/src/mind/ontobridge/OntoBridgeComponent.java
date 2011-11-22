@@ -1,4 +1,4 @@
-package world.ontobridge;
+package mind.ontobridge;
 
 import java.util.Iterator;
 

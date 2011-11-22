@@ -1,4 +1,4 @@
-package world;
+package mind;
 
 import java.util.ArrayList;
 
@@ -6,13 +6,13 @@ import operator.Change;
 
 
 /**
- * Esta clase almacena un mundo de conceptos y los cambios que se han producido para
- * llegar a él, asi como el valor del mundo para una heurística.
+ * Esta clase almacena la mente del lector y los cambios que se han producido para
+ * llegar a él, asi como el valor de la mente para una heurística.
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class WorldChanged implements Comparable {
+public class ChangedMind implements Comparable {
 
 	/**
 	 * Cambios efectuados en orden para obtener la mente actual.
@@ -22,7 +22,7 @@ public class WorldChanged implements Comparable {
 	/**
 	 * Mente actual tras los cambios.
 	 */
-	private World actualMind;
+	private Mind actualMind;
 	
 	/**
 	 * Valor dado por una heurística.
@@ -32,14 +32,14 @@ public class WorldChanged implements Comparable {
 	/**
 	 * Constructora por defecto.
 	 */
-	public WorldChanged() {
+	public ChangedMind() {
 	}
 	
 	/**
 	 * Constructora partiendo solo de una mente sin cambios.
 	 * @param m Mente actual.
 	 */
-	public WorldChanged(World m) {
+	public ChangedMind(Mind m) {
 		actualMind = m;
 		changes = new ArrayList<Change>();
 		value = 0.0;
@@ -49,9 +49,9 @@ public class WorldChanged implements Comparable {
 	 * Copia la mente actual, el valor de heurística y los cambios.
 	 * @return
 	 */
-	public WorldChanged copy() {
-		WorldChanged retVal = new WorldChanged();
-		retVal.actualMind = new World(actualMind);
+	public ChangedMind copy() {
+		ChangedMind retVal = new ChangedMind();
+		retVal.actualMind = new Mind(actualMind);
 		retVal.changes = new ArrayList<Change>();
 		retVal.value = value;
 		for (Change change : changes) {
@@ -72,7 +72,7 @@ public class WorldChanged implements Comparable {
 	 * Getters para el mundo actual.
 	 * @return
 	 */
-	public World getActualMind() {
+	public Mind getActualMind() {
 		return actualMind;
 	}
 
@@ -94,18 +94,18 @@ public class WorldChanged implements Comparable {
 	
 	@Override
 	public String toString() {
-		return "WorldChanged [actualMind=" + actualMind.toString() + ", changes="
+		return "ChangedMind [actualMind=" + actualMind.toString() + ", changes="
 				+ changes.toString() + ", value=" + value + "]";
 	}
 
 	@Override
 	public int compareTo(Object arg0) {
 		
-		if(!(arg0 instanceof WorldChanged)){
+		if(!(arg0 instanceof ChangedMind)){
             throw new ClassCastException("Invalid object");
         }
 		
-		WorldChanged w = (WorldChanged) arg0;
+		ChangedMind w = (ChangedMind) arg0;
 		
 		if (this.value > w.value) return 1;
 		else if (this.value < w.value) return -1;

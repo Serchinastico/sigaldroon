@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import mind.Relation;
+import mind.Mind;
+
 import reader.Reader;
 
-import world.Component;
-import world.World;
 
 /**
  * Implementación estática del evaluador para las historias generadas.
@@ -72,11 +73,11 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 	}
 	
 	@Override
-	public float eval(World w) {
+	public float eval(Mind w) {
 		float value = 0.0f;
 		
 		/* TODO: El encaje de patrones está un poco 'tricky' y es ineficiente.
-		 * > Organizar las relaciones del mundo de otra forma para que al buscar exp
+		 * > Organizar las relaciones de la mente de otra forma para que al buscar exp
 		 * 	sea más eficiente que un recorrido completo.
 		 * > Usar bucles clásicos para clarificar (?).
 		 */
@@ -85,12 +86,12 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 			
 			// Se comprueba si encajan todas las 'expectativas'/'expresiones' del patrón
 			for (int iExp = 0; iExp < p.getExprs().size(); iExp++) {
-				Component exp = p.getExprs().get(iExp);
+				Relation exp = p.getExprs().get(iExp);
 				
 				boolean fitExp = false;
 				
-				for (Component worldComp : w) {
-					if (worldComp.instanceOf(exp)) {
+				for (Relation mindComp : w) {
+					if (mindComp.instanceOf(exp)) {
 						// Si se ha encontrado y no se busca la expresión negada se sale con éxito
 						if (!p.getNegExprs().get(iExp)) {
 							fitExp = true;
@@ -105,7 +106,7 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 				}
 			}
 			
-			// Si encaja el patrón en el mundo se suma su valor
+			// Si encaja el patrón en la mente se suma su valor
 			if (fitPattern) {
 				value += p.getValue();
 			}

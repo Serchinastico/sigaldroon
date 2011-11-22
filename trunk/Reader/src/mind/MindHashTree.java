@@ -1,14 +1,14 @@
-package world;
+package mind;
 
 /**
- * Clase que implementa un valor hash en forma de árbol para los mundos
- * del lector. El árbol se construye mediante una representación del mundo
+ * Clase que implementa un valor hash en forma de árbol para las mentes
+ * del lector. El árbol se construye mediante una representación de la mente
  * en forma de String.
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class WorldHashTree {	
+public class MindHashTree {	
 	
 	/**
 	 * Nodo inicial del árbol. 
@@ -18,7 +18,7 @@ public class WorldHashTree {
 	/**
 	 * Constructora por defecto.
 	 * */
-	public WorldHashTree() {
+	public MindHashTree() {
 		root = new Node();
 	}
 	
@@ -26,29 +26,29 @@ public class WorldHashTree {
 	 * Constructora a partir de un String pensada para testear.
 	 * @param str String de entrada.
 	 * */
-	public WorldHashTree(String str) {
+	public MindHashTree(String str) {
 		root = new Node();
 		root.add(str);
 	}
 	
 	/**
-	 * Añade el hash de un mundo al árbol.
-	 * @param w Mundo a agregar al árbol.
+	 * Añade el hash de una mente al árbol.
+	 * @param m Mente a agregar al árbol.
 	 * */
-	public void addWorld(World w) {
-		root.add(w.toShortString());
+	public void addWorld(Mind m) {
+		root.add(m.toShortString());
 	}
 	
 	/**
-	 * Comprueba si el mundo ha sido ya añadido.
-	 * @param w Mundo a comprobar.
-	 * @return true si el mundo ya ha sido insertado.
+	 * Comprueba si la mente ha sido ya añadida.
+	 * @param m Mente a comprobar.
+	 * @return true si la mente ya ha sido insertada.
 	 * */
-	public boolean exist(World w) {
-		if (w == null)
+	public boolean exist(Mind m) {
+		if (m == null)
 			return false;
 		
-		return root.exist(w.toShortString());
+		return root.exist(m.toShortString());
 	}
 	
 	/**

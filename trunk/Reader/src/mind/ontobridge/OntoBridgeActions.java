@@ -1,4 +1,4 @@
-package world.ontobridge;
+package mind.ontobridge;
 
 import java.util.ArrayList;
 
@@ -7,24 +7,20 @@ import es.ucm.fdi.gaia.ontobridge.OntologyDocument;
 
 
 /**
- * Singleton de la ontología para nombres.
+ * Singleton de la ontología para acciones.
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  * */
-public class OntoBridgeNames {
-	
-	public static void main(String[] args) {
-		OntoBridge ob = OntoBridgeNames.getInstance();
-	}
-	
+public class OntoBridgeActions{
+
 	/**
 	 * Ruta de la ontología de nombres.
 	 * */
-	private static final String NAMES_ONTOLOGY_PATH = "file:resources/ontologies/Nombres.owl";
+	private static final String ACTIONS_ONTOLOGY_PATH = "file:resources/ontologies/Acciones2.owl";
 	
 	private static OntoBridge instance = null;
 	
-	private OntoBridgeNames() {
+	private OntoBridgeActions() {
 		
 	}
 
@@ -32,7 +28,7 @@ public class OntoBridgeNames {
 		if (instance == null) {
 			instance = new OntoBridge();
 			instance.initWithPelletReasoner();
-			OntologyDocument mainOnto = new OntologyDocument("", NAMES_ONTOLOGY_PATH);
+			OntologyDocument mainOnto = new OntologyDocument("", ACTIONS_ONTOLOGY_PATH);
 			ArrayList<OntologyDocument> subOntologies = new ArrayList<OntologyDocument>();
 			instance.loadOntology(mainOnto, subOntologies, false);
 		}

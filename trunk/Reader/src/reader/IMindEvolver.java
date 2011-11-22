@@ -1,7 +1,7 @@
 package reader;
 
-import world.World;
-import world.WorldChanged;
+import mind.Mind;
+import mind.ChangedMind;
 
 /**
  * Interfaz para modificar mentes de lectores.
@@ -12,10 +12,10 @@ import world.WorldChanged;
 public interface IMindEvolver {
 
 	/**
-	 * Cambia la mente (conceptos que tiene el mundo).
+	 * Cambia la mente (conceptos que tiene la mente).
 	 * @param mind Mente a evolucionar.
-	 * @return El mundo con los conceptos cambiados tras la evolución.
+	 * @return La mente con los conceptos cambiados tras la evolución.
 	 */
-	public WorldChanged evolveMind(World mind);
+	public ChangedMind evolveMind(Mind mind);
 	
 }
