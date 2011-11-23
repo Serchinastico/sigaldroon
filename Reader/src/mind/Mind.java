@@ -15,13 +15,26 @@ import java.util.Map.Entry;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class Mind {
+public class Mind implements Iterable<Relation>, Iterator<Relation> {
 
 	/**
 	 * Lista de relaciones.
 	 * */
 	private HashMap<String, HashSet<Relation>> relations;
 	
+	/**
+	 * Iterador para el hashmap que itera sobre las acciones.
+	 */
+	private Iterator<Entry<String, HashSet<Relation>>> itActions;
+	
+	/**
+	 * Iterador para los hashset que itera sobre las relaciones.
+	 */
+	private Iterator<Relation> itRelations;
+	
+	/**
+	 * Constructora por defecto.
+	 */
 	public Mind() {
 		relations = new HashMap<String, HashSet<Relation>>();
 	}
@@ -167,4 +180,42 @@ public class Mind {
 
 		return retVal;
 	}
+
+	@Override
+	public Iterator<Relation> iterator() {
+		itActions = relations.entrySet().iterator();
+		
+		// Coloca los iteradores para comenzar
+		if (itActions.hasNext()) {
+			Entry<String, HashSet<Relation>> aux = itActions.next();
+			itRelations = aux.getValue().iterator();
+		}
+		return this;
+	}
+
+	@Override
+	public boolean hasNext() {
+
+		// O bien hay una relación más en este grupo de acciones o bien hay más acciones con relaciones
+		return ((itRelations != null) && itRelations.hasNext()) || (itActions != null && itActions.hasNext());
+	}
+
+	@Override
+	public Relation next() {
+		
+		// Si no hay más relaciones en este grupo de acciones, pasamos al grupo de la siguiente acción
+		if (!itRelations.hasNext()) {
+			if (itActions.hasNext()) {
+				Entry<String, HashSet<Relation>> aux = itActions.next();
+				itRelations = aux.getValue().iterator();
+			}
+		}
+		return itRelations.next();
+	}
+
+	@Override
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
+
 }
