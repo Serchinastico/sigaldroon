@@ -6,6 +6,7 @@ import java.util.Iterator;
 import mind.Relation;
 import mind.ChangedMind;
 import mind.ontobridge.OntoBridgeComponent;
+import mind.ontobridge.OntoBridgeNames;
 
 /**
  * Operador para especializar elementos bajando un nivel en la ontología.
@@ -18,227 +19,140 @@ public class Specialize implements IOperator {
 	 * Peso del operador.
 	 */
 	private float opWeight = 0.8f;
+		
+	/**
+	 * Genera todos los hijos posibles para una relación intentando especializa
+	 * con subclases e instancias cada uno de sus elementos. 
+	 * @param m Mente a operar.
+	 * @param r Relación a operar.
+	 * @param gM Listado actual de mentes generadas.
+	 */
+	private void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
+
+		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
+			
+			Iterator<String> itSubClasses = getSubClasses(r,i);
+			
+			while (itSubClasses.hasNext()) {
+				String subClass = itSubClasses.next();
+				ChangedMind newMind = m.copy();
+				// Cambio de la relación
+				Relation newRelation = r.copy();
+				applyChange(newRelation, subClass, i);
+				// Cambio del peso
+				newRelation.setWeight(r.getWeight() * opWeight);
+				// Guardado del cambio
+				newMind.getActualMind().remove(r); // Quitamos la antigua relación
+				newMind.getActualMind().add(newRelation); // Ponemos la modificada
+				Relation before = r.copy();
+				Relation after = newRelation.copy();
+				newMind.getChanges().add(new Change(before,after,OPList.SPECIALIZE));
+				gM.add(newMind);
+			}
+			
+			Iterator<String> itInstances = getDeclaredInstances(r,i);
+			
+			while (itInstances.hasNext()) {
+				String instanceName = itInstances.next();
+				ChangedMind newMind = m.copy();
+				// Cambio de la relación
+				Relation newRelation = r.copy();
+				applyChange(newRelation, instanceName, i);
+				// Cambio del peso
+				newRelation.setWeight(r.getWeight() * opWeight);
+				// Guardado del cambio
+				newMind.getActualMind().remove(r); // Quitamos la antigua relación
+				newMind.getActualMind().add(newRelation); // Ponemos la modificada
+				Relation before = r.copy();
+				Relation after = newRelation.copy();
+				newMind.getChanges().add(new Change(before,after,OPList.SPECIALIZE));
+				gM.add(newMind);
+			}
+		}
+	}
 	
 	/**
-	 * Aplica el operador a una acción.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Obtiene un iterador con las subclases del objetivo al que se le va a aplicar el operador.
+	 * @param r Relación que va a ser operada.
+	 * @param opTarget Elemento de la relación que va a sufrir la operación.
+	 * @return El iterador de las subclases del objetivo.
 	 */
-	private boolean applyToAction(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
-
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getAction();
-
-		// Si ya está instanciado, no se puede especializar más
-		//if (c.isInstance()) return false;
-
-		// Se crean los hijos mediante las subclases en la ontología
-		Iterator<String> itSubClasses = c.listSubClasses();
-
-		while (itSubClasses.hasNext()) {
-			String subClass = itSubClasses.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getAction().setName(subClass);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
+	public Iterator<String> getSubClasses(Relation r, int opTarget) {
+		
+		switch(opTarget) {
+		case OPTarget.ACTION:
+			return OntoBridgeNames.getInstance().listSubClasses(r.getAction().getName(), true);
+		case OPTarget.SOURCE:
+			return OntoBridgeNames.getInstance().listSubClasses(r.getSource().getName(), true);
+		case OPTarget.TARGET:
+			return OntoBridgeNames.getInstance().listSubClasses(r.getTarget().getName(), true);
+		case OPTarget.PLACE:
+			return OntoBridgeNames.getInstance().listSubClasses(r.getPlace().getName(), true);
+		case OPTarget.OD:
+			return OntoBridgeNames.getInstance().listSubClasses(r.getDirectObject().getName(), true);
 		}
-
-		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listDeclaredInstances();
-
-		while (itInstances.hasNext()) {
-			String instanceName = itInstances.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getAction().setName(instanceName);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
-		}
-
-		return true;
+		return null;
 	}
-
+	
 	/**
-	 * Aplica el operador a un actor fuente.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Obtiene un iterador con las instancias del objetivo al que se le va a aplicar el operador.
+	 * @param r Relación que va a ser operada.
+	 * @param opTarget Elemento de la relación que va a sufrir la operación.
+	 * @return El iterador de las instancias del objetivo.
 	 */
-	private boolean applyToSource(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
-
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getSource();
-
-		// Si ya está instanciado, no se puede especializar más
-		//if (c.isInstance()) return false;
-
-		// Se crean los hijos mediante las subclases en la ontología
-		Iterator<String> itSubClasses = c.listSubClasses();
-
-		while (itSubClasses.hasNext()) {
-			String subClass = itSubClasses.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getSource().setName(subClass);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
+	public Iterator<String> getDeclaredInstances(Relation r, int opTarget) {
+		
+		switch(opTarget) {
+		case OPTarget.ACTION:
+			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getAction().getName());
+		case OPTarget.SOURCE:
+			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getSource().getName());
+		case OPTarget.TARGET:
+			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getTarget().getName());
+		case OPTarget.PLACE:
+			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getPlace().getName());
+		case OPTarget.OD:
+			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getDirectObject().getName());
 		}
-
-		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listDeclaredInstances();
-
-		while (itInstances.hasNext()) {
-			String instanceName = itInstances.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getSource().setName(instanceName);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
-		}
-
-		return true;
+		return null;
 	}
-
+	
 	/**
-	 * Aplica el operador a un actor destino.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Aplica el cambio, poniendo el nuevo nombre al objetivo.
+	 * @param r Relación a cambiar.
+	 * @param newName Nuevo nombre para el elemento a cambiar.
+	 * @param opTarget El elemento a cambiar en la relación.
 	 */
-	private boolean applyToTarget(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
-
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getTarget();
-
-		// Si ya está instanciado, no se puede especializar más
-		//if (c.isInstance()) return false;
-
-		// Se crean los hijos mediante las subclases en la ontología
-		Iterator<String> itSubClasses = c.listSubClasses();
-
-		while (itSubClasses.hasNext()) {
-			String subClass = itSubClasses.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getTarget().setName(subClass);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
+	public void applyChange(Relation r, String newName, int opTarget) {
+		
+		switch(opTarget) {
+		case OPTarget.ACTION:
+			r.getAction().setName(newName);
+			break;
+		case OPTarget.SOURCE:
+			r.getSource().setName(newName);
+			break;
+		case OPTarget.TARGET:
+			r.getTarget().setName(newName);
+			break;
+		case OPTarget.PLACE:
+			r.getPlace().setName(newName);
+			break;
+		case OPTarget.OD:
+			r.getDirectObject().setName(newName);
+			break;
 		}
-
-		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listDeclaredInstances();
-
-		while (itInstances.hasNext()) {
-			String instanceName = itInstances.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getTarget().setName(instanceName);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
-		}
-
-		return true;
+		
 	}
-
-	/**
-	 * Aplica el operador a un lugar.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
-	 */
-	private boolean applyToPlace(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
-
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getPlace();
-
-		// Si ya está instanciado o no tiene especificado el lugar, no se puede especializar más
-		if (c == null) return false;
-
-		// Se crean los hijos mediante las subclases en la ontología
-		Iterator<String> itSubClasses = c.listSubClasses();
-
-		while (itSubClasses.hasNext()) {
-			String subClass = itSubClasses.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getPlace().setName(subClass);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
-		}
-
-		// Se crean los hijos mediante las instancias de la clase
-		Iterator<String> itInstances = c.listDeclaredInstances();
-
-		while (itInstances.hasNext()) {
-			String instanceName = itInstances.next();
-			ChangedMind newMind = m.copy();
-			// Cambio del componente
-			newMind.getActualMind().getRelation(i).getPlace().setName(instanceName);
-			// Cambio del peso
-			float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-			newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-			// Guardado del cambio
-			Relation before = m.getActualMind().getRelation(i);
-			Relation after = newMind.getActualMind().getRelation(i);
-			newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.SPECIALIZE));
-			gM.add(newMind);
-		}
-
-		return true;
-	}
-
+	
 	@Override
 	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
-		for (int i = 0; i < m.getActualMind().getNumRelations(); i++) {
-			applyToAction(m,generatedMinds,i);
-			applyToSource(m,generatedMinds,i);
-			applyToTarget(m,generatedMinds,i);
-			applyToPlace(m,generatedMinds,i);
-		}
+		
+		Iterator<Relation> itRel = m.getActualMind().iterator();
+		
+		while (itRel.hasNext())
+			apply(m, itRel.next(), generatedMinds);
+
 	}
 
 }
