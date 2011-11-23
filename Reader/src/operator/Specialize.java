@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import mind.Relation;
 import mind.ChangedMind;
-import mind.ontobridge.OntoBridgeComponent;
+import mind.ontobridge.OntoBridgeActions;
 import mind.ontobridge.OntoBridgeNames;
 
 /**
@@ -21,7 +21,7 @@ public class Specialize implements IOperator {
 	private float opWeight = 0.8f;
 		
 	/**
-	 * Genera todos los hijos posibles para una relación intentando especializa
+	 * Genera todos los hijos posibles para una relación intentando especializar
 	 * con subclases e instancias cada uno de sus elementos. 
 	 * @param m Mente a operar.
 	 * @param r Relación a operar.
@@ -77,11 +77,11 @@ public class Specialize implements IOperator {
 	 * @param opTarget Elemento de la relación que va a sufrir la operación.
 	 * @return El iterador de las subclases del objetivo.
 	 */
-	public Iterator<String> getSubClasses(Relation r, int opTarget) {
+	private Iterator<String> getSubClasses(Relation r, int opTarget) {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeNames.getInstance().listSubClasses(r.getAction().getName(), true);
+			return OntoBridgeActions.getInstance().listSubClasses(r.getAction().getName(), true);
 		case OPTarget.SOURCE:
 			return OntoBridgeNames.getInstance().listSubClasses(r.getSource().getName(), true);
 		case OPTarget.TARGET:
@@ -100,11 +100,11 @@ public class Specialize implements IOperator {
 	 * @param opTarget Elemento de la relación que va a sufrir la operación.
 	 * @return El iterador de las instancias del objetivo.
 	 */
-	public Iterator<String> getDeclaredInstances(Relation r, int opTarget) {
+	private Iterator<String> getDeclaredInstances(Relation r, int opTarget) {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getAction().getName());
+			return OntoBridgeActions.getInstance().listDeclaredInstances(r.getAction().getName());
 		case OPTarget.SOURCE:
 			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getSource().getName());
 		case OPTarget.TARGET:
@@ -123,7 +123,7 @@ public class Specialize implements IOperator {
 	 * @param newName Nuevo nombre para el elemento a cambiar.
 	 * @param opTarget El elemento a cambiar en la relación.
 	 */
-	public void applyChange(Relation r, String newName, int opTarget) {
+	private void applyChange(Relation r, String newName, int opTarget) {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:

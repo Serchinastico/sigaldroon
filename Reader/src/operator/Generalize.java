@@ -5,7 +5,9 @@ import java.util.Iterator;
 
 import mind.Relation;
 import mind.ChangedMind;
+import mind.ontobridge.OntoBridgeActions;
 import mind.ontobridge.OntoBridgeComponent;
+import mind.ontobridge.OntoBridgeNames;
 
 
 /**
@@ -21,178 +23,112 @@ public class Generalize implements IOperator {
 	private float opWeight = 0.6f;
 
 	/**
-	 * Aplica el operador a una acción.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Genera todos los hijos posibles para una relación intentando generalizar
+	 * con subclases e instancias cada uno de sus elementos. 
+	 * @param m Mente a operar.
+	 * @param r Relación a operar.
+	 * @param gM Listado actual de mentes generadas.
 	 */
-	private boolean applyToAction(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
+	private void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
 		
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getAction();
-		
-		// Si no puede subir más en la ontología, salimos
-		if (c.getName().equals("Accion")) return false;
-		
-		Iterator<String> itParents;
-		
-		if (c.isInstance()) 
-			itParents = c.listDeclaredBelongingSuperClasses();
-		else 
-			itParents = c.listSuperClasses();
-		
-		while (itParents.hasNext()) {
-			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
+		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
+			
+			Iterator<String> itSuperClasses = getSuperClasses(r,i);
+			
+			while (itSuperClasses.hasNext()) {
+				String superClass = itSuperClasses.next();
 				ChangedMind newMind = m.copy();
-				// Cambio del componente
-				newMind.getActualMind().getRelation(i).getAction().setName(parentName);
+				// Cambio de la relación
+				Relation newRelation = r.copy();
+				applyChange(newRelation, superClass, i);
 				// Cambio del peso
-				float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-				newMind.getActualMind().getRelation(i).setWeight(componentWeight);
+				newRelation.setWeight(r.getWeight() * opWeight);
 				// Guardado del cambio
-				Relation before = m.getActualMind().getRelation(i);
-				Relation after = newMind.getActualMind().getRelation(i);
-				newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
+				newMind.getActualMind().remove(r); // Quitamos la antigua relación
+				newMind.getActualMind().add(newRelation); // Ponemos la modificada
+				Relation before = r.copy();
+				Relation after = newRelation.copy();
+				newMind.getChanges().add(new Change(before,after,OPList.SPECIALIZE));
 				gM.add(newMind);
 			}
 		}
-		
-		return true;
 	}
 	
 	/**
-	 * Aplica el operador a un actor fuente.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Obtiene un iterador con las superclases del objetivo al que se le va a aplicar el operador.
+	 * @param r Relación que va a ser operada.
+	 * @param opTarget Elemento de la relación que va a sufrir la operación.
+	 * @return El iterador de las superclases del objetivo.
 	 */
-	private boolean applyToSource(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
+	private Iterator<String> getSuperClasses(Relation r, int opTarget) {
 		
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getSource();
-		
-		// Si no puede subir más en la ontología, salimos
-		if (c.getName().equals("Actores")) return false;
-		
-		Iterator<String> itParents;
-		
-		if (c.isInstance()) 
-			itParents = c.listDeclaredBelongingSuperClasses();
-		else 
-			itParents = c.listSuperClasses();
-		
-		while (itParents.hasNext()) {
-			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
-				ChangedMind newMind = m.copy();
-				// Cambio del componente
-				newMind.getActualMind().getRelation(i).getSource().setName(parentName);
-				// Cambio del peso
-				float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-				newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-				// Guardado del cambio
-				Relation before = m.getActualMind().getRelation(i);
-				Relation after = newMind.getActualMind().getRelation(i);
-				newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
-				gM.add(newMind);
-			}
+		switch(opTarget) {
+		case OPTarget.ACTION:
+			if (OntoBridgeActions.getInstance().existsInstance(r.getAction().getName(), "NamedIndividual")) 
+				return OntoBridgeActions.getInstance().listDeclaredBelongingClasses(r.getAction().getName());
+			else 
+				return OntoBridgeActions.getInstance().listSuperClasses(r.getAction().getName(), true);
+		case OPTarget.SOURCE:
+			if (OntoBridgeNames.getInstance().existsInstance(r.getSource().getName(), "NamedIndividual")) 
+				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getSource().getName());
+			else 
+				return OntoBridgeNames.getInstance().listSuperClasses(r.getSource().getName(), true);
+		case OPTarget.TARGET:
+			if (OntoBridgeNames.getInstance().existsInstance(r.getTarget().getName(), "NamedIndividual")) 
+				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getTarget().getName());
+			else 
+				return OntoBridgeNames.getInstance().listSuperClasses(r.getTarget().getName(), true);
+		case OPTarget.PLACE:
+			if (OntoBridgeNames.getInstance().existsInstance(r.getPlace().getName(), "NamedIndividual")) 
+				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getPlace().getName());
+			else 
+				return OntoBridgeNames.getInstance().listSuperClasses(r.getPlace().getName(), true);
+		case OPTarget.OD:
+			if (OntoBridgeNames.getInstance().existsInstance(r.getDirectObject().getName(), "NamedIndividual")) 
+				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getDirectObject().getName());
+			else 
+				return OntoBridgeNames.getInstance().listSuperClasses(r.getDirectObject().getName(), true);
 		}
-		
-		return true;
+		return null;
 	}
 	
 	/**
-	 * Aplica el operador a un actor destino.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
+	 * Aplica el cambio, poniendo el nuevo nombre al objetivo.
+	 * @param r Relación a cambiar.
+	 * @param newName Nuevo nombre para el elemento a cambiar.
+	 * @param opTarget El elemento a cambiar en la relación.
 	 */
-	private boolean applyToTarget(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
+	private void applyChange(Relation r, String newName, int opTarget) {
 		
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getTarget();
-		
-		// Si no puede subir más en la ontología, salimos
-		if (c.getName().equals("Actores")) return false;
-		
-		Iterator<String> itParents;
-		
-		if (c.isInstance()) 
-			itParents = c.listDeclaredBelongingSuperClasses();
-		else 
-			itParents = c.listSuperClasses();
-		
-		while (itParents.hasNext()) {
-			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
-				ChangedMind newMind = m.copy();
-				// Cambio del componente
-				newMind.getActualMind().getRelation(i).getTarget().setName(parentName);
-				// Cambio del peso
-				float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-				newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-				// Guardado del cambio
-				Relation before = m.getActualMind().getRelation(i);
-				Relation after = newMind.getActualMind().getRelation(i);
-				newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
-				gM.add(newMind);
-			}
+		switch(opTarget) {
+		case OPTarget.ACTION:
+			r.getAction().setName(newName);
+			break;
+		case OPTarget.SOURCE:
+			r.getSource().setName(newName);
+			break;
+		case OPTarget.TARGET:
+			r.getTarget().setName(newName);
+			break;
+		case OPTarget.PLACE:
+			r.getPlace().setName(newName);
+			break;
+		case OPTarget.OD:
+			r.getDirectObject().setName(newName);
+			break;
 		}
 		
-		return true;
 	}
-	
-	/**
-	 * Aplica el operador a un lugar.
-	 * @param m Mente a partir de la cual operar.
-	 * @param gM Lista de mentes generadas.
-	 * @param i Índice del elemento en el que reside la acción dentro de la mente.
-	 * @return Falso si no se puede especializar.
-	 */
-	private boolean applyToPlace(ChangedMind m, ArrayList<ChangedMind> gM, int i) {
-		
-		OntoBridgeComponent c = m.getActualMind().getRelation(i).getPlace();
-		
-		// Si no puede subir más en la ontología o si el lugar no está definido, salimos
-		if ((c == null) || (c.getName().equals("Lugares"))) return false;
-		
-		Iterator<String> itParents;
-		
-		if (c.isInstance()) 
-			itParents = c.listDeclaredBelongingSuperClasses();
-		else 
-			itParents = c.listSuperClasses();
-		
-		while (itParents.hasNext()) {
-			String parentName = itParents.next();
-			if (!parentName.contains("NamedIndividual") && (!parentName.contains("Class") && (!parentName.contains("Nothing")))) {
-				ChangedMind newMind = m.copy();
-				// Cambio del componente
-				newMind.getActualMind().getRelation(i).getPlace().setName(parentName);
-				// Cambio del peso
-				float componentWeight = newMind.getActualMind().getRelation(i).getWeight() * opWeight;
-				newMind.getActualMind().getRelation(i).setWeight(componentWeight);
-				// Guardado del cambio
-				Relation before = m.getActualMind().getRelation(i);
-				Relation after = newMind.getActualMind().getRelation(i);
-				newMind.getChanges().add(new Change(before.copy(),after.copy(),OPList.GENERALIZE));
-				gM.add(newMind);
-			}
-		}
-		
-		return true;
-	}
+
 
 	
 	@Override
 	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
-		for (int i = 0; i < m.getActualMind().getNumRelations(); i++) {
-			applyToAction(m,generatedMinds,i);
-			applyToSource(m,generatedMinds,i);
-			applyToTarget(m,generatedMinds,i);
-			applyToPlace(m,generatedMinds,i);
-		}
+		
+		Iterator<Relation> itRel = m.getActualMind().iterator();
+		
+		while (itRel.hasNext())
+			apply(m, itRel.next(), generatedMinds);
 	}
 
 }
