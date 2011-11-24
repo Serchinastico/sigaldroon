@@ -5,9 +5,7 @@ import java.util.Iterator;
 
 import mind.Relation;
 import mind.ChangedMind;
-import mind.ontobridge.OntoBridgeActions;
-import mind.ontobridge.OntoBridgeComponent;
-import mind.ontobridge.OntoBridgeNames;
+import mind.ontobridge.OntoBridgeSingleton;
 
 
 /**
@@ -61,33 +59,32 @@ public class Generalize implements IOperator {
 	 * @return El iterador de las superclases del objetivo.
 	 */
 	private Iterator<String> getSuperClasses(Relation r, int opTarget) {
-		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			if (OntoBridgeActions.getInstance().existsInstance(r.getAction().getName(), "NamedIndividual")) 
-				return OntoBridgeActions.getInstance().listDeclaredBelongingClasses(r.getAction().getName());
+			if (OntoBridgeSingleton.getInstance().existsInstance(r.getAction(), "NamedIndividual")) 
+				return OntoBridgeSingleton.getInstance().listDeclaredBelongingClasses(r.getAction());
 			else 
-				return OntoBridgeActions.getInstance().listSuperClasses(r.getAction().getName(), true);
+				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getAction(), true);
 		case OPTarget.SOURCE:
-			if (OntoBridgeNames.getInstance().existsInstance(r.getSource().getName(), "NamedIndividual")) 
-				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getSource().getName());
+			if (OntoBridgeSingleton.getInstance().existsInstance(r.getSource(), "NamedIndividual")) 
+				return OntoBridgeSingleton.getInstance().listDeclaredBelongingClasses(r.getSource());
 			else 
-				return OntoBridgeNames.getInstance().listSuperClasses(r.getSource().getName(), true);
+				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getSource(), true);
 		case OPTarget.TARGET:
-			if (OntoBridgeNames.getInstance().existsInstance(r.getTarget().getName(), "NamedIndividual")) 
-				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getTarget().getName());
+			if (OntoBridgeSingleton.getInstance().existsInstance(r.getTarget(), "NamedIndividual")) 
+				return OntoBridgeSingleton.getInstance().listDeclaredBelongingClasses(r.getTarget());
 			else 
-				return OntoBridgeNames.getInstance().listSuperClasses(r.getTarget().getName(), true);
+				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getTarget(), true);
 		case OPTarget.PLACE:
-			if (OntoBridgeNames.getInstance().existsInstance(r.getPlace().getName(), "NamedIndividual")) 
-				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getPlace().getName());
+			if (OntoBridgeSingleton.getInstance().existsInstance(r.getPlace(), "NamedIndividual")) 
+				return OntoBridgeSingleton.getInstance().listDeclaredBelongingClasses(r.getPlace());
 			else 
-				return OntoBridgeNames.getInstance().listSuperClasses(r.getPlace().getName(), true);
+				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getPlace(), true);
 		case OPTarget.OD:
-			if (OntoBridgeNames.getInstance().existsInstance(r.getDirectObject().getName(), "NamedIndividual")) 
-				return OntoBridgeNames.getInstance().listDeclaredBelongingClasses(r.getDirectObject().getName());
+			if (OntoBridgeSingleton.getInstance().existsInstance(r.getDirectObject(), "NamedIndividual")) 
+				return OntoBridgeSingleton.getInstance().listDeclaredBelongingClasses(r.getDirectObject());
 			else 
-				return OntoBridgeNames.getInstance().listSuperClasses(r.getDirectObject().getName(), true);
+				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getDirectObject(), true);
 		}
 		return null;
 	}
@@ -102,19 +99,19 @@ public class Generalize implements IOperator {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			r.getAction().setName(newName);
+			r.setAction(newName);
 			break;
 		case OPTarget.SOURCE:
-			r.getSource().setName(newName);
+			r.setSource(newName);
 			break;
 		case OPTarget.TARGET:
-			r.getTarget().setName(newName);
+			r.setTarget(newName);
 			break;
 		case OPTarget.PLACE:
-			r.getPlace().setName(newName);
+			r.setPlace(newName);
 			break;
 		case OPTarget.OD:
-			r.getDirectObject().setName(newName);
+			r.setDirectObject(newName);
 			break;
 		}
 		

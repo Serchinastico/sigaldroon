@@ -1,6 +1,7 @@
 package reader;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.PriorityQueue;
 
 import mind.Mind;
@@ -33,7 +34,7 @@ public class MindEvolver implements IMindEvolver {
 	/**
 	 * Pila de mentes creadas hasta el momento.
 	 */
-	private PriorityQueue<ChangedMind> mindsGenerated;
+	private PriorityQueue<ChangedMind> mindsQueue;
 	
 	/**
 	 * La mejor mente en evolución.
@@ -41,29 +42,38 @@ public class MindEvolver implements IMindEvolver {
 	private ChangedMind bestMind;
 	
 	/**
+	 * Conjunto de mentes generadas hasta el momento para no repetir.
+	 * */
+	private HashSet<Integer> generatedMinds; 
+	
+	/**
 	 * Constructora para el evolucionador.
 	 * @param evaluator Evaluador a usar por el evolucionador de mentes.
 	 */
 	public MindEvolver(IEvaluator evaluator) {
 		maxMindExpansions = 3;
-		mindsGenerated = new PriorityQueue<ChangedMind>();
+		mindsQueue = new PriorityQueue<ChangedMind>();
 		this.evaluator = evaluator;
+		generatedMinds = new HashSet<Integer>();
 	}
 	
 	@Override
 	public ChangedMind evolveMind(Mind mind) {
 		
-		mindsGenerated = new PriorityQueue<ChangedMind>();
+		mindsQueue = new PriorityQueue<ChangedMind>();
 		bestMind = new ChangedMind(mind);
-		mindsGenerated.add(bestMind);
+		mindsQueue.add(bestMind);
 		
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista
-			ChangedMind operatedMind = mindsGenerated.poll(); // Saca la cima y la borra
+			ChangedMind operatedMind = mindsQueue.poll(); // Saca la cima y la borra
 		
 			// Genera los hijos como resultado de operar esa mente
 			ArrayList<ChangedMind> mindSons = operateMind(operatedMind);
+			
+			// Elimina los hijos que ya han sido generados antes
+			filterMinds(mindSons);
 			
 			// Evalúa los hijos generados
 			evalMinds(mindSons);
@@ -77,7 +87,7 @@ public class MindEvolver implements IMindEvolver {
 		
 		return bestMind; // la más favorable según su valor
 	}
-	
+
 	/**
 	 * Aplica los operadores a una mente para generar todos los posibles hijos.
 	 * @param m Mente que operar.
@@ -97,6 +107,22 @@ public class MindEvolver implements IMindEvolver {
 	}
 	
 	/**
+	 * Filtra los mundos generados para tratar de no repetir ninguno.
+	 * @param mindSons Lista de hijos para filtrar.
+	 * */
+	// TODO: Sería más eficiente si se filtraran en los operadores (?)
+	private void filterMinds(ArrayList<ChangedMind> mindSons) {
+		ChangedMind[] mindSonsCopy = (ChangedMind[]) mindSons.toArray();
+		
+		for (int iMind = 0; iMind < mindSonsCopy.length; iMind++) {
+			ChangedMind mind = mindSonsCopy[iMind];
+			if (generatedMinds.contains(mind.getActualMind().hashCode())) {
+				mindSons.remove(iMind);
+			}
+		}		
+	}
+	
+	/**
 	 * Evalúa las mentes generadas asignándoles a cada una un valor heurístico.
 	 * @param sons Mentes para evaluar.
 	 * */
@@ -113,14 +139,15 @@ public class MindEvolver implements IMindEvolver {
 	private void insertMinds(ArrayList<ChangedMind> sons) {
 		//TODO: implementar la inserción de mentes en la cola de prioridad
 		for (ChangedMind w: sons) {
-			mindsGenerated.add(w);
+			mindsQueue.add(w);
+			generatedMinds.add(w.getActualMind().hashCode());
 		}
 	}
 	
 	private void updateBestMind() {
 		
 		// Obtiene la mente más favorable de la lista
-		ChangedMind bestInQueue = mindsGenerated.peek();
+		ChangedMind bestInQueue = mindsQueue.peek();
 		
 		if (bestInQueue.compareTo(bestMind) >= 0) 
 			bestMind = bestInQueue.copy();
