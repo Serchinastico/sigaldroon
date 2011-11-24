@@ -92,13 +92,13 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	 */
 	public void add(Relation r) {
 		
-		if (relations.containsKey(r.getAction().getName())) {
-			relations.get(r.getAction().getName()).add(r);
+		if (relations.containsKey(r.getAction())) {
+			relations.get(r.getAction()).add(r);
 		}
 		else {
 			HashSet<Relation> newRelations = new HashSet<Relation>();
 			newRelations.add(r);
-			relations.put(new String(r.getAction().getName()), newRelations);
+			relations.put(new String(r.getAction()), newRelations);
 		}
 	}
 	
@@ -108,12 +108,12 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	 */
 	public void remove(Relation r) {
 		
-		if (relations.containsKey(r.getAction().getName())) {
-			HashSet<Relation> setRelations = relations.get(r.getAction().getName());
+		if (relations.containsKey(r.getAction())) {
+			HashSet<Relation> setRelations = relations.get(r.getAction());
 			setRelations.remove(r);
 			
 			if (setRelations.isEmpty()) {
-				relations.remove(r.getAction().getName());
+				relations.remove(r.getAction());
 			}
 		}
 	}
@@ -145,24 +145,20 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	}
 	
 	/**
-	 * Devuelve un string reducido pensado para usarse en un hasheo posterior.
-	 * @return String reducido que identifica la instancia.
+	 * @see java.lang.Object#hashCode()
 	 * */
-	public String toShortString() {
-		String shortStr = "";
+	@Override
+	public int hashCode() {
+		String strRelations = "";
 		
-		Iterator<Entry<String, HashSet<Relation>>> it = relations.entrySet().iterator();
-		
-		while (it.hasNext()) {
-		
-			Entry<String, HashSet<Relation>> entry = it.next();
-						
-			for (Relation relation : entry.getValue()) {
-				shortStr += relation.toShortString();
+		for (HashSet<Relation> relationSet : relations.values()) {
+			for (Relation relation : relationSet) {
+				// TODO: Debería ser un string sin formato, por simplificar (?)
+				strRelations += relation.toString();
 			}
 		}
 		
-		return shortStr;
+		return strRelations.hashCode();
 	}
 	
 	public String toStringSegment() {
@@ -174,7 +170,7 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 			Entry<String, HashSet<Relation>> entry = it.next();
 						
 			for (Relation relation : entry.getValue()) {
-				retVal += relation.toShortString();
+				retVal += relation.toStringRelation();
 			}
 		}
 

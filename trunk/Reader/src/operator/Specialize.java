@@ -5,8 +5,7 @@ import java.util.Iterator;
 
 import mind.Relation;
 import mind.ChangedMind;
-import mind.ontobridge.OntoBridgeActions;
-import mind.ontobridge.OntoBridgeNames;
+import mind.ontobridge.OntoBridgeSingleton;
 
 /**
  * Operador para especializar elementos bajando un nivel en la ontología.
@@ -81,15 +80,15 @@ public class Specialize implements IOperator {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeActions.getInstance().listSubClasses(r.getAction().getName(), true);
+			return OntoBridgeSingleton.getInstance().listSubClasses(r.getAction(), true);
 		case OPTarget.SOURCE:
-			return OntoBridgeNames.getInstance().listSubClasses(r.getSource().getName(), true);
+			return OntoBridgeSingleton.getInstance().listSubClasses(r.getSource(), true);
 		case OPTarget.TARGET:
-			return OntoBridgeNames.getInstance().listSubClasses(r.getTarget().getName(), true);
+			return OntoBridgeSingleton.getInstance().listSubClasses(r.getTarget(), true);
 		case OPTarget.PLACE:
-			return OntoBridgeNames.getInstance().listSubClasses(r.getPlace().getName(), true);
+			return OntoBridgeSingleton.getInstance().listSubClasses(r.getPlace(), true);
 		case OPTarget.OD:
-			return OntoBridgeNames.getInstance().listSubClasses(r.getDirectObject().getName(), true);
+			return OntoBridgeSingleton.getInstance().listSubClasses(r.getDirectObject(), true);
 		}
 		return null;
 	}
@@ -104,15 +103,15 @@ public class Specialize implements IOperator {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeActions.getInstance().listDeclaredInstances(r.getAction().getName());
+			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getAction());
 		case OPTarget.SOURCE:
-			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getSource().getName());
+			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getSource());
 		case OPTarget.TARGET:
-			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getTarget().getName());
+			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getTarget());
 		case OPTarget.PLACE:
-			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getPlace().getName());
+			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getPlace());
 		case OPTarget.OD:
-			return OntoBridgeNames.getInstance().listDeclaredInstances(r.getDirectObject().getName());
+			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getDirectObject());
 		}
 		return null;
 	}
@@ -127,19 +126,19 @@ public class Specialize implements IOperator {
 		
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			r.getAction().setName(newName);
+			r.setAction(newName);
 			break;
 		case OPTarget.SOURCE:
-			r.getSource().setName(newName);
+			r.setSource(newName);
 			break;
 		case OPTarget.TARGET:
-			r.getTarget().setName(newName);
+			r.setTarget(newName);
 			break;
 		case OPTarget.PLACE:
-			r.getPlace().setName(newName);
+			r.setPlace(newName);
 			break;
 		case OPTarget.OD:
-			r.getDirectObject().setName(newName);
+			r.setDirectObject(newName);
 			break;
 		}
 		

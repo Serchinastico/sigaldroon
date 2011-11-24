@@ -1,6 +1,7 @@
 package mind;
 
-import mind.ontobridge.OntoBridgeComponent;
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import mind.ontobridge.OntoBridgeSingleton;
 
 /**
  * Componente fundamental de la mente del lector.
@@ -17,27 +18,27 @@ public class Relation {
 	/**
 	 * Origen de la acción
 	 * */
-	private OntoBridgeComponent source;
+	private String source;
 	
 	/**
 	 * Acción realizada
 	 * */
-	private OntoBridgeComponent action;
+	private String action;
 	
 	/**
 	 * Objetivo de la acción
 	 * */
-	private OntoBridgeComponent target;
+	private String target;
 	
 	/**
 	 * Lugar donde sucede la acción.
 	 * */
-	private OntoBridgeComponent place;
+	private String place;
 	
 	/**
 	 * Complemento directo.
 	 * */
-	private OntoBridgeComponent directObject;
+	private String directObject;
 	
 	public Relation() {
 		this.weight = -1.0f;
@@ -57,14 +58,17 @@ public class Relation {
 		String[] splittedLine = str.split(",");
 		
 		weight = Float.parseFloat(splittedLine[0].trim());
-		source = new OntoBridgeComponent(splittedLine[1].trim(), OntoBridgeComponent.NAME);
-		action = new OntoBridgeComponent(splittedLine[2].trim(), OntoBridgeComponent.ACTION);
-		if (!splittedLine[3].trim().equals(""))
-			target = new OntoBridgeComponent(splittedLine[3].trim(), OntoBridgeComponent.NAME);
-		if (!splittedLine[4].trim().equals(""))
-			place = new OntoBridgeComponent(splittedLine[4].trim(), OntoBridgeComponent.NAME);
-		if (!splittedLine[5].trim().equals(""))
-			directObject = new OntoBridgeComponent(splittedLine[5].trim(), OntoBridgeComponent.NAME);
+		source = splittedLine[1].trim();
+		action = splittedLine[2].trim();
+		target = (splittedLine[3].trim().equals("")) ?
+				null :
+				splittedLine[3].trim();
+		place = (splittedLine[4].trim().equals("")) ?
+				null :
+				splittedLine[4].trim();
+		directObject = (splittedLine[5].trim().equals("")) ?
+				null :
+				splittedLine[5].trim();
 	}
 	
 	/**
@@ -76,9 +80,9 @@ public class Relation {
 	 * @param place Lugar
 	 * @param directObject Complemento directo
 	 * */
-	public Relation(float weight, OntoBridgeComponent source,
-			OntoBridgeComponent action, OntoBridgeComponent target,
-			OntoBridgeComponent place, OntoBridgeComponent directObject) {
+	public Relation(float weight, String source,
+			String action, String target,
+			String place, String directObject) {
 		this.weight = weight;
 		this.source = source;
 		this.action = action;
@@ -93,15 +97,17 @@ public class Relation {
 	 * @return Valor booleano indicando si el componente es una instancia del patrón.
 	 * */
 	public boolean instanceOf(Relation pattern) {
-		boolean targetIsInstanceOf = (pattern.target == null) ||
-				(pattern.target != null && pattern.target.isSuperClassOf(target));
-		boolean placeIsInstanceOf = (pattern.place == null) ||
-				(pattern.place != null && pattern.place.isSuperClassOf(place));
-		boolean directObjectIsInstanceOf = (pattern.directObject == null) ||
-				(pattern.directObject != null && pattern.directObject.isSuperClassOf(directObject));
+		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
-		return (source.isSubClassOf(pattern.source) && 
-				action.isSubClassOf(pattern.action) &&
+		boolean targetIsInstanceOf = (pattern.target == null) ||
+				(pattern.target != null && ob.isSubClassOf(target, pattern.target));
+		boolean placeIsInstanceOf = (pattern.place == null) ||
+				(pattern.place != null && ob.isSubClassOf(place, pattern.place));
+		boolean directObjectIsInstanceOf = (pattern.directObject == null) ||
+				(pattern.directObject != null && ob.isSubClassOf(directObject, pattern.directObject));
+		
+		return (ob.isSubClassOf(source, pattern.source) && 
+				ob.isSubClassOf(action, pattern.action) &&
 				targetIsInstanceOf &&
 				placeIsInstanceOf &&
 				directObjectIsInstanceOf);
@@ -112,10 +118,10 @@ public class Relation {
 	 * @return Una copia del componente.
 	 * */
 	public Relation copy() {
-		Relation copy = new Relation(weight, source.copy(), action.copy(),
-				(target == null) ? null : target.copy(),
-				(place == null) ? null : place.copy(),
-				(directObject == null) ? null : directObject.copy());
+		Relation copy = new Relation(weight, source, action,
+				(target == null) ? null : target,
+				(place == null) ? null : place,
+				(directObject == null) ? null : directObject);
 		return copy;
 	}
 	
@@ -129,6 +135,10 @@ public class Relation {
 			return false;
 		Relation c = (Relation) o;
 		
+		boolean sourceEq = (source == null && c.source == null) || 
+				(source != null && source.equals(c.source));
+		boolean actionEq = (action == null && c.action == null) || 
+				(action != null && action.equals(c.action));
 		boolean targetEq = (target == null && c.target == null) || 
 				(target != null && target.equals(c.target));
 		boolean placeEq = (place == null && c.place == null) || 
@@ -136,9 +146,9 @@ public class Relation {
 		boolean directObjectEq = (directObject == null && c.directObject == null) || 
 				(directObject != null && directObject.equals(c.directObject));
 		
-		return (c.weight == weight && c.source.equals(source)
-				&& c.action.equals(action) &&
-				targetEq &&	placeEq && directObjectEq);
+		return (c.weight == weight &&
+				sourceEq &&	actionEq &&	targetEq &&
+				placeEq && directObjectEq);
 	}
 
 	/** 
@@ -154,16 +164,11 @@ public class Relation {
 	}
 	
 	/**
-	 * Devuelve un string reducido pensado para usarse en un hasheo posterior.
-	 * @return String reducido que identifica la instancia.
+	 * @see java.lang.Object#hashCode()
 	 * */
-	public String toShortString() {
-		// TODO Tener en cuenta el peso? Comentar con Israel
-		return source.getName() + 
-				action.getName() + 
-				((target == null) ? "" : target.getName()) + 
-				((place == null) ? "" : place.getName()) +
-				((directObject == null) ? "" : directObject.getName());
+	@Override
+	public int hashCode() {
+		return (weight + source + action + target + place + directObject).hashCode();
 	}
 	
 	/**
@@ -183,70 +188,70 @@ public class Relation {
 	/**
 	 * @return the source
 	 */
-	public OntoBridgeComponent getSource() {
+	public String getSource() {
 		return source;
 	}
 
 	/**
 	 * @param source the source to set
 	 */
-	public void setSource(OntoBridgeComponent source) {
+	public void setSource(String source) {
 		this.source = source;
 	}
 
 	/**
 	 * @return the action
 	 */
-	public OntoBridgeComponent getAction() {
+	public String getAction() {
 		return action;
 	}
 
 	/**
 	 * @param action the action to set
 	 */
-	public void setAction(OntoBridgeComponent action) {
+	public void setAction(String action) {
 		this.action = action;
 	}
 
 	/**
 	 * @return the target
 	 */
-	public OntoBridgeComponent getTarget() {
+	public String getTarget() {
 		return target;
 	}
 
 	/**
 	 * @param target the target to set
 	 */
-	public void setTarget(OntoBridgeComponent target) {
+	public void setTarget(String target) {
 		this.target = target;
 	}
 	
 	/**
 	 * @return the place
 	 */
-	public OntoBridgeComponent getPlace() {
+	public String getPlace() {
 		return place;
 	}
 
 	/**
 	 * @param place the place to set
 	 */
-	public void setPlace(OntoBridgeComponent place) {
+	public void setPlace(String place) {
 		this.place = place;
 	}
 	
 	/**
 	 * @return the direct object
 	 */
-	public OntoBridgeComponent getDirectObject() {
+	public String getDirectObject() {
 		return directObject;
 	}
 
 	/**
 	 * @param directObject the direct object to set
 	 */
-	public void setDirectObject(OntoBridgeComponent directObject) {
+	public void setDirectObject(String directObject) {
 		this.directObject = directObject;
 	}
 	
