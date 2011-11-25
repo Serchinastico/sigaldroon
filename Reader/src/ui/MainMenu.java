@@ -124,10 +124,8 @@ public class MainMenu extends JMenuBar {
     }
     
     private void menuItemSiguienteMouseClicked(java.awt.event.MouseEvent evt) {
-    	if ((frame.getObservableReader() != null) && frame.getObservableReader().isInitialized()) {
-    		frame.setStoryJTree(new StorySoFarTree(frame));
-            frame.getStoryJTree().insertStory(frame.getObservableReader().generateNextSegment());
-	        frame.getStoryJTree().reload();
+    	if (frame.getObservableReader().isInitialized()) {
+    		frame.getObservableReader().generateNextSegment();
     	}
         else {
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
@@ -135,10 +133,8 @@ public class MainMenu extends JMenuBar {
     }
     
     private void menuItemCompletaMouseClicked(java.awt.event.MouseEvent evt) {
-        if ((frame.getObservableReader() != null) && frame.getObservableReader().isInitialized()) {
-        	frame.setStoryJTree(new StorySoFarTree(frame));
-        	frame.getStoryJTree().insertStory(frame.getObservableReader().generateStory());
-	        frame.getStoryJTree().reload();
+        if (frame.getObservableReader().isInitialized()) {
+        	frame.getObservableReader().generateStory();
         }
         else {
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
@@ -155,8 +151,7 @@ public class MainMenu extends JMenuBar {
             frame.getObservableReader().addObserver(frame);
             frame.getObservableReader().createMind(file.getPath());
             frame.setStoryJTree(new StorySoFarTree(frame));
-            frame.getStoryJTree().insertStory(frame.getObservableReader().getStorySoFar());
-            frame.getStoryJTree().reload();
+            frame.getStoryJTree().loadStory(frame.getObservableReader().getStorySoFar());
         }
     }
 
