@@ -1,4 +1,4 @@
-package ui;
+package ui.treeViewer;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,6 +8,8 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
+import ui.StoryJFrame;
 
 import mind.Mind;
 import mind.Relation;
