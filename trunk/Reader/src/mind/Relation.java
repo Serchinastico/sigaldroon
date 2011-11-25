@@ -16,37 +16,51 @@ public class Relation {
 	private float weight;
 	
 	/**
-	 * Origen de la acción
-	 * */
-	private String source;
+	 * Elementos de la relación: source, action, target, place, directObject.
+	 */
+	private String[] elements;
+	
+	/** 
+	 * Índice para el origen de la acción.
+	 */
+	public static final int SOURCE = 0;
 	
 	/**
-	 * Acción realizada
-	 * */
-	private String action;
+	 * Índice para la acción realizada.
+	 */
+	public static final int ACTION = 1;
 	
 	/**
-	 * Objetivo de la acción
-	 * */
-	private String target;
+	 * Índice para el objetivo de la acción.
+	 */
+	public static final int TARGET = 2;
 	
 	/**
-	 * Lugar donde sucede la acción.
-	 * */
-	private String place;
+	 * Índice para el lugar donde sucede la acción.
+	 */
+	public static final int PLACE = 3;
 	
 	/**
-	 * Complemento directo.
-	 * */
-	private String directObject;
+	 * Índice para el complemento directo.
+	 */
+	public static final int DIRECT_OBJECT = 4;
 	
+	/**
+	 * Número de elementos de la relación.
+	 */
+	private static int NUM_ELEMENTS = 5;
+	
+	/**
+	 * Constructora por defecto.
+	 */
 	public Relation() {
 		this.weight = -1.0f;
-		this.source = null;
-		this.action = null;
-		this.target = null;
-		this.place = null;
-		this.directObject = null;
+		this.elements = new String[NUM_ELEMENTS];
+		this.elements[SOURCE] = null;
+		this.elements[ACTION] = null;
+		this.elements[TARGET] = null;
+		this.elements[PLACE] = null;
+		this.elements[DIRECT_OBJECT] = null;
 	}
 	
 	/**
@@ -58,17 +72,18 @@ public class Relation {
 		String[] splittedLine = str.split(",");
 		
 		weight = Float.parseFloat(splittedLine[0].trim());
-		source = splittedLine[1].trim();
-		action = splittedLine[2].trim();
-		target = (splittedLine[3].trim().equals("")) ?
-				null :
-				splittedLine[3].trim();
-		place = (splittedLine[4].trim().equals("")) ?
-				null :
-				splittedLine[4].trim();
-		directObject = (splittedLine[5].trim().equals("")) ?
-				null :
-				splittedLine[5].trim();
+		this.elements = new String[NUM_ELEMENTS];
+		this.elements[SOURCE] = splittedLine[1].trim();
+		this.elements[ACTION] = splittedLine[2].trim();
+		this.elements[TARGET] = (splittedLine[3].trim().equals("")) ?
+								null :
+								splittedLine[3].trim();
+		this.elements[PLACE] = (splittedLine[4].trim().equals("")) ?
+								null :
+								splittedLine[4].trim();
+		this.elements[DIRECT_OBJECT] = (splittedLine[5].trim().equals("")) ?
+								null :
+								splittedLine[5].trim();
 	}
 	
 	/**
@@ -84,11 +99,12 @@ public class Relation {
 			String action, String target,
 			String place, String directObject) {
 		this.weight = weight;
-		this.source = source;
-		this.action = action;
-		this.target = target;
-		this.place = place;
-		this.directObject = directObject;
+		this.elements = new String[NUM_ELEMENTS];
+		this.elements[SOURCE] = source;
+		this.elements[ACTION] = action;
+		this.elements[TARGET] = target;
+		this.elements[PLACE] = place;
+		this.elements[DIRECT_OBJECT] = directObject;
 	}
 	
 	/**
@@ -99,15 +115,15 @@ public class Relation {
 	public boolean instanceOf(Relation pattern) {
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
-		boolean targetIsInstanceOf = (pattern.target == null) ||
-				(pattern.target != null && ob.isSubClassOf(target, pattern.target));
-		boolean placeIsInstanceOf = (pattern.place == null) ||
-				(pattern.place != null && ob.isSubClassOf(place, pattern.place));
-		boolean directObjectIsInstanceOf = (pattern.directObject == null) ||
-				(pattern.directObject != null && ob.isSubClassOf(directObject, pattern.directObject));
+		boolean targetIsInstanceOf = (pattern.getTarget() == null) ||
+				(pattern.getTarget() != null && ob.isSubClassOf(getTarget(), pattern.getTarget()));
+		boolean placeIsInstanceOf = (pattern.getPlace() == null) ||
+				(pattern.getPlace() != null && ob.isSubClassOf(getPlace(), pattern.getPlace()));
+		boolean directObjectIsInstanceOf = (pattern.getDirectObject() == null) ||
+				(pattern.getDirectObject() != null && ob.isSubClassOf(getDirectObject(), pattern.getDirectObject()));
 		
-		return (ob.isSubClassOf(source, pattern.source) && 
-				ob.isSubClassOf(action, pattern.action) &&
+		return (ob.isSubClassOf(getSource(), pattern.getSource()) && 
+				ob.isSubClassOf(getAction(), pattern.getAction()) &&
 				targetIsInstanceOf &&
 				placeIsInstanceOf &&
 				directObjectIsInstanceOf);
@@ -118,10 +134,10 @@ public class Relation {
 	 * @return Una copia del componente.
 	 * */
 	public Relation copy() {
-		Relation copy = new Relation(weight, source, action,
-				(target == null) ? null : target,
-				(place == null) ? null : place,
-				(directObject == null) ? null : directObject);
+		Relation copy = new Relation(weight, getSource(), getAction(),
+				(getTarget() == null) ? null : getTarget(),
+				(getPlace() == null) ? null : getPlace(),
+				(getDirectObject() == null) ? null : getDirectObject());
 		return copy;
 	}
 	
@@ -135,16 +151,16 @@ public class Relation {
 			return false;
 		Relation c = (Relation) o;
 		
-		boolean sourceEq = (source == null && c.source == null) || 
-				(source != null && source.equals(c.source));
-		boolean actionEq = (action == null && c.action == null) || 
-				(action != null && action.equals(c.action));
-		boolean targetEq = (target == null && c.target == null) || 
-				(target != null && target.equals(c.target));
-		boolean placeEq = (place == null && c.place == null) || 
-				(place != null && place.equals(c.place));
-		boolean directObjectEq = (directObject == null && c.directObject == null) || 
-				(directObject != null && directObject.equals(c.directObject));
+		boolean sourceEq = (getSource() == null && c.getSource() == null) || 
+				(getSource() != null && getSource().equals(c.getSource()));
+		boolean actionEq = (getAction() == null && c.getAction() == null) || 
+				(getAction() != null && getAction().equals(c.getAction()));
+		boolean targetEq = (getTarget() == null && c.getTarget() == null) || 
+				(getTarget() != null && getTarget().equals(c.getTarget()));
+		boolean placeEq = (getPlace() == null && c.getPlace() == null) || 
+				(getPlace() != null && getPlace().equals(c.getPlace()));
+		boolean directObjectEq = (getDirectObject() == null && c.getDirectObject() == null) || 
+				(getDirectObject() != null && getDirectObject().equals(c.getDirectObject()));
 		
 		return (c.weight == weight &&
 				sourceEq &&	actionEq &&	targetEq &&
@@ -156,11 +172,11 @@ public class Relation {
 	 */
 	@Override
 	public String toString() {
-		return "(" + weight + "), " + source +
-				"--{" + action +
-				((directObject == null) ? "" : " [" + directObject + "]") + 
-				((place == null) ? "" : " at " + place) + "}" + 
-				((target == null) ? "" : "-->" + target);
+		return "(" + weight + "), " + getSource() +
+				"--{" + getAction() +
+				((getDirectObject() == null) ? "" : " [" + getDirectObject() + "]") + 
+				((getPlace() == null) ? "" : " at " + getPlace()) + "}" + 
+				((getTarget() == null) ? "" : "-->" + getTarget());
 	}
 	
 	/**
@@ -168,7 +184,7 @@ public class Relation {
 	 * */
 	@Override
 	public int hashCode() {
-		return (weight + source + action + target + place + directObject).hashCode();
+		return (weight + getSource() + getAction() + getTarget() + getPlace() + getDirectObject()).hashCode();
 	}
 	
 	/**
@@ -189,81 +205,104 @@ public class Relation {
 	 * @return the source
 	 */
 	public String getSource() {
-		return source;
+		return elements[SOURCE];
 	}
 
 	/**
 	 * @param source the source to set
 	 */
 	public void setSource(String source) {
-		this.source = source;
+		this.elements[SOURCE] = source;
 	}
 
 	/**
 	 * @return the action
 	 */
 	public String getAction() {
-		return action;
+		return elements[ACTION];
 	}
 
 	/**
 	 * @param action the action to set
 	 */
 	public void setAction(String action) {
-		this.action = action;
+		this.elements[ACTION] = action;
 	}
 
 	/**
 	 * @return the target
 	 */
 	public String getTarget() {
-		return target;
+		return elements[TARGET];
 	}
 
 	/**
 	 * @param target the target to set
 	 */
 	public void setTarget(String target) {
-		this.target = target;
+		this.elements[TARGET] = target;
 	}
 	
 	/**
 	 * @return the place
 	 */
 	public String getPlace() {
-		return place;
+		return elements[PLACE];
 	}
 
 	/**
 	 * @param place the place to set
 	 */
 	public void setPlace(String place) {
-		this.place = place;
+		this.elements[PLACE] = place;
 	}
 	
 	/**
 	 * @return the direct object
 	 */
 	public String getDirectObject() {
-		return directObject;
+		return elements[DIRECT_OBJECT];
 	}
 
 	/**
 	 * @param directObject the direct object to set
 	 */
 	public void setDirectObject(String directObject) {
-		this.directObject = directObject;
+		this.elements[DIRECT_OBJECT] = directObject;
 	}
 	
+	/**
+	 * Devuelve el elemento de la relación pedido por argumento según el índice,
+	 * ver constantes de la clase Relation.
+	 * @param numElem Índice del elemento de la relación.
+	 * @return El elemento de la relación pedido: source, acción, target, place, direct object.
+	 */
+	public String getElement(int numElem) {
+		return this.elements[numElem];
+	}
+	
+	/**
+	 * Modifica uno de los elementos de la relación.
+	 * @param numElem El índice dado por constantes de la clase Relation.
+	 * @param elem El nuevo elemento.
+	 */
+	public void setElement(int numElem, String elem) {
+		this.elements[numElem] = elem;
+	}
+	
+	/**
+	 * Representación en String temporal para la interfaz.
+	 * @return El string para la interfaz que muestra esta relación.
+	 */
 	public String toStringRelation() {
 		String retVal = "Relación\n";
 		retVal += toString() + "\n";
 		retVal += "Peso: " + this.weight + "\n";
-		if (this.source != null) retVal += "Fuente: " + source.toString() + "\n";
-		if (this.action != null) retVal += "Acción: " + action.toString() + "\n";
-		if (this.target != null) retVal += "Destino: " + target.toString() + "\n";
-		if (this.directObject != null) retVal += "Objeto directo: " + directObject.toString() + "\n";
-		if (this.place != null) retVal += "Lugar: " + place.toString() + "\n";
+		if (getSource() != null) retVal += "Fuente: " + getSource() + "\n";
+		if (getAction() != null) retVal += "Acción: " + getAction() + "\n";
+		if (getTarget() != null) retVal += "Destino: " + getTarget() + "\n";
+		if (getDirectObject() != null) retVal += "Objeto directo: " + getDirectObject() + "\n";
+		if (getPlace() != null) retVal += "Lugar: " + getPlace() + "\n";
 		return retVal;
 	}
 	
