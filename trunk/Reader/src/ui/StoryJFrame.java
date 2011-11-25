@@ -78,7 +78,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      * Inicializa los objetos que la interfaz va a observar.
      */
     private void initObservables() {
-    	observableReader = null;
+    	observableReader = new Reader();
     }
     
     /**
@@ -200,7 +200,8 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		
 		if (arg0 == observableReader) {
-			//TODO: mostrar el lector.
+			storyJTree = new StorySoFarTree(this);
+            storyJTree.loadStory(observableReader.getStorySoFar());
 		}
 	}
 	

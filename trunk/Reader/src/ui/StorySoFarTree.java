@@ -92,10 +92,10 @@ public class StorySoFarTree extends JTree {
 	}
 
 	/**
-	 * Inserta una historia en el árbol.
+	 * Inserta una historia en el árbol y lo actualiza.
 	 * @param story Historia a insertar.
 	 */
-	public void insertStory(ArrayList<Mind> story) {
+	public void loadStory(ArrayList<Mind> story) {
 		for (int i = 0; i < story.size(); i++) {
 			StoryMutableTreeNode segment = new StoryMutableTreeNode("Segmento "+i,i);
 			model.insertNodeInto(segment, titleTree, i);
@@ -110,12 +110,7 @@ public class StorySoFarTree extends JTree {
 			}
 
 		}
-	}
-
-	/**
-	 * Recarga el árbol en la interfaz.
-	 */
-	public void reload() {
 		model.reload();
 	}
+
 }

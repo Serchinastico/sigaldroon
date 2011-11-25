@@ -69,6 +69,8 @@ public class Reader extends Observable implements IReader{
 		}
 		mind = new Mind(txt);
 		storySoFar.add(mind);
+		
+		notifyObservers();
 	}
 	
 	@Override
