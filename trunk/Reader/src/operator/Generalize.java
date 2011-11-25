@@ -13,13 +13,13 @@ import mind.ontobridge.OntoBridgeSingleton;
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  */
-public class Generalize implements IOperator {
+public class Generalize extends OperatorSingle {
 	
 	/**
 	 * Peso del operador.
 	 */
 	private float opWeight = 0.6f;
-
+	
 	/**
 	 * Genera todos los hijos posibles para una relación intentando generalizar
 	 * con subclases e instancias cada uno de sus elementos. 
@@ -27,7 +27,7 @@ public class Generalize implements IOperator {
 	 * @param r Relación a operar.
 	 * @param gM Listado actual de mentes generadas.
 	 */
-	private void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
+	protected void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
 		
 		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
 			
@@ -87,45 +87,6 @@ public class Generalize implements IOperator {
 				return OntoBridgeSingleton.getInstance().listSuperClasses(r.getDirectObject(), true);
 		}
 		return null;
-	}
-	
-	/**
-	 * Aplica el cambio, poniendo el nuevo nombre al objetivo.
-	 * @param r Relación a cambiar.
-	 * @param newName Nuevo nombre para el elemento a cambiar.
-	 * @param opTarget El elemento a cambiar en la relación.
-	 */
-	private void applyChange(Relation r, String newName, int opTarget) {
-		
-		switch(opTarget) {
-		case OPTarget.ACTION:
-			r.setAction(newName);
-			break;
-		case OPTarget.SOURCE:
-			r.setSource(newName);
-			break;
-		case OPTarget.TARGET:
-			r.setTarget(newName);
-			break;
-		case OPTarget.PLACE:
-			r.setPlace(newName);
-			break;
-		case OPTarget.OD:
-			r.setDirectObject(newName);
-			break;
-		}
-		
-	}
-
-
-	
-	@Override
-	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
-		
-		Iterator<Relation> itRel = m.getActualMind().iterator();
-		
-		while (itRel.hasNext())
-			apply(m, itRel.next(), generatedMinds);
 	}
 
 }

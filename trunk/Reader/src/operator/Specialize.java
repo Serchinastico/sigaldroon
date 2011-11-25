@@ -3,6 +3,8 @@ package operator;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+
 import mind.Relation;
 import mind.ChangedMind;
 import mind.ontobridge.OntoBridgeSingleton;
@@ -12,13 +14,13 @@ import mind.ontobridge.OntoBridgeSingleton;
  * 
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  */
-public class Specialize implements IOperator {
+public class Specialize extends OperatorSingle {
 
 	/**
 	 * Peso del operador.
 	 */
 	private float opWeight = 0.8f;
-		
+	
 	/**
 	 * Genera todos los hijos posibles para una relación intentando especializar
 	 * con subclases e instancias cada uno de sus elementos. 
@@ -26,7 +28,7 @@ public class Specialize implements IOperator {
 	 * @param r Relación a operar.
 	 * @param gM Listado actual de mentes generadas.
 	 */
-	private void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
+	protected void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM) {
 
 		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
 			
@@ -77,18 +79,18 @@ public class Specialize implements IOperator {
 	 * @return El iterador de las subclases del objetivo.
 	 */
 	private Iterator<String> getSubClasses(Relation r, int opTarget) {
-		
+		OntoBridge onto = OntoBridgeSingleton.getInstance();
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeSingleton.getInstance().listSubClasses(r.getAction(), true);
+			return onto.listSubClasses(r.getAction(), true);
 		case OPTarget.SOURCE:
-			return OntoBridgeSingleton.getInstance().listSubClasses(r.getSource(), true);
+			return onto.listSubClasses(r.getSource(), true);
 		case OPTarget.TARGET:
-			return OntoBridgeSingleton.getInstance().listSubClasses(r.getTarget(), true);
+			return onto.listSubClasses(r.getTarget(), true);
 		case OPTarget.PLACE:
-			return OntoBridgeSingleton.getInstance().listSubClasses(r.getPlace(), true);
+			return onto.listSubClasses(r.getPlace(), true);
 		case OPTarget.OD:
-			return OntoBridgeSingleton.getInstance().listSubClasses(r.getDirectObject(), true);
+			return onto.listSubClasses(r.getDirectObject(), true);
 		}
 		return null;
 	}
@@ -100,58 +102,20 @@ public class Specialize implements IOperator {
 	 * @return El iterador de las instancias del objetivo.
 	 */
 	private Iterator<String> getDeclaredInstances(Relation r, int opTarget) {
-		
+		OntoBridge onto = OntoBridgeSingleton.getInstance();
 		switch(opTarget) {
 		case OPTarget.ACTION:
-			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getAction());
+			return onto.listDeclaredInstances(r.getAction());
 		case OPTarget.SOURCE:
-			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getSource());
+			return onto.listDeclaredInstances(r.getSource());
 		case OPTarget.TARGET:
-			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getTarget());
+			return onto.listDeclaredInstances(r.getTarget());
 		case OPTarget.PLACE:
-			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getPlace());
+			return onto.listDeclaredInstances(r.getPlace());
 		case OPTarget.OD:
-			return OntoBridgeSingleton.getInstance().listDeclaredInstances(r.getDirectObject());
+			return onto.listDeclaredInstances(r.getDirectObject());
 		}
 		return null;
-	}
-	
-	/**
-	 * Aplica el cambio, poniendo el nuevo nombre al objetivo.
-	 * @param r Relación a cambiar.
-	 * @param newName Nuevo nombre para el elemento a cambiar.
-	 * @param opTarget El elemento a cambiar en la relación.
-	 */
-	private void applyChange(Relation r, String newName, int opTarget) {
-		
-		switch(opTarget) {
-		case OPTarget.ACTION:
-			r.setAction(newName);
-			break;
-		case OPTarget.SOURCE:
-			r.setSource(newName);
-			break;
-		case OPTarget.TARGET:
-			r.setTarget(newName);
-			break;
-		case OPTarget.PLACE:
-			r.setPlace(newName);
-			break;
-		case OPTarget.OD:
-			r.setDirectObject(newName);
-			break;
-		}
-		
-	}
-	
-	@Override
-	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
-		
-		Iterator<Relation> itRel = m.getActualMind().iterator();
-		
-		while (itRel.hasNext())
-			apply(m, itRel.next(), generatedMinds);
-
 	}
 
 }
