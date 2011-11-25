@@ -17,6 +17,8 @@ import java.util.Observer;
 import javax.swing.JScrollPane;
 
 import reader.Reader;
+import ui.menu.MainMenu;
+import ui.treeViewer.StorySoFarTree;
 
 /**
  * Frame para la aplicación que implementa el patrón Mediator entre todos los 
@@ -79,6 +81,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      */
     private void initObservables() {
     	observableReader = new Reader();
+    	observableReader.addObserver(this);
     }
     
     /**
