@@ -15,13 +15,18 @@ import mind.Relation;
  */
 public abstract class OperatorSingle implements IOperator {
 
+	/**
+	 * Peso del operador.
+	 */
+	protected float opWeight = 0.6f;
+	
 	@Override
 	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
 		
 		Iterator<Relation> itRel = m.getActualMind().iterator();
 		
 		while (itRel.hasNext())
-			apply(m, itRel.next(), generatedMinds);
+			generateByRelation(m, itRel.next(), generatedMinds);
 	}
 	
 	/**
@@ -30,33 +35,18 @@ public abstract class OperatorSingle implements IOperator {
 	 * @param r Relación a operar.
 	 * @param gM Listado actual de mentes generadas.
 	 */
-	protected abstract void apply(ChangedMind m, Relation r, ArrayList<ChangedMind> gM);
-	
+	protected abstract void generateByRelation(ChangedMind m, Relation r, ArrayList<ChangedMind> gM);
+
 	/**
-	 * Aplica el cambio, poniendo el nuevo nombre al objetivo.
-	 * @param r Relación a cambiar.
-	 * @param newName Nuevo nombre para el elemento a cambiar.
-	 * @param opTarget El elemento a cambiar en la relación.
+	 * Aplica el cambio realizado por el operador a la mente.
+	 * @param op Índice del operador usado según las constantes de IOperator.
+	 * @param m Mente a la que aplicar el cambio.
+	 * @param before Relación antes del cambio.
+	 * @param after Relación tras el cambio.
 	 */
-	protected void applyChange(Relation r, String newName, int opTarget) {
-		
-		switch(opTarget) {
-		case OPTarget.ACTION:
-			r.setAction(newName);
-			break;
-		case OPTarget.SOURCE:
-			r.setSource(newName);
-			break;
-		case OPTarget.TARGET:
-			r.setTarget(newName);
-			break;
-		case OPTarget.PLACE:
-			r.setPlace(newName);
-			break;
-		case OPTarget.OD:
-			r.setDirectObject(newName);
-			break;
-		}
-		
+	protected void applySingleChange(int op, ChangedMind m, Relation before, Relation after) {
+		m.getActualMind().remove(before); // Quitamos la antigua relación
+		m.getActualMind().add(after); // Ponemos la modificada
+		m.getChanges().add(new Change(before.copy(),after.copy(),op));
 	}
 }

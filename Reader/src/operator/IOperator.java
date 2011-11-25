@@ -12,7 +12,7 @@ import mind.ChangedMind;
  *
  */
 public interface IOperator {
-	
+		
 	/**
 	 * Genera todas las mentes posibles aplicando este operador a una mente
 	 * pasado por parámentro.
@@ -20,4 +20,5 @@ public interface IOperator {
 	 * @param changes Listado de mentes generadas. Se añaden al final de la lista si no es vacía.
 	 */
 	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds);
+	
 }
