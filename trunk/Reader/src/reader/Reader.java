@@ -102,6 +102,8 @@ public class Reader extends Observable implements IReader{
 			Segmenter segmenter = new Segmenter();
 			storySoFar.add(segmenter.generateSegment(changedMind));
 			mind = changedMind.getActualMind();
+			
+			notifyObservers();
 		}
 		
 		return storySoFar;
