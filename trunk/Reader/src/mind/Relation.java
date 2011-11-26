@@ -18,7 +18,7 @@ public class Relation {
 	/**
 	 * Elementos de la relación: source, action, target, place, directObject.
 	 */
-	private String[] elements;
+	protected String[] elements;
 	
 	/** 
 	 * Índice para el origen de la acción.
@@ -48,7 +48,7 @@ public class Relation {
 	/**
 	 * Número de elementos de la relación.
 	 */
-	private static int NUM_ELEMENTS = 5;
+	protected static int NUM_ELEMENTS = 5;
 	
 	/**
 	 * Constructora por defecto.

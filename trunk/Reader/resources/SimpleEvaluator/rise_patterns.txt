@@ -1,6 +1,6 @@
-0.5 - Heroes, Querer, ObjetoMagico, , / ! Heroes, Tener, ObjetoMagico, , 
-0.5 - Heroes, Querer, ObjetoMagico, , / ! Heroes, Tener, ObjetoMagico, , / PersonajeMitico, Tener, ObjetoMagico, , 
-1.0 - Heroes, Relacion, Humanos, , / PersonajeMitico, MalaAccion, Humanos, , 
-1.0 - Deidades, PonerAPrueba, Heroes, , 
-1.0 - Heroes, Relacion, Humanos, , / Humanos, Ser, Enfermo, , 
-1.0 - Nobles, Enojar, PersonajeMitico, , / PersonajeMitico, MalaAccion, Nobles, , 
+[0.5] - [(Heroe[H], Querer, Objeto[O]), !(Heroe[H], Tener, Objeto[O])]
+[0.5] - [(Heroe[H], Querer, Objeto[O]), !(Heroe[H], Tener, Objeto[O]), (PersonajeMitico, Tener, Objeto[O])]
+[1.0] - [(Heroe, Relacion, Humano[Hu]), (PersonajeMitico, MalaAccion, Humano[Hu])]
+[1.0] - [(Deidad, PonerAPrueba, Heroe)]
+[1.0] - [(Heroe, Relacion, Humano[Hu]), (Humano[Hu], Ser, Enfermo)]
+[1.0] - [(Noble[N], Enojar, PersonajeMitico[PM]), (PersonajeMitico[PM], MalaAccion, Noble[N])]

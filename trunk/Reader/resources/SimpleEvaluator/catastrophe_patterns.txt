@@ -1,2 +1,2 @@
-1.0 - Heroes, Ser, Muerto, , 
-1.0 - Heroes, Amar, Humanos, , / Humanos, Amar, Heroes, , 
+[1.0] - [(Heroe, Ser, Muerto)]
+[1.0] - [(Heroe[H], Amar, Humano[Hu]), (Humano[Hu], Amar, Heroe[H])]
