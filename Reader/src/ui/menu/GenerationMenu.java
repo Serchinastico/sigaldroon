@@ -44,6 +44,7 @@ public class GenerationMenu extends JMenu {
     	frame = f;
     	setText("Generación");
     	
+    	// Opción de obtener siguiente segmento
     	menuItemSiguiente = new JMenuItem();
         menuItemSiguiente.setText("Siguiente segmento");
         menuItemSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,6 +54,7 @@ public class GenerationMenu extends JMenu {
         });
         this.add(menuItemSiguiente);
 
+        // Opción de completar historia
         menuItemCompleta = new JMenuItem();
         menuItemCompleta.setText("Completa");
         menuItemCompleta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,12 +70,10 @@ public class GenerationMenu extends JMenu {
      * @param evt
      */
     private void menuItemSiguienteMouseClicked(java.awt.event.MouseEvent evt) {
-    	if (frame.getObservableReader().isInitialized()) {
+    	if (frame.getObservableReader().isInitialized())
     		frame.getObservableReader().generateNextSegment();
-    	}
-        else {
+        else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
-        }
     }
     
     /**
@@ -81,11 +81,9 @@ public class GenerationMenu extends JMenu {
      * @param evt
      */
     private void menuItemCompletaMouseClicked(java.awt.event.MouseEvent evt) {
-        if (frame.getObservableReader().isInitialized()) {
+        if (frame.getObservableReader().isInitialized())
         	frame.getObservableReader().generateStory();
-        }
-        else {
+        else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
-        }
     }
 }

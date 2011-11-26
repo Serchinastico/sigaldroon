@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * NewJFrame.java
- *
- * Created on 18-nov-2011, 21:02:25
- */
-
 package ui;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -48,16 +40,26 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	 * Panel izquierdo para contener el árbol.
 	 */
     private JScrollPane jScrollPaneLeft;
-    
-    /**
-     * Panel derecho para contener el resto de componentes de la interfaz.
-     */
-    private JScrollPane jScrollPaneRight;
 	
     /**
      * Barra de menú de la aplicación.
      */
     private MainMenu jMenuBar;
+    
+    /**
+     * Panel para la visualización de partes de la historia.
+     */
+    private Visualization visualizationPane;
+    
+    /**
+     * Panel para órdenes de control de la generación.
+     */
+    private ControlArea controlPane; 
+    
+    /**
+     * Panel para el área de texto natural.
+     */
+    private NaturalTextArea naturalTextPane;
     
     /** 
      * Crea un nuevo formulario.
@@ -74,6 +76,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     private void setConfiguration() {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     	this.setTitle("Generador de Historias - Mitos Griegos");
+    	this.setSize(1024, 700);
     }
     
     /**
@@ -97,47 +100,61 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         jScrollPaneLeft = new JScrollPane();
         storyJTree = new StorySoFarTree(this);
         
-        // Panel derecho para el resto de componentes
-        jScrollPaneRight = new JScrollPane();
-        textAreaVisualizacion = new javax.swing.JTextArea();
-        labelVisualizacion = new javax.swing.JLabel();
+        visualizationPane = new Visualization(this);
         
-        textAreaVisualizacion.setColumns(20);
-        textAreaVisualizacion.setRows(5);
-        textAreaVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18));
-        jScrollPaneRight.setViewportView(textAreaVisualizacion);
-
-        labelVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18));
-        labelVisualizacion.setText("Visualización de selección:");
-        labelVisualizacion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPaneLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneRight, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelVisualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPaneRight, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
-                    .addComponent(jScrollPaneLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        pack();
+        controlPane = new ControlArea(this);
+        
+        naturalTextPane = new NaturalTextArea(this);
+        
+        // Panel derecho para el resto de componentes        
+        this.getContentPane().setLayout(new GridBagLayout());
+        
+        GridBagConstraints constrains = new GridBagConstraints();
+        constrains.gridx = 0;
+        constrains.gridy = 0;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 3;
+        constrains.weightx = 0.50;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.getContentPane().add(jScrollPaneLeft,constrains);
+        constrains.weightx = 0.0;
+        
+        constrains.gridx = 1;
+        constrains.gridy = 0;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 1.0;
+        constrains.weighty = 1.0;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.getContentPane().add(visualizationPane,constrains);
+        
+        constrains.gridx = 1;
+        constrains.gridy = 1;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 1.0;
+        constrains.weighty = 0.2;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.getContentPane().add(naturalTextPane,constrains);
+        
+        constrains.gridx = 1;
+        constrains.gridy = 2;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 1.0;
+        constrains.weighty = 0.1;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.getContentPane().add(controlPane,constrains);
+        constrains.weightx = 0.0;
+        constrains.weighty = 0.0;
     }
     
     /**
@@ -180,34 +197,33 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 		return jScrollPaneLeft;
 	}
 
-	/**
-	 * Accesora del panel derecho de la interfaz.
-	 * @return Panel derecho de la interfaz.
-	 */
-	public JScrollPane getjScrollPaneRight() {
-		return jScrollPaneRight;
-	}
-	
-	/**
-	 * Accesora del área de visualización de selección.
-	 * @return El JTextArea de visualización de selección.
-	 */
-    public javax.swing.JTextArea getTextAreaVisualizacion() {
-		return textAreaVisualizacion;
-	}
-
-	private javax.swing.JLabel labelVisualizacion;
-    private javax.swing.JTextArea textAreaVisualizacion;
-
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		
 		if (arg0 == observableReader) {
 			storyJTree = new StorySoFarTree(this);
             storyJTree.loadStory(observableReader.getStorySoFar());
+            
+            //TODO: Añadir la actualización del progress bar.
 		}
 	}
 	
+	/**
+	 * Accesora del panel de visualización.
+	 * @return El panel de visualización.
+	 */
+	public Visualization getVisualizationPane() {
+		return visualizationPane;
+	}
+	
+	/**
+	 * Accesora del panel de texto natural.
+	 * @return El panel de texto natural.
+	 */
+	public NaturalTextArea getNaturalTextPane() {
+		return naturalTextPane;
+	}
+
 	/**
 	 * @param args the command line arguments
 	 */

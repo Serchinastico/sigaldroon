@@ -75,7 +75,7 @@ public class StorySoFarTree extends JTree {
 			// Es un segmento
 			StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
 			String segmentContent = frame.getObservableReader().getStorySoFar().get(segment.getSegmentPosition()).toStringSegment();
-			frame.getTextAreaVisualizacion().setText(segmentContent);
+			frame.getVisualizationPane().getTextAreaVisualizacion().setText(segmentContent);
 			break;
 		case 2:
 			// Es una relación
@@ -87,7 +87,7 @@ public class StorySoFarTree extends JTree {
 				j++;
 			}
 			String relationContent = itRelation.next().toStringRelation();
-			frame.getTextAreaVisualizacion().setText(relationContent);
+			frame.getVisualizationPane().getTextAreaVisualizacion().setText(relationContent);
 			break;
 		}
 
