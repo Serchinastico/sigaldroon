@@ -26,13 +26,7 @@ public class Visualization extends JPanel {
 	/**
 	 * Frame contenedor de este menú.
 	 */
-	@SuppressWarnings("unused")
 	private StoryJFrame frame;
-	
-	/**
-     * Panel derecho para contener el resto de componentes de la interfaz.
-     */
-    private JScrollPane jScrollPaneRight;
 	
     /**
      * Etiqueta para el título del panel.
@@ -42,7 +36,7 @@ public class Visualization extends JPanel {
 	/**
 	 * Área de texto para mostrar elementos.
 	 */
-    private JTextArea textAreaVisualizacion;
+    private GraphPane graphVisualizacion;
 	
 	/**
 	 * Constructora del área de visualización.
@@ -52,15 +46,9 @@ public class Visualization extends JPanel {
 		super();
 		frame = f;
 		
-		jScrollPaneRight = new JScrollPane();
-        textAreaVisualizacion = new javax.swing.JTextArea();
+		graphVisualizacion = new GraphPane(frame);
         labelVisualizacion = new javax.swing.JLabel();
-        
-        textAreaVisualizacion.setColumns(20);
-        textAreaVisualizacion.setRows(5);
-        textAreaVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18));
-        jScrollPaneRight.setViewportView(textAreaVisualizacion);
-        
+
         labelVisualizacion.setFont(new java.awt.Font("Garamond", 0, 18));
         labelVisualizacion.setText("Visualización de selección:");
         labelVisualizacion.setBorder(BorderFactory.createEtchedBorder());
@@ -87,15 +75,15 @@ public class Visualization extends JPanel {
         constrains.fill = GridBagConstraints.BOTH;
         constrains.insets = new Insets(5, 5, 5, 5);
         constrains.anchor = GridBagConstraints.CENTER;
-        this.add(jScrollPaneRight,constrains);
+        this.add(graphVisualizacion,constrains);
 	}
-
+	
 	/**
-	 * Accesora para el área de texto de visualización.
-	 * @return El área de texto de visualización.
+	 * Accesora para el área del grafo de visualización.
+	 * @return El área del grafo de visualización.
 	 */
-	public JTextArea getTextAreaVisualizacion() {
-		return textAreaVisualizacion;
+	public GraphPane getGraphVisualizacion() {
+		return graphVisualizacion;
 	}
 	
 }
