@@ -50,13 +50,13 @@ public class ControlArea extends JPanel {
 		super();
 		frame = f;
 		
-		buttonNext = new JButton("Next");
+		buttonNext = new JButton("Siguiente segmento");
 		buttonNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
             	buttonNextMouseClicked(evt);
             }
         });
-        buttonComplete = new JButton("Complete");
+        buttonComplete = new JButton("Generación completa");
         buttonComplete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
             	buttonCompleteMouseClicked(evt);

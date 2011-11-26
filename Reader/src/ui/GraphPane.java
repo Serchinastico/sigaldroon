@@ -27,12 +27,12 @@ public class GraphPane extends JScrollPane {
 	/**
 	 * Ancho por defecto para las celdas.
 	 */
-	private static final double WIDTH = 50;
+	private static final double WIDTH = 110;
 		
 	/**
 	 * Alto por defecto para las celdas.
 	 */
-	private static final double HEIGHT = 40;
+	private static final double HEIGHT = 50;
 	
 	/**
 	 * Valor inicial para colocar elementos en horizontal.
@@ -42,17 +42,17 @@ public class GraphPane extends JScrollPane {
 	/**
 	 * Valor inicial para colocar elementos en vertical.
 	 */
-	private static final double Y_INIT = 70;
+	private static final double Y_INIT = 90;
 	
 	/**
 	 * Incremento para colocar componentes en horizontal.
 	 */
-	private static final double X_INCR = 100;
+	private static final double X_INCR = 220;
 	
 	/**
 	 * Incremento para colocar componentes en vertical.
 	 */
-	private static final double Y_INCR = 50;
+	private static final double Y_INCR = 80;
 
 	/**
 	 * Frame contenedor de este menú.
@@ -121,32 +121,33 @@ public class GraphPane extends JScrollPane {
 	public void printRelation(Relation r) {
 		
 		graph.getModel().beginUpdate();
+		
 		try {
 		
 			// Source -> Action
-			Object source = graph.insertVertex(parents.get(0), null, r.getSource(), x , y, WIDTH, HEIGHT);
-			Object action = graph.insertVertex(parents.get(0), null, r.getAction(), x + X_INCR, y, WIDTH, HEIGHT);
-			graph.insertEdge(parents.get(0), null, " ", source, action);
+			Object source = graph.insertVertex(parents.get(0), null, r.getSource(), x , y, WIDTH, HEIGHT,"defaultVertex;fontSize=18;fontFamily=Garamond");
+			Object action = graph.insertVertex(parents.get(0), null, r.getAction() + "(" + r.getWeight() + ")", x + X_INCR, y, WIDTH, HEIGHT,"defaultVertex;shape=rhombus;fontSize=18;fontFamily=Garamond");
+			graph.insertEdge(parents.get(0), null, " fuente ", source, action,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			
 			// Action -> Target
 			if (r.getTarget() != null) {
-				Object target = graph.insertVertex(parents.get(0), null, r.getTarget(), x + 2 * X_INCR, y, WIDTH, HEIGHT);
-				graph.insertEdge(parents.get(0), null, " ", action, target);
+				Object target = graph.insertVertex(parents.get(0), null, r.getTarget(), x + 2 * X_INCR, y, WIDTH, HEIGHT,"defaultVertex;fontSize=18;fontFamily=Garamond");
+				graph.insertEdge(parents.get(0), null, " destinatario ", action, target,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			}
 			
 			// Action -> Object Direct
 			if (r.getDirectObject() != null) {
-				Object directObject = graph.insertVertex(parents.get(0), null, r.getDirectObject(), x + X_INCR, y - Y_INCR, WIDTH, HEIGHT);
-				graph.insertEdge(parents.get(0), null, " ", action, directObject);
+				Object directObject = graph.insertVertex(parents.get(0), null, r.getDirectObject(), x + X_INCR, y - Y_INCR, WIDTH, HEIGHT, "defaultVertex;shape=ellipse;fontSize=18;fontFamily=Garamond");
+				graph.insertEdge(parents.get(0), null, " objeto directo ", action, directObject,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			}
 			
 			// Action -> Place
 			if (r.getPlace() != null) {
-				Object place = graph.insertVertex(parents.get(0), null, r.getPlace(), x + X_INCR, y + Y_INCR, WIDTH, HEIGHT);
-				graph.insertEdge(parents.get(0), null, " ", action, place);
+				Object place = graph.insertVertex(parents.get(0), null, r.getPlace(), x + X_INCR, y + Y_INCR, WIDTH, HEIGHT, "defaultVertex;shape=ellipse;fontSize=18;fontFamily=Garamond");
+				graph.insertEdge(parents.get(0), null, " lugar ", action, place,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			}
 			
-			y  += Y_INCR * 4;
+			y  += Y_INCR * 3;
 			
 		} finally {
 			graph.getModel().endUpdate();

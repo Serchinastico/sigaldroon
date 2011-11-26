@@ -76,7 +76,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     private void setConfiguration() {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     	this.setTitle("Generador de Historias - Mitos Griegos");
-    	this.setSize(1024, 700);
+    	this.setSize(900, 700);
     }
     
     /**
