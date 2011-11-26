@@ -73,7 +73,7 @@ public class MindEvolver implements IMindEvolver {
 			ArrayList<ChangedMind> mindSons = operateMind(operatedMind);
 			
 			// Elimina los hijos que ya han sido generados antes
-			filterMinds(mindSons);
+			mindSons = filterMinds(mindSons);
 			
 			// Evalúa los hijos generados
 			evalMinds(mindSons);
@@ -110,16 +110,16 @@ public class MindEvolver implements IMindEvolver {
 	 * Filtra los mundos generados para tratar de no repetir ninguno.
 	 * @param mindSons Lista de hijos para filtrar.
 	 * */
-	// TODO: Sería más eficiente si se filtraran en los operadores (?)
-	private void filterMinds(ArrayList<ChangedMind> mindSons) {
-		ChangedMind[] mindSonsCopy = (ChangedMind[]) mindSons.toArray();
+	private ArrayList<ChangedMind> filterMinds(ArrayList<ChangedMind> mindSons) {
+		ArrayList<ChangedMind> filteredMinds = new ArrayList<ChangedMind>();
 		
-		for (int iMind = 0; iMind < mindSonsCopy.length; iMind++) {
-			ChangedMind mind = mindSonsCopy[iMind];
-			if (generatedMinds.contains(mind.getActualMind().hashCode())) {
-				mindSons.remove(iMind);
+		for (ChangedMind mind : mindSons) {
+			if (!generatedMinds.contains(mind.getActualMind().hashCode())) {
+				filteredMinds.add(mind);
 			}
-		}		
+		}
+		
+		return filteredMinds;
 	}
 	
 	/**
