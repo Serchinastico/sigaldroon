@@ -5,14 +5,22 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
 
-import mind.Relation;
-import mind.Mind;
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+
+import operator.OPTarget;
 
 import reader.Reader;
 
+import mind.Mind;
+import mind.Relation;
+import mind.ontobridge.OntoBridgeSingleton;
 
 /**
  * Implementación estática del evaluador para las historias generadas.
@@ -22,99 +30,137 @@ import reader.Reader;
  */
 public class SimpleEvaluator implements IEvaluator, Observer {
 
-	private static final int INTRODUCTION = 0;
-	private static final int RISE = 1;
-	private static final int CLIMAX = 2;
-	private static final int CATASTROPHE = 3;
-	private static final String[] PATTERNS_PATH = {
-		"resources/SimpleEvaluator/introduction_patterns.txt",
-		"resources/SimpleEvaluator/rise_patterns.txt",
-		"resources/SimpleEvaluator/climax_patterns.txt",
-		"resources/SimpleEvaluator/catastrophe_patterns.txt"};
+	/**
+	 * Lista de cortes de la historia según el triángulo de Freytag
+	 * en valores porcentuales.
+	 * */
+	private static final float[] STORY_BREAKS = {0.2f, 0.6f, 0.9f};
 	
 	/**
 	 * Estado actual de la historia.
 	 * */
-	private int state;
+	private State state;
 	
 	/**
-	 * Patrones de expectativas y preguntas usadas en el estado
-	 * actual de la historia.
+	 * Lista de patrones de preguntas para el estado actual.
 	 * */
-	private ArrayList<Pattern> patterns;
+	private ArrayList<QuestionPattern> qPatterns;
 	
-	/**
-	 * Constructora por defecto.
-	 * */
-	public SimpleEvaluator() {
-		state = INTRODUCTION;
-		loadPatterns(PATTERNS_PATH[state]);
+	//TODO Todas las variables diferentes
+	@Override
+	public float eval(Mind m) {
+		float value = 0.0f;
+		
+		for (QuestionPattern qPattern : qPatterns) {
+			Collection<String> actions = qPattern.getActions();
+			HashMap<String, Iterable<Relation>> relations = m.getRelations(actions);
+			HashMap<String, String> variables = new HashMap<String, String>();
+			
+			if (checkQuestionPattern(qPattern.getExpectationPatterns(), relations, variables)) {
+				value += qPattern.getWeight();
+			}
+		}
+		
+		return value;		
 	}
 	
 	/**
-	 * Carga en memoria los patrones contenidos en un fichero.
-	 * @param path Ruta al fichero que contiene los patrones.
+	 * Comprueba que existe una combinación de relaciones y ligaduras de variables
+	 * que satisfagan una lista de patrones de expectativas. Al tratarse de una búsqueda
+	 * con backtracking el método es recursivo.
+	 * @param ePatterns Lista de patrones de expectativas.
+	 * @param relations Relaciones del mundo (filtradas por eficiencia).
+	 * @param variables Tabla de ligaduras de variables hasta el momento.
+	 * @return boolean True si se satisface el patrón.
 	 * */
-	private void loadPatterns(String path) {
-		patterns = new ArrayList<Pattern>();
+	@SuppressWarnings("unchecked")
+	private boolean checkQuestionPattern(HashSet<ExpectationPattern> ePatterns,
+			HashMap<String, Iterable<Relation>> relations,
+			HashMap<String, String> variables) {
+		
+		// Caso base:
+		if (ePatterns.isEmpty())
+			return true;
+	
+		// Caso recursivo:
+		HashSet<ExpectationPattern> ePatternsCopy = (HashSet<ExpectationPattern>) ePatterns.clone();
+		ExpectationPattern ePattern = ePatternsCopy.iterator().next();
+		ePatternsCopy.remove(ePattern);
+	
+		for (Relation matchedRelation : relations.get(ePattern.getAction())) {
+			if (matchedRelation.instanceOf(ePattern)) {
+				HashMap<String, String> variablesCopy = (HashMap<String, String>) variables.clone();
+				if (linkVariables(variablesCopy, ePattern, matchedRelation)) {
+					if (checkQuestionPattern(ePatternsCopy, relations, variablesCopy)) {
+						return true;
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
+
+	/** Trata de ligar las variables libres y comprueba que las ligadas cumplan
+	 * con la relación de instancia/subclase/superclase actualizando la tabla convenientemente
+	 * @param variables Tabla de variables ligadas.
+	 * @param ePattern Patrón de expectativas.
+	 * @param relation Relación con la que se realiza el matching. 
+	 * @return boolean True si no hay incompatibilidades con las variables.
+	 * */
+	private boolean linkVariables(HashMap<String, String> variables,
+			ExpectationPattern ePattern, Relation relation) {
+		boolean success = true;
+		
+		OntoBridge ob = OntoBridgeSingleton.getInstance();
+		
+		for (int iAtt = 0; success && iAtt < OPTarget.NUM_TARGETS; iAtt++) {
+			String rElement = relation.getElement(iAtt);
+			String eVariable = ePattern.getVariable(iAtt);
+			
+			if (eVariable == null) continue;
+			
+			if (!variables.containsKey(eVariable)) {
+				variables.put(eVariable, rElement);
+			}
+			// Si el nuevo elemento es subclase, se especializa la ligadura
+			else if (ob.isSubClassOf(rElement, variables.get(eVariable))) {
+				variables.put(eVariable, rElement);
+			}
+			// Si el nuevo elemento es superclase se continúa sin hacer cambios
+			else if (ob.isSubClassOf(variables.get(eVariable), rElement)) {
+				continue;
+			}
+			// Si no mantienen relación es que la relación no encaja con la ligadura de variables actual
+			else {
+				success = false;
+				break;
+			}
+		}
+		
+		return success;
+	}
+
+	/**
+	 * Carga en memoria los patrones contenidos en un fichero.
+	 * */
+	private void loadPatterns() {	
+		qPatterns = new ArrayList<QuestionPattern>();
 		
 		try {
-			FileInputStream fstream = new FileInputStream(path);
+			FileInputStream fstream = new FileInputStream(state.getPath());
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String line;
 			
 			while ((line = br.readLine()) != null) {
-				patterns.add(new Pattern(line));
+				qPatterns.add(new QuestionPattern(line));
 			}
 		} catch (Exception e) {
-			System.err.println("Error leyendo los patrones del fichero " + path + ": " + e.getMessage());
+			System.err.println("Error leyendo los patrones del fichero " + state.getPath() + ": " + e.getMessage());
 		}
 	}
 	
-	@Override
-	public float eval(Mind w) {
-		float value = 0.0f;
-		
-		/* TODO: El encaje de patrones está un poco 'tricky' y es ineficiente.
-		 * > Organizar las relaciones de la mente de otra forma para que al buscar exp
-		 * 	sea más eficiente que un recorrido completo.
-		 * > Usar bucles clásicos para clarificar (?).
-		 */
-		for (Pattern p : patterns) {
-			boolean fitPattern = true;
-			
-			// Se comprueba si encajan todas las 'expectativas'/'expresiones' del patrón
-			for (int iExp = 0; iExp < p.getExprs().size(); iExp++) {
-				Relation exp = p.getExprs().get(iExp);
-				
-				boolean fitExp = false;
-				
-				for (Relation mindComp : w) {
-					if (mindComp.instanceOf(exp)) {
-						// Si se ha encontrado y no se busca la expresión negada se sale con éxito
-						if (!p.getNegExprs().get(iExp)) {
-							fitExp = true;
-						}
-						break;
-					}
-				}
-				
-				if (!fitExp) {
-					fitPattern = false;
-					break;
-				}
-			}
-			
-			// Si encaja el patrón en la mente se suma su valor
-			if (fitPattern) {
-				value += p.getValue();
-			}
-		}
-		
-		return value;
-	}
-
 	@Override
 	public void update(Observable o, Object arg) {
 		if (!(o instanceof Reader))
@@ -123,21 +169,42 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 		Reader r = (Reader) o;
 		int maxSegments = r.getMaxSegments();
 		
-		int prevState = state;
+		State prevState = state;
 		// Actualiza el estado de la historia por el tanto por ciento que se haya contado
-		if (maxSegments >= 0 && maxSegments < maxSegments * 0.2)
-			state = INTRODUCTION;
-		else if (maxSegments >= maxSegments * 0.2 && maxSegments < maxSegments * 0.6)
-			state = RISE;
-		else if (maxSegments >= maxSegments * 0.6 && maxSegments < maxSegments * 0.9)
-			state = CLIMAX;
+		if (maxSegments >= 0 && maxSegments < maxSegments * STORY_BREAKS[0])
+			state = State.INTRODUCTION;
+		else if (maxSegments >= maxSegments * 0.2 && maxSegments < maxSegments * STORY_BREAKS[1])
+			state = State.RISE;
+		else if (maxSegments >= maxSegments * 0.6 && maxSegments < maxSegments * STORY_BREAKS[2])
+			state = State.CLIMAX;
 		else if (maxSegments >= maxSegments * 0.9 && maxSegments < maxSegments * 1.0)
-			state = CATASTROPHE;
+			state = State.CATASTROPHE;
 		
 		// Se actualiza la lista de patrones si hemos cambiado de estado
 		if (prevState != state) {
-			loadPatterns(PATTERNS_PATH[state]);
+			loadPatterns();
 		}
 	}
 
+	
+	/**
+	 * Enum con los posibles estados del evaluador que corresponden con los puntos
+	 * del triángulo de Freytag.
+	 * */	
+	private enum State {
+		INTRODUCTION ("resources/SimpleEvaluator/introduction_patterns.txt"), 
+		RISE ("resources/SimpleEvaluator/rise_patterns.txt"),
+		CLIMAX ("resources/SimpleEvaluator/climax_patterns.txt"),
+		CATASTROPHE ("resources/SimpleEvaluator/catastrophe_patterns.txt");
+		
+		private String path;
+		
+		State(String path) {
+			this.path = path;
+		}
+		
+		public String getPath() {
+			return path;
+		}
+	}
 }

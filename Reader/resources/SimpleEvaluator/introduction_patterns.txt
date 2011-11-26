@@ -1,5 +1,5 @@
-1.0 - Heroes, Nacer, , , 
-1.0 - Actores, Ser, Caracteristica, , 
-1.0 - Actores, Relacion, Actores, , 
-1.0 - Deidades, Odiar, Actores, , 
-1.0 - Deidades, Tener, ObjetoMagico, , 
+[1.0] - [(Heroe, Nacer)]
+[1.0] - [(Actor, Ser, Atributo)]
+[1.0] - [(Actor, Relacion, Actor)]
+[1.0] - [(Deidad, Odiar, Actor)]
+[1.0] - [(Deidad, Tener, Objeto)]

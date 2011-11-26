@@ -12,22 +12,22 @@
       <owl:Class rdf:ID="Accion"/>
     </rdfs:subClassOf>
     <owl:disjointWith>
-      <owl:Class rdf:ID="BuenaAccion"/>
+      <owl:Class rdf:ID="Relacion"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Relacion"/>
+      <owl:Class rdf:ID="BuenaAccion"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Heroe">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Actor"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="PersonajeMitico"/>
-    </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="Humano"/>
     </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PersonajeMitico"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Actor"/>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="BastionDios">
     <rdfs:subClassOf>
@@ -35,13 +35,13 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#BuenaAccion">
-    <owl:disjointWith rdf:resource="#MalaAccion"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Relacion"/>
-    </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Accion"/>
     </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Relacion"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#MalaAccion"/>
   </owl:Class>
   <owl:Class rdf:ID="NinfaBosque">
     <rdfs:subClassOf>
@@ -60,26 +60,26 @@
   </owl:Class>
   <owl:Class rdf:about="#LibreNormal">
     <owl:disjointWith>
-      <owl:Class rdf:ID="Noble"/>
+      <owl:Class rdf:ID="Esclavo"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="Militar"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Esclavo"/>
+      <owl:Class rdf:ID="Noble"/>
     </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Humano"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Humano">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#PersonajeMitico"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Heroe"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Actor"/>
     </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Heroe"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonajeMitico"/>
+    </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Ciclope">
     <rdfs:subClassOf>
@@ -103,16 +103,16 @@
   </owl:Class>
   <owl:Class rdf:ID="Lugar">
     <owl:disjointWith>
-      <owl:Class rdf:about="#Accion"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Atributo"/>
+      <owl:Class rdf:about="#Actor"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:ID="Objeto"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Actor"/>
+      <owl:Class rdf:ID="Atributo"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Accion"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#Gigante">
@@ -120,10 +120,10 @@
       <owl:Class rdf:about="#PersonajeMitico"/>
     </rdfs:subClassOf>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Hibrido"/>
+      <owl:Class rdf:about="#Deidad"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Deidad"/>
+      <owl:Class rdf:ID="Hibrido"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:about="#Mitico">
@@ -143,8 +143,8 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#PersonajeMitico">
-    <owl:disjointWith rdf:resource="#Humano"/>
     <owl:disjointWith rdf:resource="#Heroe"/>
+    <owl:disjointWith rdf:resource="#Humano"/>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Actor"/>
     </rdfs:subClassOf>
@@ -155,26 +155,26 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Actor">
+    <owl:disjointWith rdf:resource="#Lugar"/>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Accion"/>
+      <owl:Class rdf:about="#Objeto"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:about="#Atributo"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Objeto"/>
+      <owl:Class rdf:about="#Accion"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Lugar"/>
   </owl:Class>
   <owl:Class rdf:about="#Esclavo">
     <rdfs:subClassOf rdf:resource="#Humano"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Noble"/>
-    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#LibreNormal"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Militar"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Noble"/>
+    </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Centauro">
     <rdfs:subClassOf>
@@ -183,12 +183,12 @@
   </owl:Class>
   <owl:Class rdf:about="#Objeto">
     <owl:disjointWith>
-      <owl:Class rdf:about="#Atributo"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
-    <owl:disjointWith>
       <owl:Class rdf:about="#Accion"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Lugar"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Atributo"/>
     </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Ciudad">
@@ -227,27 +227,27 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Noble">
+    <owl:disjointWith rdf:resource="#Esclavo"/>
+    <owl:disjointWith rdf:resource="#LibreNormal"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Militar"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
-    <owl:disjointWith rdf:resource="#Esclavo"/>
     <rdfs:subClassOf rdf:resource="#Humano"/>
   </owl:Class>
   <owl:Class rdf:ID="Hecatonquiro">
     <rdfs:subClassOf rdf:resource="#Gigante"/>
   </owl:Class>
   <owl:Class rdf:about="#Accion">
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Lugar"/>
+    <owl:disjointWith rdf:resource="#Objeto"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Atributo"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Objeto"/>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
   </owl:Class>
   <owl:Class rdf:about="#Relacion">
-    <owl:disjointWith rdf:resource="#MalaAccion"/>
     <owl:disjointWith rdf:resource="#BuenaAccion"/>
+    <owl:disjointWith rdf:resource="#MalaAccion"/>
     <rdfs:subClassOf rdf:resource="#Accion"/>
   </owl:Class>
   <owl:Class rdf:ID="Furia">
@@ -261,9 +261,9 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Militar">
-    <owl:disjointWith rdf:resource="#Noble"/>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
     <owl:disjointWith rdf:resource="#Esclavo"/>
+    <owl:disjointWith rdf:resource="#LibreNormal"/>
+    <owl:disjointWith rdf:resource="#Noble"/>
     <rdfs:subClassOf rdf:resource="#Humano"/>
   </owl:Class>
   <owl:Class rdf:ID="Rio">
@@ -272,19 +272,19 @@
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#Real">
-    <owl:disjointWith rdf:resource="#Mitico"/>
     <rdfs:subClassOf rdf:resource="#Lugar"/>
+    <owl:disjointWith rdf:resource="#Mitico"/>
   </owl:Class>
   <owl:Class rdf:about="#Hibrido">
-    <rdfs:subClassOf rdf:resource="#PersonajeMitico"/>
-    <owl:disjointWith rdf:resource="#Gigante"/>
     <owl:disjointWith>
       <owl:Class rdf:about="#Deidad"/>
     </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Gigante"/>
+    <rdfs:subClassOf rdf:resource="#PersonajeMitico"/>
   </owl:Class>
   <owl:Class rdf:about="#Deidad">
-    <owl:disjointWith rdf:resource="#Hibrido"/>
     <owl:disjointWith rdf:resource="#Gigante"/>
+    <owl:disjointWith rdf:resource="#Hibrido"/>
     <rdfs:subClassOf rdf:resource="#PersonajeMitico"/>
   </owl:Class>
   <owl:Class rdf:ID="Olimpico">
@@ -300,524 +300,532 @@
     <rdfs:subClassOf rdf:resource="#Deidad"/>
   </owl:Class>
   <owl:Class rdf:about="#Atributo">
-    <owl:disjointWith rdf:resource="#Accion"/>
-    <owl:disjointWith rdf:resource="#Objeto"/>
-    <owl:disjointWith rdf:resource="#Lugar"/>
     <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Lugar"/>
+    <owl:disjointWith rdf:resource="#Objeto"/>
+    <owl:disjointWith rdf:resource="#Accion"/>
   </owl:Class>
-  <Olimpico rdf:ID="Hestia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Encelado">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Ciudad rdf:ID="Eretria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Olimpico rdf:ID="Hera">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
+  <owl:NamedIndividual rdf:ID="Hestia">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Encelado">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Eretria">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <Atributo rdf:ID="Enfermo"/>
+  <owl:NamedIndividual rdf:ID="Hera">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Enojar"/>
-  <Hecatonquiro rdf:ID="Giges">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
+  <Atributo rdf:ID="Muerto"/>
+  <owl:NamedIndividual rdf:ID="Giges">
+    <rdf:type rdf:resource="#Hecatonquiro"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Pegar"/>
-  <Filosofo rdf:ID="Aristoreles">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Filosofo>
-  <Isla rdf:ID="Rodas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
+  <owl:NamedIndividual rdf:ID="Aristoreles">
+    <rdf:type rdf:resource="#Filosofo"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Rodas">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Matar"/>
-  <Musa rdf:ID="Mnemea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <PseudoTitan rdf:ID="Titan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Isla rdf:ID="Panfilia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <Musa rdf:ID="Euterpe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <PseudoTitan rdf:ID="Leto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Giga rdf:ID="Ctonio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Ciclope rdf:ID="Elatreo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Hecatonquiro rdf:ID="Briareos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Musa rdf:ID="Melpomene">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Olimpico rdf:ID="Hares">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Ciudad rdf:ID="Tirinto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <NinfaMontaña rdf:ID="Dafnis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Clitio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Heroe rdf:ID="Hercules">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Heroe>
-  <Ciclope rdf:ID="Arges">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <PseudoTitan rdf:ID="Eosforo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Olimpico rdf:ID="Hermes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Titanide rdf:ID="Japeto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Rey rdf:ID="Filipo_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Noble rdf:ID="Alcibiades">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <NinfaMontaña rdf:ID="Citeronides">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Noble rdf:ID="Clistenes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciclope rdf:ID="Esteropes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Olimpico rdf:ID="Deméter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Alecto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <Musa rdf:ID="Polimnia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Centauro rdf:ID="Neso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
+  <owl:NamedIndividual rdf:ID="Mnemea">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Titan">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Panfilia">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Euterpe">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Leto">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Ctonio">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Elatreo">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Briareos">
+    <rdf:type rdf:resource="#Hecatonquiro"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Melpomene">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hares">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tirinto">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Dafnis">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Clitio">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hercules">
+    <rdf:type rdf:resource="#Heroe"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Arges">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Eosforo">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hermes">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Japeto">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Filipo_III">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Alcibiades">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Citeronides">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Clistenes">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Esteropes">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Deméter">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Alecto">
+    <rdf:type rdf:resource="#Furia"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Polimnia">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Neso">
+    <rdf:type rdf:resource="#Centauro"/>
+  </owl:NamedIndividual>
   <Accion rdf:ID="Nacer"/>
-  <Noble rdf:ID="Tucidides">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Aedea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Titanide rdf:ID="Tetis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <NinfaAcuatica rdf:ID="Limnade">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <PseudoTitan rdf:ID="Selene">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Montaña rdf:ID="Monte_Ida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <Noble rdf:ID="Lanasa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <PseudoTitan rdf:ID="Perses">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Hecatonquiro rdf:ID="Coto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Noble rdf:ID="Calias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciudad rdf:ID="Argos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Noble rdf:ID="Agarista">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciclope rdf:ID="Polifemo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Rey rdf:ID="Filipo_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Polibotes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Rey rdf:ID="Seutes_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Ciudad rdf:ID="Micenas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Ciudad rdf:ID="Esparta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Giga rdf:ID="Palas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <NinfaMontaña rdf:ID="Cynosura">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Mimas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Porfirion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
+  <owl:NamedIndividual rdf:ID="Tucidides">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Aedea">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tetis">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Limnade">
+    <rdf:type rdf:resource="#NinfaAcuatica"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Selene">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Monte_Ida">
+    <rdf:type rdf:resource="#Montaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Lanasa">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Atributo rdf:about="#Enfermo"/>
+      <Atributo rdf:about="#Muerto"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <owl:NamedIndividual rdf:ID="Perses">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Coto">
+    <rdf:type rdf:resource="#Hecatonquiro"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Calias">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Argos">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Agarista">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Polifemo">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Filipo_I">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Polibotes">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Seutes_I">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Micenas">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Esparta">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Palas">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Cynosura">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Mimas">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Porfirion">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
   <BuenaAccion rdf:ID="Salvar"/>
-  <Centauro rdf:ID="Quirin">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <Giga rdf:ID="Agrio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Rey rdf:ID="Calias_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Rey rdf:ID="Ptolomeo_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Eos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Isla rdf:ID="Mileto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <NinfaAcuatica rdf:ID="Limnatide">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <Noble rdf:ID="Gelon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Titanide rdf:ID="Ceo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Ciclope rdf:ID="Brontes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <BastionDios rdf:ID="Inframundo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <PseudoTitan rdf:ID="Atlas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
+  <owl:NamedIndividual rdf:ID="Quirin">
+    <rdf:type rdf:resource="#Centauro"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Agrio">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Calias_III">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Ptolomeo_I">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Eos">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Mileto">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Limnatide">
+    <rdf:type rdf:resource="#NinfaAcuatica"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Gelon">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Ceo">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Brontes">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Inframundo">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Atlas">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
   <BuenaAccion rdf:ID="Amar"/>
-  <Giga rdf:ID="Peloro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <BastionDios rdf:ID="Campos_Eliseos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <NinfaAcuatica rdf:ID="Creneas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <NinfaMontaña rdf:ID="Liceas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
+  <owl:NamedIndividual rdf:ID="Peloro">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Campos_Eliseos">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Creneas">
+    <rdf:type rdf:resource="#NinfaAcuatica"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Liceas">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Herir"/>
-  <BastionDios rdf:ID="Parnaso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Musa rdf:ID="Caliope">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
+  <owl:NamedIndividual rdf:ID="Parnaso">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Caliope">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Castigar"/>
   <MalaAccion rdf:ID="Atacar"/>
-  <Rio rdf:ID="Ladon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Rey rdf:ID="Alejandro_IV">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Tifon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Musa rdf:ID="Clio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
+  <owl:NamedIndividual rdf:ID="Ladon">
+    <rdf:type rdf:resource="#Rio"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Alejandro_IV">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tifon">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Clio">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
   <BuenaAccion rdf:ID="Proteger"/>
-  <BastionCriatura rdf:ID="Flege_Tonte">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Filosofo rdf:ID="Platon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Filosofo>
+  <owl:NamedIndividual rdf:ID="Flege_Tonte">
+    <rdf:type rdf:resource="#BastionCriatura"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Platon">
+    <rdf:type rdf:resource="#Filosofo"/>
+  </owl:NamedIndividual>
   <Accion rdf:ID="Querer"/>
-  <Titanide rdf:ID="Cronos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Titanide rdf:ID="Mnemosine">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Titanide rdf:ID="Hiperion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Ciclope rdf:ID="Halimedes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
+  <owl:NamedIndividual rdf:ID="Cronos">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Mnemosine">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hiperion">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Halimedes">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
   <Relacion rdf:ID="Madre"/>
-  <Noble rdf:ID="Olimpia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Terspsicore">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Montaña rdf:ID="Monte_Osa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
+  <owl:NamedIndividual rdf:ID="Olimpia">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Terspsicore">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Monte_Osa">
+    <rdf:type rdf:resource="#Montaña"/>
+  </owl:NamedIndividual>
   <Accion rdf:ID="PonerAPrueba"/>
-  <Ancestral rdf:ID="Gaia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ancestral>
-  <PseudoTitan rdf:ID="Astrea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Noble rdf:ID="Meleagro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
+  <owl:NamedIndividual rdf:ID="Gaia">
+    <rdf:type rdf:resource="#Ancestral"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Astrea">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Meleagro">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Odiar"/>
-  <Noble rdf:ID="Magas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <PseudoTitan rdf:ID="Epimeteo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Centauro rdf:ID="Hilonoma">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
+  <owl:NamedIndividual rdf:ID="Magas">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Epimeteo">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hilonoma">
+    <rdf:type rdf:resource="#Centauro"/>
+  </owl:NamedIndividual>
   <MalaAccion rdf:ID="Provocar"/>
-  <Giga rdf:ID="Toante">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
+  <owl:NamedIndividual rdf:ID="Toante">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
   <Accion rdf:ID="Tener"/>
-  <Noble rdf:ID="Hipocrates">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Talia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <BastionDios rdf:ID="Olimpo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Rey rdf:ID="Filipo_II">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Prometeo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Noble rdf:ID="Roxana">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Urania">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Noble rdf:ID="Timarco">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <NinfaAcuatica rdf:ID="Pegeas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <BastionDios rdf:ID="Prados_Asfodeos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Rio rdf:ID="Cefiso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Rey rdf:ID="Hiponico_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Musa rdf:ID="Erate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Ciclope rdf:ID="Eurialo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Titanide rdf:ID="Temis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <BastionCriatura rdf:ID="Monte_Parnaso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Isla rdf:ID="Creta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <NinfaMontaña rdf:ID="Adrastea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Ciudad rdf:ID="Pilos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Titanide rdf:ID="Febe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Olimpico rdf:ID="Poseidon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Ciudad rdf:ID="Calcis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Titanide rdf:ID="Rea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
+  <owl:NamedIndividual rdf:ID="Hipocrates">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Talia">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Olimpo">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Filipo_II">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Prometeo">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Roxana">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Urania">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Timarco">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Pegeas">
+    <rdf:type rdf:resource="#NinfaAcuatica"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Prados_Asfodeos">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Cefiso">
+    <rdf:type rdf:resource="#Rio"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hiponico_III">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Erate">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Eurialo">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Temis">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Monte_Parnaso">
+    <rdf:type rdf:resource="#BastionCriatura"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Creta">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Adrastea">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Pilos">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Febe">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Poseidon">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Calcis">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Rea">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
   <Relacion rdf:ID="Padre"/>
-  <Ciclope rdf:ID="Traquio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Giga rdf:ID="Damasen">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Alpo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Atenea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <NinfaMontaña rdf:ID="Ida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Isla rdf:ID="Licia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
+  <owl:NamedIndividual rdf:ID="Traquio">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Damasen">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Alpo">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Atenea">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Ida">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Licia">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
   <Accion rdf:ID="Ser"/>
-  <Rey rdf:ID="Hieron_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Menecio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Ciclope rdf:ID="Telemo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <PseudoTitan rdf:ID="Astreo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Titanide rdf:ID="Oceano">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Rey rdf:ID="Seutes_II">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Hipolito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Apolo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Hecatonquiro rdf:ID="Egeon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Ciudad rdf:ID="Atenas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Isla rdf:ID="Cnosos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <Olimpico rdf:ID="Dioniso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Megera">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <Noble rdf:ID="Antigona">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Olimpico rdf:ID="Hades">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Gracion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Titanide rdf:ID="Crio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Noble rdf:ID="Critias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ancestral rdf:ID="Uranus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ancestral>
-  <Olimpico rdf:ID="Hefesto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Tisifone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <PseudoTitan rdf:ID="Helios">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Montaña rdf:ID="Etna">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <BastionDios rdf:ID="Tartaro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Centauro rdf:ID="Folo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <Rio rdf:ID="Maritsa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Noble rdf:ID="Leptines">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Titanide rdf:ID="Tea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Olimpico rdf:ID="Artemisa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Alcioneo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
+  <owl:NamedIndividual rdf:ID="Hieron_I">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Menecio">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Telemo">
+    <rdf:type rdf:resource="#Ciclope"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Astreo">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Oceano">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Seutes_II">
+    <rdf:type rdf:resource="#Rey"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hipolito">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Apolo">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Egeon">
+    <rdf:type rdf:resource="#Hecatonquiro"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Atenas">
+    <rdf:type rdf:resource="#Ciudad"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Cnosos">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Dioniso">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Megera">
+    <rdf:type rdf:resource="#Furia"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Antigona">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hades">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Gracion">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Crio">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Critias">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Uranus">
+    <rdf:type rdf:resource="#Ancestral"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Hefesto">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tisifone">
+    <rdf:type rdf:resource="#Furia"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Helios">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Etna">
+    <rdf:type rdf:resource="#Montaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tartaro">
+    <rdf:type rdf:resource="#BastionDios"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Folo">
+    <rdf:type rdf:resource="#Centauro"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Maritsa">
+    <rdf:type rdf:resource="#Rio"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Leptines">
+    <rdf:type rdf:resource="#Noble"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tea">
+    <rdf:type rdf:resource="#Titanide"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Artemisa">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Alcioneo">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
   <Relacion rdf:ID="Enemigo"/>
   <Relacion rdf:ID="Amigo"/>
-  <NinfaMontaña rdf:ID="Nomia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Enfialtes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Eurito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Afrodita">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Olimpico rdf:ID="Zeus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
+  <owl:NamedIndividual rdf:ID="Nomia">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Enfialtes">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Eurito">
+    <rdf:type rdf:resource="#Giga"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Afrodita">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Zeus">
+    <rdf:type rdf:resource="#Olimpico"/>
+  </owl:NamedIndividual>
   <Relacion rdf:ID="Hermano"/>
-  <PseudoTitan rdf:ID="Asteria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Montaña rdf:ID="Balcanes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <Musa rdf:ID="Meletea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <NinfaMontaña rdf:ID="Britomartis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <BastionCriatura rdf:ID="Rio_Estigia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Isla rdf:ID="Chipre">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
+  <owl:NamedIndividual rdf:ID="Asteria">
+    <rdf:type rdf:resource="#PseudoTitan"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Balcanes">
+    <rdf:type rdf:resource="#Montaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Meletea">
+    <rdf:type rdf:resource="#Musa"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Britomartis">
+    <rdf:type rdf:resource="#NinfaMontaña"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Rio_Estigia">
+    <rdf:type rdf:resource="#BastionCriatura"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Chipre">
+    <rdf:type rdf:resource="#Isla"/>
+  </owl:NamedIndividual>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
