@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Set;
 
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 
@@ -45,6 +44,11 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 	 * Lista de patrones de preguntas para el estado actual.
 	 * */
 	private ArrayList<QuestionPattern> qPatterns;
+	
+	public SimpleEvaluator() {
+		state = State.INTRODUCTION;
+		loadPatterns();
+	}
 	
 	//TODO Todas las variables diferentes
 	@Override
@@ -81,12 +85,16 @@ public class SimpleEvaluator implements IEvaluator, Observer {
 		// Caso base:
 		if (ePatterns.isEmpty())
 			return true;
+		
+		ExpectationPattern ePattern = ePatterns.iterator().next();
+		
+		if (relations.get(ePattern.getAction()) == null)
+			return false;
 	
 		// Caso recursivo:
 		HashSet<ExpectationPattern> ePatternsCopy = (HashSet<ExpectationPattern>) ePatterns.clone();
-		ExpectationPattern ePattern = ePatternsCopy.iterator().next();
 		ePatternsCopy.remove(ePattern);
-	
+
 		for (Relation matchedRelation : relations.get(ePattern.getAction())) {
 			if (matchedRelation.instanceOf(ePattern)) {
 				HashMap<String, String> variablesCopy = (HashMap<String, String>) variables.clone();
