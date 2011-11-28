@@ -76,7 +76,7 @@ public class FileMenu extends JMenu {
 	 * @param evt
 	 */
 	private void menuItemArchivoMouseClicked(java.awt.event.MouseEvent evt) {
-    	JFileChooser fc = new JFileChooser();
+    	JFileChooser fc = new JFileChooser("resources");
     	int returnVal = fc.showOpenDialog(this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {

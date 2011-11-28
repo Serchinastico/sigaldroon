@@ -51,7 +51,7 @@ public class Generalize extends OperatorSingle {
 			
 			while (itSuperClasses.hasNext()) {
 				
-				String superClass = itSuperClasses.next();
+				String superClass = onto.getShortName(itSuperClasses.next());
 				
 				// Si no es clase del sistema y no ha superado el máximo en la ontología
 				if (!superClass.contains("Class") && !superClass.contains("NamedIndividual") && !superClass.contains("Thing")) {
@@ -62,7 +62,7 @@ public class Generalize extends OperatorSingle {
 					// Cambio del peso
 					newRelation.setWeight(r.getWeight() * opWeight);
 					// Guardado del cambio
-					applySingleChange(OPList.GENERALIZE,newMind,r,newRelation);
+					applySingleChange(OPList.GENERALIZE, newMind, r, newRelation);
 					gM.add(newMind);
 				}
 			}
