@@ -11,7 +11,7 @@ import ui.StoryJFrame;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class MainMenu extends JMenuBar {
+public class MainMenuBar extends JMenuBar {
 
 	/**
 	 * Default serial ID.
@@ -36,7 +36,7 @@ public class MainMenu extends JMenuBar {
     /**
      * Constructora por defecto de la barra de menú principal.
      */
-    public MainMenu(StoryJFrame f) {
+    public MainMenuBar(StoryJFrame f) {
     	super();
     	frame = f;
     	menuArchivo = new FileMenu(frame);

@@ -87,6 +87,7 @@ public class Reader extends Observable implements IReader{
 			storySoFar.add(segmenter.generateSegment(changedMind));
 			mind = changedMind.getActualMind();
 			
+			setChanged();
 			notifyObservers();
 		}
 		
@@ -105,6 +106,7 @@ public class Reader extends Observable implements IReader{
 			storySoFar.add(segmenter.generateSegment(changedMind));
 			mind = changedMind.getActualMind();
 			
+			setChanged();
 			notifyObservers();
 		}
 		

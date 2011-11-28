@@ -9,6 +9,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+
+import mind.ontobridge.OntoBridgeSingleton;
+
 /**
  * Implementación de la mente del lector.
  * 
@@ -125,18 +129,31 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	 * @param relationAction El conjunto de acciones cuyas relaciones van a tomarse.
 	 * @return HashMap con el par accion y sus relaciones, tras el filtrado.
 	 */
-	public HashMap<String, Iterable<Relation>> getRelations(Collection<String> relationAction) {
+	public HashMap<String, Iterable<Relation>> getRelations(Collection<String> relationActions) {
 		
-		HashMap<String, Iterable<Relation>> retVal = new HashMap<String, Iterable<Relation>>();
+		HashMap<String, Iterable<Relation>> filteredRelations = new HashMap<String, Iterable<Relation>>();
+		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
-		Iterator<String> itAction = relationAction.iterator();
-		
-		while (itAction.hasNext()) {
-			String action = itAction.next();
-			retVal.put(new String(action), relations.get(action));
+		for (String relationAction : relationActions) {
+			if (ob.existsClass(relationAction)) {
+				for (String keyAction : relations.keySet()) {
+					if (ob.existsClass(keyAction)) {
+						if (ob.isSubClassOf(keyAction, relationAction)) 
+							filteredRelations.put(relationAction, relations.get(keyAction));
+					}
+					else {
+						if (ob.isInstanceOf(keyAction, relationAction))
+							filteredRelations.put(relationAction, relations.get(keyAction));
+					}
+				}
+			}
+			else { // es una instancia y se guardan sus relaciones si existen
+				if (relations.containsKey(relationAction)) 
+					filteredRelations.put(relationAction, relations.get(relationAction));
+			}
 		}
 		
-		return retVal;		
+		return filteredRelations;		
 	}
 	
 	@Override

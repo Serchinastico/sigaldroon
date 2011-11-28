@@ -44,7 +44,7 @@ public class Specialize extends OperatorSingle {
 				// Especialización por subclases
 				Iterator<String> itSubClasses = onto.listSubClasses(r.getElement(i), true);
 				while (itSubClasses.hasNext()) {
-					String subClass = itSubClasses.next();
+					String subClass = onto.getShortName(itSubClasses.next());
 					if (!subClass.contains("Nothing")) {
 						ChangedMind newMind = m.copy();
 						// Cambio de la relación
@@ -53,7 +53,7 @@ public class Specialize extends OperatorSingle {
 						// Cambio del peso
 						newRelation.setWeight(r.getWeight() * opWeight);
 						// Guardado del cambio
-						applySingleChange(OPList.SPECIALIZE,newMind,r,newRelation);
+						applySingleChange(OPList.SPECIALIZE, newMind, r, newRelation);
 						gM.add(newMind);
 					}
 				}
@@ -61,7 +61,7 @@ public class Specialize extends OperatorSingle {
 				// Especialización por instancias de la clase
 				Iterator<String> itInstances = onto.listDeclaredInstances(r.getElement(i));
 				while (itInstances.hasNext()) {
-					String instanceName = itInstances.next();
+					String instanceName = onto.getShortName(itInstances.next());
 					ChangedMind newMind = m.copy();
 					// Cambio de la relación
 					Relation newRelation = r.copy();
@@ -69,7 +69,7 @@ public class Specialize extends OperatorSingle {
 					// Cambio del peso
 					newRelation.setWeight(r.getWeight() * opWeight);
 					// Guardado del cambio
-					applySingleChange(OPList.SPECIALIZE,newMind,r,newRelation);
+					applySingleChange(OPList.SPECIALIZE, newMind, r, newRelation);
 					gM.add(newMind);
 				}
 			}

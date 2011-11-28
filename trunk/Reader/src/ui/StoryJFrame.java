@@ -8,8 +8,10 @@ import java.util.Observer;
 
 import javax.swing.JScrollPane;
 
+import mind.ontobridge.OntoBridgeSingleton;
+
 import reader.Reader;
-import ui.menu.MainMenu;
+import ui.menu.MainMenuBar;
 import ui.treeViewer.StorySoFarTree;
 
 /**
@@ -44,7 +46,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     /**
      * Barra de menú de la aplicación.
      */
-    private MainMenu jMenuBar;
+    private MainMenuBar jMenuBar;
     
     /**
      * Panel para la visualización de partes de la historia.
@@ -66,7 +68,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      */
     public StoryJFrame() {
     	setConfiguration();
-    	initObservables();
+    	initModels();
         initComponents();
     }
     
@@ -80,9 +82,10 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     }
     
     /**
-     * Inicializa los objetos que la interfaz va a observar.
+     * Inicializa los objetos del modelo.
      */
-    private void initObservables() {
+    private void initModels() {
+    	OntoBridgeSingleton.getInstance();
     	observableReader = new Reader();
     	observableReader.addObserver(this);
     }
@@ -93,7 +96,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     private void initComponents() {
 
     	// Barra de menú
-    	jMenuBar = new MainMenu(this);        
+    	jMenuBar = new MainMenuBar(this);        
         setJMenuBar(jMenuBar);
     	
     	// Panel izquierdo para el árbol de la historia
@@ -118,7 +121,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         constrains.fill = GridBagConstraints.BOTH;
         constrains.insets = new Insets(5, 5, 5, 5);
         
-        this.getContentPane().add(jScrollPaneLeft,constrains);
+        this.getContentPane().add(jScrollPaneLeft, constrains);
         constrains.weightx = 0.0;
         
         constrains.gridx = 1;
@@ -130,7 +133,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         constrains.fill = GridBagConstraints.BOTH;
         constrains.insets = new Insets(5, 5, 5, 5);
         
-        this.getContentPane().add(visualizationPane,constrains);
+        this.getContentPane().add(visualizationPane, constrains);
         
         constrains.gridx = 1;
         constrains.gridy = 1;
@@ -141,7 +144,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         constrains.fill = GridBagConstraints.BOTH;
         constrains.insets = new Insets(5, 5, 5, 5);
         
-        this.getContentPane().add(naturalTextPane,constrains);
+        this.getContentPane().add(naturalTextPane, constrains);
         
         constrains.gridx = 1;
         constrains.gridy = 2;
@@ -152,7 +155,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         constrains.fill = GridBagConstraints.BOTH;
         constrains.insets = new Insets(5, 5, 5, 5);
         
-        this.getContentPane().add(controlPane,constrains);
+        this.getContentPane().add(controlPane, constrains);
         constrains.weightx = 0.0;
         constrains.weighty = 0.0;
     }
