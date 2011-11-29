@@ -135,21 +135,27 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
 		for (String relationAction : relationActions) {
+			HashSet<Relation> relatedIterableAction = new HashSet<Relation>();
 			if (ob.existsClass(relationAction)) {
 				for (String keyAction : relations.keySet()) {
 					if (ob.existsClass(keyAction)) {
 						if (ob.isSubClassOf(keyAction, relationAction)) 
-							filteredRelations.put(relationAction, relations.get(keyAction));
+							relatedIterableAction.addAll(relations.get(keyAction));
 					}
 					else {
 						if (ob.isInstanceOf(keyAction, relationAction))
-							filteredRelations.put(relationAction, relations.get(keyAction));
+							relatedIterableAction.addAll(relations.get(keyAction));
 					}
 				}
+				
 			}
 			else { // es una instancia y se guardan sus relaciones si existen
 				if (relations.containsKey(relationAction)) 
-					filteredRelations.put(relationAction, relations.get(relationAction));
+					relatedIterableAction = relations.get(relationAction);
+			}
+			
+			if (relatedIterableAction.size() > 0) {
+				filteredRelations.put(relationAction, relatedIterableAction);
 			}
 		}
 		
