@@ -9,6 +9,7 @@ import java.util.Observer;
 
 import mind.Mind;
 import mind.ChangedMind;
+import mind.Relation;
 
 import evaluator.IEvaluator;
 import evaluator.SimpleEvaluator;
@@ -23,7 +24,7 @@ import segmenter.Segmenter;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class Reader extends Observable implements IReader{
+public class Reader extends Observable implements IReader {
 	
 	/**
 	 * Segmentos en orden que forman la historia hasta el momento.
@@ -55,16 +56,13 @@ public class Reader extends Observable implements IReader{
 		addObserver((Observer) evaluator);
 	}
 	
-	/**
-	 * Inicializa la mente del lector mediante un fichero.
-	 */
+	@Override
 	public void createMind(String file) {
 		storySoFar = new ArrayList<Mind>();
 		InputStream txt = null;
 		try {
 			 txt = new FileInputStream(file);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		mind = new Mind(txt);
@@ -74,27 +72,13 @@ public class Reader extends Observable implements IReader{
 	}
 	
 	@Override
-	public ArrayList<Mind> generateStory() {
-		
-		for (int i = 0; i < maxSegments; i++) {
-			
-			// Opera con la mente para evolucionarla
-			MindEvolver evolver = new MindEvolver(evaluator);
-			ChangedMind changedMind = evolver.evolveMind(mind);
-			
-			// Extrae un segmento nuevo con la mente cambiada
-			Segmenter segmenter = new Segmenter();
-			storySoFar.add(segmenter.generateSegment(changedMind));
-			mind = changedMind.getActualMind();
-			
-			setChanged();
-			notifyObservers();
-		}
-		
-		return storySoFar;
+	public void generateStory() {
+		for (int i = 0; i < maxSegments; i++)
+			generateNextSegment();
 	}
 	
-	public ArrayList<Mind> generateNextSegment() {
+	@Override
+	public void generateNextSegment() {
 		
 		if (storySoFar.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
@@ -106,41 +90,52 @@ public class Reader extends Observable implements IReader{
 			storySoFar.add(segmenter.generateSegment(changedMind));
 			mind = changedMind.getActualMind();
 			
+			// Asume que todas las relaciones tienen veracidad o peso 1.0
+			assumeConcepts();
+			
 			setChanged();
 			notifyObservers();
 		}
-		
-		return storySoFar;
+	}
+	
+	/**
+	 * Asume los conceptos que hay en la mente del lector subiendo
+	 * la veracidad o peso de los mismos a 1.0.
+	 */
+	private void assumeConcepts() {
+		for (Relation relation : mind) {
+			relation.setWeight(1.0f); 
+		}
 	}
 
-	/**
-	 * @return the maxSegments
-	 */
+	@Override
 	public int getMaxSegments() {
 		return maxSegments;
 	}
+	
+	@Override
+	public void setMaxSegments(int maxSegments) {
+		this.maxSegments = maxSegments;
+	}
 
-	/**
-	 * Getter para los segmentos generados de la historia.
-	 * @return
-	 */
+	@Override
 	public ArrayList<Mind> getStorySoFar() {
 		return storySoFar;
 	}
 	
+	@Override
 	public boolean isInitialized() {
 		return mind != null;
 	}
 	
-	/**
-	 * Testing.
-	 * @param args nanai
-	 */
-	public static void main(String[] args) {
-		Reader r = new Reader();
-		ArrayList<Mind> story = r.generateStory();
-		for (Mind w : story) {
-			System.out.println(w.toString());
-		}
+	@Override
+	public void insertObserver(Observer o) {
+		this.addObserver(o);
 	}
+
+	@Override
+	public void deleteObserver(Observer o) {
+		this.deleteObserver(o);
+	}
+	
 }
