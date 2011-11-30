@@ -52,21 +52,13 @@ public class ControlArea extends JPanel {
 		super();
 		frame = f;
 		
+        // Botón de generación de siguiente segmento
 		buttonNext = new JButton("Siguiente segmento");
 		buttonNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
             	buttonNextMouseClicked(evt);
             }
         });
-        buttonComplete = new JButton("Generación completa");
-        buttonComplete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-            	buttonCompleteMouseClicked(evt);
-            }
-        });
-        progressBar = new JProgressBar();
-        progressBar.setValue(0);
-        progressBar.setStringPainted(true);
         
         this.setLayout(new GridBagLayout());
         GridBagConstraints constrains = new GridBagConstraints();
@@ -81,6 +73,14 @@ public class ControlArea extends JPanel {
         
         this.add(buttonNext,constrains);
         
+        // Botón de generación completa
+        buttonComplete = new JButton("Generación completa");
+        buttonComplete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+            	buttonCompleteMouseClicked(evt);
+            }
+        });
+        
         constrains.gridx = 0;
         constrains.gridy = 1;
         constrains.gridwidth = 1;
@@ -91,6 +91,11 @@ public class ControlArea extends JPanel {
         constrains.insets = new Insets(5, 5, 5, 5);
         
         this.add(buttonComplete,constrains);
+        
+        // Barra de progreso
+        progressBar = new JProgressBar(0,100);
+        progressBar.setValue(100);
+        progressBar.setStringPainted(true);
         
         constrains.gridx = 1;
         constrains.gridy = 0;
@@ -110,8 +115,10 @@ public class ControlArea extends JPanel {
 	 * @param evt
 	 */
 	private void buttonNextMouseClicked(java.awt.event.MouseEvent evt) {
-		if (frame.getObservableReader().isInitialized())
+		if (frame.getObservableReader().isInitialized()) {
+			frame.setCompleteGeneration(false);
     		frame.getObservableReader().generateNextSegment();
+		}
         else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
 	}
@@ -121,10 +128,22 @@ public class ControlArea extends JPanel {
 	 * @param evt
 	 */
 	private void buttonCompleteMouseClicked(java.awt.event.MouseEvent evt) {
-		if (frame.getObservableReader().isInitialized())
-        	frame.getObservableReader().generateStory();
+		if (frame.getObservableReader().isInitialized()) {
+			frame.setCompleteGeneration(true);
+			frame.getObservableReader().generateStory();
+		}
         else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
+	}
+	
+	/**
+	 * Establece el valor de la barra de progreso.
+	 * @param vMin valor actual en el progreso.
+	 * @param vMax valor máximo de la barra.
+	 */
+	public void setProgressBarValue(int vMin, int vMax) {
+		float value = (new Float(vMin) / new Float(vMax)) * 100;
+		progressBar.setValue(Math.round(value));
 	}
 
 }

@@ -1,5 +1,7 @@
 package reader;
 
+import java.util.Observer;
+
 import mind.Mind;
 import mind.ChangedMind;
 
@@ -29,5 +31,17 @@ public interface IMindEvolver {
 	 * @param numIt El nuevo número de iteraciones.
 	 */
 	public void setNumIterations(int numIt);
+	
+	/**
+	 * Añade un observador.
+	 * @param o Observador.
+	 */
+	public void insertObserver(Observer o);
+	
+	/**
+	 * Elimina un observador.
+	 * @param o Observador.
+	 */
+	public void removeObserver(Observer o);
 	
 }
