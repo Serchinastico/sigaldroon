@@ -14,6 +14,7 @@ import mind.Relation;
 import evaluator.IEvaluator;
 import evaluator.SimpleEvaluator;
 
+import segmenter.ISegmenter;
 import segmenter.Segmenter;
 
 
@@ -47,12 +48,24 @@ public class Reader extends Observable implements IReader {
 	private IEvaluator evaluator;
 	
 	/**
+	 * Evolucionador de la mente del lector.
+	 */
+	private IMindEvolver evolver;
+	
+	/**
+	 * Creador de los segmentos de la historia.
+	 */
+	private ISegmenter segmenter;
+	
+	/**
 	 * Constructora por defecto.
 	 */
 	public Reader() {
 		maxSegments = 10;
 		mind = null;
 		evaluator = new SimpleEvaluator();
+		evolver = new MindEvolver(evaluator);
+		segmenter = new Segmenter();
 		addObserver((Observer) evaluator);
 	}
 	
@@ -82,11 +95,9 @@ public class Reader extends Observable implements IReader {
 		
 		if (storySoFar.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
-			MindEvolver evolver = new MindEvolver(evaluator);
 			ChangedMind changedMind = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
-			Segmenter segmenter = new Segmenter();
 			storySoFar.add(segmenter.generateSegment(changedMind));
 			mind = changedMind.getActualMind();
 			
@@ -99,7 +110,7 @@ public class Reader extends Observable implements IReader {
 	}
 	
 	/**
-	 * Asume los conceptos que hay en la mente del lector subiendo
+	 * Asume los conceptos que hay en la mente del lector estableciendo
 	 * la veracidad o peso de los mismos a 1.0.
 	 */
 	private void assumeConcepts() {
@@ -136,6 +147,11 @@ public class Reader extends Observable implements IReader {
 	@Override
 	public void removeObserver(Observer o) {
 		this.deleteObserver(o);
+	}
+
+	@Override
+	public IMindEvolver getEvolver() {
+		return evolver;
 	}
 	
 }

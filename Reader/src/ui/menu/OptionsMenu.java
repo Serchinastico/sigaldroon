@@ -1,14 +1,10 @@
 package ui.menu;
 
-import java.io.File;
-
-import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import reader.Reader;
 import ui.StoryJFrame;
-import ui.panel.treeViewer.StorySoFarTree;
+import ui.menu.preferences.SettingsDialog;
 
 /**
  * Componente para el menú Opciones de la barra de menú.
@@ -16,7 +12,7 @@ import ui.panel.treeViewer.StorySoFarTree;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class OptionMenu extends JMenu {
+public class OptionsMenu extends JMenu {
 
 	/**
 	 * Default serial ID.
@@ -26,7 +22,6 @@ public class OptionMenu extends JMenu {
 	/**
 	 * Frame contenedor de este menú.
 	 */
-	@SuppressWarnings("unused")
 	private StoryJFrame frame;
 	
 	/**
@@ -38,7 +33,7 @@ public class OptionMenu extends JMenu {
 	 * Constructora del menú de Opciones.
 	 * @param f Frame mediator.
 	 */
-	public OptionMenu(StoryJFrame f) {
+	public OptionsMenu(StoryJFrame f) {
 		super();
 		
 		frame = f;
@@ -62,7 +57,8 @@ public class OptionMenu extends JMenu {
 	 * @param evt
 	 */
 	private void menuItemPreferenciasMouseClicked(java.awt.event.MouseEvent evt) {
-    	//TODO: Abrir ventana con las opciones.
+    	SettingsDialog sD = new SettingsDialog(frame);
+    	sD.setVisible(true);
     }
 
 }

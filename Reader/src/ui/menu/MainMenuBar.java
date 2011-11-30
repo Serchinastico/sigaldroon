@@ -48,14 +48,9 @@ public class MainMenuBar extends JMenuBar {
     	this.add(menuArchivo);
         menuGeneracion = new GenerationMenu(frame);
         this.add(menuGeneracion);
-        menuOpciones = new OptionMenu(frame);
+        menuOpciones = new OptionsMenu(frame);
         this.add(menuOpciones);
         
     }
-
-    
-    
-
-    
     
 }
