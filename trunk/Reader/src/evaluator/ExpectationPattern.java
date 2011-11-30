@@ -86,4 +86,11 @@ public class ExpectationPattern extends Relation {
 	public String getVariable(int numVar) {
 		return this.variables[numVar];
 	}
+
+	/**
+	 * @return the neg
+	 */
+	public boolean isNeg() {
+		return neg;
+	}
 }

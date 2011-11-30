@@ -38,8 +38,9 @@ public class Pattern {
 	 * 	valor: float.
 	 * 	expX: expresión como los componentes de la mente pero sin valor. El símbolo '!'
 	 * 			al principio indica que la expresión está negada.
+	 * @throws Exception 
 	 * */
-	public Pattern(String str) {
+	public Pattern(String str) throws Exception {
 		exprs = new ArrayList<Relation>();
 		negExprs = new ArrayList<Boolean>();
 		
