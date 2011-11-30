@@ -83,7 +83,7 @@ public class FileMenu extends JMenu {
             File file = fc.getSelectedFile();
             frame.getObservableReader().deleteObserver(frame);
             frame.setObservableReader(new Reader());
-            frame.getObservableReader().addObserver(frame);
+            frame.getObservableReader().insertObserver(frame);
             frame.getObservableReader().createMind(file.getPath());
             frame.setStoryJTree(new StorySoFarTree(frame));
             frame.getStoryJTree().loadStory(frame.getObservableReader().getStorySoFar());

@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 
 import mind.ontobridge.OntoBridgeSingleton;
 
+import reader.IReader;
 import reader.Reader;
 import ui.menu.MainMenuBar;
 import ui.treeViewer.StorySoFarTree;
@@ -31,7 +32,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	/**
 	 * Referencia al lector observable (patrón Observer).
 	 */
-	private Reader observableReader;
+	private IReader observableReader;
 	
 	/**
 	 * Árbol para mostrar la historia por segmentos y relaciones.
@@ -73,7 +74,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     }
     
     /**
-     * Estable la configuración del JFrame.
+     * Establece la configuración del JFrame.
      */
     private void setConfiguration() {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +88,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     private void initModels() {
     	OntoBridgeSingleton.getInstance();
     	observableReader = new Reader();
-    	observableReader.addObserver(this);
+    	observableReader.insertObserver(this);
     }
     
     /**
@@ -99,20 +100,14 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     	jMenuBar = new MainMenuBar(this);        
         setJMenuBar(jMenuBar);
     	
-    	// Panel izquierdo para el árbol de la historia
+        // Objetos para hacer el grid
+        this.getContentPane().setLayout(new GridBagLayout());
+        GridBagConstraints constrains = new GridBagConstraints();
+        
+        // Panel para el árbol con los segmentos y relaciones de la historia        
         jScrollPaneLeft = new JScrollPane();
         storyJTree = new StorySoFarTree(this);
         
-        visualizationPane = new Visualization(this);
-        
-        controlPane = new ControlArea(this);
-        
-        naturalTextPane = new NaturalTextArea(this);
-        
-        // Panel derecho para el resto de componentes        
-        this.getContentPane().setLayout(new GridBagLayout());
-        
-        GridBagConstraints constrains = new GridBagConstraints();
         constrains.gridx = 0;
         constrains.gridy = 0;
         constrains.gridwidth = 1;
@@ -123,6 +118,9 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         
         this.getContentPane().add(jScrollPaneLeft, constrains);
         constrains.weightx = 0.0;
+        
+        // Panel de visualización de la historia
+        visualizationPane = new Visualization(this);
         
         constrains.gridx = 1;
         constrains.gridy = 0;
@@ -135,6 +133,9 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         
         this.getContentPane().add(visualizationPane, constrains);
         
+        // Panel de lenguaje natural
+        naturalTextPane = new NaturalTextArea(this);
+        
         constrains.gridx = 1;
         constrains.gridy = 1;
         constrains.gridwidth = 1;
@@ -145,6 +146,9 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
         constrains.insets = new Insets(5, 5, 5, 5);
         
         this.getContentPane().add(naturalTextPane, constrains);
+        
+        // Panel de control
+        controlPane = new ControlArea(this);
         
         constrains.gridx = 1;
         constrains.gridy = 2;
@@ -180,7 +184,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      * Accesora del lector observable por la interfaz.
      * @return El lector observable.
      */
-	public Reader getObservableReader() {
+	public IReader getObservableReader() {
 		return observableReader;
 	}
 
@@ -228,7 +232,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	}
 
 	/**
-	 * @param args the command line arguments
+	 * @param args the command line arguments.
 	 */
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
