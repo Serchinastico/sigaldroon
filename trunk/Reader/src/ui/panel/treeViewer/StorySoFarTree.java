@@ -1,4 +1,4 @@
-package ui.treeViewer;
+package ui.panel.treeViewer;
 
 import java.util.ArrayList;
 import java.util.Iterator;

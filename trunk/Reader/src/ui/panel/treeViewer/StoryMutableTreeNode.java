@@ -1,4 +1,4 @@
-package ui.treeViewer;
+package ui.panel.treeViewer;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 

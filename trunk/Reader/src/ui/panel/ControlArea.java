@@ -1,4 +1,4 @@
-package ui;
+package ui.panel;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+
+import ui.StoryJFrame;
 
 /**
  * Panel para el control de la generación de la historia.

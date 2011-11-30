@@ -1,4 +1,4 @@
-package ui;
+package ui.panel;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,6 +7,8 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import ui.StoryJFrame;
 
 /**
  * Panel para la visualización de selecciones y contenido de la historia.

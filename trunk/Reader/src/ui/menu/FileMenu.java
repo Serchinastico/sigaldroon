@@ -9,7 +9,7 @@ import javax.swing.JMenuItem;
 import reader.Reader;
 
 import ui.StoryJFrame;
-import ui.treeViewer.StorySoFarTree;
+import ui.panel.treeViewer.StorySoFarTree;
 
 /**
  * Componente para el menú Archivo de la barra de menú.
@@ -81,7 +81,7 @@ public class FileMenu extends JMenu {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
-            frame.getObservableReader().deleteObserver(frame);
+            frame.getObservableReader().removeObserver(frame);
             frame.setObservableReader(new Reader());
             frame.getObservableReader().insertObserver(frame);
             frame.getObservableReader().createMind(file.getPath());
