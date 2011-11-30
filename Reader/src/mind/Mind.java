@@ -245,21 +245,25 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 
 		Mind m = new Mind();
 		
-		Relation r1 = new Relation("1.0, Nobles, tocar, Olimpicos, Olimpo, cositas");
-		Relation r2 = new Relation("1.0, Lanasa, tocar, Afrodita, , cositas");
-		Relation r3 = new Relation("1.0, Tetis, casar, Gelon, Creta, ");
-		Relation r4 = new Relation("1.0, Hera, criticar, Tetis, Olimpo, ");
-		Relation r5 = new Relation("1.0, Hera, emitir, Tetis, Creta, Manzana");
-		Relation r6 = new Relation("1.0, Afrodita, comer, Gelon, Creta, Manzana");
+		try {
+			Relation r1 = new Relation("1.0, Nobles, tocar, Olimpicos, Olimpo, cositas");
+			Relation r2 = new Relation("1.0, Lanasa, tocar, Afrodita, , cositas");
+			Relation r3 = new Relation("1.0, Tetis, casar, Gelon, Creta, ");
+			Relation r4 = new Relation("1.0, Hera, criticar, Tetis, Olimpo, ");
+			Relation r5 = new Relation("1.0, Hera, emitir, Tetis, Creta, Manzana");
+			Relation r6 = new Relation("1.0, Afrodita, comer, Gelon, Creta, Manzana");
 		
-		m.add(r1);
-		m.add(r2);
-		m.add(r3);
-		m.add(r4);
-		m.add(r5);
-		m.add(r6);
-		
-		m.remove(r3);
+			m.add(r1);
+			m.add(r2);
+			m.add(r3);
+			m.add(r4);
+			m.add(r5);
+			m.add(r6);
+			
+			m.remove(r3);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		Iterator<Relation> itRel = m.iterator();
 		while (itRel.hasNext()) {

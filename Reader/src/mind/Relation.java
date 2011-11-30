@@ -1,5 +1,8 @@
 package mind;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import mind.ontobridge.OntoBridgeSingleton;
 
@@ -66,24 +69,45 @@ public class Relation {
 	/**
 	 * Construye un componente de la mente mediante un string con sus atributos
 	 * separados por comas.
+	 * @throws Exception 
 	 * @para str El string del que extraer la información del componente.
 	 * */
-	public Relation(String str) {
-		String[] splittedLine = str.split(",");
-		
-		weight = Float.parseFloat(splittedLine[0].trim());
+	public Relation(String str) throws Exception {
+		// Se separa el peso del resto de la relación: {[peso] - }?[atributos]
+		Pattern separatorPattern = Pattern.compile("(\\[(\\d(\\.(\\d)+)?)\\]( )*-( )*)?\\[((.)*)\\]");
+		Matcher separatorMatcher = separatorPattern.matcher(str);
+		if (!separatorMatcher.find()) {
+			throw new Exception("La relación no tiene la estructura adecuada: {[peso] - }?[atributos]");
+		}
+
+		// Si se omite el peso se asume un valor de 1.0
+		this.weight = (separatorMatcher.group(2) == null) ?
+				1.0f :
+				Float.parseFloat(separatorMatcher.group(2)); 
+
 		this.elements = new String[NUM_ELEMENTS];
-		this.elements[SOURCE] = splittedLine[1].trim();
-		this.elements[ACTION] = splittedLine[2].trim();
-		this.elements[TARGET] = (splittedLine[3].trim().equals("")) ?
-								null :
-								splittedLine[3].trim();
-		this.elements[PLACE] = (splittedLine[4].trim().equals("")) ?
-								null :
-								splittedLine[4].trim();
-		this.elements[DIRECT_OBJECT] = (splittedLine[5].trim().equals("")) ?
-								null :
-								splittedLine[5].trim();
+		String[] splittedAtts = separatorMatcher.group(7).split(",");
+		for (int iStr = 0, iAtt = 0; iStr < splittedAtts.length; iStr++, iAtt++) {
+			// Cada atributo es de la forma: {n:}?concepto
+			Pattern attPattern = Pattern.compile("(?:(\\d+)(?: )*\\:(?: )*)?((\\w*))");
+			Matcher attMatcher = attPattern.matcher(splittedAtts[iStr].trim());
+			if (!attMatcher.find()) {
+				throw new Exception("La relación no tiene la estructura adecuada: [{{n:}?concepto}*]");
+			}
+			
+			// Si el índice n existe se pone el contador a dicho valor
+			if (attMatcher.group(1) != null) {
+				iAtt = Integer.parseInt(attMatcher.group(1));
+			}
+			
+			if (iAtt >= NUM_ELEMENTS) {
+				throw new Exception("Se ha intentado introducir un atributo con índice mayor del permitido en la creación de la Relación.");
+			}
+			
+			this.elements[iAtt] = (attMatcher.group(2).trim().equals("")) ?
+					null :
+					attMatcher.group(2).trim();
+		}
 	}
 	
 	/**
