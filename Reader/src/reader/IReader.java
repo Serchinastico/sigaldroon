@@ -52,14 +52,14 @@ public interface IReader {
 	
 	/**
 	 * Añade un observador.
-	 * @param o
+	 * @param o Observador.
 	 */
 	public void insertObserver(Observer o);
 	
 	/**
 	 * Elimina un observador.
-	 * @param o
+	 * @param o Observador.
 	 */
-	public void deleteObserver(Observer o);
+	public void removeObserver(Observer o);
 	
 }

@@ -134,7 +134,7 @@ public class Reader extends Observable implements IReader {
 	}
 
 	@Override
-	public void deleteObserver(Observer o) {
+	public void removeObserver(Observer o) {
 		this.deleteObserver(o);
 	}
 	

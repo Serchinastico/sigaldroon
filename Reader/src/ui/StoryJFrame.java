@@ -13,7 +13,10 @@ import mind.ontobridge.OntoBridgeSingleton;
 import reader.IReader;
 import reader.Reader;
 import ui.menu.MainMenuBar;
-import ui.treeViewer.StorySoFarTree;
+import ui.panel.ControlArea;
+import ui.panel.NaturalTextArea;
+import ui.panel.Visualization;
+import ui.panel.treeViewer.StorySoFarTree;
 
 /**
  * Frame para la aplicación que implementa el patrón Mediator entre todos los 

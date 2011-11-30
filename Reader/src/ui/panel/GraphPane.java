@@ -1,9 +1,11 @@
-package ui;
+package ui.panel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.JScrollPane;
+
+import ui.StoryJFrame;
 
 import mind.Mind;
 import mind.Relation;

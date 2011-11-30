@@ -34,6 +34,11 @@ public class MainMenuBar extends JMenuBar {
     private JMenu menuGeneracion;
     
     /**
+	 * Pestaña del menú Opciones.
+	 */
+    private JMenu menuOpciones;
+    
+    /**
      * Constructora por defecto de la barra de menú principal.
      */
     public MainMenuBar(StoryJFrame f) {
@@ -43,6 +48,9 @@ public class MainMenuBar extends JMenuBar {
     	this.add(menuArchivo);
         menuGeneracion = new GenerationMenu(frame);
         this.add(menuGeneracion);
+        menuOpciones = new OptionMenu(frame);
+        this.add(menuOpciones);
+        
     }
 
     
