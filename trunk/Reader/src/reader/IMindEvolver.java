@@ -18,4 +18,16 @@ public interface IMindEvolver {
 	 */
 	public ChangedMind evolveMind(Mind mind);
 	
+	/**
+	 * Obtiene el número de iteraciones en la generación del segmento.
+	 * @return
+	 */
+	public int getNumIterations();
+	
+	/**
+	 * Establece el número de iteraciones para la generación de un segmento.
+	 * @param numIt El nuevo número de iteraciones.
+	 */
+	public void setNumIterations(int numIt);
+	
 }

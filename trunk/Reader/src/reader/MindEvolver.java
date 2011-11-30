@@ -24,7 +24,7 @@ public class MindEvolver implements IMindEvolver {
 	/**
 	 * Máximo número de padres a engendrar.
 	 */
-	private int maxMindExpansions;
+	private int maxMindExpansions = 0;
 	
 	/**
 	 * Evaluador de las mentes generadas.
@@ -60,6 +60,7 @@ public class MindEvolver implements IMindEvolver {
 	@Override
 	public ChangedMind evolveMind(Mind mind) {
 		
+		generatedMinds = new HashSet<Integer>();
 		mindsQueue = new PriorityQueue<ChangedMind>();
 		bestMind = new ChangedMind(mind);
 		mindsQueue.add(bestMind);
@@ -151,6 +152,16 @@ public class MindEvolver implements IMindEvolver {
 		
 		if (bestInQueue.compareTo(bestMind) >= 0) 
 			bestMind = bestInQueue.copy();
+	}
+
+	@Override
+	public int getNumIterations() {
+		return maxMindExpansions;
+	}
+
+	@Override
+	public void setNumIterations(int numIt) {
+		maxMindExpansions = numIt;
 	}
 
 }

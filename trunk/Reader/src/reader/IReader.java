@@ -45,6 +45,12 @@ public interface IReader {
 	public ArrayList<Mind> getStorySoFar();
 	
 	/**
+	 * Obtiene el evolucionador de la mente.
+	 * @return 
+	 */
+	public IMindEvolver getEvolver();
+	
+	/**
 	 * Comprueba si la mente ha sido inicializada.
 	 * @return True si la mente ha sido inicializada.
 	 */
