@@ -81,9 +81,11 @@ public class FileMenu extends JMenu {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
+            frame.getObservableReader().getEvolver().removeObserver(frame);
             frame.getObservableReader().removeObserver(frame);
             frame.setObservableReader(new Reader());
             frame.getObservableReader().insertObserver(frame);
+            frame.getObservableReader().getEvolver().insertObserver(frame);
             frame.getObservableReader().createMind(file.getPath());
             frame.setStoryJTree(new StorySoFarTree(frame));
             frame.getStoryJTree().loadStory(frame.getObservableReader().getStorySoFar());

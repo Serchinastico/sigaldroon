@@ -67,6 +67,11 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      */
     private NaturalTextArea naturalTextPane;
     
+    /**
+     * Flag para indiciar si se ha seleccionado una generación completa de la historia.
+     */
+    private boolean completeGeneration = true;
+    
     /** 
      * Crea un nuevo formulario.
      */
@@ -92,6 +97,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     	OntoBridgeSingleton.getInstance();
     	observableReader = new Reader();
     	observableReader.insertObserver(this);
+    	observableReader.getEvolver().insertObserver(this);
     }
     
     /**
@@ -214,7 +220,14 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 			storyJTree = new StorySoFarTree(this);
             storyJTree.loadStory(observableReader.getStorySoFar());
             
-            //TODO: Añadir la actualización del progress bar.
+            if (completeGeneration)
+            	controlPane.setProgressBarValue(observableReader.getStorySoFar().size(),
+            		observableReader.getMaxSegments());
+		}
+		if (arg0 == observableReader.getEvolver()) {
+			if (!completeGeneration)
+				controlPane.setProgressBarValue((Integer) arg1,
+            		observableReader.getEvolver().getNumIterations());
 		}
 	}
 	
@@ -232,6 +245,14 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	 */
 	public NaturalTextArea getNaturalTextPane() {
 		return naturalTextPane;
+	}
+	
+	/**
+	 * Establece si la generación de la historia se hace en un solo paso.
+	 * @param completeGeneration
+	 */
+	public void setCompleteGeneration(boolean completeGeneration) {
+		this.completeGeneration = completeGeneration;
 	}
 
 	/**

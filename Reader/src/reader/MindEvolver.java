@@ -2,6 +2,8 @@ package reader;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.PriorityQueue;
 
 import mind.Mind;
@@ -19,7 +21,7 @@ import operator.Specialize;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class MindEvolver implements IMindEvolver {
+public class MindEvolver extends Observable implements IMindEvolver {
 	
 	/**
 	 * Máximo número de padres a engendrar.
@@ -84,6 +86,8 @@ public class MindEvolver implements IMindEvolver {
 			
 			updateBestMind();
 			
+			setChanged();
+			notifyObservers(new Integer(i + 1));
 		}
 		
 		return bestMind; // la más favorable según su valor
@@ -162,6 +166,16 @@ public class MindEvolver implements IMindEvolver {
 	@Override
 	public void setNumIterations(int numIt) {
 		maxMindExpansions = numIt;
+	}
+
+	@Override
+	public void insertObserver(Observer o) {
+		this.addObserver(o);
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		this.deleteObserver(o);
 	}
 
 }

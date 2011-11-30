@@ -70,8 +70,10 @@ public class GenerationMenu extends JMenu {
      * @param evt
      */
     private void menuItemSiguienteMouseClicked(java.awt.event.MouseEvent evt) {
-    	if (frame.getObservableReader().isInitialized())
+    	if (frame.getObservableReader().isInitialized()) {
+    		frame.setCompleteGeneration(false);
     		frame.getObservableReader().generateNextSegment();
+		}
         else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
     }
@@ -81,8 +83,10 @@ public class GenerationMenu extends JMenu {
      * @param evt
      */
     private void menuItemCompletaMouseClicked(java.awt.event.MouseEvent evt) {
-        if (frame.getObservableReader().isInitialized())
-        	frame.getObservableReader().generateStory();
+    	if (frame.getObservableReader().isInitialized()) {
+    		frame.setCompleteGeneration(true);
+			frame.getObservableReader().generateStory();
+		}
         else
         	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
     }
