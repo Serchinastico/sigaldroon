@@ -1,2 +1,2 @@
-[Hercules, Hermano, Clio]
-[Hera, Madre, Hercules]
+[Hercules, Amar, Noble]
+[Noble, Amar, Hercules]

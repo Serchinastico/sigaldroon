@@ -1,2 +1,2 @@
-[1.0] - [(Heroe, Ser, Muerto)]
-[1.0] - [(Heroe[H], Amar, Humano[Hu]), (Humano[Hu], Amar, Heroe[H])]
+[1.0] - [(Heroe, Ser, Muerto)] - []
+[1.0] - [(Heroe:H, Amar, Humano:Hu), (Humano:Hu, Amar, Heroe:H)] - []
