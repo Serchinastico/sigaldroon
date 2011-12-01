@@ -1,2 +1,2 @@
-[Hercules, Amar, Noble]
-[Noble, Amar, Hercules]
+[Hercules, Hermano, Noble]
+[Deidad, Padre, Hercules]

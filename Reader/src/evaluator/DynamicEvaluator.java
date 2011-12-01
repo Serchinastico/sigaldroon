@@ -8,17 +8,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import operator.OPTarget;
+import reader.Reader;
 
-public class DynamicEvaluator extends AbstractEvaluator {
+public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 
 	/**
 	 * Número de divisiones en la historia.
 	 * */
 	private int storyBreaks;
+	
+	/**
+	 * Los dos puntos (en función de los storyBreaks) entre los que está el
+	 * momento actual de la historia.
+	 * */
+	private int iWeight1, iWeight2;
+	
+	/**
+	 * Valor comprendido entre 0 y 1 que dice en proporción, a cual de los 2
+	 * pesos está más cercano el momento de la historia (para hacer interpolación).
+	 * */
+	private float prop;
 	
 	/**
 	 * Conjunto de listas de pesos para cada patrón y para cada
@@ -60,6 +75,17 @@ public class DynamicEvaluator extends AbstractEvaluator {
 		this.weights = new ArrayList<float[]>();
 		this.storyBreaks = -1;
 		loadEvaluator(path);
+	}
+	
+	@Override
+	protected float getActualWeight(int iPattern) {
+		/* Se calcula mediante interpolación lineal:
+		 * prop * (w2 - w1) + w1
+		 */
+		float weight1 = weights.get(iPattern)[iWeight1];
+		float weight2 = weights.get(iPattern)[iWeight2];
+		
+		return prop * (weight2 - weight1) + weight1;
 	}
 	
 	/**
@@ -189,6 +215,32 @@ public class DynamicEvaluator extends AbstractEvaluator {
 		}
 		
 		return success;
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		if (!(o instanceof Reader))
+			return;
+		
+		Reader r = (Reader) o;
+		int maxSegments = r.getMaxSegments();
+		int actualSegment = r.getActualSegment();
+		
+		/* Se calcula el punto exacto (puede caer entre dos valores) de la historia
+		 * en el que estamos según el número de cortes que tiene el evaluador.
+		 */		
+		float f = storyBreaks * (actualSegment / maxSegments);
+		
+		// Se calcula entre qué 2 pesos está el punto
+		if (f == storyBreaks) {
+			iWeight1 = storyBreaks - 2;
+			iWeight2 = storyBreaks - 1;
+		}
+		else {
+			iWeight1 = (int) Math.ceil(f);
+			iWeight2 = ((int) Math.ceil(f)) + 1;
+		}
+		prop = f - iWeight1;
 	}
 
 	/**
