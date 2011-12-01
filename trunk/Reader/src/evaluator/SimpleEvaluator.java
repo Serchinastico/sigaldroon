@@ -33,6 +33,11 @@ public class SimpleEvaluator extends AbstractEvaluator implements Observer {
 		state = State.INTRODUCTION;
 		loadPatterns();
 	}
+	
+	@Override
+	protected float getActualWeight(int iPattern) {
+		return qPatterns.get(iPattern).getWeight();
+	}
 
 	/**
 	 * Carga en memoria los patrones contenidos en un fichero.

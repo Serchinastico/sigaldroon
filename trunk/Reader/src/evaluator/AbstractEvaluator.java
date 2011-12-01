@@ -13,7 +13,7 @@ import mind.Mind;
 import mind.Relation;
 import mind.ontobridge.OntoBridgeSingleton;
 
-public class AbstractEvaluator implements IEvaluator {
+public abstract class AbstractEvaluator implements IEvaluator {
 
 	/**
 	 * Conjunto de patrones de preguntas.
@@ -25,20 +25,38 @@ public class AbstractEvaluator implements IEvaluator {
 	public float eval(Mind m) {
 		float value = 0.0f;
 		
-		for (QuestionPattern qPattern : qPatterns) {
+		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+			QuestionPattern qPattern = qPatterns.get(iPattern);
+			
 			Collection<String> actions = qPattern.getActions();
 			Collection<String> negActions = qPattern.getNegActions();
 			HashMap<String, Iterable<Relation>> relations = m.getRelations(actions);
 			HashMap<String, Iterable<Relation>> negRelations = m.getRelations(negActions);
 			HashMap<String, String> variables = new HashMap<String, String>();
+			HashSet<Relation> usedRelations = new HashSet<Relation>();
 			
-			if (checkQuestionPattern(qPattern.getExpectationPatterns(), qPattern.getNegExpectationPatterns(), relations, negRelations, variables)) {
-				value += qPattern.getWeight();
+			if (checkQuestionPattern(qPattern.getExpectationPatterns(), qPattern.getNegExpectationPatterns(), relations, negRelations, variables, usedRelations)) {
+				// Se saca la media de pesos de las relaciones usadas
+				float averageRelationWeight = 0.0f;
+				for (Relation r : usedRelations) {
+					averageRelationWeight += r.getWeight();
+				}
+				averageRelationWeight = averageRelationWeight / usedRelations.size();
+				
+				value += getActualWeight(iPattern) * averageRelationWeight;
 			}
 		}
 		
 		return value;	
 	}
+	
+	/**
+	 * Método que devuelve el peso actual de un patrón pregunta. Está
+	 * pensado para ser sobreescrito en las subclases.
+	 * @param iPattern Índice del patrón.
+	 * @return Peso del patrón.
+	 * */
+	protected abstract float getActualWeight(int iPattern);
 	
 	/**
 	 * Comprueba que existe una combinación de relaciones y ligaduras de variables
@@ -47,6 +65,7 @@ public class AbstractEvaluator implements IEvaluator {
 	 * @param ePatterns Lista de patrones de expectativas.
 	 * @param relations Relaciones del mundo (filtradas por eficiencia).
 	 * @param variables Tabla de ligaduras de variables hasta el momento.
+	 * @param usedRelations Tabla de relaciones usadas.
 	 * @return boolean True si se satisface el patrón.
 	 * */
 	@SuppressWarnings("unchecked")
@@ -54,7 +73,8 @@ public class AbstractEvaluator implements IEvaluator {
 			HashSet<ExpectationPattern> negEPatterns,
 			HashMap<String, Iterable<Relation>> relations,
 			HashMap<String, Iterable<Relation>> negRelations,
-			HashMap<String, String> variables) {
+			HashMap<String, String> variables,
+			HashSet<Relation> usedRelations) {
 		
 		// Caso base:
 		if (ePatterns.isEmpty())
@@ -73,7 +93,8 @@ public class AbstractEvaluator implements IEvaluator {
 			if (matchedRelation.instanceOf(ePattern)) {
 				HashMap<String, String> variablesCopy = (HashMap<String, String>) variables.clone();
 				if (linkVariables(variablesCopy, ePattern, matchedRelation)) {
-					if (checkQuestionPattern(ePatternsCopy, negEPatterns, relations, negRelations, variablesCopy)) {
+					if (checkQuestionPattern(ePatternsCopy, negEPatterns, relations, negRelations, variablesCopy, usedRelations)) {
+						usedRelations.add(matchedRelation);
 						return true;
 					}
 				}
