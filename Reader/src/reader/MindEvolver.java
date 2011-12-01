@@ -67,6 +67,9 @@ public class MindEvolver extends Observable implements IMindEvolver {
 		bestMind = new ChangedMind(mind);
 		mindsQueue.add(bestMind);
 		
+		int totales = 0;
+		int reales = 0;
+		
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista
@@ -75,8 +78,12 @@ public class MindEvolver extends Observable implements IMindEvolver {
 			// Genera los hijos como resultado de operar esa mente
 			ArrayList<ChangedMind> mindSons = operateMind(operatedMind);
 			
+			totales += mindSons.size();
+			
 			// Elimina los hijos que ya han sido generados antes
 			mindSons = filterMinds(mindSons);
+			
+			reales += mindSons.size();
 			
 			// Evalúa los hijos generados
 			evalMinds(mindSons);
@@ -84,11 +91,12 @@ public class MindEvolver extends Observable implements IMindEvolver {
 			// Inserta los hijos en el total de mentes generadas y ordenados según su valor
 			insertMinds(mindSons);
 			
-			updateBestMind();
-			
+			updateBestMind();	
 			setChanged();
 			notifyObservers(new Integer(i + 1));
 		}
+		
+		System.out.println("Totales: " + totales + " - Reales: " + reales + " - Podados: " + (totales - reales));
 		
 		return bestMind; // la más favorable según su valor
 	}

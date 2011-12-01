@@ -12,11 +12,6 @@ import mind.Relation;
  *
  */
 public class ExpectationPattern extends Relation {
-
-	/**
-	 * Booleano que indica si el patrón está negado.
-	 * */
-	private boolean neg;
 	
 	/**
 	 * Variables de la relación: source, action, target, place, directObject.
@@ -26,24 +21,21 @@ public class ExpectationPattern extends Relation {
 	// TODO Crear la excepción propia
 	/**
 	 * Construye un patrón de expresión mediante un string de la forma:
-	 * {!}?(source{[Var]}?, action{[Var]}?, {target{[Var]}?}?, {place{[Var]}?}?, {directObject{[Var]}?}?)
+	 * (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)
 	 * @param str Cadena de caracteres de la cual se extrae el patrón.
 	 * @throws Exception
 	 * */
 	public ExpectationPattern(String str) throws Exception {
-		// Patrón: {!}?(source, action, {target}?, {place}?, {directObject}?)
-		Pattern separatorPattern = Pattern.compile("(\\!)?\\((([^\\)])*)\\)");
+		// Patrón: (source, action, {target}?, {place}?, {directObject}?)
+		Pattern separatorPattern = Pattern.compile("\\((([^\\)])*)\\)");
 		Matcher separatorMatcher = separatorPattern.matcher(str);
 		if (!separatorMatcher.find()) {
-			throw new Exception("El patrón de expectativa no tiene el formato adecuado: {!}?(source{[Var]}?, action{[Var]}?, {target{[Var]}?}?, {place{[Var]}?}?, {directObject{[Var]}?}?)");
+			throw new Exception("El patrón de expectativa no tiene el formato adecuado: (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)");
 		}
-		
-		// neg vale true si existe el símbolo '!'
-		neg = separatorMatcher.group(1) != null;
 		
 		variables = new String[NUM_ELEMENTS];
 		
-		String[] splittedRelation = separatorMatcher.group(2).split(",");
+		String[] splittedRelation = separatorMatcher.group(1).split(",");
 		switch(splittedRelation.length) {
 		case 5:
 			readElement(splittedRelation[4].trim(), DIRECT_OBJECT);
@@ -56,25 +48,25 @@ public class ExpectationPattern extends Relation {
 			readElement(splittedRelation[0].trim(), SOURCE);
 			break;
 		default:
-			throw new Exception("El patrón de expectativa no tiene el formato adecuado: {!}?(source{[Var]}?, action{[Var]}?, {target{[Var]}?}?, {place{[Var]}?}?, {directObject{[Var]}?}?)");	
+			throw new Exception("El patrón de expectativa no tiene el formato adecuado: (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)");	
 		}
 	}
 	
 	/**
 	 * Lee un elemento con el siguiente formato:
-	 * elemento{[variable]}?
+	 * elemento{:variable}?
 	 * @param strElement String de donde se lee el elemento.
 	 * @param iElement Índice del elemento que se está leyendo.
 	 * @throws Exception
 	 * */
 	private void readElement(String strElement, int iElement) throws Exception {
-		Pattern varPattern = Pattern.compile("(\\w*)(\\[((\\w)*)\\])?");
+		Pattern varPattern = Pattern.compile("((\\w)*)(:((\\w*)))?");
 		Matcher varMatcher = varPattern.matcher(strElement);
 		if (!varMatcher.find())
-			throw new Exception("El patrón de expectativa no tiene el formato adecuado: {!}?(source{[Var]}?, action{[Var]}?, {target{[Var]}?}?, {place{[Var]}?}?, {directObject{[Var]}?}?)");
+			throw new Exception("El patrón de expectativa no tiene el formato adecuado: (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)");
 		
 		elements[iElement] = varMatcher.group(1);
-		variables[iElement] = varMatcher.group(3);
+		variables[iElement] = varMatcher.group(4);
 	}
 	
 	/**
@@ -85,12 +77,5 @@ public class ExpectationPattern extends Relation {
 	 */
 	public String getVariable(int numVar) {
 		return this.variables[numVar];
-	}
-
-	/**
-	 * @return the neg
-	 */
-	public boolean isNeg() {
-		return neg;
 	}
 }

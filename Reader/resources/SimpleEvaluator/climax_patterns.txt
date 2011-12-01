@@ -1,3 +1,3 @@
-[1.0] - [(Heroe[H], Matar, PersonajeMitico[PM]), (PersonajeMitico[PM], MalaACcion, Heroe[H])] 
-[1.0] - [(Heroe[H], Querer, Objeto[O]), (Heroe[H], Tener, Objeto[O])]
-[1.0] - [(Heroe, BuenaAccion, Humano)]
+[1.0] - [(Heroe:H, Matar, PersonajeMitico:PM), (PersonajeMitico:PM, MalaACcion, Heroe:H)] - []
+[1.0] - [(Heroe:H, Querer, Objeto:O), (Heroe:H, Tener, Objeto:O)] - []
+[1.0] - [(Heroe, BuenaAccion, Humano)] - []
