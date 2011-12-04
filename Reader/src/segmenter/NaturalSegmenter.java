@@ -36,11 +36,11 @@ public class NaturalSegmenter implements ISegmenter {
 				// Obtener el valor del verbo en pasado
 				String past = "";
 				String prepositionDirectObject = "";
-				for (int i = 0; i < properties.size(); i++) {
-					if (properties.get(i).equals("PasadoSingular")) 
-						past = values.get(i);
-					else if (properties.get(i).equals("PreposicionObjetoDirecto"))
-						prepositionDirectObject = values.get(i);
+				for (int j = 0; j < properties.size(); j++) {
+					if (properties.get(j).contains("PasadoSingular"))
+						past = values.get(j).split("\\^\\^")[0];
+					else if (properties.get(j).contains("PreposicionObjetoDirecto"))
+						prepositionDirectObject = values.get(j).split("\\^\\^")[0];
 				}
 				// Formar la frase y añadirla a los String del grupo de frases solas
 				String sentence = resultRelation.getSource() + " " + past;
