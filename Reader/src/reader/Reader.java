@@ -38,6 +38,12 @@ public class Reader extends Observable implements IReader {
 	private Mind mind;
 	
 	/**
+	 * Votaciones de los segmentos en orden que forman la historia hasta el momento.
+	 * @see tVote para tipos de votos.
+	 */
+	private ArrayList<tVote> votes;
+	
+	/**
 	 * Número de segmentos que contendrá la historia como máximo.
 	 */
 	private int maxSegments;
@@ -72,12 +78,14 @@ public class Reader extends Observable implements IReader {
 		evaluator = new SimpleEvaluator();
 		evolver = new MindEvolver(evaluator);
 		segmenter = new Segmenter();
+		votes = new ArrayList<tVote>();
 		addObserver((Observer) evaluator);
 	}
 	
 	@Override
 	public void createMind(String file) {
 		storySoFar = new ArrayList<Mind>();
+		votes = new ArrayList<tVote>();
 		InputStream txt = null;
 		try {
 			 txt = new FileInputStream(file);
@@ -86,6 +94,7 @@ public class Reader extends Observable implements IReader {
 		}
 		mind = new Mind(txt);
 		storySoFar.add(mind);
+		votes.add(tVote.NEUTRAL);
 		
 		notifyObservers();
 	}
@@ -105,6 +114,7 @@ public class Reader extends Observable implements IReader {
 			
 			// Extrae un segmento nuevo con la mente cambiada
 			storySoFar.add(segmenter.generateSegment(changedMind));
+			votes.add(tVote.NEUTRAL);
 			mind = changedMind.getActualMind();
 			
 			// Asume que todas las relaciones tienen veracidad o peso 1.0
@@ -167,6 +177,16 @@ public class Reader extends Observable implements IReader {
 	 */
 	public int getActualSegment() {
 		return actualSegment;
+	}
+
+	@Override
+	public ArrayList<tVote> getVotes() {
+		return votes;
+	}
+
+	@Override
+	public void voteSegment(int i, tVote vote) {
+		votes.set(i, vote);
 	}
 	
 }

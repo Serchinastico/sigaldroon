@@ -12,6 +12,12 @@ import mind.Mind;
  *
  */
 public interface IReader {
+	
+	public enum tVote {
+		POSITIVE,
+		NEUTRAL,
+		NEGATIVE
+	}
 
 	/**
 	 * Crea una mente de conceptos que tiene el lector a partir de archivo.
@@ -37,6 +43,12 @@ public interface IReader {
 	 * @param the maxSegments
 	 */
 	public void setMaxSegments(int maxSegments);
+	
+	/**
+	 * @return the votes
+	 * @see tVote para tipos de votos.
+	 */
+	public ArrayList<tVote> getVotes();
 	
 	/**
 	 * Devuelve los segmentos de la historia.
@@ -67,5 +79,12 @@ public interface IReader {
 	 * @param o Observador.
 	 */
 	public void removeObserver(Observer o);
+	
+	/**
+	 * Vota al segmento de la historia número i con la valoración vote.
+	 * @param i Número del segmento a votar en la historia.
+	 * @param vote Nueva valoración del segmento.
+	 */
+	public void voteSegment(int i, tVote vote);
 	
 }

@@ -1,15 +1,10 @@
 package ui.menu;
 
-import java.io.File;
-
-import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import reader.Reader;
-
+import ui.CommandManager;
 import ui.StoryJFrame;
-import ui.panel.treeViewer.StorySoFarTree;
 
 /**
  * Componente para el menú Archivo de la barra de menú.
@@ -55,7 +50,7 @@ public class FileMenu extends JMenu {
         menuItemArchivo.setText("Comenzar desde archivo");
         menuItemArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuItemArchivoMouseClicked(evt);
+            	CommandManager.getInstance().initStoryFromFile(frame);
             }
         });
         this.add(menuItemArchivo);
@@ -65,38 +60,10 @@ public class FileMenu extends JMenu {
         menuItemSalir.setText("Salir");
         menuItemSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuItemSalirMouseClicked(evt);
+            	CommandManager.getInstance().closeApplication(frame);
             }
         });
         this.add(menuItemSalir);
 	}
 	
-	/**
-	 * Listener para comenzar una historia desde archivo.
-	 * @param evt
-	 */
-	private void menuItemArchivoMouseClicked(java.awt.event.MouseEvent evt) {
-    	JFileChooser fc = new JFileChooser("resources");
-    	int returnVal = fc.showOpenDialog(this);
-
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fc.getSelectedFile();
-            frame.getObservableReader().getEvolver().removeObserver(frame);
-            frame.getObservableReader().removeObserver(frame);
-            frame.setObservableReader(new Reader());
-            frame.getObservableReader().insertObserver(frame);
-            frame.getObservableReader().getEvolver().insertObserver(frame);
-            frame.getObservableReader().createMind(file.getPath());
-            frame.setStoryJTree(new StorySoFarTree(frame));
-            frame.getStoryJTree().loadStory(frame.getObservableReader().getStorySoFar());
-        }
-    }
-
-	/**
-	 * Listener para la opción Salir.
-	 * @param evt
-	 */
-    private void menuItemSalirMouseClicked(java.awt.event.MouseEvent evt) {
-    	frame.dispose();
-    }
 }
