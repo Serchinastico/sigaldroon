@@ -128,7 +128,7 @@ public class GraphPane extends JScrollPane {
 		
 			// Source -> Action
 			Object source = graph.insertVertex(parents.get(0), null, r.getSource(), x , y, WIDTH, HEIGHT,"defaultVertex;fontSize=18;fontFamily=Garamond");
-			Object action = graph.insertVertex(parents.get(0), null, r.getAction() + "(" + r.getWeight() + ")", x + X_INCR, y, WIDTH, HEIGHT,"defaultVertex;shape=rhombus;fontSize=18;fontFamily=Garamond");
+			Object action = graph.insertVertex(parents.get(0), null, r.getAction(), x + X_INCR, y, WIDTH, HEIGHT,"defaultVertex;shape=rhombus;fontSize=18;fontFamily=Garamond");
 			graph.insertEdge(parents.get(0), null, " fuente ", source, action,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			
 			// Action -> Target

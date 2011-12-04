@@ -57,6 +57,12 @@ public interface IReader {
 	public ArrayList<Mind> getStorySoFar();
 	
 	/**
+	 * Devuelve los textos de los segmentos de la historia.
+	 * @return
+	 */
+	public ArrayList<String> getTextSegments();
+	
+	/**
 	 * Obtiene el evolucionador de la mente.
 	 * @return 
 	 */

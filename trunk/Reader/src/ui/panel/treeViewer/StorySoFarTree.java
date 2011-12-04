@@ -118,8 +118,15 @@ public class StorySoFarTree extends JTree {
 			StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printSegment(
-					frame.getObservableReader().getStorySoFar().get(segment.getSegmentPosition())
-					);
+					frame.getObservableReader().getStorySoFar().get(
+							segment.getSegmentPosition()
+					)
+			);
+			frame.getNaturalTextPane().getNaturalTextArea().setText(
+					frame.getObservableReader().getTextSegments().get(
+							segment.getSegmentPosition()
+					)
+			);
 
 			break;
 		case 2:
@@ -133,6 +140,11 @@ public class StorySoFarTree extends JTree {
 			}
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printRelation(itRelation.next());
+			frame.getNaturalTextPane().getNaturalTextArea().setText(
+					frame.getObservableReader().getTextSegments().get(
+							relation.getSegmentPosition()
+					)
+			);
 			break;
 		}
 
