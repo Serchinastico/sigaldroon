@@ -30,7 +30,6 @@ public class GenerationOptionsPane extends JPanel {
 	/**
 	 * Frame contenedor de este menú.
 	 */
-	@SuppressWarnings("unused")
 	private StoryJFrame frame;
 	
 	/**

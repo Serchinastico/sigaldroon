@@ -5,10 +5,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import ui.CommandManager;
 import ui.StoryJFrame;
 
 /**
@@ -56,7 +56,7 @@ public class ControlArea extends JPanel {
 		buttonNext = new JButton("Siguiente segmento");
 		buttonNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-            	buttonNextMouseClicked(evt);
+            	CommandManager.getInstance().generateNextSegment(frame);
             }
         });
         
@@ -77,7 +77,7 @@ public class ControlArea extends JPanel {
         buttonComplete = new JButton("Generación completa");
         buttonComplete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-            	buttonCompleteMouseClicked(evt);
+            	CommandManager.getInstance().generateCompleteStory(frame);
             }
         });
         
@@ -111,35 +111,10 @@ public class ControlArea extends JPanel {
 	}
 	
 	/**
-	 * Listener para generar un nuevo segmento de la historia..
-	 * @param evt
-	 */
-	private void buttonNextMouseClicked(java.awt.event.MouseEvent evt) {
-		if (frame.getObservableReader().isInitialized()) {
-			frame.setCompleteGeneration(false);
-    		frame.getObservableReader().generateNextSegment();
-		}
-        else
-        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
-	}
-	
-	/**
-	 * Listener para completar una historia.
-	 * @param evt
-	 */
-	private void buttonCompleteMouseClicked(java.awt.event.MouseEvent evt) {
-		if (frame.getObservableReader().isInitialized()) {
-			frame.setCompleteGeneration(true);
-			frame.getObservableReader().generateStory();
-		}
-        else
-        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
-	}
-	
-	/**
-	 * Establece el valor de la barra de progreso.
-	 * @param vMin valor actual en el progreso.
-	 * @param vMax valor máximo de la barra.
+	 * Establece el valor de la barra de progreso haciendo la división entre el valor actual
+	 * y el máximo alcanzable por algún tipo de medida.
+	 * @param vMin Valor actual en el progreso.
+	 * @param vMax Valor máximo de la barra.
 	 */
 	public void setProgressBarValue(int vMin, int vMax) {
 		float value = (new Float(vMin) / new Float(vMax)) * 100;

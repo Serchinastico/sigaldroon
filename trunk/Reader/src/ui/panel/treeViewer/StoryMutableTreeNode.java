@@ -34,6 +34,7 @@ public class StoryMutableTreeNode extends DefaultMutableTreeNode {
 	public StoryMutableTreeNode(String nodeName, int posS) {
 		super(nodeName);
 		setSegmentPosition(posS);
+		setRelationPosition(-1);
 	}
 	
 	/**
@@ -78,6 +79,14 @@ public class StoryMutableTreeNode extends DefaultMutableTreeNode {
 	 */
 	public int getRelationPosition() {
 		return relationPosition;
+	}
+	
+	/**
+	 * Comprueba si el nodo corresponde a un segmento.
+	 * @return True si el nodo corresponde a un segmento de la historia.
+	 */
+	public boolean isSegment() {
+		return relationPosition == -1;
 	}
 	
 	

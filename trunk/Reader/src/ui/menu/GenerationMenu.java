@@ -2,8 +2,8 @@ package ui.menu;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
+import ui.CommandManager;
 import ui.StoryJFrame;
 
 /**
@@ -49,7 +49,7 @@ public class GenerationMenu extends JMenu {
         menuItemSiguiente.setText("Siguiente segmento");
         menuItemSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuItemSiguienteMouseClicked(evt);
+                CommandManager.getInstance().generateNextSegment(frame);
             }
         });
         this.add(menuItemSiguiente);
@@ -59,35 +59,9 @@ public class GenerationMenu extends JMenu {
         menuItemCompleta.setText("Completa");
         menuItemCompleta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuItemCompletaMouseClicked(evt);
+                CommandManager.getInstance().generateCompleteStory(frame);
             }
         });
         this.add(menuItemCompleta);
-    }
-    
-    /**
-     * Listener para la opción Siguiente segmento de la historia.
-     * @param evt
-     */
-    private void menuItemSiguienteMouseClicked(java.awt.event.MouseEvent evt) {
-    	if (frame.getObservableReader().isInitialized()) {
-    		frame.setCompleteGeneration(false);
-    		frame.getObservableReader().generateNextSegment();
-		}
-        else
-        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
-    }
-    
-    /**
-     * Listener para la opción de generación completa de la historia.
-     * @param evt
-     */
-    private void menuItemCompletaMouseClicked(java.awt.event.MouseEvent evt) {
-    	if (frame.getObservableReader().isInitialized()) {
-    		frame.setCompleteGeneration(true);
-			frame.getObservableReader().generateStory();
-		}
-        else
-        	JOptionPane.showMessageDialog(null, "La historia no ha sido inicializada. Escoge un archivo para inicializar.");
     }
 }

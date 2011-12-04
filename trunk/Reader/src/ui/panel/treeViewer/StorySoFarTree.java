@@ -1,5 +1,7 @@
 package ui.panel.treeViewer;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -8,6 +10,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 
 import ui.StoryJFrame;
 
@@ -50,12 +53,51 @@ public class StorySoFarTree extends JTree {
 		frame = f;
 		titleTree = new DefaultMutableTreeNode("Mito");
 		model = new DefaultTreeModel(titleTree);
+		this.setCellRenderer(new StoryCellRenderer(frame));
 		this.setModel(model);
+		
+		// Listener de selección de nodos
 		this.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent e) {
 				selectionPerformed();
 			}
 		});
+		
+		// Listener de click derecho del ratón para el popup menu
+		MouseAdapter ma = new MouseAdapter() {
+			private void myPopupEvent(MouseEvent e) {
+				
+				// Obtiene la posición del click
+				int x = e.getX();
+				int y = e.getY();
+				JTree tree = (JTree)e.getSource();
+				TreePath path = tree.getPathForLocation(x, y);
+				if (path == null)
+					return; 
+
+				// Se hace seleccionar el nodo en la posición del click
+				tree.setSelectionPath(path);
+				
+				// Se comprueba si el nodo seleccionado es de segmento y se crea el popup menu
+				DefaultMutableTreeNode value = (DefaultMutableTreeNode) getLastSelectedPathComponent();
+				if (value instanceof StoryMutableTreeNode) {
+					StoryMutableTreeNode node = (StoryMutableTreeNode) value;
+					if (node.isSegment()) {
+						VotePopupMenu popup = new VotePopupMenu(frame, node.getSegmentPosition());
+						popup.show(tree, x, y);
+					}
+				}				
+			}
+			// Comprueban el click necesario para popup menus (botón derecho)
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) myPopupEvent(e);
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) myPopupEvent(e);
+			}
+		};
+		this.addMouseListener(ma);
+		
 		frame.getjScrollPaneLeft().setViewportView(this);
 	}
 
@@ -64,7 +106,7 @@ public class StorySoFarTree extends JTree {
 	 */
 	private void selectionPerformed() {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode)
-		this.getLastSelectedPathComponent();
+				this.getLastSelectedPathComponent();
 
 		if (node == null) return;
 
@@ -74,13 +116,11 @@ public class StorySoFarTree extends JTree {
 		case 1:
 			// Es un segmento
 			StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
-			//String segmentContent = frame.getObservableReader().getStorySoFar().get(segment.getSegmentPosition()).toStringSegment();
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printSegment(
 					frame.getObservableReader().getStorySoFar().get(segment.getSegmentPosition())
-			);
-			
-			//frame.getVisualizationPane().getTextAreaVisualizacion().setText(segmentContent);
+					);
+
 			break;
 		case 2:
 			// Es una relación
@@ -91,8 +131,6 @@ public class StorySoFarTree extends JTree {
 				itRelation.next();
 				j++;
 			}
-			//String relationContent = itRelation.next().toStringRelation();
-			//frame.getVisualizationPane().getTextAreaVisualizacion().setText(relationContent);
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printRelation(itRelation.next());
 			break;
@@ -107,6 +145,7 @@ public class StorySoFarTree extends JTree {
 	public void loadStory(ArrayList<Mind> story) {
 		for (int i = 0; i < story.size(); i++) {
 			StoryMutableTreeNode segment = new StoryMutableTreeNode("Segmento "+i,i);
+
 			model.insertNodeInto(segment, titleTree, i);
 
 			int j = 0;
