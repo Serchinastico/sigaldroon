@@ -15,7 +15,7 @@ import evaluator.IEvaluator;
 import evaluator.SimpleEvaluator;
 
 import segmenter.ISegmenter;
-import segmenter.Segmenter;
+import segmenter.NaturalSegmenter;
 
 
 /**
@@ -42,6 +42,11 @@ public class Reader extends Observable implements IReader {
 	 * @see tVote para tipos de votos.
 	 */
 	private ArrayList<tVote> votes;
+	
+	/**
+	 * Almacena el texto asociado a cada segmento.
+	 */
+	private ArrayList<String> textSegment;
 	
 	/**
 	 * Número de segmentos que contendrá la historia como máximo.
@@ -77,8 +82,9 @@ public class Reader extends Observable implements IReader {
 		mind = null;
 		evaluator = new SimpleEvaluator();
 		evolver = new MindEvolver(evaluator);
-		segmenter = new Segmenter();
+		segmenter = new NaturalSegmenter();
 		votes = new ArrayList<tVote>();
+		textSegment = new ArrayList<String>();
 		addObserver((Observer) evaluator);
 	}
 	
@@ -86,6 +92,7 @@ public class Reader extends Observable implements IReader {
 	public void createMind(String file) {
 		storySoFar = new ArrayList<Mind>();
 		votes = new ArrayList<tVote>();
+		textSegment = new ArrayList<String>();
 		InputStream txt = null;
 		try {
 			 txt = new FileInputStream(file);
@@ -95,13 +102,14 @@ public class Reader extends Observable implements IReader {
 		mind = new Mind(txt);
 		storySoFar.add(mind);
 		votes.add(tVote.NEUTRAL);
+		textSegment.add(segmenter.generateInitialSegment(mind));
 		
 		notifyObservers();
 	}
 	
 	@Override
 	public void generateStory() {
-		for (int i = 0; i < maxSegments; i++)
+		for (int i = storySoFar.size(); i < maxSegments; i++)
 			generateNextSegment();
 	}
 	
@@ -113,7 +121,8 @@ public class Reader extends Observable implements IReader {
 			ChangedMind changedMind = evolver.evolveMind(mind);
 			
 			// Extrae un segmento nuevo con la mente cambiada
-			storySoFar.add(segmenter.generateSegment(changedMind));
+			storySoFar.add(changedMind.getActualMind());
+			textSegment.add(segmenter.generateSegment(changedMind));
 			votes.add(tVote.NEUTRAL);
 			mind = changedMind.getActualMind();
 			
@@ -187,6 +196,11 @@ public class Reader extends Observable implements IReader {
 	@Override
 	public void voteSegment(int i, tVote vote) {
 		votes.set(i, vote);
+	}
+
+	@Override
+	public ArrayList<String> getTextSegments() {
+		return textSegment;
 	}
 	
 }

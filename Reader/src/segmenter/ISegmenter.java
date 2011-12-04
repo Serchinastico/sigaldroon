@@ -1,7 +1,7 @@
 package segmenter;
 
-import mind.Mind;
 import mind.ChangedMind;
+import mind.Mind;
 
 /**
  * Interfaz para un creador de segmentos.
@@ -12,11 +12,18 @@ import mind.ChangedMind;
 public interface ISegmenter {
 	
 	/**
-	 * Genera una mini-mente con los elementos y relaciones nuevos
+	 * Genera el texto del segmento para una mente.
+	 * @param m Mente sobre la que realizar la generación.
+	 * @return El string contando lo que hay en la mente.
+	 */
+	public String generateInitialSegment(Mind m);
+	
+	/**
+	 * Genera el texto asociado con los elementos y relaciones nuevos
 	 * que se han generado en la mente m teniendo en cuenta los cambios.
 	 * @param m Mente que ha sufrido cambios.
-	 * @param c Cambios en la mente m.
+	 * return El texto del nuevo segmento.
 	 */
-	public Mind generateSegment(ChangedMind m);
+	public String generateSegment(ChangedMind m);
 
 }

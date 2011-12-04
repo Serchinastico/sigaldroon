@@ -1,939 +1,2075 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl">
-  <owl:Ontology rdf:about=""/>
-  <owl:Class rdf:ID="MalaAccion">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Accion"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="BuenaAccion"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Relacion"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="Heroe">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Actor"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="PersonajeMitico"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Humano"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="BastionDios">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Mitico"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="BastionCriatura"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#BuenaAccion">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Accion"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#MalaAccion"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Relacion"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="NinfaBosque">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Ninfa"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Naturaleza">
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Musa"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Furia"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Menor"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Filosofo">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="LibreNormal"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Meteco"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Artesano"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#LibreNormal">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Humano"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Noble"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Militar"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Esclavo"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#Humano">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#PersonajeMitico"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Heroe"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Actor"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Ciclope">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Gigante"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Hecatonquiro"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Giga"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="Ancestral">
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Titanide"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="PseudoTitan"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Olimpico"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Menor"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Deidad"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#BastionCriatura">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Mitico"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#BastionDios"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Rey">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Noble"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Lugar">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Accion"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Atributo"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Objeto"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Actor"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#Gigante">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#PersonajeMitico"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Hibrido"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Deidad"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#Mitico">
-    <rdfs:subClassOf rdf:resource="#Lugar"/>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Real"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#Titanide">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#PseudoTitan"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Olimpico"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Menor"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Ancestral"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Deidad"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="General">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Militar"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Soldado"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="#PersonajeMitico">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Actor"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#Humano"/>
-    <owl:disjointWith rdf:resource="#Heroe"/>
-  </owl:Class>
-  <owl:Class rdf:ID="NinfaAcuatica">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Ninfa"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Actor">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Accion"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Atributo"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Objeto"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Esclavo">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Noble"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Militar"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
-    <rdfs:subClassOf rdf:resource="#Humano"/>
-  </owl:Class>
-  <owl:Class rdf:ID="Centauro">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Hibrido"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Objeto">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Atributo"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Accion"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="Ciudad">
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Rio"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Montaña"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Isla"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Real"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Isla">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Rio"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Montaña"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Ciudad"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Real"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Soldado">
-    <owl:disjointWith rdf:resource="#General"/>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Militar"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Driade">
-    <rdfs:subClassOf rdf:resource="#Naturaleza"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Ninfa">
-    <rdfs:subClassOf rdf:resource="#Naturaleza"/>
-  </owl:Class>
-  <owl:Class rdf:ID="NinfaMontaña">
-    <rdfs:subClassOf rdf:resource="#Ninfa"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Artesano">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Meteco"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Filosofo"/>
-    <rdfs:subClassOf rdf:resource="#LibreNormal"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Giga">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Hecatonquiro"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Ciclope"/>
-    <rdfs:subClassOf rdf:resource="#Gigante"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Musa">
-    <owl:disjointWith rdf:resource="#Naturaleza"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Furia"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Menor"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#Noble">
-    <rdfs:subClassOf rdf:resource="#Humano"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Militar"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
-    <owl:disjointWith rdf:resource="#Esclavo"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Hecatonquiro">
-    <rdfs:subClassOf rdf:resource="#Gigante"/>
-    <owl:disjointWith rdf:resource="#Giga"/>
-    <owl:disjointWith rdf:resource="#Ciclope"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Accion">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Atributo"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Objeto"/>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Relacion">
-    <owl:disjointWith rdf:resource="#MalaAccion"/>
-    <owl:disjointWith rdf:resource="#BuenaAccion"/>
-    <rdfs:subClassOf rdf:resource="#Accion"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Furia">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Menor"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#Naturaleza"/>
-    <owl:disjointWith rdf:resource="#Musa"/>
-  </owl:Class>
-  <owl:Class rdf:about="#PseudoTitan">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Deidad"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#Titanide"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Olimpico"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Menor"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Ancestral"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Militar">
-    <rdfs:subClassOf rdf:resource="#Humano"/>
-    <owl:disjointWith rdf:resource="#Noble"/>
-    <owl:disjointWith rdf:resource="#LibreNormal"/>
-    <owl:disjointWith rdf:resource="#Esclavo"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Rio">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Real"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Montaña"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Isla"/>
-    <owl:disjointWith rdf:resource="#Ciudad"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Real">
-    <owl:disjointWith rdf:resource="#Mitico"/>
-    <rdfs:subClassOf rdf:resource="#Lugar"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Hibrido">
-    <owl:disjointWith rdf:resource="#Gigante"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Deidad"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf rdf:resource="#PersonajeMitico"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Deidad">
-    <owl:disjointWith rdf:resource="#Hibrido"/>
-    <owl:disjointWith rdf:resource="#Gigante"/>
-    <rdfs:subClassOf rdf:resource="#PersonajeMitico"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Olimpico">
-    <owl:disjointWith rdf:resource="#Titanide"/>
-    <owl:disjointWith rdf:resource="#PseudoTitan"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Menor"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Ancestral"/>
-    <rdfs:subClassOf rdf:resource="#Deidad"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Montaña">
-    <owl:disjointWith rdf:resource="#Rio"/>
-    <owl:disjointWith rdf:resource="#Isla"/>
-    <owl:disjointWith rdf:resource="#Ciudad"/>
-    <rdfs:subClassOf rdf:resource="#Real"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Meteco">
-    <owl:disjointWith rdf:resource="#Filosofo"/>
-    <owl:disjointWith rdf:resource="#Artesano"/>
-    <rdfs:subClassOf rdf:resource="#LibreNormal"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Menor">
-    <rdfs:subClassOf rdf:resource="#Deidad"/>
-    <owl:disjointWith rdf:resource="#Titanide"/>
-    <owl:disjointWith rdf:resource="#PseudoTitan"/>
-    <owl:disjointWith rdf:resource="#Olimpico"/>
-    <owl:disjointWith rdf:resource="#Ancestral"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Atributo">
-    <owl:disjointWith rdf:resource="#Accion"/>
-    <owl:disjointWith rdf:resource="#Objeto"/>
-    <owl:disjointWith rdf:resource="#Lugar"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
-  </owl:Class>
-  <Olimpico rdf:ID="Hestia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Encelado">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Ciudad rdf:ID="Eretria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Atributo rdf:ID="Enfermo"/>
-  <Olimpico rdf:ID="Hera">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <MalaAccion rdf:ID="Enojar"/>
-  <Atributo rdf:ID="Muerto"/>
-  <Hecatonquiro rdf:ID="Giges">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <MalaAccion rdf:ID="Pegar"/>
-  <Filosofo rdf:ID="Aristoreles">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Filosofo>
-  <Isla rdf:ID="Rodas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <MalaAccion rdf:ID="Matar"/>
-  <Musa rdf:ID="Mnemea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <PseudoTitan rdf:ID="Titan">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Isla rdf:ID="Panfilia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <Musa rdf:ID="Euterpe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <PseudoTitan rdf:ID="Leto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Giga rdf:ID="Ctonio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Ciclope rdf:ID="Elatreo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Hecatonquiro rdf:ID="Briareos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Musa rdf:ID="Melpomene">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Olimpico rdf:ID="Hares">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Ciudad rdf:ID="Tirinto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <NinfaMontaña rdf:ID="Dafnis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Clitio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Heroe rdf:ID="Hercules">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Heroe>
-  <Ciclope rdf:ID="Arges">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <PseudoTitan rdf:ID="Eosforo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Olimpico rdf:ID="Hermes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Titanide rdf:ID="Japeto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Rey rdf:ID="Filipo_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Noble rdf:ID="Alcibiades">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <NinfaMontaña rdf:ID="Citeronides">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Noble rdf:ID="Clistenes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciclope rdf:ID="Esteropes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Olimpico rdf:ID="Deméter">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Alecto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <Musa rdf:ID="Polimnia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Centauro rdf:ID="Neso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <Accion rdf:ID="Nacer"/>
-  <Noble rdf:ID="Tucidides">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Aedea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Titanide rdf:ID="Tetis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <NinfaAcuatica rdf:ID="Limnade">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <PseudoTitan rdf:ID="Selene">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <owl:AllDifferent>
-    <owl:distinctMembers rdf:parseType="Collection">
-      <Atributo rdf:about="#Enfermo"/>
-      <Atributo rdf:about="#Muerto"/>
-    </owl:distinctMembers>
-  </owl:AllDifferent>
-  <Montaña rdf:ID="Monte_Ida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <Noble rdf:ID="Lanasa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <PseudoTitan rdf:ID="Perses">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Hecatonquiro rdf:ID="Coto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Noble rdf:ID="Calias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciudad rdf:ID="Argos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Noble rdf:ID="Agarista">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ciclope rdf:ID="Polifemo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Rey rdf:ID="Filipo_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Polibotes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Rey rdf:ID="Seutes_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Ciudad rdf:ID="Micenas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Ciudad rdf:ID="Esparta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Giga rdf:ID="Palas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <NinfaMontaña rdf:ID="Cynosura">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Mimas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Porfirion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <BuenaAccion rdf:ID="Salvar"/>
-  <Centauro rdf:ID="Quirin">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <Giga rdf:ID="Agrio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Rey rdf:ID="Calias_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Rey rdf:ID="Ptolomeo_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Eos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Isla rdf:ID="Mileto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <NinfaAcuatica rdf:ID="Limnatide">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <Noble rdf:ID="Gelon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Titanide rdf:ID="Ceo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Ciclope rdf:ID="Brontes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <BastionDios rdf:ID="Inframundo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <PseudoTitan rdf:ID="Atlas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <BuenaAccion rdf:ID="Amar"/>
-  <Giga rdf:ID="Peloro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <BastionDios rdf:ID="Campos_Eliseos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <NinfaAcuatica rdf:ID="Creneas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <NinfaMontaña rdf:ID="Liceas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <MalaAccion rdf:ID="Herir"/>
-  <BastionDios rdf:ID="Parnaso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Musa rdf:ID="Caliope">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <MalaAccion rdf:ID="Castigar"/>
-  <MalaAccion rdf:ID="Atacar"/>
-  <Rio rdf:ID="Ladon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Rey rdf:ID="Alejandro_IV">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Tifon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Musa rdf:ID="Clio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <BuenaAccion rdf:ID="Proteger"/>
-  <BastionCriatura rdf:ID="Flege_Tonte">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Filosofo rdf:ID="Platon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Filosofo>
-  <Accion rdf:ID="Querer"/>
-  <Titanide rdf:ID="Cronos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Titanide rdf:ID="Mnemosine">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Titanide rdf:ID="Hiperion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Ciclope rdf:ID="Halimedes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Relacion rdf:ID="Madre"/>
-  <Noble rdf:ID="Olimpia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Terspsicore">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Montaña rdf:ID="Monte_Osa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <Accion rdf:ID="PonerAPrueba"/>
-  <Ancestral rdf:ID="Gaia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ancestral>
-  <PseudoTitan rdf:ID="Astrea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Noble rdf:ID="Meleagro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <MalaAccion rdf:ID="Odiar"/>
-  <Noble rdf:ID="Magas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <PseudoTitan rdf:ID="Epimeteo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Centauro rdf:ID="Hilonoma">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <MalaAccion rdf:ID="Provocar"/>
-  <Giga rdf:ID="Toante">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Accion rdf:ID="Tener"/>
-  <Noble rdf:ID="Hipocrates">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Talia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <BastionDios rdf:ID="Olimpo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Rey rdf:ID="Filipo_II">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Prometeo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Noble rdf:ID="Roxana">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Musa rdf:ID="Urania">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Noble rdf:ID="Timarco">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <NinfaAcuatica rdf:ID="Pegeas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaAcuatica>
-  <BastionDios rdf:ID="Prados_Asfodeos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Rio rdf:ID="Cefiso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Rey rdf:ID="Hiponico_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Musa rdf:ID="Erate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <Ciclope rdf:ID="Eurialo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Titanide rdf:ID="Temis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <BastionCriatura rdf:ID="Monte_Parnaso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Isla rdf:ID="Creta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <NinfaMontaña rdf:ID="Adrastea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Ciudad rdf:ID="Pilos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Titanide rdf:ID="Febe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Olimpico rdf:ID="Poseidon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Ciudad rdf:ID="Calcis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Titanide rdf:ID="Rea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Relacion rdf:ID="Padre"/>
-  <Ciclope rdf:ID="Traquio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <Giga rdf:ID="Damasen">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Alpo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Atenea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <NinfaMontaña rdf:ID="Ida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Isla rdf:ID="Licia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <Accion rdf:ID="Ser"/>
-  <Rey rdf:ID="Hieron_I">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <PseudoTitan rdf:ID="Menecio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Ciclope rdf:ID="Telemo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciclope>
-  <PseudoTitan rdf:ID="Astreo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Titanide rdf:ID="Oceano">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Rey rdf:ID="Seutes_II">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rey>
-  <Giga rdf:ID="Hipolito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Apolo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Hecatonquiro rdf:ID="Egeon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Hecatonquiro>
-  <Ciudad rdf:ID="Atenas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Isla rdf:ID="Cnosos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
-  <Olimpico rdf:ID="Dioniso">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Megera">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <Noble rdf:ID="Antigona">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Olimpico rdf:ID="Hades">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Gracion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Titanide rdf:ID="Crio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Noble rdf:ID="Critias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Ancestral rdf:ID="Uranus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ancestral>
-  <Olimpico rdf:ID="Hefesto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Furia rdf:ID="Tisifone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Furia>
-  <PseudoTitan rdf:ID="Helios">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Montaña rdf:ID="Etna">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <BastionDios rdf:ID="Tartaro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionDios>
-  <Centauro rdf:ID="Folo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Centauro>
-  <Rio rdf:ID="Maritsa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Rio>
-  <Noble rdf:ID="Leptines">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Noble>
-  <Titanide rdf:ID="Tea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Titanide>
-  <Olimpico rdf:ID="Artemisa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Giga rdf:ID="Alcioneo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Relacion rdf:ID="Enemigo"/>
-  <Relacion rdf:ID="Amigo"/>
-  <NinfaMontaña rdf:ID="Nomia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <Giga rdf:ID="Enfialtes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Giga rdf:ID="Eurito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Olimpico rdf:ID="Afrodita">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Olimpico rdf:ID="Zeus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Olimpico>
-  <Relacion rdf:ID="Hermano"/>
-  <PseudoTitan rdf:ID="Asteria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </PseudoTitan>
-  <Montaña rdf:ID="Balcanes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Montaña>
-  <Musa rdf:ID="Meletea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Musa>
-  <NinfaMontaña rdf:ID="Britomartis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </NinfaMontaña>
-  <BastionCriatura rdf:ID="Rio_Estigia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </BastionCriatura>
-  <Isla rdf:ID="Chipre">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Isla>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#AccionDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#AccionDataProperty"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PasadoSingular -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PasadoSingular">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#AccionDataProperty"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PreposicionObjetoDirecto"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PreposicionObjetoDirecto -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PreposicionObjetoDirecto">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#AccionDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ancestral -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ancestral">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Artesano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Artesano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filosofo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meteco"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mitico"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mitico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Driade -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Driade">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esclavo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esclavo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filosofo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filosofo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meteco"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#General -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#General">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Soldado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heroe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heroe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meteco -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meteco">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#LibreNormal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mitico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mitico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaBosque -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaBosque">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Humano"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Soldado -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Soldado">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Militar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Adrastea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Adrastea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Aedea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Aedea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Afrodita -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Afrodita">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Agarista -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Agarista">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Agrio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Agrio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alcibiades -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alcibiades">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alcioneo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alcioneo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alecto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alecto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alejandro_IV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alejandro_IV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alpo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Alpo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Amar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Amar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">amaba</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Amigo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Amigo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">de</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">era amigo</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Antigona -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Antigona">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Apolo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Apolo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Arges -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Arges">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Argos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Argos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Aristoreles -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Aristoreles">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filosofo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Artemisa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Artemisa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Asteria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Asteria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Astrea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Astrea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Astreo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Astreo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atacar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atacar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">atacó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atenas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atenas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atenea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atenea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atlas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atlas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Balcanes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Balcanes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Briareos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Briareos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Britomartis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Britomartis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Brontes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Brontes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calcis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calcis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calias -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calias">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calias_III -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calias_III">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Caliope -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Caliope">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Campos_Eliseos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Campos_Eliseos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Castigar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Castigar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">castigó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cefiso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cefiso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ceo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ceo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Chipre -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Chipre">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Citeronides -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Citeronides">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clistenes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clistenes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clitio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Clitio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cnosos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cnosos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Coto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Coto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Creneas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Creneas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Creta -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Creta">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Crio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Crio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Critias -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Critias">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cronos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cronos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ctonio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ctonio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cynosura -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cynosura">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Dafnis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Dafnis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Damasen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Damasen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deméter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deméter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Dioniso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Dioniso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Egeon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Egeon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Elatreo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Elatreo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Encelado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Encelado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enemigo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enemigo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">de</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">era enemigo</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enfermo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enfermo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enfialtes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enfialtes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enojar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enojar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">enojó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eosforo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eosforo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Epimeteo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Epimeteo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Erate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Erate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eretria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eretria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esparta -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esparta">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esteropes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esteropes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Etna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Etna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eurialo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eurialo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eurito -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eurito">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Euterpe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Euterpe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Febe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Febe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_I -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_I">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_II -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_II">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_III -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filipo_III">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Flege_Tonte -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Flege_Tonte">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Folo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Folo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gaia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gaia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ancestral"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gelon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gelon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giges -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giges">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gracion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gracion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hades -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hades">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Halimedes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Halimedes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hares -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hares">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hefesto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hefesto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Helios -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Helios">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hercules -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hercules">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heroe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Herir -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Herir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">hirió</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hermano -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hermano">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">de</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">era hermano</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hermes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hermes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hestia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hestia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hieron_I -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hieron_I">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hilonoma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hilonoma">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hiperion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hiperion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hipocrates -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hipocrates">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hipolito -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hipolito">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hiponico_III -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hiponico_III">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ida -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ida">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Inframundo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Inframundo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Japeto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Japeto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ladon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ladon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lanasa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lanasa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Leptines -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Leptines">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Leto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Leto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Liceas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Liceas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Licia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Licia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Limnade -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Limnade">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Limnatide -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Limnatide">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Magas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Magas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Maritsa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Maritsa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Matar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Matar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">mató</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Megera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Megera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meleagro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meleagro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meletea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Meletea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Melpomene -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Melpomene">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menecio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menecio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Micenas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Micenas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mileto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mileto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mimas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mimas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mnemea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mnemea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mnemosine -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mnemosine">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Ida -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Ida">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Osa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Osa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Parnaso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Parnaso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Muerto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Muerto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atributo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Nacer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Nacer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <PasadoSingular rdf:datatype="&xsd;string">nació</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Neso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Neso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Nomia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Nomia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Oceano -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Oceano">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Odiar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Odiar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">odiaba</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Palas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Palas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Panfilia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Panfilia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Parnaso -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Parnaso">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pegar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pegar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">pegó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pegeas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pegeas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Peloro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Peloro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Perses -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Perses">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pilos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pilos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Platon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Platon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Filosofo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polibotes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polibotes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polifemo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polifemo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polimnia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Polimnia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PonerAPrueba -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PonerAPrueba">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">puso a prueba</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Porfirion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Porfirion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Poseidon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Poseidon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Prados_Asfodeos -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Prados_Asfodeos">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Progenitor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Progenitor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Relacion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">de</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">era progenitor</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Prometeo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Prometeo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Proteger -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Proteger">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">protegió</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Provocar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Provocar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#MalaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">provocó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ptolomeo_I -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ptolomeo_I">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Querer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Querer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">quería</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Quirin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Quirin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio_Estigia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio_Estigia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rodas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rodas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Roxana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Roxana">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Salvar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Salvar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion"/>
+        <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
+        <PasadoSingular rdf:datatype="&xsd;string">salvó</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Selene -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Selene">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ser -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ser">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <PasadoSingular rdf:datatype="&xsd;string">era</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Seutes_I -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Seutes_I">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Seutes_II -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Seutes_II">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rey"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Talia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Talia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tartaro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tartaro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Telemo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Telemo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Temis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Temis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tener -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tener">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Accion"/>
+        <PasadoSingular rdf:datatype="&xsd;string">tenía</PasadoSingular>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Terspsicore -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Terspsicore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tetis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tetis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tifon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tifon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Timarco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Timarco">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tirinto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tirinto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tisifone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tisifone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Toante -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Toante">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Traquio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Traquio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tucidides -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tucidides">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Urania -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Urania">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Uranus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Uranus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ancestral"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Zeus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Zeus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Enfermo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Muerto"/>
+        </owl:distinctMembers>
+    </rdf:Description>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
