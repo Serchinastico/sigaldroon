@@ -111,5 +111,24 @@ public class QuestionPattern {
 	public float getWeight() {
 		return weight;
 	}
+	
+	public String toString() {
+		String str = "";
+		
+		str += "Expectations: [\n";
+		int iExp = 0;
+		for (ExpectationPattern ePattern : ePatterns) {
+			str += "  " + (iExp++) + "." + ePattern.toString() + "\n";
+		}
+		str += "]\n";
+		iExp = 0;
+		str += "Neg. Expectations: [\n";
+		for (ExpectationPattern negEPattern : negEPatterns) {
+			str += "  " + (iExp++) + "." + negEPattern.toString() + "\n";
+		}
+		str += "]\n";
+		
+		return str;
+	}
 
 }

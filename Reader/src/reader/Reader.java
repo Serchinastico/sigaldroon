@@ -54,11 +54,6 @@ public class Reader extends Observable implements IReader {
 	private int maxSegments;
 	
 	/**
-	 * Índice del segmento actual.
-	 * */
-	private int actualSegment;
-	
-	/**
 	 * Evaluador de los mentes generadas.
 	 * */
 	private IEvaluator evaluator;
@@ -78,7 +73,6 @@ public class Reader extends Observable implements IReader {
 	 */
 	public Reader() {
 		maxSegments = 10;
-		actualSegment = 0;
 		mind = null;
 		evaluator = new SimpleEvaluator();
 		evolver = new MindEvolver(evaluator);
@@ -129,8 +123,6 @@ public class Reader extends Observable implements IReader {
 			// Asume que todas las relaciones tienen veracidad o peso 1.0
 			assumeConcepts();
 			
-			actualSegment++;
-			
 			setChanged();
 			notifyObservers();
 		}
@@ -179,13 +171,6 @@ public class Reader extends Observable implements IReader {
 	@Override
 	public IMindEvolver getEvolver() {
 		return evolver;
-	}
-
-	/**
-	 * @return the actualSegment
-	 */
-	public int getActualSegment() {
-		return actualSegment;
 	}
 
 	@Override
