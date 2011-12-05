@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import es.ucm.fdi.gaia.ontobridge.OntoBridge;
-
 import mind.ChangedMind;
 import mind.Mind;
 import mind.Relation;
-import mind.ontobridge.OntoBridgeSingleton;
 
 import operator.Change;
+import segmenter.paragrah.BasicParagraph;
+import segmenter.paragrah.ParagraphSocket;
 
 /**
  * Implementación de un segmentador con generación de texto
@@ -21,10 +20,13 @@ import operator.Change;
  *
  */
 public class NaturalSegmenter implements ISegmenter {
+	
+	private ParagraphSocket paragraphGen;
 
 	@Override
 	public String generateSegment(ChangedMind m) {
 		String segmentText = "";
+		paragraphGen = new BasicParagraph();
 		ArrayList<Relation> filteredRelations = filterChanges(m.getChanges());
 		segmentText = makeText(filteredRelations);
 		return segmentText;
@@ -56,6 +58,7 @@ public class NaturalSegmenter implements ISegmenter {
 	@Override
 	public String generateInitialSegment(Mind m) {
 		String segmentText = "";
+		paragraphGen = new BasicParagraph();
 		ArrayList<Relation> mindRelations = new ArrayList<Relation>();
 		for (Relation relation : m)
 			mindRelations.add(relation);
@@ -90,78 +93,10 @@ public class NaturalSegmenter implements ISegmenter {
 		
 		// Para cada categoría de Place, se crea un un párrafo
 		for (Entry<String, ArrayList<Relation>> entry : relationsByPlace.entrySet()) {
-			text += makeParagrah(entry.getValue());
+			text += paragraphGen.generateParagraph(entry.getValue());
 		}
 		
 		return text;
 	}
 	
-	/**
-	 * Genera el texto de un párrafo. Cada párrafo está relacionado con sucesos de un lugar,
-	 * excepto los que no tienen lugar que están juntos en uno.
-	 * @param paragraphRelations Relaciones que van a formar parte del párrafo.
-	 * @return El string con el texto.
-	 */
-	private String makeParagrah(ArrayList<Relation> paragraphRelations) {
-		String paragraph = "";
-		
-		// Categorizamos las relaciones por Source
-		HashMap<String, ArrayList<Relation>> relationsBySource = new HashMap<String, ArrayList<Relation>>();
-		for (Relation relation : paragraphRelations) {
-			if (relationsBySource.containsKey(relation.getSource())) {
-				relationsBySource.get(relation.getSource()).add(relation);
-			}
-			else {
-				ArrayList<Relation> newSourceRelation = new ArrayList<Relation>();
-				newSourceRelation.add(relation);
-				relationsBySource.put(relation.getSource(), newSourceRelation);
-			}
-		}
-		
-		// Para cada categoría de Source, se crea una frase
-		for (Entry<String, ArrayList<Relation>> entry : relationsBySource.entrySet()) {
-			paragraph += makePhrase(entry.getValue());
-		}
-		
-		paragraph += "\n";
-		return paragraph;
-	}
-	
-	/**
-	 * Genera el texto relacionado con un personaje y lugar si existe.
-	 * El lugar y el personaje es el mismo para todas las relaciones.
-	 * @param phraseRelations Relaciones que van a generar la frase.
-	 * @return El string con el texto.
-	 */
-	private String makePhrase(ArrayList<Relation> phraseRelations) {
-		OntoBridge ob = OntoBridgeSingleton.getInstance();
-		String phrase = "";
-		if (phraseRelations.get(0).getPlace() != null) 
-			phrase += "En " + phraseRelations.get(0).getPlace() + ", ";
-		phrase += phraseRelations.get(0).getSource();
-		for (Relation relation : phraseRelations) {
-			// Por ahora encaje básico, la gracia es tener un listado de encajes posibles
-			if (!ob.existsClass(relation.getAction())) {
-				// Obtener las propiedades
-				ArrayList<String> properties = new ArrayList<String>();
-				ArrayList<String> values = new ArrayList<String>();
-				ob.listInstancePropertiesValues(relation.getAction(), properties, values);
-				// Obtener el valor del verbo en pasado
-				String past = "";
-				String prepositionDirectObject = "";
-				for (int j = 0; j < properties.size(); j++) {
-					if (properties.get(j).contains("PasadoSingular"))
-						past = values.get(j).split("\\^\\^")[0];
-					else if (properties.get(j).contains("PreposicionObjetoDirecto"))
-						prepositionDirectObject = values.get(j).split("\\^\\^")[0];
-				}
-				// Formar la frase y añadirla a los String del grupo de frases solas
-				phrase += " " + past;
-				if (relation.getTarget() != null) 
-					phrase += " " + prepositionDirectObject + " " + relation.getTarget();
-			}
-		}
-		phrase += ". ";
-		return phrase;
-	}
 }
