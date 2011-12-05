@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="lib/ontobridge/ontobridge.jar"/>
 	<classpathentry kind="lib" path="lib/ontobridge/pellet.jar"/>
 	<classpathentry kind="lib" path="lib/jgraph/jgraphx.jar"/>
+	<classpathentry kind="lib" path="lib/jmathplot/jmathplot.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

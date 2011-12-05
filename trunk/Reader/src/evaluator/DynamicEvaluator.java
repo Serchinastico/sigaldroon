@@ -8,16 +8,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import mind.Mind;
+import mind.Relation;
 
 import operator.OPTarget;
 import reader.Reader;
 
 public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 
+	/** Enumerado para diferenciar entre votos positivos y negativos.
+	 * */
+	private enum VoteType {
+		UPVOTE,
+		DOWNVOTE
+	}
+	
 	/**
 	 * Número de divisiones en la historia.
 	 * */
@@ -217,6 +230,69 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		return success;
 	}
 	
+	/**
+	 * Vota positivamente un segmento generado, provocando que los patrones activados en esa mente
+	 * salgan beneficiados y sean más importantes en siguientes generaciones.
+	 * @param m Mente que se vota positivamente.
+	 * @param maxSegments Número máximo de segmentos del lector.
+	 * @param mindSegment Índice del segmento al que pertenece la mente.
+	 * */
+	public void upvote(Mind m, int maxSegments, int mindSegment) {
+		vote(m, maxSegments, mindSegment, VoteType.UPVOTE);
+	}
+	
+	/**
+	 * Vota negativamente un segmento generado, provocando que los patrones activados en esa mente
+	 * salgan perjudicados y sean menos importantes en siguientes generaciones.
+	 * @param m Mente que se vota negativamente.
+	 * @param maxSegments Número máximo de segmentos del lector.
+	 * @param mindSegment Índice del segmento al que pertenece la mente.
+	 * */
+	public void downvote(Mind m, int maxSegments, int mindSegment) {
+		vote(m, maxSegments, mindSegment, VoteType.DOWNVOTE);
+	}
+	
+	/**
+	 * Vota una mente para que los patrones activados se actualicen convenientemente.
+	 * @param m Mente que se vota.
+	 * @param maxSegments Número máximo de segmentos del lector.
+	 * @param mindSegment Índice del segmento al que pertenece la mente.
+	 * @param vote Tipo de voto.
+	 * */
+	private void vote(Mind m, int maxSegments, int mindSegment, VoteType vote) {
+		// Se calcula en qué storyBreak debemos hacer el voto.
+		int iStoryBreak = (int) Math.ceil(storyBreaks * (mindSegment / maxSegments));
+		
+		// TODO Refactorizar con el método eval()
+		HashSet<Integer> usedPatterns = new HashSet<Integer>();
+		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+			QuestionPattern qPattern = qPatterns.get(iPattern);
+			
+			Collection<String> actions = qPattern.getActions();
+			Collection<String> negActions = qPattern.getNegActions();
+			HashMap<String, Iterable<Relation>> relations = m.getRelations(actions);
+			HashMap<String, Iterable<Relation>> negRelations = m.getRelations(negActions);
+			HashMap<String, String> variables = new HashMap<String, String>();
+			HashSet<Relation> usedRelations = new HashSet<Relation>();
+			
+			if (checkQuestionPattern(qPattern.getExpectationPatterns(), qPattern.getNegExpectationPatterns(), relations, negRelations, variables, usedRelations)) {
+				usedPatterns.add(iPattern);
+			}
+		}
+		
+		for (int iPattern : usedPatterns) {
+			switch(vote) {
+			case UPVOTE:
+				weights.get(iPattern)[iStoryBreak] = (float) Math.min(1.0f, weights.get(iPattern)[iStoryBreak] * 1.25f);
+				break;
+			case DOWNVOTE:
+				weights.get(iPattern)[iStoryBreak] = (float) Math.max(0.0f, weights.get(iPattern)[iStoryBreak] * 0.75f);
+				break;	
+			}
+			
+		}
+	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 		if (!(o instanceof Reader))
@@ -224,7 +300,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		
 		Reader r = (Reader) o;
 		int maxSegments = r.getMaxSegments();
-		int actualSegment = r.getActualSegment();
+		int actualSegment = r.getStorySoFar().size();
 		
 		/* Se calcula el punto exacto (puede caer entre dos valores) de la historia
 		 * en el que estamos según el número de cortes que tiene el evaluador.
@@ -256,5 +332,19 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
+	
+	/**
+	 * @return the weights
+	 */
+	public ArrayList<float[]> getWeights() {
+		return weights;
+	}
+
+	/**
+	 * @return the storyBreaks
+	 */
+	public int getStoryBreaks() {
+		return storyBreaks;
+	};
 	
 }

@@ -69,7 +69,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 	 * @return boolean True si se satisface el patrón.
 	 * */
 	@SuppressWarnings("unchecked")
-	private boolean checkQuestionPattern(HashSet<ExpectationPattern> ePatterns,
+	protected boolean checkQuestionPattern(HashSet<ExpectationPattern> ePatterns,
 			HashSet<ExpectationPattern> negEPatterns,
 			HashMap<String, Iterable<Relation>> relations,
 			HashMap<String, Iterable<Relation>> negRelations,
@@ -111,7 +111,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 	 * @param relation Relación con la que se realiza el matching. 
 	 * @return boolean True si no hay incompatibilidades con las variables.
 	 * */
-	private boolean linkVariables(HashMap<String, String> variables,
+	protected boolean linkVariables(HashMap<String, String> variables,
 			ExpectationPattern ePattern, Relation relation) {
 		boolean success = true;
 		
@@ -151,7 +151,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 	 * @param relations Relaciones de la mente.
 	 * @return True si se satisface el conjunto de expectativas negadas.
 	 * */
-	private boolean checkNegatedExpectations(HashSet<ExpectationPattern> negEPatterns,
+	protected boolean checkNegatedExpectations(HashSet<ExpectationPattern> negEPatterns,
 			HashMap<String, String> variables,
 			HashMap<String, Iterable<Relation>> relations) {
 		boolean satisfiable = true;
@@ -179,7 +179,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 	 * @param variables Conjunto de ligaduras de variables.
 	 * @return True si no se satisface la expresión.
 	 * */
-	private boolean checkNegVariables(ExpectationPattern negExp,
+	protected boolean checkNegVariables(ExpectationPattern negExp,
 			Relation relation, HashMap<String, String> variables) {
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		boolean satisfiable = true;
@@ -198,6 +198,13 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		}
 		
 		return satisfiable;
+	}
+
+	/**
+	 * @return the qPatterns
+	 */
+	public ArrayList<QuestionPattern> getQPatterns() {
+		return qPatterns;
 	}
 
 }
