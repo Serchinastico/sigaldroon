@@ -10,6 +10,7 @@ import segmenter.UnionWordsGenerator;
 import segmenter.WordsGenerator;
 import segmenter.phrase.BasicPhrase;
 import segmenter.phrase.PhraseSocket;
+import segmenter.syntax.NameBridge;
 
 public class BasicParagraph extends ParagraphSocket {
 
@@ -40,11 +41,15 @@ public class BasicParagraph extends ParagraphSocket {
 	 */
 	public String generateParagraph(ArrayList<Relation> paragraphRelations) {
 		String paragraph = "";
+		boolean capitalize;
 
 		// Establece si hay un lugar para todas las relaciones o no está especificado
 		if (paragraphRelations.get(0).getPlace() != null) {
-			paragraph += "En " + paragraphRelations.get(0).getPlace() +", ";
+			paragraph += "En " + NameBridge.getInstance().getName(paragraphRelations.get(0).getPlace()) +", ";
+			capitalize = false;
 		}
+		else
+			capitalize = true;
 
 		// Categorizamos las relaciones por Source
 		HashMap<String, ArrayList<Relation>> relationsBySource = new HashMap<String, ArrayList<Relation>>();
@@ -62,15 +67,31 @@ public class BasicParagraph extends ParagraphSocket {
 		boolean start = true;
 		// Para cada categoría de Source, se crea una frase
 		for (Entry<String, ArrayList<Relation>> entry : relationsBySource.entrySet()) {
+			String phrase = "";
 			if (start) 
 				start = false;
 			else 
 				paragraph += unionWords.getNextWord() + ", ";
-			paragraph += phraseGen.generatePhrase(entry.getValue()) + " ";
+			phrase = phraseGen.generatePhrase(entry.getValue()) + " ";
+			if (capitalize) {
+				phrase = firstLetterToUppercase(phrase);
+				capitalize = false;
+			}
+			
+			paragraph += phrase;
 		}
 
 		paragraph += "\n";
 		return paragraph;
+	}
+	
+	/**
+	 * Convierte la primera letra de la palabra a mayúsculas.
+	 * @param word Palabra cuya primera letra convertir a mayúsculas.
+	 * @return La palabra con la primera letra en mayúsculas.
+	 */
+	private String firstLetterToUppercase(String word) {
+		return word.substring(0,1).toUpperCase() + word.substring(1);
 	}
 
 }

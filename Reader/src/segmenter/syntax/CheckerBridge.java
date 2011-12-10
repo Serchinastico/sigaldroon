@@ -28,15 +28,23 @@ public class CheckerBridge {
 
 		// Inicializa variables para el acceso a la ontología
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
+		String elementToCheck = "";
+		
+		// Comprobación para obtener instancia de clase o instancia pura
+		if (ob.existsClass(instance))
+			elementToCheck = "Class" + instance;
+		else
+			elementToCheck = instance;
 
-		// Obtiene valores de la instancia
-		Iterator<String> it = ob.listPropertyValue(instance, property);
-
+		// Obtiene valores de la propiedad
+		Iterator<String> it = ob.listPropertyValue(elementToCheck, property);
+	
 		// Devuelve el valor encontrado en la ontología
 		if (it.hasNext())
 			return it.next().split(PROP_FILTER)[0];
 		else 
 			return null;
+
 	}
 
 	/**
@@ -50,9 +58,16 @@ public class CheckerBridge {
 
 		// Inicializa variables para el acceso a la ontología
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
+		String elementToCheck = "";
 
+		// Comprobación para obtener instancia de clase o instancia pura
+		if (ob.existsClass(instance))
+			elementToCheck = "Class" + instance;
+		else
+			elementToCheck = instance;
+		
 		// Obtiene propiedades y valores de la instancia action
-		Iterator<String> it = ob.listPropertyValue(instance, property);
+		Iterator<String> it = ob.listPropertyValue(elementToCheck, property);
 		
 		// Chequeo y devolución
 		if (it.hasNext()) 

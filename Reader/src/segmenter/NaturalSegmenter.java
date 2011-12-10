@@ -48,6 +48,7 @@ public class NaturalSegmenter implements ISegmenter {
 			boolean changeToInclude = true;
 			while ((changeToInclude) && (j < changes.size())) {
 				changeToInclude = !changes.get(i).getAfter().equals(changes.get(j).getBefore());
+				j++;
 			}
 			if (changeToInclude) 
 				filteredChanges.add(changes.get(i).getAfter());
