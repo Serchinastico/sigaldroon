@@ -16,7 +16,7 @@ public class OntoBridgeSingleton{
 	/**
 	 * Ruta de la ontología de nombres.
 	 * */
-	private static final String ONTOLOGY_PATH = "file:resources/ontologies/Ontology.owl";
+	private static final String ONTOLOGY_PATH = "file:resources/ontologies/Ontology2.owl";
 	
 	private static OntoBridge instance = null;
 	

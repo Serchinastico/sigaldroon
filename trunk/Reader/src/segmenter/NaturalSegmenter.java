@@ -43,7 +43,7 @@ public class NaturalSegmenter implements ISegmenter {
 		ArrayList<Relation> filteredChanges = new ArrayList<Relation>();
 		for (int i = 0; i < changes.size(); i++) {
 			// Solo es necesario mirar en los cambios que hay adelante
-			// y ver si la relación resultante es usada en otro cambio de forma inicial
+			// y ver si la relación resultante es usada en otro cambio
 			int j = i + 1;
 			boolean changeToInclude = true;
 			while ((changeToInclude) && (j < changes.size())) {

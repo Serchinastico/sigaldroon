@@ -11,13 +11,13 @@ public class VerbBridge extends CheckerBridge {
 	/**
 	 * Constantes para facilitar la modificación de las propiedades de la ontología.
 	 */
-	private static final String PAST_FORM = "formaPasada";
-	private static final String CAN_HAVE_DIRECT_OBJECT = "puedeTenerObjetoDirecto";
-	private static final String CAN_HAVE_INDIRECT_OBJECT = "puedeTenerObjetoIndirecto";
-	private static final String DIRECT_OBJECT_TYPE = "tipoObjetoIndirecto";
-	private static final String INDIRECT_OBJECT_TYPE = "tipoObjetoDirecto";
-	private static final String DIRECT_OBJECT_PREPOSITION = "tipoObjetoIndirecto";
-	private static final String INDIRECT_OBJECT_PREPOSITION = "tipoObjetoDirecto";
+	private static final String PAST_FORM = "PasadoSingular";
+	private static final String CAN_HAVE_DIRECT_OBJECT = "TieneObjetoDirecto";
+	private static final String CAN_HAVE_INDIRECT_OBJECT = "TieneObjetoIndirecto";
+	private static final String DIRECT_OBJECT_TYPE = "TipoObjetoIndirecto";
+	private static final String INDIRECT_OBJECT_TYPE = "TipoObjetoDirecto";
+	private static final String DIRECT_OBJECT_PREPOSITION = "PreposicionObjetoDirecto";
+	private static final String INDIRECT_OBJECT_PREPOSITION = "PreposicionObjetoIndirecto";
 	private static final String TRUE = "true";
 	
 	/**
