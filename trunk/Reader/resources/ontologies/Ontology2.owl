@@ -22,17 +22,6 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
     // Datatypes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -228,16 +217,16 @@
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales -->
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales">
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Armas"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Comida"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mobiliario"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -258,8 +247,8 @@
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Comida"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mobiliario"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -367,8 +356,8 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mobiliario"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -387,12 +376,6 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido"/>
-        <rdfs:comment>
-            <rdf:Description>
-                <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
-                <textoNombre rdf:datatype="&xsd;string">la deidad</textoNombre>
-            </rdf:Description>
-        </rdfs:comment>
     </owl:Class>
     
 
@@ -609,8 +592,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mobiliario">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -753,8 +736,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -775,11 +758,11 @@
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros -->
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros">
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
     </owl:Class>
     
 
@@ -792,9 +775,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios -->
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios">
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
     </owl:Class>
     
@@ -1041,6 +1024,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Argos">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Argos</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1123,6 +1107,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Atenas">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Atenas</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1161,6 +1146,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Balcanes">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <textoNombre rdf:datatype="&xsd;string">los Balcanes</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1218,7 +1204,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Bolsa -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Bolsa">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">la bolsa</textoNombre>
     </owl:NamedIndividual>
@@ -1288,7 +1274,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Caballo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Caballo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el caballo</textoNombre>
     </owl:NamedIndividual>
@@ -1309,6 +1295,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Calcis">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Calcis</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1347,6 +1334,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Campos_Eliseos">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">los Campos Elíseos</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1401,6 +1389,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cefiso">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+        <textoNombre rdf:datatype="&xsd;string">el rio Céfiso</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1419,6 +1408,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Chipre">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Chipre</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1426,7 +1416,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Chivo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Chivo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el chivo</textoNombre>
     </owl:NamedIndividual>
@@ -1449,6 +1439,406 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
         <textoNombre rdf:datatype="&xsd;string">Citerónides</textoNombre>
         <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassActor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassActor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Actor"/>
+        <textoNombre>un personaje</textoNombre>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAncestral -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAncestral">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ancestral"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una deidad ancestral</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAnimal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAnimal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un animal</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassArmas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassArmas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Armas"/>
+        <textoNombre rdf:datatype="&xsd;string">un arma</textoNombre>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAtaque -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassAtaque">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ataque"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <GeneroObjeto rdf:datatype="&xsd;string">un arma ofensiva</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassBastionCriatura -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassBastionCriatura">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">un bastión de algún tipo de criatura</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassBastionDios -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassBastionDios">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">un bastión de los dioses</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCentauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCentauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Centauro"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un centauro</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCiclope -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCiclope">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciclope"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un cíclope</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCiudad -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassCiudad">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">una ciudad</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassComida -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassComida">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Comida"/>
+        <textoNombre rdf:datatype="&xsd;string">una comida</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassDefensa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassDefensa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Defensa"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">una armadura</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassDeidad -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassDeidad">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Deidad"/>
+        <textoNombre rdf:datatype="&xsd;string">una deidad</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassFuria -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassFuria">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Furia"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una furia</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassGiga -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassGiga">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Giga"/>
+        <textoNombre>un giga</textoNombre>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassGigante -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassGigante">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gigante"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un gigante</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHecatonquiro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHecatonquiro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hecatonquiro"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un hecatónquiro</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHeroe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHeroe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heroe"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un héroe</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHibrido -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassHibrido">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hibrido"/>
+        <textoNombre>una criatura híbrida</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassIsla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassIsla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">una isla</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassLugar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassLugar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lugar"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">algún lugar</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMenor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMenor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Menor"/>
+        <textoNombre>una deidad menor</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMitico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMitico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mitico"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">un lugar mitológico</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMobiliario -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMobiliario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mobiliario"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un elemento de una estancia</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMontaña -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMontaña">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">una montaña</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMusa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassMusa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Musa"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una musa</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNaturaleza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNaturaleza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Naturaleza"/>
+        <textoNombre>una deidad menor de la naturaleza</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ninfa"/>
+        <textoNombre>una ninfa</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfaAcuatica -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfaAcuatica">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaAcuatica"/>
+        <textoNombre>una ninfa acuática</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfaMontaña -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassNinfaMontaña">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#NinfaMontaña"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una ninfa de montaña</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassObjeto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassObjeto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Objeto"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">un objeto</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassOlimpico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassOlimpico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpico"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una deidad olímpica</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassPersonajeMitico -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassPersonajeMitico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PersonajeMitico"/>
+        <textoNombre>un personaje mítico</textoNombre>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassPseudoTitan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassPseudoTitan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#PseudoTitan"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una deidad pseudo titánica</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassReal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassReal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Real"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">algún lugar de Grecia</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassRio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassRio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+        <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">un rio</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassRopa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassRopa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ropa"/>
+        <textoNombre>una prenda de vestir</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassTesoro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassTesoro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un tesoro</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassTitanide -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassTitanide">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
+        <GeneroObjeto>Femenino</GeneroObjeto>
+        <textoNombre>una deidad titánide</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassUtensilio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#ClassUtensilio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+        <textoNombre>un utensilio</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1512,6 +1902,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cnosos">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Cnosos</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1544,7 +1935,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cofre -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cofre">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el cofre</textoNombre>
     </owl:NamedIndividual>
@@ -1629,6 +2020,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Creta">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Creta</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -1696,7 +2088,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cuerno -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Cuerno">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el cuerno</textoNombre>
     </owl:NamedIndividual>
@@ -2074,6 +2466,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Eretria">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Eretria</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2128,6 +2521,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Esparta">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Esparta</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2167,6 +2561,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Etna">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <textoNombre rdf:datatype="&xsd;string">el Etna</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2277,6 +2672,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Flege_Tonte">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+        <textoNombre rdf:datatype="&xsd;string">el Flege Tonte</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2334,7 +2730,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gato -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Gato">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el gato</textoNombre>
     </owl:NamedIndividual>
@@ -2581,6 +2977,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Inframundo">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">el Inframundo</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2652,6 +3049,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ladon">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+        <textoNombre rdf:datatype="&xsd;string">el rio Ladon</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2720,6 +3118,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Licia">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Licia</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2747,7 +3146,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lira -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Lira">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">la lira</textoNombre>
     </owl:NamedIndividual>
@@ -2815,6 +3214,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Maritsa">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio"/>
+        <textoNombre rdf:datatype="&xsd;string">el rio Maritsa</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2822,7 +3222,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Martillo -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Martillo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilios"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Utensilio"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el martillo</textoNombre>
     </owl:NamedIndividual>
@@ -2896,6 +3296,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Micenas">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Micenas</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2904,6 +3305,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Mileto">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Mileto</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2942,6 +3344,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Ida">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <textoNombre rdf:datatype="&xsd;string">el monte Ida</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2950,6 +3353,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Osa">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Montaña"/>
+        <textoNombre rdf:datatype="&xsd;string">el monte Osa</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -2958,6 +3362,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Monte_Parnaso">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+        <textoNombre rdf:datatype="&xsd;string">el monte Parnaso</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3057,6 +3462,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Olimpo">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">el Olimpo de los dioses</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3085,14 +3491,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Panfilia">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Parnaso -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Parnaso">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">Panfilia</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3204,6 +3603,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Pilos">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Pilos</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3282,6 +3682,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Prados_Asfodeos">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">los prados Asfódeos</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3479,6 +3880,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rio_Estigia">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionCriatura"/>
+        <textoNombre rdf:datatype="&xsd;string">el rio Estigia</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3486,7 +3888,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Roca -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Roca">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animales"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Animal"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">la roca</textoNombre>
     </owl:NamedIndividual>
@@ -3497,6 +3899,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Rodas">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Isla"/>
+        <textoNombre rdf:datatype="&xsd;string">Rodas</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3646,6 +4049,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tartaro">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BastionDios"/>
+        <textoNombre rdf:datatype="&xsd;string">el Tártaro</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3784,6 +4188,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tirinto">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre rdf:datatype="&xsd;string">Tirinto</textoNombre>
     </owl:NamedIndividual>
     
 
@@ -3904,7 +4309,7 @@
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#VellocinoOro -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#VellocinoOro">
-        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoros"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tesoro"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el vellocino de oro</textoNombre>
     </owl:NamedIndividual>
@@ -3974,6 +4379,10 @@
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el zurrón</textoNombre>
     </owl:NamedIndividual>
+    <rdf:Description>
+        <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
+        <textoNombre rdf:datatype="&xsd;string">la deidad</textoNombre>
+    </rdf:Description>
     <rdf:Description>
         <GeneroObjeto rdf:datatype="&xsd;string">Masculino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">el animal</textoNombre>
