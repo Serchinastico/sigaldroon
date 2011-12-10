@@ -12,7 +12,7 @@ public class NameBridge extends CheckerBridge {
 	 * Constantes para facilitar la modificación de las propiedades de la ontología.
 	 */
 	private static final String TEXT_NAME = "textoNombre";
-	private static final String GENDER = "genero";
+	private static final String GENDER = "GeneroObjeto";
 	private static final String MALE = "masculino";
 	private static final String FEMALE = "femenino";
 

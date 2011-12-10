@@ -1,6 +1,6 @@
 package segmenter.syntax;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
 import mind.ontobridge.OntoBridgeSingleton;
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
@@ -28,18 +28,15 @@ public class CheckerBridge {
 
 		// Inicializa variables para el acceso a la ontología
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
-		ArrayList<String> properties = new ArrayList<String>();
-		ArrayList<String> values = new ArrayList<String>();
 
-		// Obtiene propiedades y valores de la instancia action
-		ob.listInstancePropertiesValues(instance, properties, values);
+		// Obtiene valores de la instancia
+		Iterator<String> it = ob.listPropertyValue(instance, property);
 
-		// Busca el valor de la propiedad pedida
-		for (int i = 0; i < properties.size(); i++)
-			if (properties.get(i).contains(property))
-				return values.get(i).split(PROP_FILTER)[0];				
-
-		return null;
+		// Devuelve el valor encontrado en la ontología
+		if (it.hasNext())
+			return it.next().split(PROP_FILTER)[0];
+		else 
+			return null;
 	}
 
 	/**
@@ -53,18 +50,15 @@ public class CheckerBridge {
 
 		// Inicializa variables para el acceso a la ontología
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
-		ArrayList<String> properties = new ArrayList<String>();
-		ArrayList<String> values = new ArrayList<String>();
 
 		// Obtiene propiedades y valores de la instancia action
-		ob.listInstancePropertiesValues(instance, properties, values);
-
-		// Busca el valor de la propiedad pedida
-		for (int i = 0; i < properties.size(); i++)
-			if (properties.get(i).contains(property))
-				return values.get(i).split(PROP_FILTER)[0].equals(value);				
-
-		return false;
+		Iterator<String> it = ob.listPropertyValue(instance, property);
+		
+		// Chequeo y devolución
+		if (it.hasNext()) 
+			return it.next().split(PROP_FILTER)[0].equals(value);
+		else 
+			return false;
 	}
 	
 }
