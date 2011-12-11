@@ -1,6 +1,7 @@
 package coherence;
 
-import mind.Mind;
+import java.util.ArrayList;
+
 import mind.Relation;
 
 /**
@@ -24,6 +25,6 @@ public interface IRequisite {
 	 * @param events Estructura a la que añadir los nuevos eventos.
 	 * @param mind Mente de la que extraer nuevos eventos.
 	 */
-	public void assumeEvents(Events events, Mind mind);
+	public void assumeEvents(Events events, ArrayList<Relation> changedRelations);
 	
 }

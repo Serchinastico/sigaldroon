@@ -1,14 +1,17 @@
 package segmenter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
+
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 
 import mind.ChangedMind;
 import mind.Mind;
 import mind.Relation;
+import mind.ontobridge.OntoBridgeSingleton;
 
-import operator.Change;
 import segmenter.paragrah.BasicParagraph;
 import segmenter.paragrah.ParagraphSocket;
 
@@ -27,7 +30,7 @@ public class NaturalSegmenter implements ISegmenter {
 	public String generateSegment(ChangedMind m) {
 		String segmentText = "";
 		paragraphGen = new BasicParagraph();
-		ArrayList<Relation> filteredRelations = filterChanges(m.getChanges());
+		ArrayList<Relation> filteredRelations = filterChanges(m.getResultingRelations());
 		segmentText = makeText(filteredRelations);
 		return segmentText;
 	}
@@ -39,19 +42,13 @@ public class NaturalSegmenter implements ISegmenter {
 	 * @param changes Cambios realizados.
 	 * @return Cambios filtrados.
 	 */
-	private ArrayList<Relation> filterChanges(ArrayList<Change> changes) {
+	private ArrayList<Relation> filterChanges(Collection<Relation> changes) {
 		ArrayList<Relation> filteredChanges = new ArrayList<Relation>();
-		for (int i = 0; i < changes.size(); i++) {
-			// Solo es necesario mirar en los cambios que hay adelante
-			// y ver si la relación resultante es usada en otro cambio
-			int j = i + 1;
-			boolean changeToInclude = true;
-			while ((changeToInclude) && (j < changes.size())) {
-				changeToInclude = !changes.get(i).getAfter().equals(changes.get(j).getBefore());
-				j++;
-			}
-			if (changeToInclude) 
-				filteredChanges.add(changes.get(i).getAfter());
+		OntoBridge ob = OntoBridgeSingleton.getInstance();
+		for (Relation r : changes) {
+			// Solo se mantienen las relaciones cuyas acciones no sean clases
+			if (!ob.existsClass(r.getAction()))
+				filteredChanges.add(r);
 		}
 		return filteredChanges;
 	}
@@ -63,7 +60,8 @@ public class NaturalSegmenter implements ISegmenter {
 		ArrayList<Relation> mindRelations = new ArrayList<Relation>();
 		for (Relation relation : m)
 			mindRelations.add(relation);
-		segmentText += makeText(mindRelations);
+		ArrayList<Relation> filteredRelations = filterChanges(mindRelations);
+		segmentText += makeText(filteredRelations);
 		return segmentText;
 	}
 

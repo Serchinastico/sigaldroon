@@ -1,8 +1,7 @@
 package coherence;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
-import mind.Mind;
 import mind.Relation;
 
 /**
@@ -27,14 +26,13 @@ public class MarriedChecker implements IRequisite {
 	}
 
 	@Override
-	public void assumeEvents(Events events, Mind mind) {
-		HashSet<String> relations = new HashSet<String>();		
-		relations.add("Casar");
-		Iterable<Relation> marriageRelations = mind.getRelations(relations).get("Casar");
+	public void assumeEvents(Events events, ArrayList<Relation> changedRelations) {	
+		
 		// Chequeamos los objetivos de las relaciones para incluirlos en los casados
-		for (Relation r : marriageRelations) 
-			if (!events.isMarried(r.getSource()) && !events.isMarried(r.getTarget()))
-				events.insertMarriage(r.getSource(),r.getTarget());
+		for (Relation r : changedRelations) 
+			if (r.getAction().equals("Casar"))
+				if (!events.isMarried(r.getSource()) && !events.isMarried(r.getTarget()))
+					events.insertMarriage(r.getSource(),r.getTarget());
 	}
 
 	
