@@ -2,6 +2,8 @@ package mind;
 
 import java.util.ArrayList;
 
+import mind.ontobridge.OntoBridgeSingleton;
+
 import operator.Change;
 
 
@@ -110,6 +112,29 @@ public class ChangedMind implements Comparable {
 		if (this.value > w.value) return 1;
 		else if (this.value < w.value) return -1;
 		else return 0;
+	}
+	
+	/**
+	 * Obtiene las relaciones que se han obtenido como resultado de aplicar los cambios.
+	 * @return Relaciones resultantes de los cambios efectuados.
+	 */
+	public ArrayList<Relation> getResultingRelations() {
+		ArrayList<Relation> filteredChanges = new ArrayList<Relation>();
+		// Se mira en cada cambio y por cada relación resultante de un cambio
+		// se comprueba que no se ha usado en en la realización de un cambio posterior
+		for (int i = 0; i < changes.size(); i++) {
+			// Solo es necesario mirar en los cambios que hay adelante
+			// y ver si la relación resultante es usada en otro cambio
+			int j = i + 1;
+			boolean changeToInclude = true;
+			while ((changeToInclude) && (j < changes.size())) {
+				changeToInclude = !changes.get(i).getAfter().equals(changes.get(j).getBefore());
+				j++;
+			}
+			if ((changeToInclude) && (!OntoBridgeSingleton.getInstance().existsClass(changes.get(i).getAfter().getAction())))
+				filteredChanges.add(changes.get(i).getAfter());
+		}
+		return filteredChanges;
 	}
 	
 }

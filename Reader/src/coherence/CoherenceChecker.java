@@ -2,6 +2,7 @@ package coherence;
 
 import java.util.ArrayList;
 
+import mind.ChangedMind;
 import mind.Mind;
 import mind.Relation;
 
@@ -19,10 +20,19 @@ public class CoherenceChecker implements ICoherenceChecker {
 	 */
 	private ArrayList<IRequisite> requisites;
 	
+	/**
+	 * Constructora por defecto.
+	 */
+	public CoherenceChecker() {
+		requisites = new ArrayList<IRequisite>();
+		requisites.add(new DeathChecker());
+		requisites.add(new MarriedChecker());
+	}
+	
 	@Override
-	public boolean checkCoherence(Events events, Mind mind) {
+	public boolean checkCoherence(Events events, ChangedMind mind) {
 		
-		for (Relation relation : mind) {
+		for (Relation relation : mind.getResultingRelations()) {
 			for (IRequisite requisite : requisites) {
 				if (!requisite.keepCoherence(events, relation))
 					return false;
@@ -33,11 +43,20 @@ public class CoherenceChecker implements ICoherenceChecker {
 	}
 
 	@Override
-	public Events assumeEvents(Events events, Mind mind) {
+	public Events assumeEvents(Events events, ArrayList<Relation> mindRelations) {
 		Events eventsAssumed = events.copy();
 		for (IRequisite requisite : requisites) 
-			requisite.assumeEvents(events, mind);
+			requisite.assumeEvents(events, mindRelations);
 		return eventsAssumed;
+	}
+	
+	@Override
+	public Events assumeInitialEvents(Mind m) {
+		ArrayList<Relation> initialRelations = new ArrayList<Relation>();
+		for (Relation r : m) {
+			initialRelations.add(r);
+		}
+		return assumeEvents(new Events(), initialRelations);
 	}
 
 }

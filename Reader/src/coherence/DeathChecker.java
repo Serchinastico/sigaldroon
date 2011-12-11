@@ -1,8 +1,7 @@
 package coherence;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
-import mind.Mind;
 import mind.Relation;
 
 /**
@@ -25,14 +24,13 @@ public class DeathChecker implements IRequisite {
 	}
 
 	@Override
-	public void assumeEvents(Events events, Mind mind) {
-		HashSet<String> relations = new HashSet<String>();		
-		relations.add("Matar");
-		Iterable<Relation> deathRelations = mind.getRelations(relations).get("Matar");
+	public void assumeEvents(Events events, ArrayList<Relation> changedRelations) {
+		
 		// Chequeamos los objetivos de las relaciones para incluirlos en los muertos
-		for (Relation r : deathRelations) 
-			if (r.getTarget() != null && !events.isDeath(r.getTarget()))
-				events.insertDeath(r.getTarget());
+		for (Relation r : changedRelations) 
+			if (r.getAction().equals("Matar"))
+				if (r.getTarget() != null && !events.isDeath(r.getTarget()))
+					events.insertDeath(r.getTarget());
 	}
 
 }

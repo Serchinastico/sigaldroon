@@ -2,6 +2,8 @@ package reader;
 
 import java.util.Observer;
 
+import coherence.Events;
+
 import mind.Mind;
 import mind.ChangedMind;
 
@@ -18,7 +20,7 @@ public interface IMindEvolver {
 	 * @param mind Mente a evolucionar.
 	 * @return La mente con los conceptos cambiados tras la evolución.
 	 */
-	public ChangedMind evolveMind(Mind mind);
+	public ChangedMind evolveMind(Mind mind, Events events);
 	
 	/**
 	 * Obtiene el número de iteraciones en la generación del segmento.

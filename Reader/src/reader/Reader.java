@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import coherence.CoherenceChecker;
+import coherence.Events;
+import coherence.ICoherenceChecker;
+
 import mind.Mind;
 import mind.ChangedMind;
 import mind.Relation;
@@ -49,9 +53,20 @@ public class Reader extends Observable implements IReader {
 	private ArrayList<String> textSegment;
 	
 	/**
+	 * Eventos de muertes y matrimonios tenidos en cuenta en cada segmento de la historia.
+	 * El componente i refiere al segmento i.
+	 */
+	private ArrayList<Events> events;
+	
+	/**
 	 * Número de segmentos que contendrá la historia como máximo.
 	 */
 	private int maxSegments;
+	
+	/**
+	 * Comprobador de la coherencia de la historia.
+	 */
+	private ICoherenceChecker coherenceChecker;
 	
 	/**
 	 * Evaluador de los mentes generadas.
@@ -74,8 +89,10 @@ public class Reader extends Observable implements IReader {
 	public Reader() {
 		maxSegments = 10;
 		mind = null;
+		events = new ArrayList<Events>();
+		coherenceChecker = new CoherenceChecker();
 		evaluator = new SimpleEvaluator();
-		evolver = new MindEvolver(evaluator);
+		evolver = new MindEvolver(evaluator,coherenceChecker);
 		segmenter = new NaturalSegmenter();
 		votes = new ArrayList<tVote>();
 		textSegment = new ArrayList<String>();
@@ -85,6 +102,7 @@ public class Reader extends Observable implements IReader {
 	@Override
 	public void createMind(String file) {
 		storySoFar = new ArrayList<Mind>();
+		events = new ArrayList<Events>();
 		votes = new ArrayList<tVote>();
 		textSegment = new ArrayList<String>();
 		InputStream txt = null;
@@ -96,6 +114,7 @@ public class Reader extends Observable implements IReader {
 		mind = new Mind(txt);
 		storySoFar.add(mind);
 		votes.add(tVote.NEUTRAL);
+		events.add(coherenceChecker.assumeInitialEvents(mind));
 		textSegment.add(segmenter.generateInitialSegment(mind));
 		
 		notifyObservers();
@@ -112,7 +131,7 @@ public class Reader extends Observable implements IReader {
 		
 		if (storySoFar.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
-			ChangedMind changedMind = evolver.evolveMind(mind);
+			ChangedMind changedMind = evolver.evolveMind(mind, events.get(events.size() - 1));
 			
 			// Extrae un segmento nuevo con la mente cambiada
 			storySoFar.add(changedMind.getActualMind());
@@ -122,6 +141,9 @@ public class Reader extends Observable implements IReader {
 			
 			// Asume que todas las relaciones tienen veracidad o peso 1.0
 			assumeConcepts();
+			
+			// Asume los eventos para el coherenciador
+			events.add(coherenceChecker.assumeEvents(events.get(events.size() - 1), changedMind.getResultingRelations()));
 			
 			setChanged();
 			notifyObservers();
