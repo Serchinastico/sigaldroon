@@ -39,6 +39,11 @@ public class MainMenuBar extends JMenuBar {
     private JMenu menuOpciones;
     
     /**
+	 * Pestaña del menú Evaluador.
+	 */
+    private JMenu menuEvaluador;
+    
+    /**
      * Constructora por defecto de la barra de menú principal.
      */
     public MainMenuBar(StoryJFrame f) {
@@ -50,7 +55,8 @@ public class MainMenuBar extends JMenuBar {
         this.add(menuGeneracion);
         menuOpciones = new OptionsMenu(frame);
         this.add(menuOpciones);
-        
+        menuEvaluador = new EvaluatorMenu(frame);
+        this.add(menuEvaluador);        
     }
     
 }

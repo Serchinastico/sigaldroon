@@ -60,7 +60,7 @@ public class SettingsDialog extends JDialog {
     private void setConfiguration() {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     	this.setTitle("Preferencias");
-    	this.setSize(310, 170);
+    	this.setSize(310, 240);
     	this.setResizable(false);
     	this.setLocationRelativeTo(frame);
     }
@@ -95,7 +95,7 @@ public class SettingsDialog extends JDialog {
         });
     	
     	constrains.gridx = 0;
-        constrains.gridy = 1;
+        constrains.gridy = 2;
         constrains.gridwidth = 1;
         constrains.gridheight = 1;
         constrains.weightx = 1.0;
@@ -113,7 +113,7 @@ public class SettingsDialog extends JDialog {
         });
     	
     	constrains.gridx = 1;
-        constrains.gridy = 1;
+        constrains.gridy = 2;
         constrains.gridwidth = 1;
         constrains.gridheight = 1;
         constrains.weightx = 1.0;
