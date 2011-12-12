@@ -34,10 +34,10 @@ public class EvaluatorJFrame extends JFrame {
 		setJFrameProperties();
 		createComponents();
 		pack();
-		setVisible(true);
 	}
 	
 	private void setJFrameProperties() {
+		setTitle("Evaluador dinámico");
 		setPreferredSize(new Dimension(800, 400));
 	}
 

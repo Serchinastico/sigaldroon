@@ -3,6 +3,8 @@ package reader;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import evaluator.IEvaluator;
+
 import mind.Mind;
 
 /**
@@ -43,6 +45,16 @@ public interface IReader {
 	 * @param the maxSegments
 	 */
 	public void setMaxSegments(int maxSegments);
+	
+	/**
+	 * @return the evaluator 
+	 */
+	public IEvaluator getEvaluator();
+	
+	/**
+	 * @param the evaluator
+	 */
+	public void setEvaluator(IEvaluator evaluator);
 	
 	/**
 	 * @return the votes

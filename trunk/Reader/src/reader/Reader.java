@@ -169,6 +169,15 @@ public class Reader extends Observable implements IReader {
 	public void setMaxSegments(int maxSegments) {
 		this.maxSegments = maxSegments;
 	}
+	
+	@Override
+	public void setEvaluator(IEvaluator evaluator) {
+		this.evaluator = evaluator;
+	}
+	
+	public IEvaluator getEvaluator() {
+		return this.evaluator;
+	}
 
 	@Override
 	public ArrayList<Mind> getStorySoFar() {
