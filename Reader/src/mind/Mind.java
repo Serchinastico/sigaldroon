@@ -60,7 +60,7 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 			Entry<String, HashSet<Relation>> entryMCopy = it.next();
 						
 			for (Relation relation : entryMCopy.getValue()) {
-				auxRelations.add(relation.copy());
+				auxRelations.add(relation.clone());
 			}
 			
 			relations.put(new String(entryMCopy.getKey()), auxRelations);
@@ -172,16 +172,15 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	 * */
 	@Override
 	public int hashCode() {
-		String strRelations = "";
+		int hashRelations = 0;
 		
 		for (HashSet<Relation> relationSet : relations.values()) {
 			for (Relation relation : relationSet) {
-				// TODO: Debería ser un string sin formato, por simplificar (?)
-				strRelations += relation.toString();
+				hashRelations = (hashRelations + relation.toString().hashCode()) % Integer.MAX_VALUE;
 			}
 		}
 		
-		return strRelations.hashCode();
+		return hashRelations;
 	}
 	
 	public String toStringSegment() {
@@ -231,7 +230,7 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 		}
 		return itRelations.next();
 	}
-
+	
 	@Override
 	public void remove() {
 		throw new UnsupportedOperationException();

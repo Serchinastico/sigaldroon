@@ -60,7 +60,7 @@ public class SettingsDialog extends JDialog {
     private void setConfiguration() {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     	this.setTitle("Preferencias");
-    	this.setSize(310, 240);
+    	this.setSize(310, 170);
     	this.setResizable(false);
     	this.setLocationRelativeTo(frame);
     }

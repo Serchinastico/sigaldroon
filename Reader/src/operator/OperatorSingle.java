@@ -47,6 +47,6 @@ public abstract class OperatorSingle implements IOperator {
 	protected void applySingleChange(int op, ChangedMind m, Relation before, Relation after) {
 		m.getActualMind().remove(before); // Quitamos la antigua relación
 		m.getActualMind().add(after); // Ponemos la modificada
-		m.getChanges().add(new Change(before.copy(),after.copy(),op));
+		m.getChanges().add(new Change(before.clone(),after.clone(),op));
 	}
 }

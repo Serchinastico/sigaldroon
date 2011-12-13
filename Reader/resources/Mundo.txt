@@ -1,2 +1,2 @@
-[Deidad, Amar, 4:Tetis]
+[Deidad, Amar, 3:Olimpo, 4:Tetis]
 [Deidad, Amar, 3:Olimpo, 4:Hercules]

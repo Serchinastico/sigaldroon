@@ -57,7 +57,7 @@ public class Generalize extends OperatorSingle {
 				if (!superClass.contains("Class") && !superClass.contains("NamedIndividual") && !superClass.contains("Thing")) {
 					ChangedMind newMind = m.copy();
 					// Cambio de la relación
-					Relation newRelation = r.copy();
+					Relation newRelation = r.clone();
 					newRelation.setElement(i, superClass);
 					// Cambio del peso
 					newRelation.setWeight(r.getWeight() * opWeight);

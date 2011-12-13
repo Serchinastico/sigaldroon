@@ -48,7 +48,7 @@ public class Specialize extends OperatorSingle {
 					if (!subClass.contains("Nothing")) {
 						ChangedMind newMind = m.copy();
 						// Cambio de la relación
-						Relation newRelation = r.copy();
+						Relation newRelation = r.clone();
 						newRelation.setElement(i, subClass);
 						// Cambio del peso
 						newRelation.setWeight(r.getWeight() * opWeight);
@@ -64,7 +64,7 @@ public class Specialize extends OperatorSingle {
 					String instanceName = onto.getShortName(itInstances.next());
 					ChangedMind newMind = m.copy();
 					// Cambio de la relación
-					Relation newRelation = r.copy();
+					Relation newRelation = r.clone();
 					newRelation.setElement(i, instanceName);
 					// Cambio del peso
 					newRelation.setWeight(r.getWeight() * opWeight);

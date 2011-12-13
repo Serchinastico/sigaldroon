@@ -153,11 +153,8 @@ public class Relation {
 				directObjectIsInstanceOf);
 	}
 	
-	/**
-	 * Copia el componente.
-	 * @return Una copia del componente.
-	 * */
-	public Relation copy() {
+	@Override
+	public Relation clone() {
 		Relation copy = new Relation(weight, getSource(), getAction(),
 				(getTarget() == null) ? null : getTarget(),
 				(getPlace() == null) ? null : getPlace(),
@@ -165,11 +162,7 @@ public class Relation {
 		return copy;
 	}
 	
-	/**
-	 * Comprueba si un componente es igual a otro.
-	 * @param o Componente con el que comparar.
-	 * @return Valor booleano indicando el resultado de la comparación.
-	 * */
+	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Relation))
 			return false;
@@ -186,8 +179,7 @@ public class Relation {
 		boolean directObjectEq = (getDirectObject() == null && c.getDirectObject() == null) || 
 				(getDirectObject() != null && getDirectObject().equals(c.getDirectObject()));
 		
-		return (c.weight == weight &&
-				sourceEq &&	actionEq &&	targetEq &&
+		return (sourceEq &&	actionEq &&	targetEq &&
 				placeEq && directObjectEq);
 	}
 
@@ -208,7 +200,7 @@ public class Relation {
 	 * */
 	@Override
 	public int hashCode() {
-		return (weight + getSource() + getAction() + getTarget() + getPlace() + getDirectObject()).hashCode();
+		return (getSource() + getAction() + getTarget() + getPlace() + getDirectObject()).hashCode();
 	}
 	
 	/**

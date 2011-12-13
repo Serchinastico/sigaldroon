@@ -91,7 +91,7 @@ public class Change {
 	 * @return La copia.
 	 */
 	public Change copy() {
-		return new Change(before.copy(), after.copy(), operator);
+		return new Change(before.clone(), after.clone(), operator);
 	}
 
 	@Override
