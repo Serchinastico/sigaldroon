@@ -12,9 +12,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 
+import reader.Segment;
+
 import ui.StoryJFrame;
 
-import mind.Mind;
 import mind.Relation;
 
 /**
@@ -118,21 +119,21 @@ public class StorySoFarTree extends JTree {
 			StoryMutableTreeNode segment = (StoryMutableTreeNode) node;
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printSegment(
-					frame.getObservableReader().getStorySoFar().get(
+					frame.getObservableReader().getSegments().get(
 							segment.getSegmentPosition()
-					)
+					).getMind()
 			);
 			frame.getNaturalTextPane().getNaturalTextArea().setText(
-					frame.getObservableReader().getTextSegments().get(
+					frame.getObservableReader().getSegments().get(
 							segment.getSegmentPosition()
-					)
+					).getTextSegment()
 			);
 
 			break;
 		case 2:
 			// Es una relación
 			StoryMutableTreeNode relation = (StoryMutableTreeNode) node;
-			Iterator<Relation> itRelation = frame.getObservableReader().getStorySoFar().get(relation.getSegmentPosition()).iterator();
+			Iterator<Relation> itRelation = frame.getObservableReader().getSegments().get(relation.getSegmentPosition()).getMind().iterator();
 			int j = 0;
 			while (j < relation.getRelationPosition()) {
 				itRelation.next();
@@ -141,9 +142,9 @@ public class StorySoFarTree extends JTree {
 			frame.getVisualizationPane().getGraphVisualizacion().clearGraph();
 			frame.getVisualizationPane().getGraphVisualizacion().printRelation(itRelation.next());
 			frame.getNaturalTextPane().getNaturalTextArea().setText(
-					frame.getObservableReader().getTextSegments().get(
+					frame.getObservableReader().getSegments().get(
 							relation.getSegmentPosition()
-					)
+					).getTextSegment()
 			);
 			break;
 		}
@@ -154,14 +155,14 @@ public class StorySoFarTree extends JTree {
 	 * Inserta una historia en el árbol y lo actualiza.
 	 * @param story Historia a insertar.
 	 */
-	public void loadStory(ArrayList<Mind> story) {
+	public void loadStory(ArrayList<Segment> story) {
 		for (int i = 0; i < story.size(); i++) {
 			StoryMutableTreeNode segment = new StoryMutableTreeNode("Segmento "+i,i);
 
 			model.insertNodeInto(segment, titleTree, i);
 
 			int j = 0;
-			Iterator<Relation> itRelation = story.get(i).iterator();
+			Iterator<Relation> itRelation = story.get(i).getMind().iterator();
 			while (itRelation.hasNext()) {
 				itRelation.next();
 				StoryMutableTreeNode relation = new StoryMutableTreeNode("Relación "+j,i,j);

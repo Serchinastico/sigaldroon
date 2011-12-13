@@ -5,8 +5,8 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import reader.IReader.tVote;
 import reader.Reader;
+import reader.Segment.tVote;
 
 import ui.panel.treeViewer.StorySoFarTree;
 
@@ -49,14 +49,14 @@ public class CommandManager {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
-            frame.getObservableReader().getEvolver().removeObserver(frame);
-            frame.getObservableReader().removeObserver(frame);
+            frame.getObservableReader().getEvolver().deleteObserver(frame);
+            frame.getObservableReader().deleteObserver(frame);
             frame.setObservableReader(new Reader());
-            frame.getObservableReader().insertObserver(frame);
-            frame.getObservableReader().getEvolver().insertObserver(frame);
+            frame.getObservableReader().addObserver(frame);
+            frame.getObservableReader().getEvolver().addObserver(frame);
             frame.getObservableReader().createMind(file.getPath());
             frame.setStoryJTree(new StorySoFarTree(frame));
-            frame.getStoryJTree().loadStory(frame.getObservableReader().getStorySoFar());
+            frame.getStoryJTree().loadStory(frame.getObservableReader().getSegments());
         }
 	}
 	
@@ -95,7 +95,7 @@ public class CommandManager {
 	 * Vota un segmento.
 	 */
 	public void voteSegment(StoryJFrame frame, int segmentPosition, tVote vote) {
-		frame.getObservableReader().voteSegment(segmentPosition, vote);
+		frame.getObservableReader().getSegments().get(segmentPosition).setVote(vote);
 	}
 	
 }

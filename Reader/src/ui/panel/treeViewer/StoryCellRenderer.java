@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import reader.IReader.tVote;
+import reader.Segment.tVote;
 
 import ui.StoryJFrame;
 
@@ -66,7 +66,7 @@ public class StoryCellRenderer extends DefaultTreeCellRenderer {
 		if (value instanceof StoryMutableTreeNode) {
 			StoryMutableTreeNode node = (StoryMutableTreeNode) value;
 			if (node.isSegment()) {
-				tVote segmentVote = frame.getObservableReader().getVotes().get(node.getSegmentPosition());
+				tVote segmentVote = frame.getObservableReader().getSegments().get(node.getSegmentPosition()).getVote();
 				switch (segmentVote) {
 				case POSITIVE:
 					setIcon(greenIcon);

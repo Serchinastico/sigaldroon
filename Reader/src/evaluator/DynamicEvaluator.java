@@ -303,7 +303,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		
 		Reader r = (Reader) o;
 		int maxSegments = r.getMaxSegments();
-		int actualSegment = r.getStorySoFar().size();
+		int actualSegment = r.getSegments().size();
 		
 		/* Se calcula el punto exacto (puede caer entre dos valores) de la historia
 		 * en el que estamos según el número de cortes que tiene el evaluador.

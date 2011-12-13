@@ -10,7 +10,6 @@ import javax.swing.JScrollPane;
 
 import mind.ontobridge.OntoBridgeSingleton;
 
-import reader.IReader;
 import reader.Reader;
 import ui.menu.MainMenuBar;
 import ui.panel.ControlArea;
@@ -35,7 +34,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 	/**
 	 * Referencia al lector observable (patrón Observer).
 	 */
-	private IReader observableReader;
+	private Reader observableReader;
 	
 	/**
 	 * Árbol para mostrar la historia por segmentos y relaciones.
@@ -96,8 +95,8 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
     private void initModels() {
     	OntoBridgeSingleton.getInstance();
     	observableReader = new Reader();
-    	observableReader.insertObserver(this);
-    	observableReader.getEvolver().insertObserver(this);
+    	observableReader.addObserver(this);
+    	observableReader.getEvolver().addObserver(this);
     }
     
     /**
@@ -193,7 +192,7 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
      * Accesora del lector observable por la interfaz.
      * @return El lector observable.
      */
-	public IReader getObservableReader() {
+	public Reader getObservableReader() {
 		return observableReader;
 	}
 
@@ -218,10 +217,10 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 		
 		if (arg0 == observableReader) {
 			storyJTree = new StorySoFarTree(this);
-            storyJTree.loadStory(observableReader.getStorySoFar());
+            storyJTree.loadStory(observableReader.getSegments());
             
             if (completeGeneration)
-            	controlPane.setProgressBarValue(observableReader.getStorySoFar().size(),
+            	controlPane.setProgressBarValue(observableReader.getSegments().size(),
             		observableReader.getMaxSegments());
 		}
 		if (arg0 == observableReader.getEvolver()) {

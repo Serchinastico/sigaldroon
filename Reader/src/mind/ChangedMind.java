@@ -14,7 +14,7 @@ import operator.Change;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class ChangedMind implements Comparable {
+public class ChangedMind implements Comparable<Object> {
 
 	/**
 	 * Cambios efectuados en orden para obtener la mente actual.

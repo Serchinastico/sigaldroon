@@ -8,7 +8,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import coherence.CoherenceChecker;
-import coherence.Events;
 import coherence.ICoherenceChecker;
 
 import mind.Mind;
@@ -29,34 +28,18 @@ import segmenter.NaturalSegmenter;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class Reader extends Observable implements IReader {
+public class Reader extends Observable {
 	
 	/**
-	 * Segmentos en orden que forman la historia hasta el momento.
-	 */
-	private ArrayList<Mind> storySoFar;
-
-	/**
-	 * Mente del lector.
+	 * Última mente del lector generada.
 	 */
 	private Mind mind;
 	
 	/**
-	 * Votaciones de los segmentos en orden que forman la historia hasta el momento.
-	 * @see tVote para tipos de votos.
+	 * Almacén de segmentos de la historia producidos hasta el momento.
+	 * @see Segment para ver el contenido de los segmentos.
 	 */
-	private ArrayList<tVote> votes;
-	
-	/**
-	 * Almacena el texto asociado a cada segmento.
-	 */
-	private ArrayList<String> textSegment;
-	
-	/**
-	 * Eventos de muertes y matrimonios tenidos en cuenta en cada segmento de la historia.
-	 * El componente i refiere al segmento i.
-	 */
-	private ArrayList<Events> events;
+	private ArrayList<Segment> segments;
 	
 	/**
 	 * Número de segmentos que contendrá la historia como máximo.
@@ -64,9 +47,9 @@ public class Reader extends Observable implements IReader {
 	private int maxSegments;
 	
 	/**
-	 * Comprobador de la coherencia de la historia.
+	 * Evolucionador de la mente del lector.
 	 */
-	private ICoherenceChecker coherenceChecker;
+	private MindEvolver evolver;
 	
 	/**
 	 * Evaluador de los mentes generadas.
@@ -74,9 +57,9 @@ public class Reader extends Observable implements IReader {
 	private IEvaluator evaluator;
 	
 	/**
-	 * Evolucionador de la mente del lector.
+	 * Comprobador de coherencia de la historia.
 	 */
-	private IMindEvolver evolver;
+	private ICoherenceChecker coherenceChecker;
 	
 	/**
 	 * Creador de los segmentos de la historia.
@@ -89,22 +72,77 @@ public class Reader extends Observable implements IReader {
 	public Reader() {
 		maxSegments = 10;
 		mind = null;
-		events = new ArrayList<Events>();
 		coherenceChecker = new CoherenceChecker();
 		evaluator = new SimpleEvaluator();
 		evolver = new MindEvolver(evaluator,coherenceChecker);
 		segmenter = new NaturalSegmenter();
-		votes = new ArrayList<tVote>();
-		textSegment = new ArrayList<String>();
+		segments = new ArrayList<Segment>();
 		addObserver((Observer) evaluator);
 	}
 	
-	@Override
+	/**
+	 * @return the maxSegments
+	 */
+	public int getMaxSegments() {
+		return maxSegments;
+	}
+
+	/**
+	 * Devuelve los elementos que forman la historia.
+	 * Los generados hasta el momento.
+	 * @return Los segmentos.
+	 * @see Segment para ver el contenido de los mismos.
+	 */
+	public ArrayList<Segment> getSegments() {
+		return segments;
+	}
+	
+	/**
+	 * Obtiene el evolucionador de la mente.
+	 * @return 
+	 */
+	public MindEvolver getEvolver() {
+		return evolver;
+	}
+	
+	/**
+	 * @return the evaluator 
+	 */
+	public IEvaluator getEvaluator() {
+		return this.evaluator;
+	}
+	
+	/**
+	 * Comprueba si la mente ha sido inicializada.
+	 * @return True si ha sido inicializada.
+	 */
+	public boolean isInitialized() {
+		return mind != null;
+	}
+	
+	/**
+	 * @param the maxSegments
+	 */
+	public void setMaxSegments(int maxSegments) {
+		this.maxSegments = maxSegments;
+	}
+	
+	/**
+	 * @param the evaluator
+	 */
+	public void setEvaluator(IEvaluator evaluator) {
+		this.evaluator = evaluator;
+	}
+	
+	/**
+	 * Crea una mente de conceptos que tiene el lector a partir de archivo.
+	 * Inicializa el segmento inicial de la mente que ha cargado desde
+	 * el archivo.
+	 * @param file
+	 */
 	public void createMind(String file) {
-		storySoFar = new ArrayList<Mind>();
-		events = new ArrayList<Events>();
-		votes = new ArrayList<tVote>();
-		textSegment = new ArrayList<String>();
+		
+		// Obtiene la mente del lector de archivo
 		InputStream txt = null;
 		try {
 			 txt = new FileInputStream(file);
@@ -112,38 +150,47 @@ public class Reader extends Observable implements IReader {
 			e.printStackTrace();
 		}
 		mind = new Mind(txt);
-		storySoFar.add(mind);
-		votes.add(tVote.NEUTRAL);
-		events.add(coherenceChecker.assumeInitialEvents(mind));
-		textSegment.add(segmenter.generateInitialSegment(mind));
+		
+		// Crea del segmento inicial a partir de la mente extraída
+		Segment segment = new Segment(mind, 
+				segmenter.generateInitialSegment(mind),
+				coherenceChecker.assumeInitialEvents(mind)				
+		);
+		segments.add(segment);
 		
 		notifyObservers();
 	}
 	
-	@Override
+	/**
+	 * Genera todos los segmentos que quedan por generar de la historia.
+	 * Si se ha alcanzado el límite de segmentos máximos, no se hace nada.
+	 */
 	public void generateStory() {
-		for (int i = storySoFar.size(); i < maxSegments; i++)
+		for (int i = segments.size(); i < maxSegments; i++)
 			generateNextSegment();
 	}
 	
-	@Override
+	/**
+	 * Genera el siguiente segmento de la historia.
+	 * Si se ha alcanzado el límite de segmentos máximos, no se hace nada.
+	 */
 	public void generateNextSegment() {
 		
-		if (storySoFar.size() < maxSegments) {
+		if (segments.size() < maxSegments) {
 			// Opera con la mente para evolucionarla
-			ChangedMind changedMind = evolver.evolveMind(mind, events.get(events.size() - 1));
+			ChangedMind changedMind = evolver.evolveMind(mind, segments.get(segments.size() - 1).getEvents());
 			
 			// Extrae un segmento nuevo con la mente cambiada
-			storySoFar.add(changedMind.getActualMind());
-			textSegment.add(segmenter.generateSegment(changedMind));
-			votes.add(tVote.NEUTRAL);
+			Segment segment = new Segment(
+					changedMind.getActualMind(),
+					segmenter.generateSegment(changedMind),
+					coherenceChecker.assumeEvents(segments.get(segments.size() - 1).getEvents(), changedMind.getResultingRelations())
+			);
+			segments.add(segment);
 			mind = changedMind.getActualMind();
 			
 			// Asume que todas las relaciones tienen veracidad o peso 1.0
 			assumeConcepts();
-			
-			// Asume los eventos para el coherenciador
-			events.add(coherenceChecker.assumeEvents(events.get(events.size() - 1), changedMind.getResultingRelations()));
 			
 			setChanged();
 			notifyObservers();
@@ -158,65 +205,6 @@ public class Reader extends Observable implements IReader {
 		for (Relation relation : mind) {
 			relation.setWeight(1.0f); 
 		}
-	}
-
-	@Override
-	public int getMaxSegments() {
-		return maxSegments;
-	}
-	
-	@Override
-	public void setMaxSegments(int maxSegments) {
-		this.maxSegments = maxSegments;
-	}
-	
-	@Override
-	public void setEvaluator(IEvaluator evaluator) {
-		this.evaluator = evaluator;
-	}
-	
-	public IEvaluator getEvaluator() {
-		return this.evaluator;
-	}
-
-	@Override
-	public ArrayList<Mind> getStorySoFar() {
-		return storySoFar;
-	}
-	
-	@Override
-	public boolean isInitialized() {
-		return mind != null;
-	}
-	
-	@Override
-	public void insertObserver(Observer o) {
-		this.addObserver(o);
-	}
-
-	@Override
-	public void removeObserver(Observer o) {
-		this.deleteObserver(o);
-	}
-
-	@Override
-	public IMindEvolver getEvolver() {
-		return evolver;
-	}
-
-	@Override
-	public ArrayList<tVote> getVotes() {
-		return votes;
-	}
-
-	@Override
-	public void voteSegment(int i, tVote vote) {
-		votes.set(i, vote);
-	}
-
-	@Override
-	public ArrayList<String> getTextSegments() {
-		return textSegment;
 	}
 	
 }
