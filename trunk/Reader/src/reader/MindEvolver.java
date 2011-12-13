@@ -3,7 +3,6 @@ package reader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.PriorityQueue;
 
 import coherence.Events;
@@ -24,7 +23,7 @@ import operator.Specialize;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class MindEvolver extends Observable implements IMindEvolver {
+public class MindEvolver extends Observable {
 	
 	/**
 	 * Máximo número de padres a engendrar.
@@ -68,7 +67,11 @@ public class MindEvolver extends Observable implements IMindEvolver {
 		generatedMinds = new HashSet<Integer>();
 	}
 	
-	@Override
+	/**
+	 * Cambia la mente (conceptos que tiene la mente).
+	 * @param mind Mente a evolucionar.
+	 * @return La mente con los conceptos cambiados tras la evolución.
+	 */
 	public ChangedMind evolveMind(Mind mind, Events events) {
 		
 		generatedMinds = new HashSet<Integer>();
@@ -197,24 +200,20 @@ public class MindEvolver extends Observable implements IMindEvolver {
 			bestMind = bestInQueue.copy();
 	}
 
-	@Override
+	/**
+	 * Obtiene el número de iteraciones en la generación del segmento.
+	 * @return
+	 */
 	public int getNumIterations() {
 		return maxMindExpansions;
 	}
 
-	@Override
+	/**
+	 * Establece el número de iteraciones para la generación de un segmento.
+	 * @param numIt El nuevo número de iteraciones.
+	 */
 	public void setNumIterations(int numIt) {
 		maxMindExpansions = numIt;
-	}
-
-	@Override
-	public void insertObserver(Observer o) {
-		this.addObserver(o);
-	}
-
-	@Override
-	public void removeObserver(Observer o) {
-		this.deleteObserver(o);
 	}
 
 }

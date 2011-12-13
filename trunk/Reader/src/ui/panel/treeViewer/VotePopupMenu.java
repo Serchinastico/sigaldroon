@@ -3,7 +3,7 @@ package ui.panel.treeViewer;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import reader.IReader.tVote;
+import reader.Segment.tVote;
 
 import ui.CommandManager;
 import ui.StoryJFrame;
