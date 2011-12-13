@@ -3,6 +3,7 @@ package ui.menu;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import evaluator.DynamicEvaluator;
 import evaluator.IEvaluator;
@@ -33,6 +34,11 @@ public class EvaluatorMenu extends JMenu {
 	private StoryJFrame frame;
 	
 	/**
+	 * Opción del menú Evaluador para crear un evaluador dinámico.
+	 */
+	private JMenuItem menuItemCrearEvaluador;
+	
+	/**
 	 * Opción del menú Evaluador para cargar un evaluador dinámico.
 	 */
 	private JMenuItem menuItemCargarEvaluador;
@@ -47,6 +53,16 @@ public class EvaluatorMenu extends JMenu {
 		frame = f;
 		
 		setText("Evaluador");
+		
+		// Opción de cargar un nuevo evaluador dinámico
+		menuItemCrearEvaluador = new JMenuItem();
+		menuItemCrearEvaluador.setText("Crear Evaluador");
+		menuItemCrearEvaluador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+            	// TODO: Hacer el menú con las opciones (patterns source, evaluator file y storyBreaks)
+            }
+        });
+        this.add(menuItemCrearEvaluador);
 		
 		// Opción de cargar un nuevo evaluador dinámico
 		menuItemCargarEvaluador = new JMenuItem();
@@ -73,6 +89,7 @@ public class EvaluatorMenu extends JMenu {
             	 }
             	 else {
             		 //TODO: Mostrar un cartelito advirtiendo del problema
+            		 JOptionPane.showMessageDialog(null, "El evaluador cargado no es dinámico.", "Error del visualizador", JOptionPane.ERROR_MESSAGE);
             	 }
              }
          });

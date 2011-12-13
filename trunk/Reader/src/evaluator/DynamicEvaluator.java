@@ -76,6 +76,9 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		loadPatterns(path);
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
 			this.weights.add(new float[storyBreaks]);
+			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
+				this.weights.get(iPattern)[iWeight] = 0.5f;
+			}
 		}
 	}
 	
