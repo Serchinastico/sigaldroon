@@ -3,6 +3,8 @@ package ui.panel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -52,6 +54,29 @@ public class ControlArea extends JPanel {
 		super();
 		frame = f;
 		
+		this.setLayout(new GridBagLayout());
+        GridBagConstraints constrains = new GridBagConstraints();
+		
+		// Botón para procesar los votos
+		JButton buttonVotes = new JButton("Procesar votos");
+		buttonVotes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				frame.processVotes();
+			}
+		});
+		
+		constrains.gridx = 0;
+        constrains.gridy = 0;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 0.2;
+        constrains.weighty = 1.0;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        add(buttonVotes, constrains);
+		
         // Botón de generación de siguiente segmento
 		buttonNext = new JButton("Siguiente segmento");
 		buttonNext.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -60,10 +85,8 @@ public class ControlArea extends JPanel {
             }
         });
         
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints constrains = new GridBagConstraints();
         constrains.gridx = 0;
-        constrains.gridy = 0;
+        constrains.gridy = 1;
         constrains.gridwidth = 1;
         constrains.gridheight = 1;
         constrains.weightx = 0.2;
@@ -82,7 +105,7 @@ public class ControlArea extends JPanel {
         });
         
         constrains.gridx = 0;
-        constrains.gridy = 1;
+        constrains.gridy = 2;
         constrains.gridwidth = 1;
         constrains.gridheight = 1;
         constrains.weightx = 0.2;

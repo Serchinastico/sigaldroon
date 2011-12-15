@@ -292,7 +292,6 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 				weights.get(iPattern)[iStoryBreak] = (float) Math.max(0.0f, weights.get(iPattern)[iStoryBreak] * 0.75f);
 				break;	
 			}
-			
 		}
 	}
 	

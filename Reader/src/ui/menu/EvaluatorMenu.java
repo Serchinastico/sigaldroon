@@ -10,6 +10,7 @@ import evaluator.IEvaluator;
 
 import ui.StoryJFrame;
 import ui.evaluator.EvaluatorJFrame;
+import ui.menu.evaluator.CreateEvaluatorDialog;
 
 /**
  * Componente para el menú Evaluador de la barra de menú.
@@ -54,12 +55,14 @@ public class EvaluatorMenu extends JMenu {
 		
 		setText("Evaluador");
 		
-		// Opción de cargar un nuevo evaluador dinámico
+		// Opción de crear un nuevo evaluador dinámico
 		menuItemCrearEvaluador = new JMenuItem();
 		menuItemCrearEvaluador.setText("Crear Evaluador");
 		menuItemCrearEvaluador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
             	// TODO: Hacer el menú con las opciones (patterns source, evaluator file y storyBreaks)
+            	CreateEvaluatorDialog ceDialog = new CreateEvaluatorDialog(frame);
+            	ceDialog.setVisible(true);
             }
         });
         this.add(menuItemCrearEvaluador);

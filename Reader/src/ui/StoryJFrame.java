@@ -6,11 +6,16 @@ import java.awt.Insets;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+
+import evaluator.DynamicEvaluator;
 
 import mind.ontobridge.OntoBridgeSingleton;
 
 import reader.Reader;
+import reader.Segment;
+import reader.Segment.tVote;
 import ui.menu.MainMenuBar;
 import ui.panel.ControlArea;
 import ui.panel.NaturalTextArea;
@@ -254,6 +259,36 @@ public class StoryJFrame extends javax.swing.JFrame implements Observer {
 		this.completeGeneration = completeGeneration;
 	}
 
+	public void processVotes() {
+		if (!(observableReader.getEvaluator() instanceof DynamicEvaluator)) {
+			JOptionPane.showMessageDialog(null, 
+					"Imposible votar si el evaluador no es dinámico.", 
+					"Error al votar", 
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		DynamicEvaluator evaluator = (DynamicEvaluator) observableReader.getEvaluator();
+		CommandManager cm = CommandManager.getInstance();
+		
+		for (int iSegment = 0; iSegment < observableReader.getSegments().size(); iSegment++) {
+			Segment segment = observableReader.getSegments().get(iSegment);
+			
+			switch (segment.getVote()) {
+			case NEGATIVE:
+				evaluator.downvote(segment.getMind(), observableReader.getMaxSegments(), iSegment);
+				break;
+			case POSITIVE:
+				evaluator.upvote(segment.getMind(), observableReader.getMaxSegments(), iSegment);
+				break;
+			}
+			
+			segment.setVote(tVote.NEUTRAL);
+			cm.voteSegment(this, iSegment, tVote.NEUTRAL);
+			// TODO: No se redibuja el árbol así que parece que no se ponen a neutral pero si lo hace
+		}
+	}
+	
 	/**
 	 * @param args the command line arguments.
 	 */
