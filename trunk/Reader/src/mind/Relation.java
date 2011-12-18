@@ -51,7 +51,7 @@ public class Relation {
 	/**
 	 * Número de elementos de la relación.
 	 */
-	protected static int NUM_ELEMENTS = 5;
+	public static int NUM_ELEMENTS = 5;
 	
 	/**
 	 * Constructora por defecto.

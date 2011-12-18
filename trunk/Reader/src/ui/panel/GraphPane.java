@@ -131,15 +131,15 @@ public class GraphPane extends JScrollPane {
 			Object action = graph.insertVertex(parents.get(0), null, r.getAction(), x + X_INCR, y, WIDTH, HEIGHT,"defaultVertex;shape=rhombus;fontSize=18;fontFamily=Garamond");
 			graph.insertEdge(parents.get(0), null, " fuente ", source, action,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			
-			// Action -> Target
+			// Action -> Indirect Object 
 			if (r.getTarget() != null) {
-				Object target = graph.insertVertex(parents.get(0), null, r.getTarget(), x + 2 * X_INCR, y, WIDTH, HEIGHT,"defaultVertex;fontSize=18;fontFamily=Garamond");
-				graph.insertEdge(parents.get(0), null, " destinatario ", action, target,"defaultEdge;fontSize=18;fontFamily=Garamond");
+				Object target = graph.insertVertex(parents.get(0), null, r.getTarget(), x + X_INCR, y - Y_INCR, WIDTH, HEIGHT,"defaultVertex;shape=ellipse;fontSize=18;fontFamily=Garamond");
+				graph.insertEdge(parents.get(0), null, " objeto indirecto ", action, target,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			}
 			
-			// Action -> Object Direct
+			// Action -> Direct Object
 			if (r.getDirectObject() != null) {
-				Object directObject = graph.insertVertex(parents.get(0), null, r.getDirectObject(), x + X_INCR, y - Y_INCR, WIDTH, HEIGHT, "defaultVertex;shape=ellipse;fontSize=18;fontFamily=Garamond");
+				Object directObject = graph.insertVertex(parents.get(0), null, r.getDirectObject(), x + 2 * X_INCR, y, WIDTH, HEIGHT, "defaultVertex;fontSize=18;fontFamily=Garamond");
 				graph.insertEdge(parents.get(0), null, " objeto directo ", action, directObject,"defaultEdge;fontSize=18;fontFamily=Garamond");
 			}
 			

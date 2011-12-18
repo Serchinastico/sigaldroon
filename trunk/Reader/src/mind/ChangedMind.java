@@ -47,11 +47,8 @@ public class ChangedMind implements Comparable<Object> {
 		value = 0.0;
 	}
 	
-	/**
-	 * Copia la mente actual, el valor de heurística y los cambios.
-	 * @return
-	 */
-	public ChangedMind copy() {
+	@Override
+	public ChangedMind clone() {
 		ChangedMind retVal = new ChangedMind();
 		retVal.actualMind = new Mind(actualMind);
 		retVal.changes = new ArrayList<Change>();
@@ -135,6 +132,18 @@ public class ChangedMind implements Comparable<Object> {
 				filteredChanges.add(changes.get(i).getAfter());
 		}
 		return filteredChanges;
+	}
+	
+	/**
+	 * Aplica el cambio realizado por el operador a la mente.
+	 * @param op Índice del operador usado según las constantes de operadores.
+	 * @param before Relación antes del cambio.
+	 * @param after Relación tras el cambio.
+	 */
+	public void insertChange(Relation before, Relation after, int op) {
+		actualMind.remove(before); // Quitamos la antigua relación
+		actualMind.add(after); // Ponemos la modificada
+		changes.add(new Change(before.clone(),after.clone(),op));
 	}
 	
 }

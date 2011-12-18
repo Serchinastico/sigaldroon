@@ -21,6 +21,7 @@ public class Specialize extends OperatorSingle {
 	 */
 	public Specialize() {
 		opWeight = 0.8f;
+		opId = OPList.SPECIALIZE;
 	}
 	
 	/**
@@ -34,7 +35,7 @@ public class Specialize extends OperatorSingle {
 
 		OntoBridge onto = OntoBridgeSingleton.getInstance();
 		
-		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
+		for (int i = 0; i < Relation.NUM_ELEMENTS; i++) {
 			
 			if (r.getElement(i) == null) continue;
 			
@@ -46,14 +47,7 @@ public class Specialize extends OperatorSingle {
 				while (itSubClasses.hasNext()) {
 					String subClass = onto.getShortName(itSubClasses.next());
 					if (!subClass.contains("Nothing")) {
-						ChangedMind newMind = m.copy();
-						// Cambio de la relación
-						Relation newRelation = r.clone();
-						newRelation.setElement(i, subClass);
-						// Cambio del peso
-						newRelation.setWeight(r.getWeight() * opWeight);
-						// Guardado del cambio
-						applySingleChange(OPList.SPECIALIZE, newMind, r, newRelation);
+						ChangedMind newMind = generateChild(m, r, i, subClass);
 						gM.add(newMind);
 					}
 				}
@@ -62,14 +56,7 @@ public class Specialize extends OperatorSingle {
 				Iterator<String> itInstances = onto.listDeclaredInstances(r.getElement(i));
 				while (itInstances.hasNext()) {
 					String instanceName = onto.getShortName(itInstances.next());
-					ChangedMind newMind = m.copy();
-					// Cambio de la relación
-					Relation newRelation = r.clone();
-					newRelation.setElement(i, instanceName);
-					// Cambio del peso
-					newRelation.setWeight(r.getWeight() * opWeight);
-					// Guardado del cambio
-					applySingleChange(OPList.SPECIALIZE, newMind, r, newRelation);
+					ChangedMind newMind = generateChild(m, r, i, instanceName);
 					gM.add(newMind);
 				}
 			}

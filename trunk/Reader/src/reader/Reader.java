@@ -8,7 +8,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import coherence.CoherenceChecker;
-import coherence.ICoherenceChecker;
 
 import mind.Mind;
 import mind.ChangedMind;
@@ -59,7 +58,7 @@ public class Reader extends Observable {
 	/**
 	 * Comprobador de coherencia de la historia.
 	 */
-	private ICoherenceChecker coherenceChecker;
+	private CoherenceChecker coherenceChecker;
 	
 	/**
 	 * Creador de los segmentos de la historia.
@@ -154,7 +153,7 @@ public class Reader extends Observable {
 		// Crea del segmento inicial a partir de la mente extraída
 		Segment segment = new Segment(mind, 
 				segmenter.generateInitialSegment(mind),
-				coherenceChecker.assumeInitialEvents(mind)				
+				coherenceChecker.assumeEvents(null,mind)				
 		);
 		segments.add(segment);
 		

@@ -13,12 +13,14 @@ import mind.Relation;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public abstract class OperatorSingle implements IOperator {
+public abstract class OperatorSingle implements Operator {
 
 	/**
 	 * Peso del operador.
 	 */
 	protected float opWeight = 0.6f;
+	
+	protected int opId;
 	
 	@Override
 	public void generateMinds(ChangedMind m, ArrayList<ChangedMind> generatedMinds) {
@@ -36,17 +38,25 @@ public abstract class OperatorSingle implements IOperator {
 	 * @param gM Listado actual de mentes generadas.
 	 */
 	protected abstract void generateByRelation(ChangedMind m, Relation r, ArrayList<ChangedMind> gM);
-
+	
 	/**
-	 * Aplica el cambio realizado por el operador a la mente.
-	 * @param op Índice del operador usado según las constantes de IOperator.
-	 * @param m Mente a la que aplicar el cambio.
-	 * @param before Relación antes del cambio.
-	 * @param after Relación tras el cambio.
+	 * Genera un descendiente a partir de una relación r, de una mente cambiada m.
+	 * Cambia el elemento seleccionado en relTarget poniéndolo a newElement.
+	 * @param m Mente sobre la que aplicar el cambio.
+	 * @param r Relación sobre la que aplicar el cambio.
+	 * @param relTarget Elemento de la relación sobre la que aplicar el cambio.
+	 * @param newElement Nuevo valor para el elemento a modificar de la relación.
+	 * @return El descendiente creado.
 	 */
-	protected void applySingleChange(int op, ChangedMind m, Relation before, Relation after) {
-		m.getActualMind().remove(before); // Quitamos la antigua relación
-		m.getActualMind().add(after); // Ponemos la modificada
-		m.getChanges().add(new Change(before.clone(),after.clone(),op));
+	protected ChangedMind generateChild(ChangedMind m, Relation r, int relTarget, String newElement) {
+		ChangedMind newMind = m.clone();
+		// Cambio de la relación
+		Relation newRelation = r.clone();
+		newRelation.setElement(relTarget, newElement);
+		// Cambio del peso
+		newRelation.setWeight(r.getWeight() * opWeight);
+		// Guardado del cambio
+		newMind.insertChange(r, newRelation, opId);
+		return newMind;
 	}
 }

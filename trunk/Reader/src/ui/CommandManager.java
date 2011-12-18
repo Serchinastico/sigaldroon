@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 import reader.Reader;
 import reader.Segment.tVote;
@@ -73,6 +74,22 @@ public class CommandManager {
 	public void generateNextSegment(StoryJFrame frame) {
 		if (frame.getObservableReader().isInitialized()) {
     		frame.setCompleteGeneration(false);
+    		/*
+    		// Hacemos la ejecucion del algoritmo en otro hilo de
+    		// ejecucion
+    		// Para que no se congele la interfaz
+    		Thread t = new Thread(new Runnable() {
+    			public void run() {
+    				// Inicializamos la barra de progreso de nuevo
+    				progressBar.setValue(0);
+
+    				//progressBar.setMaximum(_validadorDatos
+    					//				.getNumGeneraciones());
+    				
+    			}
+    		});
+    		t.start();   
+    		*/
     		frame.getObservableReader().generateNextSegment();
 		}
         else

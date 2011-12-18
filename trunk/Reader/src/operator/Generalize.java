@@ -22,6 +22,7 @@ public class Generalize extends OperatorSingle {
 	 */
 	public Generalize() {
 		opWeight = 0.6f;
+		opId = OPList.GENERALIZE;
 	}
 	
 	/**
@@ -35,7 +36,7 @@ public class Generalize extends OperatorSingle {
 		
 		OntoBridge onto = OntoBridgeSingleton.getInstance();
 		
-		for (int i = 0; i < OPTarget.NUM_TARGETS; i++) {
+		for (int i = 0; i < Relation.NUM_ELEMENTS; i++) {
 			
 			if (r.getElement(i) == null) continue;
 			
@@ -55,14 +56,7 @@ public class Generalize extends OperatorSingle {
 				
 				// Si no es clase del sistema y no ha superado el máximo en la ontología
 				if (!superClass.contains("Class") && !superClass.contains("NamedIndividual") && !superClass.contains("Thing")) {
-					ChangedMind newMind = m.copy();
-					// Cambio de la relación
-					Relation newRelation = r.clone();
-					newRelation.setElement(i, superClass);
-					// Cambio del peso
-					newRelation.setWeight(r.getWeight() * opWeight);
-					// Guardado del cambio
-					applySingleChange(OPList.GENERALIZE, newMind, r, newRelation);
+					ChangedMind newMind = generateChild(m, r, i, superClass);
 					gM.add(newMind);
 				}
 			}

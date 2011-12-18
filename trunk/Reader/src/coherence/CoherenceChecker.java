@@ -2,8 +2,12 @@ package coherence;
 
 import java.util.ArrayList;
 
+import coherence.requisites.Death;
+import coherence.requisites.Marriage;
+import coherence.requisites.Requisite;
+import coherence.requisites.VerbForm;
+
 import mind.ChangedMind;
-import mind.Mind;
 import mind.Relation;
 
 /**
@@ -13,27 +17,34 @@ import mind.Relation;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class CoherenceChecker implements ICoherenceChecker {
+public class CoherenceChecker {
 
 	/**
 	 * Array con requisitos que deben cumplirse para mantener coherencia.
 	 */
-	private ArrayList<IRequisite> requisites;
+	private ArrayList<Requisite> requisites;
 	
 	/**
 	 * Constructora por defecto.
 	 */
 	public CoherenceChecker() {
-		requisites = new ArrayList<IRequisite>();
-		requisites.add(new DeathChecker());
-		requisites.add(new MarriedChecker());
+		requisites = new ArrayList<Requisite>();
+		requisites.add(new VerbForm());
+		requisites.add(new Death());
+		requisites.add(new Marriage());
 	}
 	
-	@Override
+	/**
+	 * Comprueba si las relaciones conceptuales de una mente tienen coherencia
+	 * respecto a unos eventos pasados.
+	 * @param events Eventos sucedidos anteriormente.
+	 * @param mind Mente de un lector con relaciones conceptuales.
+	 * @return True si las relaciones mantienen coherencia con los eventos.
+	 */
 	public boolean checkCoherence(Events events, ChangedMind mind) {
 		
 		for (Relation relation : mind.getResultingRelations()) {
-			for (IRequisite requisite : requisites) {
+			for (Requisite requisite : requisites) {
 				if (!requisite.keepCoherence(events, relation))
 					return false;
 			}
@@ -42,21 +53,27 @@ public class CoherenceChecker implements ICoherenceChecker {
 		return true;
 	}
 
-	@Override
-	public Events assumeEvents(Events events, ArrayList<Relation> mindRelations) {
-		Events eventsAssumed = events.copy();
-		for (IRequisite requisite : requisites) 
-			requisite.assumeEvents(events, mindRelations);
-		return eventsAssumed;
-	}
-	
-	@Override
-	public Events assumeInitialEvents(Mind m) {
-		ArrayList<Relation> initialRelations = new ArrayList<Relation>();
-		for (Relation r : m) {
-			initialRelations.add(r);
+	/**
+	 * Crea una estructura de eventos nueva actualizada con las nuevas relaciones
+	 * de una mente y eventos anteriores.
+	 * @param events Eventos sucedidos anteriormente.
+	 * @param mindRelations Nuevas relaciones.
+	 * @return Eventos actualizados con las nuevas relaciones.
+	 */
+	public Events assumeEvents(Events events, Iterable<Relation> mindRelations) {
+		Events eventsAssumed;
+		
+		// Comprueba por si es el segmento inicial y no hay eventos
+		if (events == null) {
+			eventsAssumed = new Events();
 		}
-		return assumeEvents(new Events(), initialRelations);
+		else
+			eventsAssumed = events.copy();
+		
+		for (Requisite requisite : requisites) 
+			requisite.assumeEvents(events, mindRelations);
+		
+		return eventsAssumed;
 	}
 
 }
