@@ -1,6 +1,6 @@
-package coherence;
+package coherence.requisites;
 
-import java.util.ArrayList;
+import coherence.Events;
 
 import mind.Relation;
 
@@ -10,7 +10,7 @@ import mind.Relation;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public interface IRequisite {
+public interface Requisite {
 
 	/**
 	 * Comprueba que una relación es coherente respecto a unos eventos dados.
@@ -25,6 +25,6 @@ public interface IRequisite {
 	 * @param events Estructura a la que añadir los nuevos eventos.
 	 * @param mind Mente de la que extraer nuevos eventos.
 	 */
-	public void assumeEvents(Events events, ArrayList<Relation> changedRelations);
+	public void assumeEvents(Events events, Iterable<Relation> changedRelations);
 	
 }

@@ -6,15 +6,14 @@ import java.util.Observable;
 import java.util.PriorityQueue;
 
 import coherence.Events;
-import coherence.ICoherenceChecker;
+import coherence.CoherenceChecker;
 
 import mind.Mind;
 import mind.ChangedMind;
 
 import evaluator.IEvaluator;
 
-import operator.Generalize;
-import operator.Specialize;
+import operator.OperatorApplicator;
 
 
 /**
@@ -38,7 +37,12 @@ public class MindEvolver extends Observable {
 	/**
 	 * Comprobador de la coherencia de la historia.
 	 */
-	private ICoherenceChecker coherenceChecker;
+	private CoherenceChecker coherenceChecker;
+	
+	/**
+	 * Generador de descendientes de ChangedMinds aplicando operadores.
+	 */
+	private OperatorApplicator operatorApplicator;
 
 	/**
 	 * Pila de mentes creadas hasta el momento.
@@ -59,11 +63,12 @@ public class MindEvolver extends Observable {
 	 * Constructora para el evolucionador.
 	 * @param evaluator Evaluador a usar por el evolucionador de mentes.
 	 */
-	public MindEvolver(IEvaluator evaluator, ICoherenceChecker coherenceChecker) {
+	public MindEvolver(IEvaluator evaluator, CoherenceChecker coherenceChecker) {
 		maxMindExpansions = 3;
 		mindsQueue = new PriorityQueue<ChangedMind>();
 		this.evaluator = evaluator;
 		this.coherenceChecker = coherenceChecker;
+		this.operatorApplicator = new OperatorApplicator();
 		generatedMinds = new HashSet<Integer>();
 	}
 	
@@ -88,7 +93,7 @@ public class MindEvolver extends Observable {
 			ChangedMind operatedMind = mindsQueue.poll(); // Saca la cima y la borra
 		
 			// Genera los hijos como resultado de operar esa mente
-			ArrayList<ChangedMind> mindSons = operateMind(operatedMind);
+			ArrayList<ChangedMind> mindSons = operatorApplicator.generateChilds(operatedMind);
 			
 			totales += mindSons.size();
 			
@@ -107,6 +112,7 @@ public class MindEvolver extends Observable {
 			insertMinds(mindSons);
 			
 			updateBestMind();	
+			
 			setChanged();
 			notifyObservers(new Integer(i + 1));
 		}
@@ -114,24 +120,6 @@ public class MindEvolver extends Observable {
 		System.out.println("Totales: " + totales + " - Reales: " + reales + " - Podados: " + (totales - reales));
 		
 		return bestMind; // la más favorable según su valor
-	}
-
-	/**
-	 * Aplica los operadores a una mente para generar todos los posibles hijos.
-	 * @param m Mente que operar.
-	 * @return Los hijos generados tras aplicar operadores.
-	 */
-	private ArrayList<ChangedMind> operateMind(ChangedMind m) {
-		
-		ArrayList<ChangedMind> sons = new ArrayList<ChangedMind>();
-		
-		Specialize specializeOp = new Specialize();
-		specializeOp.generateMinds(m, sons);
-		
-		Generalize generalizeOp = new Generalize();
-		generalizeOp.generateMinds(m, sons);
-		
-		return sons;
 	}
 	
 	/**
@@ -197,7 +185,7 @@ public class MindEvolver extends Observable {
 		ChangedMind bestInQueue = mindsQueue.peek();
 		
 		if (bestInQueue.compareTo(bestMind) >= 0) 
-			bestMind = bestInQueue.copy();
+			bestMind = bestInQueue.clone();
 	}
 
 	/**

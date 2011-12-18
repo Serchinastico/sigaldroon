@@ -14,8 +14,8 @@ public class VerbBridge extends CheckerBridge {
 	private static final String PAST_FORM = "PasadoSingular";
 	private static final String CAN_HAVE_DIRECT_OBJECT = "TieneObjetoDirecto";
 	private static final String CAN_HAVE_INDIRECT_OBJECT = "TieneObjetoIndirecto";
-	private static final String DIRECT_OBJECT_TYPE = "TipoObjetoIndirecto";
-	private static final String INDIRECT_OBJECT_TYPE = "TipoObjetoDirecto";
+	private static final String DIRECT_OBJECT_TYPE = "TipoObjetoDirecto";
+	private static final String INDIRECT_OBJECT_TYPE = "TipoObjetoIndirecto";
 	private static final String DIRECT_OBJECT_PREPOSITION = "PreposicionObjetoDirecto";
 	private static final String INDIRECT_OBJECT_PREPOSITION = "PreposicionObjetoIndirecto";
 	private static final String TRUE = "true";

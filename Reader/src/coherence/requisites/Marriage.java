@@ -1,6 +1,6 @@
-package coherence;
+package coherence.requisites;
 
-import java.util.ArrayList;
+import coherence.Events;
 
 import mind.Relation;
 
@@ -11,7 +11,7 @@ import mind.Relation;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public class MarriedChecker implements IRequisite {
+public class Marriage implements Requisite {
 
 	@Override
 	public boolean keepCoherence(Events events, Relation relation) {
@@ -26,7 +26,7 @@ public class MarriedChecker implements IRequisite {
 	}
 
 	@Override
-	public void assumeEvents(Events events, ArrayList<Relation> changedRelations) {	
+	public void assumeEvents(Events events, Iterable<Relation> changedRelations) {	
 		
 		// Chequeamos los objetivos de las relaciones para incluirlos en los casados
 		for (Relation r : changedRelations) 

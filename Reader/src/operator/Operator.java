@@ -11,8 +11,8 @@ import mind.ChangedMind;
  * @author Sergio Gutiérrez Mota e Israel Cabañas Ruiz
  *
  */
-public interface IOperator {
-		
+public interface Operator {
+			
 	/**
 	 * Genera todas las mentes posibles aplicando este operador a una mente
 	 * pasado por parámentro.
