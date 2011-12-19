@@ -2827,6 +2827,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heracles -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heracles">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Heroe"/>
+        <textoNombre>Heracles</textoNombre>
+        <GeneroObjeto>Masculino</GeneroObjeto>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hercules -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Hercules">
@@ -3238,6 +3248,16 @@
         <TieneObjetoIndirecto rdf:datatype="&xsd;string">false</TieneObjetoIndirecto>
         <PasadoSingular rdf:datatype="&xsd;string">mató</PasadoSingular>
         <TieneObjetoDirecto rdf:datatype="&xsd;string">true</TieneObjetoDirecto>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Megara -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Megara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Noble"/>
+        <textoNombre>Megara</textoNombre>
+        <GeneroObjeto>Femenino</GeneroObjeto>
     </owl:NamedIndividual>
     
 
@@ -3918,7 +3938,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Salvar">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#BuenaAccion"/>
-        <TieneObjetoDirecto rdf:datatype="&xsd;string">Actor</TieneObjetoDirecto>
+        <TipoObjetoDirecto rdf:datatype="&xsd;string">Actor</TipoObjetoDirecto>
         <PreposicionObjetoDirecto rdf:datatype="&xsd;string">a</PreposicionObjetoDirecto>
         <TieneObjetoIndirecto rdf:datatype="&xsd;string">false</TieneObjetoIndirecto>
         <PasadoSingular rdf:datatype="&xsd;string">salvó</PasadoSingular>
@@ -4060,6 +4080,15 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Titanide"/>
         <GeneroObjeto rdf:datatype="&xsd;string">Femenino</GeneroObjeto>
         <textoNombre rdf:datatype="&xsd;string">Tea</textoNombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tebas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Tebas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/10/Ontology1321291303406.owl#Ciudad"/>
+        <textoNombre>Tebas</textoNombre>
     </owl:NamedIndividual>
     
 
