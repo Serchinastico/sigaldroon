@@ -1,5 +1,8 @@
 package ui.menu;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -40,6 +43,11 @@ public class EvaluatorMenu extends JMenu {
 	private JMenuItem menuItemCrearEvaluador;
 	
 	/**
+	 * Opción del menú Evaluador para guardar el evaluador cargado.
+	 */
+	private JMenuItem menuItemGuardarEvaluador;
+	
+	/**
 	 * Opción del menú Evaluador para cargar un evaluador dinámico.
 	 */
 	private JMenuItem menuItemCargarEvaluador;
@@ -60,13 +68,29 @@ public class EvaluatorMenu extends JMenu {
 		menuItemCrearEvaluador.setText("Crear Evaluador");
 		menuItemCrearEvaluador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-            	// TODO: Hacer el menú con las opciones (patterns source, evaluator file y storyBreaks)
             	CreateEvaluatorDialog ceDialog = new CreateEvaluatorDialog(frame);
             	ceDialog.setVisible(true);
             }
         });
         this.add(menuItemCrearEvaluador);
 		
+        // Opción de guardar el evaluador dinámico usado
+        menuItemGuardarEvaluador = new JMenuItem();
+        menuItemGuardarEvaluador.setText("Guardar Evaluador");
+        menuItemGuardarEvaluador.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				IEvaluator evaluator = frame.getObservableReader().getEvaluator();
+				if (evaluator instanceof DynamicEvaluator) {
+					((DynamicEvaluator) frame.getObservableReader().getEvaluator()).save();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "El evaluador cargado no es dinámico.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+        this.add(menuItemGuardarEvaluador);
+        
 		// Opción de cargar un nuevo evaluador dinámico
 		menuItemCargarEvaluador = new JMenuItem();
 		menuItemCargarEvaluador.setText("Cargar Evaluador");
@@ -74,7 +98,9 @@ public class EvaluatorMenu extends JMenu {
             public void mousePressed(java.awt.event.MouseEvent evt) {
             	JFileChooser jfc = new JFileChooser(EVALUATOR_CURRENT_DIR);
             	if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-					frame.getObservableReader().setEvaluator(new DynamicEvaluator(jfc.getSelectedFile().getAbsolutePath()));
+            		DynamicEvaluator evaluator = new DynamicEvaluator(jfc.getSelectedFile().getAbsolutePath());
+            		evaluator.setFilePath(jfc.getSelectedFile().getAbsolutePath());
+					frame.getObservableReader().setEvaluator(evaluator);
 				}
             }
         });
@@ -91,7 +117,6 @@ public class EvaluatorMenu extends JMenu {
             		 evaluatorFrame.setVisible(true);
             	 }
             	 else {
-            		 //TODO: Mostrar un cartelito advirtiendo del problema
             		 JOptionPane.showMessageDialog(null, "El evaluador cargado no es dinámico.", "Error del visualizador", JOptionPane.ERROR_MESSAGE);
             	 }
              }
