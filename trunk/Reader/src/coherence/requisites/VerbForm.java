@@ -39,10 +39,7 @@ public class VerbForm implements Requisite {
 		
 		// Si vale tanto Actor como Objeto es coherente
 		String directObjectType = vB.getDirectObjectType(verb);
-		if (directObjectType == null) {
-			int x = 2;
-			int y = x + 2;
-		}
+
 		if (directObjectType.equals("Nombre")) return true;
 		
 		// Si no, comprobamos que el objeto directo de la relación es subclase

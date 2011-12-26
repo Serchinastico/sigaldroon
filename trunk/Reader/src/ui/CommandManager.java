@@ -1,6 +1,9 @@
 package ui;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -113,6 +116,28 @@ public class CommandManager {
 	 */
 	public void voteSegment(StoryJFrame frame, int segmentPosition, tVote vote) {
 		frame.getObservableReader().getSegments().get(segmentPosition).setVote(vote);
+	}
+	
+	/**
+	 * Guarda el texto de la historia en un archivo de texto.
+	 */
+	public void exportStoryText(StoryJFrame frame) {
+		JFileChooser fc = new JFileChooser();
+    	int returnVal = fc.showSaveDialog(frame);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            
+            
+            try {
+            	file.createNewFile();
+                BufferedWriter out = new BufferedWriter(new FileWriter(file.getAbsolutePath()));
+                out.write(frame.getObservableReader().getTextStory());
+                out.close();
+            } catch (IOException e) {
+            }
+        }
+
 	}
 	
 }

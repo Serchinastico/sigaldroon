@@ -1,6 +1,7 @@
 package mind;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import mind.ontobridge.OntoBridgeSingleton;
 
@@ -144,6 +145,34 @@ public class ChangedMind implements Comparable<Object> {
 		actualMind.remove(before); // Quitamos la antigua relación
 		actualMind.add(after); // Ponemos la modificada
 		changes.add(new Change(before.clone(),after.clone(),op));
+	}
+	
+	/**
+	 * Devuelve un comparador para ordenar ChangedMind de mayor a menor.
+	 * @return
+	 */
+	public Comparator<ChangedMind> getGreaterComparator() {
+		Comparator<ChangedMind> gt = new Comparator<ChangedMind>() {
+			@Override
+			public int compare(ChangedMind o1, ChangedMind o2) {
+				return o1.compareTo(o2);
+			}
+		};
+		return gt;
+	}
+	
+	/**
+	 * Devuelve un comparador para ordenar ChangedMind de menor a mayor.
+	 * @return
+	 */
+	public Comparator<ChangedMind> getLowerComparator() {
+		Comparator<ChangedMind> lt = new Comparator<ChangedMind>() {
+			@Override
+			public int compare(ChangedMind o1, ChangedMind o2) {
+				return -o1.compareTo(o2);
+			}
+		};
+		return lt;
 	}
 	
 }
