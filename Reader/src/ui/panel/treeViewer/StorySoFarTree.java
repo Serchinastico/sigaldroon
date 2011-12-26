@@ -114,6 +114,11 @@ public class StorySoFarTree extends JTree {
 		int depthLevel = node.getLevel();
 
 		switch (depthLevel) {
+		case 0:
+			frame.getNaturalTextPane().getNaturalTextArea().setText(
+					frame.getObservableReader().getTextStory()
+			);
+			break;
 		case 1:
 			// Es un segmento
 			StoryMutableTreeNode segment = (StoryMutableTreeNode) node;

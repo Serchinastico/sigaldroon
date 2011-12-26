@@ -29,8 +29,8 @@ public class Death implements Requisite {
 		// Chequeamos los objetivos de las relaciones para incluirlos en los muertos
 		for (Relation r : changedRelations) 
 			if (r.getAction().equals("Matar"))
-				if (r.getTarget() != null && !events.isDeath(r.getTarget()))
-					events.insertDeath(r.getTarget());
+				if (r.getDirectObject() != null && !events.isDeath(r.getTarget()))
+					events.insertDeath(r.getDirectObject());
 	}
 
 }

@@ -112,6 +112,18 @@ public class Reader extends Observable {
 	}
 	
 	/**
+	 * Devuelve el texto en lenguaje natural de todo lo que se lleve de historia.
+	 * @return El texto de la historia.
+	 */
+	public String getTextStory() {
+		String textStory = "";
+		for (Segment segment : segments) {
+			textStory += segment.getTextSegment();
+		}
+		return textStory;
+	}
+	
+	/**
 	 * Comprueba si la mente ha sido inicializada.
 	 * @return True si ha sido inicializada.
 	 */

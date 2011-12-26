@@ -3,7 +3,6 @@ package reader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Observable;
-import java.util.PriorityQueue;
 
 import coherence.Events;
 import coherence.CoherenceChecker;
@@ -14,6 +13,7 @@ import mind.ChangedMind;
 import evaluator.IEvaluator;
 
 import operator.OperatorApplicator;
+import utils.DoublePriorityQueue;
 
 
 /**
@@ -47,7 +47,7 @@ public class MindEvolver extends Observable {
 	/**
 	 * Pila de mentes creadas hasta el momento.
 	 */
-	private PriorityQueue<ChangedMind> mindsQueue;
+	private DoublePriorityQueue<ChangedMind> mindsQueue;
 	
 	/**
 	 * La mejor mente en evolución.
@@ -65,7 +65,7 @@ public class MindEvolver extends Observable {
 	 */
 	public MindEvolver(IEvaluator evaluator, CoherenceChecker coherenceChecker) {
 		maxMindExpansions = 3;
-		mindsQueue = new PriorityQueue<ChangedMind>();
+		mindsQueue = new DoublePriorityQueue<ChangedMind>();
 		this.evaluator = evaluator;
 		this.coherenceChecker = coherenceChecker;
 		this.operatorApplicator = new OperatorApplicator();
@@ -80,7 +80,7 @@ public class MindEvolver extends Observable {
 	public ChangedMind evolveMind(Mind mind, Events events) {
 		
 		generatedMinds = new HashSet<Integer>();
-		mindsQueue = new PriorityQueue<ChangedMind>();
+		mindsQueue = new DoublePriorityQueue<ChangedMind>();
 		bestMind = new ChangedMind(mind);
 		mindsQueue.add(bestMind);
 		
@@ -90,10 +90,12 @@ public class MindEvolver extends Observable {
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista
-			ChangedMind operatedMind = mindsQueue.poll(); // Saca la cima y la borra
+			ArrayList<ChangedMind> operatedMinds = mindsQueue.getSelectedMinds(); // Saca la cima y la borra
 		
 			// Genera los hijos como resultado de operar esa mente
-			ArrayList<ChangedMind> mindSons = operatorApplicator.generateChilds(operatedMind);
+			ArrayList<ChangedMind> mindSons = new ArrayList<ChangedMind>();
+			for (ChangedMind operatedMind : operatedMinds) 
+				mindSons.addAll(operatorApplicator.generateChilds(operatedMind));
 			
 			totales += mindSons.size();
 			

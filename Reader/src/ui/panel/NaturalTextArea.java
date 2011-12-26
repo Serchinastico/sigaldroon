@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 import ui.StoryJFrame;
 
@@ -64,23 +65,10 @@ public class NaturalTextArea extends JPanel {
         naturalTextArea.setRows(5);
         naturalTextArea.setFont(new java.awt.Font("Garamond", 0, 18));
         jScrollPaneRight.setViewportView(naturalTextArea);
+        jScrollPaneRight.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         
-        labelNaturalText.setFont(new java.awt.Font("Garamond", 0, 18));
-        labelNaturalText.setText("Texto en lenguaje natural:");
-        labelNaturalText.setBorder(BorderFactory.createEtchedBorder());
-        
-        this.setLayout(new GridBagLayout());
         GridBagConstraints constrains = new GridBagConstraints();
-        constrains.gridx = 0;
-        constrains.gridy = 0;
-        constrains.gridwidth = 1;
-        constrains.gridheight = 1;
-        constrains.weightx = 0.0;
-        constrains.weighty = 0.1;
-        constrains.fill = GridBagConstraints.NONE;
-        constrains.anchor = GridBagConstraints.LINE_START;
-        
-        this.add(labelNaturalText,constrains);
+        this.setLayout(new GridBagLayout());
         
         constrains.gridx = 0;
         constrains.gridy = 1;
@@ -92,6 +80,30 @@ public class NaturalTextArea extends JPanel {
         constrains.insets = new Insets(5, 5, 5, 5);
         constrains.anchor = GridBagConstraints.CENTER;
         this.add(jScrollPaneRight,constrains);
+        
+        naturalTextArea.setLineWrap(true);
+        naturalTextArea.setWrapStyleWord(true);
+        
+        
+        
+        labelNaturalText.setFont(new java.awt.Font("Garamond", 0, 18));
+        labelNaturalText.setText("Texto en lenguaje natural:");
+        labelNaturalText.setBorder(BorderFactory.createEtchedBorder());
+        
+        
+       
+        constrains.gridx = 0;
+        constrains.gridy = 0;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 0.0;
+        constrains.weighty = 0.1;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.LINE_START;
+        
+        this.add(labelNaturalText,constrains);
+        
+        
 	}
 
 	/**

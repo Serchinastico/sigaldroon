@@ -31,8 +31,8 @@ public class Marriage implements Requisite {
 		// Chequeamos los objetivos de las relaciones para incluirlos en los casados
 		for (Relation r : changedRelations) 
 			if (r.getAction().equals("Casar"))
-				if (!events.isMarried(r.getSource()) && !events.isMarried(r.getTarget()))
-					events.insertMarriage(r.getSource(),r.getTarget());
+				if (!events.isMarried(r.getSource()) && !events.isMarried(r.getDirectObject()))
+					events.insertMarriage(r.getSource(),r.getDirectObject());
 	}
 
 	
