@@ -1,0 +1,7 @@
+[Midas_I, Proteger, 3:MidasCiudad, 4:Sileno]
+[Dioniso, Amigo, 4:Sileno]
+[Midas_I, Invitar, 3:MidasCiudad, 4:Sileno]
+[Sileno, Comer, 3:MidasCiudad, 4:Banquete]
+[Sileno, Disfrutar, 3:MidasCiudad, 4:Banquete]
+[Sileno, Dormir, 3:MidasCiudad]
+[Midas_I, Recibir, 2:Dioniso, 4:PoderOro]

@@ -1,5 +1,5 @@
 [Jantipo, Matar, 3:Atenas, 4:Leptines]
-[Jantipo, Casar, 3:Atenas, 4:Antigona]
+[Jantipo, Casarse, 3:Atenas, 4:Antigona]
 [Afrodita, Ver, 4:Jantipo]
 [Afrodita, Seducir, 4:Jantipo]
 [Hades, Encerrar, 3:Campos_Eliseos, 4:Antigona]
