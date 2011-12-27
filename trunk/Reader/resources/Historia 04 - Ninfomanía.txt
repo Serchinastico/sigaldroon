@@ -1,4 +1,4 @@
-[Heracles, Casar, 3:Argos, 4:Megara]
+[Heracles, Casarse, 3:Argos, 4:Megara]
 [Creneas, Amar, 4:Megara]
 [Creneas, Amar, 4:Heracles]
 [Creneas, Amar, 4:Epimeteo]

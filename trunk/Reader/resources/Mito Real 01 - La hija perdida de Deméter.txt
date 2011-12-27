@@ -1,0 +1,7 @@
+[Hades, Enamorarse, , 4:Persefone]
+[Deméter, Progenitor, 4:Persefone]
+[Zeus, Prometer, 3:Olimpo, 4:Hades]
+[Hades, Secuestrar, 3:Olimpo, 4:Persefone]
+[Zeus, Escuchar, 3:Olimpo, 4:Hades]
+[Deméter, Negarse, 3:Olimpo]
+[Deméter, Reclamar, 2:Zeus, 3:Olimpo, 4:Persefone]
