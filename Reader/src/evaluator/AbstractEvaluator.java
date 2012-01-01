@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import operator.OPTarget;
 import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 
 import mind.Mind;
@@ -117,7 +116,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
-		for (int iAtt = 0; success && iAtt < OPTarget.NUM_TARGETS; iAtt++) {
+		for (int iAtt = 0; success && iAtt < Relation.NUM_ELEMENTS; iAtt++) {
 			String rElement = relation.getElement(iAtt);
 			String eVariable = ePattern.getVariable(iAtt);
 			
@@ -184,7 +183,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		boolean satisfiable = true;
 		
-		for (int iAtt = 0; satisfiable && iAtt < OPTarget.NUM_TARGETS; iAtt++) {
+		for (int iAtt = 0; satisfiable && iAtt < Relation.NUM_ELEMENTS; iAtt++) {
 			String rElement = relation.getElement(iAtt);
 			String eVariable = negExp.getVariable(iAtt);
 			

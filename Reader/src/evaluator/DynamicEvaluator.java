@@ -13,13 +13,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import mind.Mind;
 import mind.Relation;
 
-import operator.OPTarget;
 import reader.Reader;
 
 public class DynamicEvaluator extends AbstractEvaluator implements Observer {
@@ -74,12 +74,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		this.storyBreaks = storyBreaks;
 		
 		loadPatterns(path);
-		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
-			this.weights.add(new float[storyBreaks]);
-			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
-				this.weights.get(iPattern)[iWeight] = 0.5f;
-			}
-		}
+		randomizeWeights();
 	}
 	
 	/**
@@ -191,7 +186,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 				pw.print("{[");
 				for (ExpectationPattern exp : qPatterns.get(iPattern).getExpectationPatterns()) {
 					String strExp = "(";
-					for (int iAtt = 0; iAtt < OPTarget.NUM_TARGETS; iAtt++) {
+					for (int iAtt = 0; iAtt < Relation.NUM_ELEMENTS; iAtt++) {
 						String att = exp.getElement(iAtt);
 						if (att != null) {
 							strExp += exp.getElement(iAtt) + ", ";
@@ -203,7 +198,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 				pw.print("] - [");
 				for (ExpectationPattern exp : qPatterns.get(iPattern).getNegExpectationPatterns()) {
 					String strExp = "(";
-					for (int iAtt = 0; iAtt < OPTarget.NUM_TARGETS; iAtt++) {
+					for (int iAtt = 0; iAtt < Relation.NUM_ELEMENTS; iAtt++) {
 						String att = exp.getElement(iAtt);
 						if (att != null) {
 							strExp += exp.getElement(iAtt) + ", ";
@@ -265,8 +260,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 	private void vote(Mind m, int maxSegments, int mindSegment, VoteType vote) {
 		// Se calcula en qué storyBreak debemos hacer el voto.
 		int iStoryBreak = (int) Math.ceil(storyBreaks * (mindSegment / maxSegments));
-		
-		// TODO Refactorizar con el método eval()
+
 		HashSet<Integer> usedPatterns = new HashSet<Integer>();
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
 			QuestionPattern qPattern = qPatterns.get(iPattern);
@@ -291,6 +285,20 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 			case DOWNVOTE:
 				weights.get(iPattern)[iStoryBreak] = (float) Math.max(0.0f, weights.get(iPattern)[iStoryBreak] * 0.75f);
 				break;	
+			}
+		}
+	}
+	
+	/**
+	 * Sustituye la matriz de pesos del evaluador por valores aleatorios.
+	 */
+	public void randomizeWeights() {
+		Random random = new Random(System.currentTimeMillis());
+		
+		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+			this.weights.add(new float[storyBreaks]);
+			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
+				this.weights.get(iPattern)[iWeight] = random.nextFloat();
 			}
 		}
 	}
