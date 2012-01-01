@@ -81,9 +81,9 @@ public class CoherenceChecker {
 		CoherenceChecker cc = new CoherenceChecker();
 		Events events = null;
 		Mind mind = new Mind();
-		Relation r1 = new Relation(1,"Heracles","Matar",null,null,"Hades");
+		Relation r1 = new Relation(1,"Heracles","Matar",null,null,"Hades",null);
 		//Relation r2 = new Relation(1,"Hades","Amar",null,null,"Afrodita");
-		Relation r3 = new Relation(1,"Heracles","Amar","Afrodita",null,"Megara");
+		Relation r3 = new Relation(1,"Heracles","Amar","Afrodita",null,"Megara",null);
 		
 		mind.add(r1);
 		events = cc.assumeEvents(events, mind);

@@ -49,9 +49,14 @@ public class Relation {
 	public static final int DIRECT_OBJECT = 4;
 	
 	/**
+	 * Índice para el atributo (si el verbo es copulativo).
+	 */
+	public static final int ATTRIBUTE = 5;
+	
+	/**
 	 * Número de elementos de la relación.
 	 */
-	public static int NUM_ELEMENTS = 5;
+	public static int NUM_ELEMENTS = 6;
 	
 	/**
 	 * Constructora por defecto.
@@ -64,6 +69,7 @@ public class Relation {
 		this.elements[TARGET] = null;
 		this.elements[PLACE] = null;
 		this.elements[DIRECT_OBJECT] = null;
+		this.elements[ATTRIBUTE] = null;
 	}
 	
 	/**
@@ -118,10 +124,12 @@ public class Relation {
 	 * @param target Objetivo
 	 * @param place Lugar
 	 * @param directObject Complemento directo
+	 * @param attribute Atributo
 	 * */
 	public Relation(float weight, String source,
 			String action, String target,
-			String place, String directObject) {
+			String place, String directObject,
+			String attribute) {
 		this.weight = weight;
 		this.elements = new String[NUM_ELEMENTS];
 		this.elements[SOURCE] = source;
@@ -129,6 +137,7 @@ public class Relation {
 		this.elements[TARGET] = target;
 		this.elements[PLACE] = place;
 		this.elements[DIRECT_OBJECT] = directObject;
+		this.elements[ATTRIBUTE] = attribute;
 	}
 	
 	/**
@@ -139,26 +148,47 @@ public class Relation {
 	public boolean instanceOf(Relation pattern) {
 		OntoBridge ob = OntoBridgeSingleton.getInstance();
 		
-		boolean targetIsInstanceOf = (pattern.getTarget() == null) ||
-				(pattern.getTarget() != null && ob.isSubClassOf(getTarget(), pattern.getTarget()));
-		boolean placeIsInstanceOf = (pattern.getPlace() == null) ||
-				(pattern.getPlace() != null && ob.isSubClassOf(getPlace(), pattern.getPlace()));
-		boolean directObjectIsInstanceOf = (pattern.getDirectObject() == null) ||
-				(pattern.getDirectObject() != null && ob.isSubClassOf(getDirectObject(), pattern.getDirectObject()));
+		boolean sourceIsInstance = ((pattern.getSource() == null) || 
+				  						(pattern.getSource() != null && 
+				  							((ob.existsClass(pattern.getSource()) && ob.isSubClassOf(getSource(), pattern.getSource())) ||
+				  							(!ob.existsClass(pattern.getSource())) && ob.isInstanceOf(getSource(), pattern.getSource()))));
+		boolean actionIsInstance = ((pattern.getAction() == null) || 
+										(pattern.getAction() != null && 
+											((ob.existsClass(pattern.getAction()) && ob.isSubClassOf(getAction(), pattern.getAction())) ||
+											(!ob.existsClass(pattern.getAction())) && ob.isInstanceOf(getAction(), pattern.getAction()))));
+		boolean targetIsInstance = ((pattern.getTarget() == null) || 
+									  (pattern.getTarget() != null && 
+										((ob.existsClass(pattern.getTarget()) && ob.isSubClassOf(getTarget(), pattern.getTarget())) ||
+										(!ob.existsClass(pattern.getTarget())) && ob.isInstanceOf(getTarget(), pattern.getTarget()))));
+		boolean placeIsInstance = ((pattern.getPlace() == null) || 
+				  						(pattern.getPlace() != null && 
+				  							((ob.existsClass(pattern.getPlace()) && ob.isSubClassOf(getPlace(), pattern.getPlace())) ||
+				  							(!ob.existsClass(pattern.getPlace())) && ob.isInstanceOf(getPlace(), pattern.getPlace()))));
+		boolean directObjectIsInstance = ((pattern.getDirectObject() == null) || 
+												(pattern.getDirectObject() != null && 
+													((ob.existsClass(pattern.getDirectObject()) && ob.isSubClassOf(getDirectObject(), pattern.getDirectObject())) ||
+													(!ob.existsClass(pattern.getDirectObject())) && ob.isInstanceOf(getDirectObject(), pattern.getDirectObject()))));
+		boolean attributeIsInstance = ((pattern.getAttribute() == null) || 
+											(pattern.getAttribute() != null && 
+												((ob.existsClass(pattern.getAttribute()) && ob.isSubClassOf(getAttribute(), pattern.getAttribute())) ||
+												(!ob.existsClass(pattern.getAttribute())) && ob.isInstanceOf(getAttribute(), pattern.getAttribute()))));
 		
-		return (ob.isSubClassOf(getSource(), pattern.getSource()) && 
-				ob.isSubClassOf(getAction(), pattern.getAction()) &&
-				targetIsInstanceOf &&
-				placeIsInstanceOf &&
-				directObjectIsInstanceOf);
+		return (sourceIsInstance && 
+				actionIsInstance &&
+				targetIsInstance &&
+				placeIsInstance &&
+				directObjectIsInstance &&
+				attributeIsInstance);
 	}
 	
 	@Override
 	public Relation clone() {
+		// TODO: (A == null) ? null : A es equivalente a A(¿?)
 		Relation copy = new Relation(weight, getSource(), getAction(),
 				(getTarget() == null) ? null : getTarget(),
 				(getPlace() == null) ? null : getPlace(),
-				(getDirectObject() == null) ? null : getDirectObject());
+				(getDirectObject() == null) ? null : getDirectObject(),
+				(getAttribute() == null) ? null : getAttribute());
 		return copy;
 	}
 	
@@ -285,6 +315,20 @@ public class Relation {
 	 */
 	public void setDirectObject(String directObject) {
 		this.elements[DIRECT_OBJECT] = directObject;
+	}
+	
+	/**
+	 * @return the attribute
+	 */
+	public String getAttribute() {
+		return elements[ATTRIBUTE];
+	}
+	
+	/**
+	 * @param attribute the attribute to set
+	 */
+	public void setAttribute(String attribute) {
+		this.elements[ATTRIBUTE] = attribute;
 	}
 	
 	/**

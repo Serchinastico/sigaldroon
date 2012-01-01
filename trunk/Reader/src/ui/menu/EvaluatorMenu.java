@@ -53,6 +53,11 @@ public class EvaluatorMenu extends JMenu {
 	private JMenuItem menuItemCargarEvaluador;
 	
 	/**
+	 * Opción del menú evaluador para reiniciar los pesos del evaluador dinámico.
+	 */
+	private JMenuItem menuItemReiniciarEvaluador;
+	
+	/**
 	 * Opción del menú Evaluador para ver el evaluador cargado.
 	 */
 	private JMenuItem menuItemVerEvaluador;
@@ -105,6 +110,22 @@ public class EvaluatorMenu extends JMenu {
             }
         });
         this.add(menuItemCargarEvaluador);
+        
+	    // Opción de reiniciar el evaluador dinámico
+        menuItemReiniciarEvaluador = new JMenuItem();
+        menuItemReiniciarEvaluador.setText("Reiniciar Evaluador");
+        menuItemReiniciarEvaluador.addMouseListener(new java.awt.event.MouseAdapter() {
+	         public void mousePressed(java.awt.event.MouseEvent evt) {
+	        	 IEvaluator evaluator = frame.getObservableReader().getEvaluator();
+            	 if (evaluator instanceof DynamicEvaluator) {
+            		 ((DynamicEvaluator) frame.getObservableReader().getEvaluator()).randomizeWeights();
+            	 }
+            	 else {
+            		 JOptionPane.showMessageDialog(null, "El evaluador cargado no es dinámico.", "Error al reiniciar el evaluador", JOptionPane.ERROR_MESSAGE);
+            	 }
+	         }
+	     });
+	     this.add(menuItemReiniciarEvaluador);
         
         // Opción de visualizar el evaluador cargado
         menuItemVerEvaluador = new JMenuItem();
