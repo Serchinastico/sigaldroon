@@ -1,0 +1,6 @@
+[Pigmalion, Crear, 3:Etna, 4:Lanza]
+[Pigmalion, Hermano, 4:Jantipo]
+[Pigmalion, Regalar, Jantipo, 4:Lanza]
+[Hefesto, Envidiar, 4:Pigmalion]
+[Hefesto, Encerrar, 3:Olimpo, 4:Jantipo]
+[Hefesto, PonerAPrueba, 4:Pigmalion]
