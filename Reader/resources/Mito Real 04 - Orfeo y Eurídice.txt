@@ -1,0 +1,6 @@
+[Orfeo, Amar, 4:Euridice]
+[Orfeo, Casarse, 4:Euridice]
+[Serpiente, Matar, 4:Euridice]
+[Orfeo, Llorar]
+[Orfeo, Asistir, 3:Inframundo]
+[Hades, PonerAPrueba, 4:Orfeo]

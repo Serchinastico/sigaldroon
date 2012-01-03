@@ -1,0 +1,6 @@
+﻿[Psique, Ser, 5:Hermoso]
+[Afrodita, Envidiar, 4:Psique]
+[Afrodita, Progenitor, 4:Eros]
+[Eros, Atacar, 4:Psique]
+[Eros, Enamorarse, 4:Psique]
+[Eros, Llevarse, 3:Palacio_Eros, 4:Psique]

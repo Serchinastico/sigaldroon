@@ -1,0 +1,5 @@
+﻿[Agamenon, Progenitor, 4:Ifigenia]
+[Agamenon, Matar, 4:Ciervo]
+[Agamenon, Alardear]
+[Artemisa, Castigar, 3:Mar_Egeo, 4:Agamenon]
+[Agamenon, Matar, 3:Mar_Egeo, 4:Ifigenia]
