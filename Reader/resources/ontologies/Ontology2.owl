@@ -3951,6 +3951,7 @@
         <TieneObjetoIndirecto rdf:datatype="&xsd;string">false</TieneObjetoIndirecto>
         <PasadoSingular rdf:datatype="&xsd;string">persiguió</PasadoSingular>
         <TieneObjetoDirecto rdf:datatype="&xsd;string">true</TieneObjetoDirecto>
+        <TipoObjetoDirecto>Actor</TipoObjetoDirecto>
     </owl:NamedIndividual>
     
 
