@@ -37,10 +37,14 @@ public abstract class AbstractEvaluator implements IEvaluator {
 			if (checkQuestionPattern(qPattern.getExpectationPatterns(), qPattern.getNegExpectationPatterns(), relations, negRelations, variables, usedRelations)) {
 				// Se saca la media de pesos de las relaciones usadas
 				float averageRelationWeight = 0.0f;
+				int numRelations = 0;
 				for (Relation r : usedRelations) {
-					averageRelationWeight += r.getWeight();
+					if (r.getWeight() != 1.0) {
+						averageRelationWeight += r.getWeight();
+						numRelations++;
+					}
 				}
-				averageRelationWeight = averageRelationWeight / usedRelations.size();
+				averageRelationWeight = (numRelations == 0) ? 0.0f : (averageRelationWeight / numRelations);
 				
 				value += getActualWeight(iPattern) * averageRelationWeight;
 			}
