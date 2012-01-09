@@ -143,6 +143,7 @@ public class Reader extends Observable {
 	 */
 	public void setEvaluator(IEvaluator evaluator) {
 		this.evaluator = evaluator;
+		this.evolver.setEvaluator(evaluator);
 	}
 	
 	/**
@@ -170,6 +171,11 @@ public class Reader extends Observable {
 		segments.add(segment);
 		
 		notifyObservers();
+	}
+	
+	public void reset() {
+		segments = new ArrayList<Segment>();
+		mind = null;
 	}
 	
 	/**
