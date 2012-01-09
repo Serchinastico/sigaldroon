@@ -5,5 +5,6 @@ public interface OPList {
 	public int SPECIALIZE = 1;
 	public int ADD = 2;
 	public int REMOVE = 3;
-	public int SIZE = 4;
+	public int JOINT = 4;
+	public int SIZE = 5;
 }

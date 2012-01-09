@@ -53,11 +53,7 @@ public class CommandManager {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
-            frame.getObservableReader().getEvolver().deleteObserver(frame);
-            frame.getObservableReader().deleteObserver(frame);
-            frame.setObservableReader(new Reader());
-            frame.getObservableReader().addObserver(frame);
-            frame.getObservableReader().getEvolver().addObserver(frame);
+            frame.getObservableReader().reset();
             frame.getObservableReader().createMind(file.getPath());
             frame.setStoryJTree(new StorySoFarTree(frame));
             frame.getStoryJTree().loadStory(frame.getObservableReader().getSegments());

@@ -19,7 +19,8 @@ public class OperatorApplicator {
 		operators.add(new Generalize());
 		operators.add(new Specialize());
 		operators.add(new Add());
-		operators.add(new Remove());		
+		operators.add(new Remove());
+		operators.add(new Joint());
 	}
 	
 	public ArrayList<ChangedMind> generateChilds(ChangedMind m) {

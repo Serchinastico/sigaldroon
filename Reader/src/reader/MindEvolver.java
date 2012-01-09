@@ -83,10 +83,7 @@ public class MindEvolver extends Observable {
 		mindsQueue = new DoublePriorityQueue<ChangedMind>();
 		bestMind = new ChangedMind(mind);
 		mindsQueue.add(bestMind);
-		
-		int totales = 0;
-		int reales = 0;
-		
+
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
 			// Obtiene la mente más favorable de la lista
@@ -96,16 +93,12 @@ public class MindEvolver extends Observable {
 			ArrayList<ChangedMind> mindSons = new ArrayList<ChangedMind>();
 			for (ChangedMind operatedMind : operatedMinds) 
 				mindSons.addAll(operatorApplicator.generateChilds(operatedMind));
-			
-			totales += mindSons.size();
-			
+
 			// Elimina los hijos que ya han sido generados antes
 			mindSons = filterMinds(mindSons);
 			
 			// Elimina los hijos que no son coherentes
 			mindSons = coherenceMinds(mindSons, events);
-			
-			reales += mindSons.size();
 			
 			// Evalúa los hijos generados
 			evalMinds(mindSons);
@@ -118,9 +111,7 @@ public class MindEvolver extends Observable {
 			setChanged();
 			notifyObservers(new Integer(i + 1));
 		}
-		
-		System.out.println("Totales: " + totales + " - Reales: " + reales + " - Podados: " + (totales - reales));
-		
+
 		return bestMind; // la más favorable según su valor
 	}
 	
@@ -204,6 +195,10 @@ public class MindEvolver extends Observable {
 	 */
 	public void setNumIterations(int numIt) {
 		maxMindExpansions = numIt;
+	}
+
+	public void setEvaluator(IEvaluator evaluator) {
+		this.evaluator = evaluator;
 	}
 
 }
