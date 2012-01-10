@@ -79,5 +79,9 @@ public class DoublePriorityQueue<E> {
 		gtToLt.remove(bot);
 		return bot;
 	}
+
+	public int size() {
+		return gtToLt.size();
+	}
 	
 }

@@ -175,7 +175,7 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 		
 		for (HashSet<Relation> relationSet : relations.values()) {
 			for (Relation relation : relationSet) {
-				hashRelations += (hashRelations + relation.hashCode()) % Integer.MAX_VALUE;
+				hashRelations = (hashRelations + relation.hashCode()) % Integer.MAX_VALUE;
 			}
 		}
 		

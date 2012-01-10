@@ -3,6 +3,7 @@ package reader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Observable;
+import java.util.Random;
 
 import coherence.Events;
 import coherence.CoherenceChecker;
@@ -121,6 +122,12 @@ public class MindEvolver extends Observable {
 			notifyObservers(new Integer(i + 1));
 		}
 
+		Random random = new Random(System.currentTimeMillis());
+		int selected = Math.min(random.nextInt(5), mindsQueue.size()-1);
+		for (int i = 0; i < selected; i++) {
+			bestMind = mindsQueue.pollGreater();
+		}
+		
 		storyMinds.add(bestMind.getActualMind().hashCode());
 		return bestMind; // la más favorable según su valor
 	}

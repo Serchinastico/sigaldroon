@@ -46,7 +46,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 				}
 				averageRelationWeight = (numRelations == 0) ? 0.0f : (averageRelationWeight / numRelations);
 				
-				value += getActualWeight(iPattern) * averageRelationWeight;
+				value += (numRelations == 0) ? 0.0f : getActualWeight(iPattern)/* * averageRelationWeight*/;
 			}
 		}
 		

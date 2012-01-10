@@ -296,11 +296,20 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		Random random = new Random(System.currentTimeMillis());
 		
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+			float center = random.nextFloat() * 9;
+			float aperture = (random.nextFloat() * 9) + 1;
+			
+			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
+				float fy = (-1.0f / aperture) * ((iWeight - center) * (iWeight - center)) + 1;
+				this.weights.get(iPattern)[iWeight] = (fy < 0) ? 0.0f : fy;
+			}
+		}
+		/*for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
 			this.weights.add(new float[storyBreaks]);
 			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
 				this.weights.get(iPattern)[iWeight] = random.nextFloat();
 			}
-		}
+		}*/
 	}
 	
 	@Override
