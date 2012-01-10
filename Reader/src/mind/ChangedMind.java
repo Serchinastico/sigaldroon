@@ -141,7 +141,8 @@ public class ChangedMind implements Comparable<Object> {
 			if ((changeToInclude) && (!OntoBridgeSingleton.getInstance().existsClass(changes.get(i).getAfter().getAction())))
 				filteredChanges.add(changes.get(i).getAfter());
 				*/
-			if (actualMind.contains(changes.get(i).getAfter())) 
+			if (actualMind.contains(changes.get(i).getAfter())
+					&& !filteredChanges.contains(changes.get(i).getAfter())) 
 				filteredChanges.add(changes.get(i).getAfter());
 		}
 		
