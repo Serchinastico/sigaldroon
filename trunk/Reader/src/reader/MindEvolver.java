@@ -60,6 +60,11 @@ public class MindEvolver extends Observable {
 	private HashSet<Integer> generatedMinds; 
 	
 	/**
+	 * Hashcode de las mentes generadas hasta el momento de la historia para no repetir segmentos iguales.
+	 */
+	private HashSet<Integer> storyMinds;
+	
+	/**
 	 * Constructora para el evolucionador.
 	 * @param evaluator Evaluador a usar por el evolucionador de mentes.
 	 */
@@ -70,6 +75,7 @@ public class MindEvolver extends Observable {
 		this.coherenceChecker = coherenceChecker;
 		this.operatorApplicator = new OperatorApplicator();
 		generatedMinds = new HashSet<Integer>();
+		storyMinds = new HashSet<Integer>();
 	}
 	
 	/**
@@ -115,6 +121,7 @@ public class MindEvolver extends Observable {
 			notifyObservers(new Integer(i + 1));
 		}
 
+		storyMinds.add(bestMind.getActualMind().hashCode());
 		return bestMind; // la más favorable según su valor
 	}
 	
@@ -126,7 +133,8 @@ public class MindEvolver extends Observable {
 		ArrayList<ChangedMind> filteredMinds = new ArrayList<ChangedMind>();
 		
 		for (ChangedMind mind : mindSons) {
-			if (!generatedMinds.contains(mind.getActualMind().hashCode())) {
+			if ((!generatedMinds.contains(mind.getActualMind().hashCode()))  
+			&& (!storyMinds.contains(mind.getActualMind().hashCode()))) {
 				filteredMinds.add(mind);
 			}
 		}
@@ -202,6 +210,10 @@ public class MindEvolver extends Observable {
 
 	public void setEvaluator(IEvaluator evaluator) {
 		this.evaluator = evaluator;
+	}
+
+	public void resetStoryMinds() {
+		this.storyMinds = new HashSet<Integer>();
 	}
 
 }

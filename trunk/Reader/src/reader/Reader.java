@@ -176,6 +176,7 @@ public class Reader extends Observable {
 	public void reset() {
 		segments = new ArrayList<Segment>();
 		mind = null;
+		evolver.resetStoryMinds();
 	}
 	
 	/**
