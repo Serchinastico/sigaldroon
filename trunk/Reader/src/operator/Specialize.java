@@ -46,7 +46,7 @@ public class Specialize extends OperatorSingle {
 				Iterator<String> itSubClasses = onto.listSubClasses(r.getElement(i), true);
 				while (itSubClasses.hasNext()) {
 					String subClass = onto.getShortName(itSubClasses.next());
-					if (!subClass.contains("Nothing")) {
+					if (!subClass.contains("Nothing") && !subClass.contains("Class")) {
 						ChangedMind newMind = generateChild(m, r, i, subClass);
 						gM.add(newMind);
 					}
@@ -56,8 +56,10 @@ public class Specialize extends OperatorSingle {
 				Iterator<String> itInstances = onto.listDeclaredInstances(r.getElement(i));
 				while (itInstances.hasNext()) {
 					String instanceName = onto.getShortName(itInstances.next());
-					ChangedMind newMind = generateChild(m, r, i, instanceName);
-					gM.add(newMind);
+					if (!instanceName.contains("Class")) {
+						ChangedMind newMind = generateChild(m, r, i, instanceName);
+						gM.add(newMind);
+					}
 				}
 			}
 		}
