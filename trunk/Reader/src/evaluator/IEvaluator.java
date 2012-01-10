@@ -1,6 +1,7 @@
 package evaluator;
 
 import mind.Mind;
+import mind.RelationSet;
 
 /**
  * Evaluador de mentes (Mind) para obtener el valor de una heurística a determinar.
@@ -16,6 +17,6 @@ public interface IEvaluator {
 	 * @param m Mente a evaluar.
 	 * @return El valor calculado para la mente.
 	 */
-	public float eval(Mind m);
+	public float eval(Mind m, RelationSet rSet);
 	
 }

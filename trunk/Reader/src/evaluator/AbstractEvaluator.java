@@ -10,6 +10,7 @@ import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 
 import mind.Mind;
 import mind.Relation;
+import mind.RelationSet;
 import mind.ontobridge.OntoBridgeSingleton;
 
 public abstract class AbstractEvaluator implements IEvaluator {
@@ -21,7 +22,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 	
 	//TODO Todas las variables diferentes
 	@Override
-	public float eval(Mind m) {
+	public float eval(Mind m, RelationSet rSet) {
 		float value = 0.0f;
 		
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
@@ -46,13 +47,29 @@ public abstract class AbstractEvaluator implements IEvaluator {
 				}
 				averageRelationWeight = (numRelations == 0) ? 0.0f : (averageRelationWeight / numRelations);
 				
-				value += (numRelations == 0) ? 0.0f : getActualWeight(iPattern)/* * averageRelationWeight*/;
+				float averageRelationPenalty = getAverageRelationPenalty(m, rSet);
+				
+				value += (numRelations == 0) ? 0.0f : getActualWeight(iPattern) * averageRelationPenalty/* * averageRelationWeight*/;
 			}
 		}
 		
 		return value;	
 	}
 	
+	private float getAverageRelationPenalty(Mind m, RelationSet rSet) {
+		float average = 0.0f;
+		int numRelations = 0;
+		
+		for (Relation r : m) {
+			if (rSet.contains(r)) {
+				average += rSet.getWeight(r);
+				numRelations++;
+			}
+		}
+		
+		return (numRelations == 0) ? 1.0f : (average / (float) numRelations);
+	}
+
 	/**
 	 * Método que devuelve el peso actual de un patrón pregunta. Está
 	 * pensado para ser sobreescrito en las subclases.
