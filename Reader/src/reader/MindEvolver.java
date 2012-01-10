@@ -10,6 +10,7 @@ import coherence.CoherenceChecker;
 
 import mind.Mind;
 import mind.ChangedMind;
+import mind.RelationSet;
 
 import evaluator.IEvaluator;
 
@@ -66,6 +67,11 @@ public class MindEvolver extends Observable {
 	private HashSet<Integer> storyMinds;
 	
 	/**
+	 * Relaciones recientes.
+	 */
+	private RelationSet recentRelations;
+	
+	/**
 	 * Constructora para el evolucionador.
 	 * @param evaluator Evaluador a usar por el evolucionador de mentes.
 	 */
@@ -77,6 +83,7 @@ public class MindEvolver extends Observable {
 		this.operatorApplicator = new OperatorApplicator();
 		generatedMinds = new HashSet<Integer>();
 		storyMinds = new HashSet<Integer>();
+		recentRelations = new RelationSet();
 	}
 	
 	/**
@@ -129,7 +136,9 @@ public class MindEvolver extends Observable {
 		}
 		
 		storyMinds.add(bestMind.getActualMind().hashCode());
-		return bestMind; // la más favorable según su valor
+		recentRelations.updateWeights();
+		recentRelations.addAll(bestMind.getResultingRelations());
+		return bestMind; 
 	}
 	
 	/**
@@ -155,7 +164,7 @@ public class MindEvolver extends Observable {
 	 * */
 	private void evalMinds(ArrayList<ChangedMind> sons) {
 		for (ChangedMind w : sons) {
-			w.setValue(evaluator.eval(w.getActualMind()));
+			w.setValue(evaluator.eval(w.getActualMind(),recentRelations));
 		}
 	}
 	
@@ -221,6 +230,10 @@ public class MindEvolver extends Observable {
 
 	public void resetStoryMinds() {
 		this.storyMinds = new HashSet<Integer>();
+	}
+	
+	public void resetRecentRelations() {
+		this.recentRelations = new RelationSet();
 	}
 
 }

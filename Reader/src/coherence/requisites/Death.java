@@ -18,8 +18,10 @@ public class Death implements Requisite {
 		// Ningún elemento que interviene en la relación puede estar muerto
 		// Chequeo del source
 		if (events.isDeath(relation.getSource())) return false;
-		// Chequeo del target
+		// Chequeo del objeto indirecto
 		if (relation.getTarget() != null && events.isDeath(relation.getTarget())) return false;
+		// Chequeo del objeto directo
+		if (relation.getDirectObject() != null && events.isDeath(relation.getDirectObject())) return false;
 		return true;
 	}
 
