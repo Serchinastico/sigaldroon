@@ -7,23 +7,23 @@ public class RelationSet {
 
 	private final static float RANGE = 0.1f;
 	
-	private HashMap<Relation, Float> set;
+	private HashMap<LazyRelation, Float> set;
 	
 	public RelationSet() {
 		super();
-		set = new HashMap<Relation, Float>();
+		set = new HashMap<LazyRelation, Float>();
 	}
 	
 	public void addAll(Collection<Relation> c) {
 		for (Relation r : c) {
-			set.put(r, 0.5f);
+			set.put(new LazyRelation(r), 0.5f);
 		}
 	}
 	
 	public void updateWeights() {
-		HashMap<Relation, Float> newSet = new HashMap<Relation, Float>();
+		HashMap<LazyRelation, Float> newSet = new HashMap<LazyRelation, Float>();
 		
-		for (Entry<Relation, Float> wr : set.entrySet()) {
+		for (Entry<LazyRelation, Float> wr : set.entrySet()) {
 			float newWeight = wr.getValue() + RANGE;
 			if (newWeight < 1.0f) {
 				wr.setValue(newWeight);
@@ -35,10 +35,10 @@ public class RelationSet {
 	}
 	
 	public boolean contains(Relation r) {
-		return set.containsKey(r);
+		return set.containsKey(new LazyRelation(r));
 	}
 	
 	public float getWeight(Relation r) {
-		return set.get(r);
+		return set.get(new LazyRelation(r));
 	}
 }

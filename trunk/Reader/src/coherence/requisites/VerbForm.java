@@ -40,11 +40,6 @@ public class VerbForm implements Requisite {
 		// Si vale tanto Actor como Objeto es coherente
 		String directObjectType = vB.getDirectObjectType(verb);
 		
-		if (directObjectType == null) {
-			int x = 3;
-			x++;
-		}
-		
 		if (directObjectType.equals("Nombre")) return true;
 		
 		
