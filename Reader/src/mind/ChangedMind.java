@@ -3,11 +3,6 @@ package mind;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import coherence.CoherenceChecker;
-import coherence.Events;
-
-import mind.ontobridge.OntoBridgeSingleton;
-
 import operator.Change;
 
 
@@ -124,11 +119,7 @@ public class ChangedMind implements Comparable<Object> {
 		// Se mira en cada cambio y por cada relación resultante de un cambio
 		// se comprueba que no se ha usado en en la realización de un cambio posterior
 		for (int i = 0; i < changes.size(); i++) {
-			
-			if (changes.size() > 2) {
-				int x = 3;
-				x++;
-			}
+
 			/*
 			// Solo es necesario mirar en los cambios que hay adelante
 			// y ver si la relación resultante es usada en otro cambio
