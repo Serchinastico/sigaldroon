@@ -81,8 +81,11 @@ public class MindEvolver extends Observable {
 		
 		generatedMinds = new HashSet<Integer>();
 		mindsQueue = new DoublePriorityQueue<ChangedMind>();
-		bestMind = new ChangedMind(mind);
-		mindsQueue.add(bestMind);
+		//bestMind = new ChangedMind(mind);
+		bestMind = null;
+		//mindsQueue.add(bestMind);
+		mindsQueue.add(new ChangedMind(mind));
+		generatedMinds.add(mind.hashCode());
 
 		for (int i = 0; i < maxMindExpansions; i++) {
 			
@@ -177,7 +180,7 @@ public class MindEvolver extends Observable {
 		// Obtiene la mente más favorable de la lista
 		ChangedMind bestInQueue = mindsQueue.peek();
 		
-		if (bestInQueue.compareTo(bestMind) >= 0) 
+		if ( (bestMind == null) || (bestInQueue.compareTo(bestMind) >= 0))
 			bestMind = bestInQueue.clone();
 	}
 

@@ -3,6 +3,9 @@ package mind;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import coherence.CoherenceChecker;
+import coherence.Events;
+
 import mind.ontobridge.OntoBridgeSingleton;
 
 import operator.Change;
@@ -121,6 +124,12 @@ public class ChangedMind implements Comparable<Object> {
 		// Se mira en cada cambio y por cada relación resultante de un cambio
 		// se comprueba que no se ha usado en en la realización de un cambio posterior
 		for (int i = 0; i < changes.size(); i++) {
+			
+			if (changes.size() > 2) {
+				int x = 3;
+				x++;
+			}
+			/*
 			// Solo es necesario mirar en los cambios que hay adelante
 			// y ver si la relación resultante es usada en otro cambio
 			int j = i + 1;
@@ -131,9 +140,37 @@ public class ChangedMind implements Comparable<Object> {
 			}
 			if ((changeToInclude) && (!OntoBridgeSingleton.getInstance().existsClass(changes.get(i).getAfter().getAction())))
 				filteredChanges.add(changes.get(i).getAfter());
+				*/
+			if (actualMind.contains(changes.get(i).getAfter())) 
+				filteredChanges.add(changes.get(i).getAfter());
 		}
+		
 		return filteredChanges;
 	}
+	
+	/*
+	public static void main(String[] args) {
+		CoherenceChecker cc = new CoherenceChecker();
+		Events events = null;
+		Mind mind = new Mind();
+		Relation r1 = new Relation(1,"Heracles","Matar",null,null,"Hades",null);
+		Relation r2 = new Relation(1,"Hades","Amar",null,null,"Afrodita");
+		Relation r3 = new Relation(1,"Heracles","Amar","Afrodita",null,"Megara",null);
+		
+		mind.add(r1);
+		events = cc.assumeEvents(events, mind);
+		
+		ChangedMind cM = new ChangedMind(mind);
+		//cM.insertChange(r1, r2, 1);
+		cM.insertChange(r1, r3, 0);
+		
+		if (cc.checkCoherence(events, cM)) {
+			System.out.print("Correcto");
+		}
+		else 
+			System.out.print("Incorrecto.");
+		
+	}*/
 	
 	/**
 	 * Aplica el cambio realizado por el operador a la mente.

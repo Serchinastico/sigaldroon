@@ -9,9 +9,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import es.ucm.fdi.gaia.ontobridge.OntoBridge;
-
 import mind.ontobridge.OntoBridgeSingleton;
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 
 /**
  * Implementación de la mente del lector.
@@ -176,7 +175,7 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 		
 		for (HashSet<Relation> relationSet : relations.values()) {
 			for (Relation relation : relationSet) {
-				hashRelations = (hashRelations + relation.toString().hashCode()) % Integer.MAX_VALUE;
+				hashRelations += (hashRelations + relation.hashCode()) % Integer.MAX_VALUE;
 			}
 		}
 		
@@ -234,6 +233,12 @@ public class Mind implements Iterable<Relation>, Iterator<Relation> {
 	@Override
 	public void remove() {
 		throw new UnsupportedOperationException();
+	}
+
+	public boolean contains(Relation r) {
+		HashSet<Relation> actionsRelations = relations.get(r.getAction());
+		if (actionsRelations == null) return false;
+		return actionsRelations.contains(r);
 	}
 
 }

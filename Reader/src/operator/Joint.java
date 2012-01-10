@@ -39,7 +39,8 @@ public class Joint extends OperatorSingle {
 			generatedRel.setSource(subject);
 			
 			ChangedMind newMind = m.clone();
-			newMind.getActualMind().add(generatedRel);
+			//newMind.getActualMind().add(generatedRel);
+			newMind.insertChange(subjectSourceRel, generatedRel, OPList.JOINT);
 			
 			gM.add(newMind);
 		}
