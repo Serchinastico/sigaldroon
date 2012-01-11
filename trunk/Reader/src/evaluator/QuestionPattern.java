@@ -12,7 +12,13 @@ import java.util.regex.Pattern;
  *
  */
 public class QuestionPattern {
-
+	
+	/**
+	 * Valor enumerado que indica en qué momento de la historia es preferible el patrón.
+	 * Puede tener valor 'P', 'M' o 'F' o una combinación de los mismos.
+	 */
+	private String moment;
+	
 	/**
 	 * Peso del patrón.
 	 * */
@@ -31,30 +37,31 @@ public class QuestionPattern {
 	//TODO Construir su propia excepción
 	/**
 	 * Construye un patrón de pregunta mediante un string de la forma:
-	 * [peso] - [exp1, exp2, ..., expN]
+	 * [peso] - [Moment] - [exp1, exp2, ..., expN] - [nexp1, nexp2, ..., nexpN]
 	 * @param str Cadena de caracteres de la cual se lee el patrón.
 	 * @throws Exception 
 	 * */
 	public QuestionPattern(String str) throws Exception {
-		// Patrón: [float] - [...] - [...]
-		Pattern separatorPattern = Pattern.compile("\\[(\\d(\\.(\\d)+)?)\\]( )*-( )*\\[((.)*)\\]( )*-( )*\\[((.)*)\\]");
+		// Patrón: [float] - [...] - [...] - [...]
+		Pattern separatorPattern = Pattern.compile("\\[(\\d(\\.(\\d)+)?)\\]( )*-( )*\\[((.)*)\\]( )*-( )*\\[((.)*)\\]( )*-( )*\\[((.)*)\\]");
 		Matcher separatorMatcher = separatorPattern.matcher(str);
 		if (!separatorMatcher.find()) {
-			throw new Exception("El patrón de pregunta no tiene el formato adecuado: [peso] - [exp1, ..., expN] - [nexp1, ..., nexpN]");
+			throw new Exception("El patrón de pregunta no tiene el formato adecuado: [peso] - [Moment] - [exp1, ..., expN] - [nexp1, ..., nexpN]");
 		}
 		weight = Float.parseFloat(separatorMatcher.group(1));
+		moment = separatorMatcher.group(6);
 		
 		// Patrón: (...){, (...)}*
 		// Expectativas
 		Pattern expectationsPattern = Pattern.compile("\\([^\\)]*\\)");
-		Matcher expectationsMatcher = expectationsPattern.matcher(separatorMatcher.group(6).trim());
+		Matcher expectationsMatcher = expectationsPattern.matcher(separatorMatcher.group(10).trim());
 		ePatterns = new HashSet<ExpectationPattern>();
 		while (expectationsMatcher.find()) {
 			ePatterns.add(new ExpectationPattern(expectationsMatcher.group()));
 		}
 		
 		// Expectativas negadas
-		Matcher negExpectationsMatcher = expectationsPattern.matcher(separatorMatcher.group(10).trim());
+		Matcher negExpectationsMatcher = expectationsPattern.matcher(separatorMatcher.group(14).trim());
 		negEPatterns = new HashSet<ExpectationPattern>();
 		while (negExpectationsMatcher.find()) {
 			negEPatterns.add(new ExpectationPattern(negExpectationsMatcher.group()));
@@ -110,6 +117,10 @@ public class QuestionPattern {
 	 */
 	public float getWeight() {
 		return weight;
+	}
+	
+	public String getMoment() {
+		return moment;
 	}
 	
 	public String toString() {
