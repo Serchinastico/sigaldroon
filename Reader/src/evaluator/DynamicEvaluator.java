@@ -120,14 +120,14 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 	
 	/**
 	 * Carga un patrón completo del evaluador dinámico. El formato del mismo es:
-	 * [qPattern] - [v1, ..., vL]
+	 * [Moment] - [qPattern] - [v1, ..., vL]
 	 * @param line Linea de texto de donde extraer el patrón.
 	 * @throws Exception 
 	 * */
 	private void loadPattern(String line) throws Exception {
 		// Separación completa
-		// Patrón: [qPattern] - [weights]
-		Pattern separatorPattern = Pattern.compile("\\{((?:[^\\}])*)\\}(?: )*-(?: )*\\[(([^\\]])*)\\]");
+		// Patrón: [Moment] - [qPattern] - [weights]
+		Pattern separatorPattern = Pattern.compile("( )*\\[((.)*)\\]( )*-( )*\\{((?:[^\\}])*)\\}(?: )*-(?: )*\\[(([^\\]])*)\\]");
 		Matcher separatorMatcher = separatorPattern.matcher(line);
 		
 		if (!separatorMatcher.find()) {
@@ -135,9 +135,9 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		}
 		
 		// Se añade manualmente el peso del patrón por retrocompatibilidad
-		qPatterns.add(new QuestionPattern("[1.0] - " + separatorMatcher.group(1)));
+		qPatterns.add(new QuestionPattern("[1.0] - [" + separatorMatcher.group(2)  + "] - " + separatorMatcher.group(6)));
 		
-		String[] splittedWeightStr = separatorMatcher.group(2).split(",");
+		String[] splittedWeightStr = separatorMatcher.group(7).split(",");
 		
 		if (storyBreaks == -1) {
 			storyBreaks = splittedWeightStr.length;
@@ -183,6 +183,9 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 			pw = new PrintWriter(file);
 			
 			for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+				pw.print("[");
+				pw.print(qPatterns.get(iPattern).getMoment());
+				pw.print("] - ");
 				pw.print("{[");
 				for (ExpectationPattern exp : qPatterns.get(iPattern).getExpectationPatterns()) {
 					String strExp = "(";
@@ -296,7 +299,10 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 		Random random = new Random(System.currentTimeMillis());
 		
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
-			float center = random.nextFloat() * 9;
+			this.weights.add(new float[storyBreaks]);
+			
+			//float center = random.nextFloat() * 9;
+			float center = nextNormalFloat(random, qPatterns.get(iPattern).getMoment());
 			float aperture = (random.nextFloat() * 9) + 1;
 			
 			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
@@ -310,6 +316,52 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 				this.weights.get(iPattern)[iWeight] = random.nextFloat();
 			}
 		}*/
+	}
+	
+	/**
+	 * Devuelve un valor aleatorio distribuido según una función normal según el momento de la historia.
+	 * Se usa el método de Box-Muller: http://es.wikipedia.org/wiki/M%C3%A9todo_de_Box-Muller
+	 * @param random Objeto para crear números aleatorios
+	 * @param m Momento de la historia
+	 */
+	public float nextNormalFloat(Random random, String m) {
+		ArrayList<Float> normalValues = new ArrayList<Float>();
+		
+		if (m.contains("P") || m.trim().equals("")) {
+			normalValues.add(nextNormalFloat(random, 0.0f, 1.0f));
+		}
+		if (m.contains("M") || m.trim().equals("")) {
+			normalValues.add(nextNormalFloat(random, storyBreaks / 2.0f, 1.0f));
+		}
+		if (m.contains("F") || m.trim().equals("")) {
+			normalValues.add(nextNormalFloat(random, storyBreaks, 1.0f));
+		}
+		
+		return normalValues.get(random.nextInt(normalValues.size()));
+	}
+	
+	/**
+	 * Devuelve un valor aleatorio distribuido según la función normal de media y varianza dadas.
+	 * Se usa el método de Box-Muller: http://es.wikipedia.org/wiki/M%C3%A9todo_de_Box-Muller
+	 * @param random Objeto para crear los números aleatorios con distribución uniforme
+	 * @param mean Media de la distribución
+	 * @param variance Varianza de la distribución
+	 */
+	private float nextNormalFloat(Random random, float mean, float variance) {
+		float u1 = random.nextFloat();
+		float u2 = random.nextFloat();
+		
+		float z = mean + (float) (Math.sqrt(variance) * Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2));
+		
+		// Reajuste de la variable por si se sale de rango
+		if (z < 0.0f) {
+			z = -z;
+		}
+		while (z > storyBreaks) {
+			z = 2.0f * storyBreaks - z;
+		}
+		
+		return z;
 	}
 	
 	@Override
