@@ -7,9 +7,7 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
 
-import reader.Reader;
 import reader.Segment.tVote;
 
 import ui.panel.treeViewer.StorySoFarTree;
@@ -134,6 +132,27 @@ public class CommandManager {
             }
         }
 
+	}
+
+	/**
+	 * Guarda datos de la historia en un archivo de texto.
+	 */
+	public void exportDataStoryText(StoryJFrame frame) {
+		JFileChooser fc = new JFileChooser();
+    	int returnVal = fc.showSaveDialog(frame);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            
+            
+            try {
+            	file.createNewFile();
+                BufferedWriter out = new BufferedWriter(new FileWriter(file.getAbsolutePath()));
+                out.write(frame.getObservableReader().getDataStory());
+                out.close();
+            } catch (IOException e) {
+            }
+        }
 	}
 	
 }

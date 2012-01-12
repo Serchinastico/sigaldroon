@@ -28,11 +28,16 @@ public class FileMenu extends JMenu {
 	 * Opción del menú Archivo para abrir una histora desde una archivo.
 	 */
 	private JMenuItem menuItemArchivo;
-	
+
 	/**
 	 * Opción del menú Archivo para guardar la historia en un archivo de texto.
 	 */
 	private JMenuItem menuItemExportarTextoHistoria;
+
+	/**
+	 * Opción del menú Archivo para guardar datos referente a la historia en un archivo de texto.
+	 */
+	private JMenuItem menuItemExportarDatosHistoria;
 
 	/**
 	 * Opción del menú Archivo para salir de la aplicación.
@@ -60,7 +65,7 @@ public class FileMenu extends JMenu {
 		});
 		this.add(menuItemArchivo);
 
-		// Opción de comenzar desde archivo
+		// Opción de exportar historia a un archivo
 		menuItemExportarTextoHistoria = new JMenuItem();
 		menuItemExportarTextoHistoria.setText("Exportar texto de la historia");
 		menuItemExportarTextoHistoria.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,6 +74,16 @@ public class FileMenu extends JMenu {
 			}
 		});
 		this.add(menuItemExportarTextoHistoria);
+
+		// Opción de exportar datos de la historia a un archivo
+		menuItemExportarDatosHistoria = new JMenuItem();
+		menuItemExportarDatosHistoria.setText("Exportar datos de la historia");
+		menuItemExportarDatosHistoria.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				CommandManager.getInstance().exportDataStoryText(frame);
+			}
+		});
+		this.add(menuItemExportarDatosHistoria);
 
 		// Opción salir
 		menuItemSalir = new JMenuItem();
