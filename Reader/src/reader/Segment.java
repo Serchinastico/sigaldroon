@@ -126,4 +126,5 @@ public class Segment {
 	public SegmentLog getSegmentLog() {
 		return segmentLog;
 	}
+	
 }
