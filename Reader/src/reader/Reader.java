@@ -163,10 +163,16 @@ public class Reader extends Observable {
 		}
 		mind = new Mind(txt);
 		
+		// Crear y completar el segment log
+		SegmentLog segmentLog = new SegmentLog();
+		
+		segmentLog.setPatterns(evaluator.getUsedPatterns(mind, maxSegments, 0));
+		
 		// Crea del segmento inicial a partir de la mente extraída
 		Segment segment = new Segment(mind, 
 				segmenter.generateInitialSegment(mind),
-				coherenceChecker.assumeEvents(null,mind)				
+				coherenceChecker.assumeEvents(null,mind),
+				segmentLog
 		);
 		segments.add(segment);
 		
@@ -198,11 +204,17 @@ public class Reader extends Observable {
 			// Opera con la mente para evolucionarla
 			ChangedMind changedMind = evolver.evolveMind(mind, segments.get(segments.size() - 1).getEvents());
 			
+			// Crear y completar el segment log
+			SegmentLog segmentLog = new SegmentLog();
+			
+			segmentLog.setPatterns(evaluator.getUsedPatterns(mind, maxSegments, segments.size()));
+			
 			// Extrae un segmento nuevo con la mente cambiada
 			Segment segment = new Segment(
 					changedMind.getActualMind(),
 					segmenter.generateSegment(changedMind),
-					coherenceChecker.assumeEvents(segments.get(segments.size() - 1).getEvents(), changedMind.getResultingRelations())
+					coherenceChecker.assumeEvents(segments.get(segments.size() - 1).getEvents(), changedMind.getResultingRelations()),
+					segmentLog
 			);
 			segments.add(segment);
 			mind = changedMind.getActualMind();

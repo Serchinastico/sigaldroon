@@ -1,5 +1,7 @@
 package evaluator;
 
+import java.util.ArrayList;
+
 import mind.Mind;
 import mind.RelationSet;
 
@@ -18,5 +20,14 @@ public interface IEvaluator {
 	 * @return El valor calculado para la mente.
 	 */
 	public float eval(Mind m, RelationSet rSet);
+	
+	/**
+	 * Devuelve la lista de patrones usados en el mundo pasado como parámetro.
+	 * @param m
+	 * @param maxSegments
+	 * @param mindSegment
+	 * @return
+	 */
+	public ArrayList<QuestionPattern> getUsedPatterns(Mind m, int maxSegments, int mindSegment);
 	
 }

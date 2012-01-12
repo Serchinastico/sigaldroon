@@ -49,6 +49,12 @@ public class Segment {
 	private tVote vote;
 	
 	/**
+	 * Objeto que lleva información extra sobre el segmento para hacer
+	 * una evaluación del sistema posteriormente.
+	 */
+	private SegmentLog segmentLog;
+	
+	/**
 	 * Constructora por defecto.
 	 */
 	public Segment() {
@@ -56,6 +62,7 @@ public class Segment {
 		this.textSegment = null;
 		this.events = null;
 		this.vote = tVote.NEUTRAL;
+		this.segmentLog = null;
 	}
 	
 	/**
@@ -65,11 +72,12 @@ public class Segment {
 	 * @param textSegment Cadena con el texto del segmento.
 	 * @param events Eventos sucedidos hasta el momento en la historia.
 	 */
-	public Segment(Mind mind, String textSegment, Events events) {
+	public Segment(Mind mind, String textSegment, Events events, SegmentLog segmentLog) {
 		this.mind = mind;
 		this.textSegment = textSegment;
 		this.events = events;
 		this.vote = tVote.NEUTRAL;
+		this.segmentLog = segmentLog;
 	}
 	
 	/**
@@ -110,5 +118,12 @@ public class Segment {
 	 */
 	public void setVote(tVote vote) {
 		this.vote = vote;
+	}
+
+	/**
+	 * @return the segmentLog
+	 */
+	public SegmentLog getSegmentLog() {
+		return segmentLog;
 	}
 }

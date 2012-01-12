@@ -98,7 +98,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		
 		// Caso base:
 		if (ePatterns.isEmpty())
-			return checkNegatedExpectations(negEPatterns, variables, negRelations);
+			return checkNegatedExpectations(negEPatterns, variables, negRelations) && allDifferent(variables);
 		
 		ExpectationPattern ePattern = ePatterns.iterator().next();
 		
@@ -122,6 +122,19 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		}
 		
 		return false;
+	}
+
+	private boolean allDifferent(HashMap<String, String> variables) {
+		Object[] values = variables.values().toArray();
+		for (int i = 0; i < values.length; i++) {
+			String s1 = (String) values[i];
+			for (int j = i + 1; j < values.length; j++) {
+				String s2 = (String) values[j];
+				if (s1.equals(s2))
+					return false;
+			}
+		}
+		return true;
 	}
 
 	/** Trata de ligar las variables libres y comprueba que las ligadas cumplan
@@ -220,6 +233,26 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		return satisfiable;
 	}
 
+	public ArrayList<QuestionPattern> getUsedPatterns(Mind m, int maxSegments, int mindSegment) {
+		ArrayList<QuestionPattern> usedPatterns = new ArrayList<QuestionPattern>();
+		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+			QuestionPattern qPattern = qPatterns.get(iPattern);
+			
+			Collection<String> actions = qPattern.getActions();
+			Collection<String> negActions = qPattern.getNegActions();
+			HashMap<String, Iterable<Relation>> relations = m.getRelations(actions);
+			HashMap<String, Iterable<Relation>> negRelations = m.getRelations(negActions);
+			HashMap<String, String> variables = new HashMap<String, String>();
+			HashSet<Relation> usedRelations = new HashSet<Relation>();
+			
+			if (checkQuestionPattern(qPattern.getExpectationPatterns(), qPattern.getNegExpectationPatterns(), relations, negRelations, variables, usedRelations)) {
+				usedPatterns.add(qPattern);
+			}
+		}
+		
+		return usedPatterns;
+	}
+	
 	/**
 	 * @return the qPatterns
 	 */
