@@ -192,7 +192,12 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 					for (int iAtt = 0; iAtt < Relation.NUM_ELEMENTS; iAtt++) {
 						String att = exp.getElement(iAtt);
 						if (att != null) {
-							strExp += exp.getElement(iAtt) + ", ";
+							strExp += exp.getElement(iAtt);
+							String var = exp.getVariable(iAtt);
+							if (var != null) {
+								strExp += ":" + var;
+							}
+							strExp += ", ";
 						}
 					}
 					strExp = strExp.substring(0, strExp.length() - 2);

@@ -21,7 +21,7 @@ public class ExpectationPattern extends Relation {
 	// TODO Crear la excepción propia
 	/**
 	 * Construye un patrón de expresión mediante un string de la forma:
-	 * (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)
+	 * (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?, {atribute{:Var}?}?)
 	 * @param str Cadena de caracteres de la cual se extrae el patrón.
 	 * @throws Exception
 	 * */
@@ -30,13 +30,15 @@ public class ExpectationPattern extends Relation {
 		Pattern separatorPattern = Pattern.compile("\\((([^\\)])*)\\)");
 		Matcher separatorMatcher = separatorPattern.matcher(str);
 		if (!separatorMatcher.find()) {
-			throw new Exception("El patrón de expectativa no tiene el formato adecuado: (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?)");
+			throw new Exception("El patrón de expectativa no tiene el formato adecuado: (source{:Var}?, action{:Var}?, {target{:Var}?}?, {place{:Var}?}?, {directObject{:Var}?}?, {atribute{:Var}?}?)");
 		}
 		
 		variables = new String[NUM_ELEMENTS];
 		
 		String[] splittedRelation = separatorMatcher.group(1).split(",");
 		switch(splittedRelation.length) {
+		case 6:
+			readElement(splittedRelation[5].trim(), ATTRIBUTE);
 		case 5:
 			readElement(splittedRelation[4].trim(), DIRECT_OBJECT);
 		case 4:

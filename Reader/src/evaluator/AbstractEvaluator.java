@@ -130,7 +130,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 			String s1 = (String) values[i];
 			for (int j = i + 1; j < values.length; j++) {
 				String s2 = (String) values[j];
-				if (s1.equals(s2))
+				if (s1 != null && s2 != null && s1.equals(s2))
 					return false;
 			}
 		}
@@ -159,7 +159,39 @@ public abstract class AbstractEvaluator implements IEvaluator {
 			if (!variables.containsKey(eVariable)) {
 				variables.put(eVariable, rElement);
 			}
-			// Si el nuevo elemento es subclase, se especializa la ligadura
+			
+			if (!ob.existsClass(variables.get(eVariable))) {
+				// Var: instancia - Rel: instancia
+				if (!ob.existsClass(rElement)) {
+					success = rElement.equals(variables.get(eVariable));
+				}
+				// Var: instancia - Rel: clase
+				else {
+					success = ob.isInstanceOf(variables.get(eVariable), rElement);
+				}
+			}
+			else {
+				// Var: clase - Rel: instancia
+				if (!ob.existsClass(rElement)) {
+					if (ob.isInstanceOf(rElement, variables.get(eVariable))) {
+						variables.put(eVariable, rElement);
+					}
+					else { 
+						success = false;
+					}
+				}
+				// Var: clase - Rel: clase
+				else {
+					if (ob.isSubClassOf(rElement, variables.get(eVariable))) {
+						variables.put(eVariable, rElement);
+					}
+					else {
+						success = ob.isSubClassOf(variables.get(eVariable), rElement);
+					}
+				}
+			}
+			
+			/*// Si el nuevo elemento es subclase, se especializa la ligadura
 			else if (ob.isSubClassOf(rElement, variables.get(eVariable))) {
 				variables.put(eVariable, rElement);
 			}
@@ -170,7 +202,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 			// Si no mantienen relación es que la relación no encaja con la ligadura de variables actual
 			else {
 				success = false;
-			}
+			}*/
 		}
 		
 		return success;
