@@ -224,6 +224,8 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		
 		for (Iterator<ExpectationPattern> itNegExp = negEPatterns.iterator(); itNegExp.hasNext() && satisfiable;) {
 			ExpectationPattern negExp = itNegExp.next();
+			if (relations.get(negExp.getAction()) == null)
+				continue;
 			for (Iterator<Relation> itRel = relations.get(negExp.getAction()).iterator(); itRel.hasNext() && satisfiable;) {
 				Relation relation = itRel.next();
 				if (relation.instanceOf(negExp)) {
