@@ -1,0 +1,30 @@
+[Midas_I, Proteger, 3:MidasCiudad, 4:Sileno]
+[Dioniso, Amigo, 4:Sileno]
+[Midas_I, Invitar, 3:MidasCiudad, 4:Sileno]
+[Sileno, Comer, 3:MidasCiudad, 4:Banquete]
+[Sileno, Disfrutar, 3:MidasCiudad, 4:Banquete]
+[Sileno, Dormir, 3:MidasCiudad]
+[Midas_I, Recibir, 2:Dioniso, 4:PoderOro]
+[Midas_I, Progenitor, 4:Ifigenia]
+-
+[Midas_I, Llorar, 3:MidasCiudad]
+[Ifigenia, Temblar, 3:MidasCiudad]
+-
+[Midas_I, Asistir, 3:Pactolo]
+[Ifigenia, Reir, 3:MidasCiudad]
+-
+[Marsias, Recibir, 2:Atenea, 4:Lira]
+[Apolo, Disputar, 3:MidasCiudad, 4:Marsias]
+-
+[Apolo, Superar, 4:Marsias]
+[Midas_I, Reclamar, 2:Apolo, 3:MidasCiudad, 4:Lira]
+-
+[Musa, Asistir, 3:MidasCiudad]
+-
+[Apolo, Matar, 4:Marsias]
+-
+[Apolo, Torturar, 3:MidasCiudad, 4:Midas_I]
+-
+[Meteco, Ver, 3:MidasCiudad, Midas_I]
+-
+[Midas_I, Matar, 3:MidasCiudad, 4:Meteco]

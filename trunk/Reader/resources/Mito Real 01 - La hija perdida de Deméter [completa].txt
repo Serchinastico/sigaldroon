@@ -1,0 +1,28 @@
+[Hades, Enamorarse, 4:Persefone]
+[Deméter, Progenitor, 4:Persefone]
+[Zeus, Prometer, 3:Olimpo, 4:Hades]
+[Hades, Secuestrar, 3:Olimpo, 4:Persefone]
+[Zeus, Escuchar, 3:Olimpo, 4:Hades]
+[Deméter, Negarse, 3:Olimpo]
+[Deméter, Reclamar, 2:Zeus, 3:Olimpo, 4:Persefone]
+-
+[Deméter, Esclavizado, 4:Hades]
+[Deméter, Perseguir, 4:Persefone]
+-
+[Deméter, Asistir, 3:Atenas]
+[Deméter, Ver, 4:Persefone]
+-
+[Deméter, Desaparecer, 3:Olimpo]
+[Deméter, Robar, 3:Atenas, 4:Comida]
+-
+[Hera, Ver, 3:Atenas, 4:Deméter]
+-
+[Poseidon, Ver, 3:Atenas, 4:Deméter]
+-
+[Poseidon, Regalar, 2:Deméter, 3:Atenas, 4:Fortaleza]
+-
+[Deméter, Negarse]
+-
+[Hades, Prometer, 3:Campos_Eliseos, 4:Persefone]
+-
+[Zeus, Detener, 4:Hades]
