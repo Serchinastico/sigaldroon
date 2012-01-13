@@ -1,0 +1,29 @@
+[Hiperion, Progenitor, 4:Selene]
+[Tea, Progenitor, 4:Selene]
+[Selene, Hermano, 4:Helios]
+[Selene, Hermano, 4:Eos]
+[Endimion, Dormir, 3:Monte_Latmos]
+[Selene, Llevar, 3:Monte_Latmos, 4:Carruaje]
+[Selene, Ver, 3:Monte_Latmos, 4:Endimion]
+[Selene, Enamorarse, 3:Monte_Latmos, 4:Endimion]
+-
+[Selene, Besar, 3:Monte_Latmos, 4:Endimion]
+-
+[Endimion, Ver, 3:Monte_Latmos, 4:Selene]
+[Endimion, Enamorarse, 3:Monte_Latmos, 4:Selene]
+-
+[Endimion, Yacer, 3:Monte_Latmos, 4:Selene]
+-
+[Selene, Marcharse, 3:Monte_Latmos]
+-
+[Selene, Besar, 3:Monte_Latmos, 4:Endimion]
+[Selene, Ver, 3:Olimpo, 4:Zeus]
+-
+[Zeus, Prometer, 3:Olimpo, Selene]
+-
+[Endimion, Dormir, 3:Monte_Latmos]
+-
+[Selene, Yacer, 3:Monte_Latmos, 4:Endimion]
+-
+[Selene, Progenitor, 4:Naxo]
+[Endimion, Progenitor, 4:Naxo]
