@@ -1,0 +1,25 @@
+﻿[Psique, Ser, 5:Hermoso]
+[Afrodita, Envidiar, 4:Psique]
+[Afrodita, Progenitor, 4:Eros]
+-
+[Eros, Atacar, 4:Psique]
+-
+[Eros, Enamorarse, 4:Psique]
+-
+[Eros, Llevarse, 3:Palacio_Eros, 4:Psique]
+[Psique, Yacer, 3:Palacio_Eros, 4:Eros]
+-
+[Psique, Llorar]
+[Psique, Herir, 3:Palacio_Eros, 4:Eros]
+-
+[Eros, Llorar]
+[Eros, Marcharse]
+-
+[Psique, Asistir, 3:Inframundo]
+[Psique, Tener, 4:Cofre]
+-
+[Psique, Llevar, 3:Palacio_Eros, 4:Cofre]
+-
+[Psique, Regalar, Eros, 4:Cofre]
+-
+[Eros, Casarse, 4:Psique]

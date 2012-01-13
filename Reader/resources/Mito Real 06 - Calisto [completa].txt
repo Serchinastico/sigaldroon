@@ -1,0 +1,21 @@
+﻿[Calisto, Amigo, 4:Artemisa]
+-
+[Zeus, Enamorarse, 4:Calisto]
+-
+[Zeus, Mentir, 4:Calisto]
+-
+[Zeus, Yacer, 4:Calisto]
+[Hera, Ver, 4:Zeus]
+-
+[Zeus, Castigar, 4:Calisto]
+-
+[Hera, Odiar, 4:Calisto]
+-
+[Hera, PonerAPrueba, 4:Artemisa]
+-
+[Artemisa, Odiar, 4:Calisto]
+[Artemisa, Matar, 4:Calisto]
+-
+[Zeus, Proteger, 4:Calisto]
+-
+[Zeus, Salvar, 4:Calisto]
