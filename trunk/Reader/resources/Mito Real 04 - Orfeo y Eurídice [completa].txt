@@ -1,0 +1,21 @@
+[Orfeo, Tener, 4:Lira]
+[Orfeo, Amar, 4:Euridice]
+[Orfeo, Casarse, 4:Euridice]
+-
+[Serpiente, Matar, 4:Euridice]
+-
+[Orfeo, Llorar]
+-
+[Deidad, Llorar]
+-
+[Deidad, Invitar, 4:Orfeo]
+-
+[Orfeo, Asistir, 3:Inframundo]
+-
+[Orfeo, Usar, 3:Inframundo, 4:Lira]
+-
+[Hades, PonerAPrueba, 4:Orfeo]
+-
+[Orfeo, Llevar, 3:Eretria ,4:Euridice]
+-
+[Euridice, Ser, Muerto]
