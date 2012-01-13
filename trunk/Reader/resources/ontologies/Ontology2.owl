@@ -945,75 +945,77 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Accion rdf:ID="Usar">
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Objeto</TipoObjetoDirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >usó</PasadoSingular>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Objeto</TipoObjetoDirecto>
   </Accion>
   <Heroe rdf:ID="Hercules">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hércules</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <PseudoTitan rdf:ID="Eosforo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Eósforo</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Ciclope rdf:ID="Arges">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Arges</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciclope>
   <Titanide rdf:ID="Japeto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Japeto</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Titanide>
   <Objeto rdf:ID="ClassObjeto">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un objeto</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un objeto</textoNombre>
   </Objeto>
   <Heroe rdf:ID="Andromeda">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Andrómeda</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
   </Heroe>
   <Noble rdf:ID="Clistenes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Clístenes</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
   </Noble>
   <Soldado rdf:ID="ClassSoldado">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un soldado</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un soldado</textoNombre>
   </Soldado>
   <Olimpico rdf:ID="Deméter">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Deméter</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <Furia rdf:ID="Alecto">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1030,16 +1032,20 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ninfa>
   <Accion rdf:ID="Nacer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >nació</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
   </Accion>
   <Ataque rdf:ID="Tridente">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el tridente</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el tridente</textoNombre>
   </Ataque>
   <General rdf:ID="Conon">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1049,72 +1055,72 @@
     >Conón</textoNombre>
   </General>
   <Musa rdf:ID="Aedea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Aedea</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Titanide rdf:ID="Tetis">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Feminino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Tetis</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Feminino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Titanide>
   <Necesidad rdf:ID="Disfrutar">
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Nombre</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >disfrutó</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >de</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
   </Necesidad>
   <Sentimiento rdf:ID="Reirse">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >se rió</PasadoSingular>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >se rió</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
   </Sentimiento>
   <PseudoTitan rdf:ID="Selene">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Selene</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Selene</textoNombre>
   </PseudoTitan>
   <Mitico rdf:ID="ClassMitico">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un lugar mitológico</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Mitico>
   <Furia rdf:ID="ClassFuria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una furia</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </Furia>
   <Comida rdf:ID="Banquete">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el banquete</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Comida>
   <Montaña rdf:ID="Monte_Ida">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1122,11 +1128,11 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Montaña>
   <Noble rdf:ID="Lanasa">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lanasa</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lanasa</textoNombre>
   </Noble>
   <Mobiliario rdf:ID="Espejo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1136,55 +1142,55 @@
     >el espejo</textoNombre>
   </Mobiliario>
   <Noble rdf:ID="Calias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Calias</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Deidad rdf:ID="ClassDeidad">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una deidad</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Deidad>
   <Noble rdf:ID="Agarista">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Agarista</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Ciclope rdf:ID="Polifemo">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Polifemo</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Ciclope>
   <Rey rdf:ID="Filipo_I">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Filipo I</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Filipo I</textoNombre>
   </Rey>
   <Giga rdf:ID="Polibotes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Polibotes</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Localizacion rdf:ID="Concurrir">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >concurrió</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Localizacion>
   <Ciudad rdf:ID="Esparta">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1192,80 +1198,80 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Giga rdf:ID="Palas">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Palas</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Giga>
   <Noble rdf:ID="Megara">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Megara</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Megara</textoNombre>
   </Noble>
   <Giga rdf:ID="Mimas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Mimas</textoNombre>
   </Giga>
   <NinfaMontaña rdf:ID="Cynosura">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Cynosura</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaMontaña>
   <Lucha rdf:ID="Desafiar">
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >desafió</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >desafió</PasadoSingular>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lucha>
   <Giga rdf:ID="Agrio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Agrio</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Centauro rdf:ID="Quirin">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Quirin</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Centauro>
   <Actitud rdf:ID="Nobleza">
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >noble</Masculino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >noble</Femenino>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >noble</Masculino>
   </Actitud>
   <PseudoTitan rdf:ID="Eos">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Eos</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </PseudoTitan>
   <NinfaAcuatica rdf:ID="Limnatide">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Limnátide</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Limnátide</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaAcuatica>
   <General rdf:ID="Perdicas">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1280,11 +1286,11 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionDios>
   <Mobiliario rdf:ID="Carruaje">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un carruaje</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un carruaje</textoNombre>
   </Mobiliario>
   <Montaña rdf:ID="Monte_Latmos">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1292,11 +1298,11 @@
     >el monte Latmos</textoNombre>
   </Montaña>
   <Titanide rdf:ID="Ceo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Ceo</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Titanide>
   <PseudoTitan rdf:ID="ClassPseudoTitan">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1306,101 +1312,101 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <General rdf:ID="AlejandroEsparta">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Alejandro de Esparta</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </General>
   <General rdf:ID="Laques">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Laques</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </General>
   <Ciclope rdf:ID="Brontes">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Brontes</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Ciclope>
   <Lucha rdf:ID="Disputar">
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
     <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoIndirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Nombre</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >disputó</PasadoSingular>
   </Lucha>
   <NinfaMontaña rdf:ID="Euridice">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Euridice</textoNombre>
   </NinfaMontaña>
   <BastionDios rdf:ID="Inframundo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el Inframundo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionDios>
   <PseudoTitan rdf:ID="Atlas">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Atlas</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Lucha rdf:ID="Escapar">
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >escapó</PasadoSingular>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >de</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
   </Lucha>
   <Actor rdf:ID="ClassActor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un personaje</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Actor>
   <BuenaAccion rdf:ID="Amar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >amaba</PasadoSingular>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >amaba</PasadoSingular>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BuenaAccion>
   <Giga rdf:ID="Peloro">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Peloro</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Giga>
   <Ataque rdf:ID="ClassAtaque">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1410,21 +1416,21 @@
     >Masculino</GeneroObjeto>
   </Ataque>
   <BastionDios rdf:ID="Campos_Eliseos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >los Campos Elíseos</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionDios>
   <Heroe rdf:ID="ClassHeroe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un héroe</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Armas rdf:ID="ClassArmas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un arma</textoNombre>
   </Armas>
@@ -1436,90 +1442,90 @@
     >Calíope</textoNombre>
   </Musa>
   <Deidad rdf:ID="Eros">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Eros</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Eros</textoNombre>
   </Deidad>
   <MalaAccion rdf:ID="Castigar">
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >castigó</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </MalaAccion>
+  <Aspecto rdf:ID="Feo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >feo</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fea</Femenino>
+  </Aspecto>
+  <MalaAccion rdf:ID="Atacar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >castigó</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </MalaAccion>
-  <Aspecto rdf:ID="Feo">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >fea</Femenino>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >feo</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Aspecto>
-  <MalaAccion rdf:ID="Atacar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >atacó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
   </MalaAccion>
   <Giga rdf:ID="Tifon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Tifón</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Musa rdf:ID="Clio">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Clío</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
   </Musa>
   <BuenaAccion rdf:ID="Proteger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Nombre</TipoObjetoDirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >protegió</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >protegió</PasadoSingular>
   </BuenaAccion>
   <Ciudad rdf:ID="Tebas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Tebas</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Ataque rdf:ID="Cuchillo">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el cuchillo</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Ataque>
   <Filosofo rdf:ID="Platon">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Platón</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Filosofo>
   <Heroe rdf:ID="Ulises">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1529,11 +1535,11 @@
     >Ulises</textoNombre>
   </Heroe>
   <Ropa rdf:ID="Zurron">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el zurrón</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el zurrón</textoNombre>
   </Ropa>
   <Animo rdf:ID="Enamorado">
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1543,11 +1549,11 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Utensilio rdf:ID="Bolsa">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >la bolsa</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >la bolsa</textoNombre>
   </Utensilio>
   <Titanide rdf:ID="Mnemosine">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1557,40 +1563,42 @@
     >Mnemósine</textoNombre>
   </Titanide>
   <MalaAccion rdf:ID="Encadenar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >encadenó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >encadenó</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </MalaAccion>
   <Ciclope rdf:ID="Halimedes">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Halímedes</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Ciclope>
   <MalaAccion rdf:ID="Sobornar">
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >sobornó</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sobornó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
   </MalaAccion>
   <Relacion rdf:ID="Casarse">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1599,22 +1607,20 @@
     >se casó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
   </Relacion>
   <Musa rdf:ID="Terspsicore">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Terspsícore</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </Musa>
   <BastionCriatura rdf:ID="ClassBastionCriatura">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un bastión de algún tipo de criatura</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un bastión de algún tipo de criatura</textoNombre>
   </BastionCriatura>
   <Montaña rdf:ID="Monte_Osa">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1622,65 +1628,71 @@
     >el monte Osa</textoNombre>
   </Montaña>
   <Militar rdf:ID="ClassMilitar">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un militar</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Militar>
   <Accion rdf:ID="PonerAPrueba">
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >puso a prueba</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
   </Accion>
   <Titanide rdf:ID="ClassTitanide">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >una deidad titánide</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >una deidad titánide</textoNombre>
   </Titanide>
   <Accion rdf:ID="Llevarse">
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >se llevó</PasadoSingular>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Nombre</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >se llevó</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Accion>
   <Heroe rdf:ID="Edipo">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Edipo</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <MalaAccion rdf:ID="Odiar">
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >odiaba</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Nombre</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
   </MalaAccion>
   <Noble rdf:ID="Magas">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Magas</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magas</textoNombre>
   </Noble>
   <PseudoTitan rdf:ID="Epimeteo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1690,66 +1702,66 @@
     >Epimeteo</textoNombre>
   </PseudoTitan>
   <Aspecto rdf:ID="Alto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >alto</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >alta</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Aspecto>
   <Necesidad rdf:ID="Cocinar">
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
+    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >cocinó</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoIndirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Objeto</TipoObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Necesidad>
   <BuenaAccion rdf:ID="Regalar">
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Objeto</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >regaló</PasadoSingular>
     <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoIndirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >regaló</PasadoSingular>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoIndirecto>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Objeto</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
   </BuenaAccion>
   <Esclavo rdf:ID="Clinias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Clinias</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Esclavo>
   <Noble rdf:ID="Hipocrates">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hipócrates</textoNombre>
   </Noble>
   <Naturaleza rdf:ID="ClassNaturaleza">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >una deidad menor de la naturaleza</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >una deidad menor de la naturaleza</textoNombre>
   </Naturaleza>
   <BastionDios rdf:ID="Olimpo">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1764,16 +1776,16 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Noble rdf:ID="Roxana">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Roxana</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Musa rdf:ID="Urania">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Urania</textoNombre>
   </Musa>
@@ -1785,33 +1797,33 @@
     >Timarco</textoNombre>
   </Noble>
   <NinfaAcuatica rdf:ID="Pegeas">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Pegeas</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaAcuatica>
   <Sentimiento rdf:ID="Temblar">
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tembló</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Sentimiento>
   <Sentimiento rdf:ID="Seducir">
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >sedució</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sedució</PasadoSingular>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
   </Sentimiento>
   <Titanide rdf:ID="Temis">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1821,30 +1833,30 @@
     >Femenino</GeneroObjeto>
   </Titanide>
   <NinfaMontaña rdf:ID="Adrastea">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Adrastea</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
   </NinfaMontaña>
   <Ciudad rdf:ID="Pilos">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Pilos</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Animal rdf:ID="Cuerno">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el cuerno</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animal>
   <Filosofo rdf:ID="Socrates">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Sócrates</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Filosofo>
   <Locucion rdf:ID="Escuchar">
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1853,20 +1865,20 @@
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >escuchó</PasadoSingular>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Locucion>
   <Sentimiento rdf:ID="Reir">
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >rió</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Sentimiento>
   <Rio rdf:ID="ClassRio">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1876,23 +1888,23 @@
     >un rio</textoNombre>
   </Rio>
   <Filosofo rdf:ID="ClassFilosofo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un filósofo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Filosofo>
   <Animal rdf:ID="Ciervo">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un ciervo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Animal>
   <Ataque rdf:ID="Espada">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >la espada</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </Ataque>
@@ -1904,42 +1916,48 @@
     >Masculino</GeneroObjeto>
   </Utensilio>
   <Giga rdf:ID="Damasen">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Damasen</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Giga>
   <Olimpico rdf:ID="Atenea">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Atenea</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Atenea</textoNombre>
   </Olimpico>
   <Isla rdf:ID="Licia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Licia</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <Accion rdf:ID="Ser">
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >era</PasadoSingular>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
   </Accion>
   <Defensa rdf:ID="Casco">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el casco</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Defensa>
   <Rey rdf:ID="Hieron_I">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Hieron I</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hieron I</textoNombre>
   </Rey>
   <PseudoTitan rdf:ID="Menecio">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1949,18 +1967,18 @@
     >Menecio</textoNombre>
   </PseudoTitan>
   <Defensa rdf:ID="Escudo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el escudo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Defensa>
   <Titanide rdf:ID="Oceano">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Océano</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Titanide>
   <PseudoTitan rdf:ID="Astreo">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1970,25 +1988,25 @@
     >Masculino</GeneroObjeto>
   </PseudoTitan>
   <Rey rdf:ID="Seutes_II">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Seutes II</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
   </Rey>
   <Comida rdf:ID="Carne">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >la carne</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >la carne</textoNombre>
   </Comida>
   <Olimpico rdf:ID="Apolo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Apolo</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Olimpico>
   <Giga rdf:ID="Hipolito">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -1998,11 +2016,11 @@
     >Masculino</GeneroObjeto>
   </Giga>
   <Mobiliario rdf:ID="Puerta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >la puerta</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Mobiliario>
   <Noble rdf:ID="ClassNoble">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2012,25 +2030,25 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Olimpico rdf:ID="Dioniso">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Dioniso</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <Olimpico rdf:ID="Hades">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hades</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Olimpico>
   <Titanide rdf:ID="Crio">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Crío</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Crío</textoNombre>
   </Titanide>
   <Ataque rdf:ID="Lanza">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2042,50 +2060,50 @@
   <Soldado rdf:ID="Formión">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Formión</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Soldado>
   <Ancestral rdf:ID="Uranus">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Uranus</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Uranus</textoNombre>
   </Ancestral>
   <Olimpico rdf:ID="Hefesto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hefesto</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <Heroe rdf:ID="Heracles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Heracles</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Accion rdf:ID="Crear">
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Objeto</TipoObjetoDirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >creó</PasadoSingular>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Objeto</TipoObjetoDirecto>
   </Accion>
   <Isla rdf:ID="ClassIsla">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una isla</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <BastionDios rdf:ID="Tartaro">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2093,32 +2111,32 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionDios>
   <General rdf:ID="Alcetas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Alcetas</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </General>
   <Tesoro rdf:ID="PoderOro">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el poder de convertir en oro</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Tesoro>
   <Noble rdf:ID="Leptines">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Leptines</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Titanide rdf:ID="Tea">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Tea</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Titanide>
   <Humano rdf:ID="ClassHumano">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2128,28 +2146,15 @@
     >Masculino</GeneroObjeto>
   </Humano>
   <Giga rdf:ID="Alcioneo">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Alcioneo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alcioneo</textoNombre>
   </Giga>
   <Relacion rdf:ID="Enemigo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >de</PreposicionObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >era enemigo</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
-  </Relacion>
-  <Locucion rdf:ID="Prometer">
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2157,8 +2162,21 @@
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >prometió</PasadoSingular>
+    >era enemigo</PasadoSingular>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Relacion>
+  <Locucion rdf:ID="Prometer">
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >prometió</PasadoSingular>
   </Locucion>
   <Ropa rdf:ID="Sandalias">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2168,11 +2186,11 @@
     >las sandalias</textoNombre>
   </Ropa>
   <Artesano rdf:ID="Patrocles">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patrocles</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Patrocles</textoNombre>
   </Artesano>
   <NinfaMontaña rdf:ID="Nomia">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2182,17 +2200,17 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaMontaña>
   <MalaAccion rdf:ID="Encerrar">
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >encerró</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >encerró</PasadoSingular>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </MalaAccion>
   <Animo rdf:ID="Intrigado">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -2202,18 +2220,18 @@
     >intrigado</Masculino>
   </Animo>
   <Giga rdf:ID="Eurito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Eurito</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Olimpico rdf:ID="Afrodita">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Afrodita</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
   </Olimpico>
   <Animal rdf:ID="Serpiente">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2223,11 +2241,11 @@
     >Femenino</GeneroObjeto>
   </Animal>
   <Rey rdf:ID="ClassRey">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un monarca</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un monarca</textoNombre>
   </Rey>
   <Olimpico rdf:ID="Zeus">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -2237,441 +2255,445 @@
     >Zeus</textoNombre>
   </Olimpico>
   <Relacion rdf:ID="Hermano">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoDirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >era hermano</PasadoSingular>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-  </Relacion>
-  <MalaAccion rdf:ID="Mentir">
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >era hermano</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Relacion>
+  <MalaAccion rdf:ID="Mentir">
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mintió</PasadoSingular>
   </MalaAccion>
   <PseudoTitan rdf:ID="Asteria">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Asteria</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Montaña rdf:ID="Balcanes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >los Balcanes</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Montaña>
   <Musa rdf:ID="Meletea">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Meletea</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Localizacion rdf:ID="Recibir">
-    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoIndirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
     <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >recibió</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Objeto</TipoObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
+    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Localizacion>
   <Filosofo rdf:ID="Criton">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Critón</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Filosofo>
   <Isla rdf:ID="Chipre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Chipre</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <Artesano rdf:ID="Pigmalion">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pigmalión</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Pigmalión</textoNombre>
   </Artesano>
   <Giga rdf:ID="Encelado">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Encelado</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Giga>
   <General rdf:ID="Demostenes">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Demóstenes</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Demóstenes</textoNombre>
   </General>
   <Heroe rdf:ID="Perseo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Perseo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Locucion rdf:ID="Invitar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >invitó</PasadoSingular>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
   </Locucion>
   <Atributo rdf:ID="Enfermo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Atributo>
   <Actitud rdf:ID="Tierno">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >tierna</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tierno</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tierna</Femenino>
   </Actitud>
   <Hecatonquiro rdf:ID="Giges">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Giges</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Hecatonquiro>
   <Animo rdf:ID="Alegre">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >alegre</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >alegre</Femenino>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >alegre</Masculino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <MalaAccion rdf:ID="Pegar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Nombre</TipoObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >pegó</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pegó</PasadoSingular>
   </MalaAccion>
   <Aspecto rdf:ID="Fuerte">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >fuerte</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >fuerte</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fuerte</Femenino>
   </Aspecto>
   <LibreNormal rdf:ID="ClassLibreNormal">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un ciudadano libre</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </LibreNormal>
   <Comida rdf:ID="Bebida">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >la bebida</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </Comida>
   <Ciudad rdf:ID="ClassCiudad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una ciudad</textoNombre>
   </Ciudad>
   <Actitud rdf:ID="Brillante">
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >brillante</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >brillante</Femenino>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >brillante</Masculino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Actitud>
   <MalaAccion rdf:ID="Matar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >mató</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
   </MalaAccion>
   <Olimpico rdf:ID="ClassOlimpico">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una deidad olímpica</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <PseudoTitan rdf:ID="Titan">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Titán</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </PseudoTitan>
   <Utensilio rdf:ID="ClassUtensilio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un utensilio</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Utensilio>
   <Isla rdf:ID="Panfilia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Panfilia</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <PseudoTitan rdf:ID="Leto">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Leto</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Giga rdf:ID="Ctonio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Ctonio</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Ciclope rdf:ID="Elatreo">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Elatreo</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Ciclope>
   <Musa rdf:ID="Melpomene">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Melpomene</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
   </Musa>
   <Menor rdf:ID="ClassMenor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una deidad menor</textoNombre>
   </Menor>
   <Actitud rdf:ID="Oscuro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >oscuro</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >oscura</Femenino>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >oscuro</Masculino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Actitud>
   <MalaAccion rdf:ID="Desaparecer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >desapareció</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
   </MalaAccion>
   <Tesoro rdf:ID="VellocinoOro">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el vellocino de oro</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Tesoro>
   <Olimpico rdf:ID="Hermes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hermes</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <Noble rdf:ID="Alcibiades">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Alcibíades</textoNombre>
-  </Noble>
-  <Rey rdf:ID="Filipo_III">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Noble>
+  <Rey rdf:ID="Filipo_III">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Filipo III</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rey>
   <Animo rdf:ID="Burlon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >burlona</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >burlón</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Lucha rdf:ID="Clavar">
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Objeto</TipoObjetoDirecto>
-    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoIndirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >clavó</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoIndirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     ></PreposicionObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >clavó</PasadoSingular>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoIndirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoIndirecto>
+    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
   </Lucha>
   <NinfaMontaña rdf:ID="Citeronides">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Citerónides</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Citerónides</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaMontaña>
   <Ciclope rdf:ID="Esteropes">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Estéropes</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Estéropes</textoNombre>
   </Ciclope>
   <Musa rdf:ID="Polimnia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Polimnia</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Animo rdf:ID="Agria">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >agria</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >agrio</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >agria</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <General rdf:ID="Pesandro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Pesandro</textoNombre>
-  </General>
-  <Ciudad rdf:ID="MidasCiudad">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >la ciudad de Midas</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ciudad>
-  <Centauro rdf:ID="Neso">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Neso</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+  </General>
+  <Ciudad rdf:ID="MidasCiudad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >la ciudad de Midas</textoNombre>
+  </Ciudad>
+  <Centauro rdf:ID="Neso">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neso</textoNombre>
   </Centauro>
   <Animo rdf:ID="Triste">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >triste</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >triste</Masculino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Noble rdf:ID="Tucidides">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tucidides</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Tucidides</textoNombre>
   </Noble>
   <Lugar rdf:ID="ClassLugar">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >algún lugar</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lugar>
   <Gigante rdf:ID="ClassGigante">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un gigante</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Gigante>
   <NinfaAcuatica rdf:ID="Limnade">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Limnade</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaAcuatica>
   <Aspecto rdf:ID="Hermoso">
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >hermoso</Masculino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >hermosa</Femenino>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hermoso</Masculino>
   </Aspecto>
   <Aspecto rdf:ID="Hambriento">
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >hambriento</Masculino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >hambrienta</Femenino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hambriento</Masculino>
   </Aspecto>
   <MalaAccion rdf:ID="Robar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Objeto</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >robó</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoIndirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     ></PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoIndirecto>
+    <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </MalaAccion>
   <owl:AllDifferent>
     <owl:distinctMembers rdf:parseType="Collection">
@@ -2680,219 +2702,223 @@
     </owl:distinctMembers>
   </owl:AllDifferent>
   <Noble rdf:ID="Ifigenia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Ifigenia</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Localizacion rdf:ID="Asistir">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >asistió</PasadoSingular>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Localizacion>
   <Localizacion rdf:ID="Perseguir">
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >persiguió</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
   </Localizacion>
   <Mobiliario rdf:ID="ClassMobiliario">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un elemento de una estancia</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Mobiliario>
   <PseudoTitan rdf:ID="Perses">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Perses</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Hecatonquiro rdf:ID="Coto">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Coto</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Hecatonquiro>
   <Ciudad rdf:ID="Argos">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Argos</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Ciclope rdf:ID="ClassCiclope">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un cíclope</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciclope>
   <Rey rdf:ID="Seutes_I">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Seutes I</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Rey>
   <Ciudad rdf:ID="Micenas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Micenas</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Actitud rdf:ID="Tirano">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tirano</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tirana</Femenino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Actitud>
   <Giga rdf:ID="Porfirion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Porfirion</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <BuenaAccion rdf:ID="Salvar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >salvó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >salvó</PasadoSingular>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
   </BuenaAccion>
   <Rey rdf:ID="Calias_III">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Calias III</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rey>
   <Rey rdf:ID="Ptolomeo_I">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Ptolomeo I</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rey>
   <Isla rdf:ID="Mileto">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Mileto</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <NinfaAcuatica rdf:ID="ClassNinfaAcuatica">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una ninfa acuática</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaAcuatica>
   <Ciudad rdf:ID="Caria">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Caria</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Noble rdf:ID="Gelon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Gelón</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <NinfaMontaña rdf:ID="ClassNinfaMontaña">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una ninfa de montaña</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
   </NinfaMontaña>
   <Lucha rdf:ID="Evitar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >evitó</PasadoSingular>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lucha>
   <Filosofo rdf:ID="Protagoras">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Protágoras</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Protágoras</textoNombre>
   </Filosofo>
   <Menor rdf:ID="Persefone">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Perséfone</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Menor>
   <General rdf:ID="ClassGeneral">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un general</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un general</textoNombre>
   </General>
   <NinfaAcuatica rdf:ID="Creneas">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Creneas</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaAcuatica>
   <Animo rdf:ID="Contento">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >contenta</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >contento</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >contenta</Femenino>
   </Animo>
   <Aspecto rdf:ID="Debil">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >débil</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >débil</Femenino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Aspecto>
   <Esclavo rdf:ID="Coeno">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Coeno</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
   </Esclavo>
   <NinfaMontaña rdf:ID="Liceas">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Líceas</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
   </NinfaMontaña>
   <MalaAccion rdf:ID="Herir">
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
@@ -2900,40 +2926,33 @@
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >hirió</PasadoSingular>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
   </MalaAccion>
   <Aspecto rdf:ID="Joven">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >joven</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >joven</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >joven</Femenino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Aspecto>
   <MalaAccion rdf:ID="Torturar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >torturó</PasadoSingular>
   </MalaAccion>
   <Rio rdf:ID="Ladon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el rio Ladon</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rio>
   <Lucha rdf:ID="Superar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -2942,88 +2961,97 @@
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >superó</PasadoSingular>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lucha>
   <Rey rdf:ID="Alejandro_IV">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alejandro IV</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Alejandro IV</textoNombre>
   </Rey>
   <Animal rdf:ID="Chivo">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el chivo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Animal>
   <Centauro rdf:ID="ClassCentauro">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un centauro</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un centauro</textoNombre>
   </Centauro>
   <BastionCriatura rdf:ID="Flege_Tonte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el Flege Tonte</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionCriatura>
   <Localizacion rdf:ID="Marcharse">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >se marchó</PasadoSingular>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Localizacion>
   <Montaña rdf:ID="ClassMontaña">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >una montaña</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >una montaña</textoNombre>
   </Montaña>
   <Accion rdf:ID="Querer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >quería</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Accion>
   <MalaAccion rdf:ID="Envidiar">
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >envidió</PasadoSingular>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
   </MalaAccion>
   <Lucha rdf:ID="Retar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >retó</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >retó</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lucha>
   <Titanide rdf:ID="Cronos">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Cronos</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Titanide>
   <Heroe rdf:ID="Belerofonte">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -3033,86 +3061,86 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Titanide rdf:ID="Hiperion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Hiperion</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
   </Titanide>
   <Rey rdf:ID="Agamenon">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Agamenon</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rey>
   <Noble rdf:ID="Olimpia">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Olimpia</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Olimpia</textoNombre>
   </Noble>
   <LibreNormal rdf:ID="Orfeo">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Orfeo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orfeo</textoNombre>
   </LibreNormal>
   <Satiro rdf:ID="ClassSatiro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un sátiro</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Satiro>
   <Relacion rdf:ID="Progenitor">
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >era progenitor</PasadoSingular>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Relacion>
   <Ancestral rdf:ID="Gaia">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Gaia</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
   </Ancestral>
   <Animal rdf:ID="Gato">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el gato</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el gato</textoNombre>
   </Animal>
   <PseudoTitan rdf:ID="Astrea">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Astrea</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PseudoTitan>
   <Defensa rdf:ID="ClassDefensa">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una armadura</textoNombre>
-  </Defensa>
-  <Utensilio rdf:ID="Lira">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >la lira</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+  </Defensa>
+  <Utensilio rdf:ID="Lira">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >la lira</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Utensilio>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/nullA0">
@@ -3122,144 +3150,150 @@
     >Femenino</GeneroObjeto>
   </owl:NamedIndividual>
   <Relacion rdf:ID="Esclavizado">
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >era esclavo</PasadoSingular>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >era esclavo</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoDirecto>
   </Relacion>
   <Animal rdf:ID="Roca">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >la roca</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
   </Animal>
   <Noble rdf:ID="Meleagro">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Meleagro</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Noble>
   <Heroe rdf:ID="Jason">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Jasón</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Centauro rdf:ID="Hilonoma">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hilonoma</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Hilonoma</textoNombre>
   </Centauro>
   <Heroe rdf:ID="Aquiles">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Aquiles</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Sentimiento rdf:ID="Llorar">
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >lloró</PasadoSingular>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >lloró</PasadoSingular>
   </Sentimiento>
   <MalaAccion rdf:ID="Provocar">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >provocó</PasadoSingular>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </MalaAccion>
+  <Comida rdf:ID="ClassComida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >una comida</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
+  </Comida>
+  <Aspecto rdf:ID="Bello">
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bello</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bella</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Aspecto>
+  <Mar rdf:ID="Mar_Egeo">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el mar Egeo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Mar>
+  <Giga rdf:ID="Toante">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Toante</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+  </Giga>
+  <Accion rdf:ID="Tener">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-  </MalaAccion>
-  <Comida rdf:ID="ClassComida">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >una comida</textoNombre>
-  </Comida>
-  <Aspecto rdf:ID="Bello">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >bella</Femenino>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >bello</Masculino>
-  </Aspecto>
-  <Mar rdf:ID="Mar_Egeo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el mar Egeo</textoNombre>
-  </Mar>
-  <Giga rdf:ID="Toante">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Toante</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Giga>
-  <Accion rdf:ID="Tener">
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tenía</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
   </Accion>
   <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/10/nullA1">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el animal</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el animal</textoNombre>
   </owl:NamedIndividual>
   <Aspecto rdf:ID="Viejo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >vieja</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >viejo</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vieja</Femenino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Aspecto>
   <Comida rdf:ID="Manzana">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >manzana</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >manzana</textoNombre>
   </Comida>
   <Musa rdf:ID="Talia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Talia</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Rey rdf:ID="Filipo_II">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Filipo II</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-  </Rey>
-  <Tesoro rdf:ID="ClassTesoro">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Filipo II</textoNombre>
+  </Rey>
+  <Tesoro rdf:ID="ClassTesoro">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un tesoro</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
   </Tesoro>
@@ -3274,25 +3308,25 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rio>
   <Rey rdf:ID="Hiponico_III">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hipónico III</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Hipónico III</textoNombre>
   </Rey>
   <Musa rdf:ID="Erate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Érate</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Ciclope rdf:ID="Eurialo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Euríalo</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciclope>
   <BastionCriatura rdf:ID="Monte_Parnaso">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -3300,153 +3334,153 @@
     >el monte Parnaso</textoNombre>
   </BastionCriatura>
   <Isla rdf:ID="Creta">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Creta</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <Esclavo rdf:ID="ClassEsclavo">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >un esclavo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >un esclavo</textoNombre>
   </Esclavo>
   <Titanide rdf:ID="Febe">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Febe</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Titanide>
   <Localizacion rdf:ID="Devolver">
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Objeto</TipoObjetoDirecto>
+    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >devolvió</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
-    <TipoObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoIndirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PreposicionObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >a</PreposicionObjetoIndirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Localizacion>
   <Sentimiento rdf:ID="Alardear">
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >alardeó</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
   </Sentimiento>
   <Heroe rdf:ID="Teseo">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Teseo</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Heroe>
   <Olimpico rdf:ID="Poseidon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Poseidón</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Olimpico>
   <Lucha rdf:ID="Conseguir">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    ></PreposicionObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Objeto</TipoObjetoDirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >consiguió</PasadoSingular>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Objeto</TipoObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Lucha>
   <Ciudad rdf:ID="Calcis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Calcis</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Titanide rdf:ID="Rea">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Rea</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rea</textoNombre>
   </Titanide>
   <Comida rdf:ID="Hueso">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el hueso</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el hueso</textoNombre>
   </Comida>
   <Ciclope rdf:ID="Traquio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Traquio</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciclope>
   <Giga rdf:ID="Alpo">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alpo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Alpo</textoNombre>
   </Giga>
   <NinfaMontaña rdf:ID="Ida">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Ida</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </NinfaMontaña>
   <PersonajeMitico rdf:ID="ClassPersonajeMitico">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un personaje mítico</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </PersonajeMitico>
   <Ciclope rdf:ID="Telemo">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Telemo</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Ciclope>
   <Artesano rdf:ID="ClassArtesano">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un artesano</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Artesano>
   <Necesidad rdf:ID="Dormir">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >se durmió</PasadoSingular>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Necesidad>
   <Meteco rdf:ID="ClassMeteco">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un meteco</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
   </Meteco>
   <Ciudad rdf:ID="Atenas">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -3454,92 +3488,92 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ciudad>
   <Hecatonquiro rdf:ID="Egeon">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Egeón</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Egeón</textoNombre>
   </Hecatonquiro>
   <Lucha rdf:ID="Detener">
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >detuvo</PasadoSingular>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >detuvo</PasadoSingular>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
   </Lucha>
   <Meteco rdf:ID="Endimion">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Endimión</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Meteco>
   <Animo rdf:ID="Descontento">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >descontento</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >descontenta</Femenino>
+    <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >descontento</Masculino>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Locucion rdf:ID="Negarse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >se negó</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Locucion>
   <Isla rdf:ID="Cnosos">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Cnosos</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Isla>
   <Sentimiento rdf:ID="Yacer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >con</PreposicionObjetoDirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >yació</PasadoSingular>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Sentimiento>
   <Furia rdf:ID="Megera">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Megera</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
   </Furia>
   <Noble rdf:ID="Antigona">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Antígona</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Noble>
   <Locucion rdf:ID="Ver">
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nombre</TipoObjetoDirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >a</PreposicionObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vió</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >a</PreposicionObjetoDirecto>
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Nombre</TipoObjetoDirecto>
   </Locucion>
   <Animal rdf:ID="ClassAnimal">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -3549,91 +3583,91 @@
     >Masculino</GeneroObjeto>
   </Animal>
   <Mobiliario rdf:ID="Fortaleza">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >la fortaleza</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >la fortaleza</textoNombre>
   </Mobiliario>
   <Soldado rdf:ID="Timoteo">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Timoteo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Soldado>
   <Ropa rdf:ID="ClassRopa">
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una prenda de vestir</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ropa>
   <Animo rdf:ID="Bravucon">
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >bravucona</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >bravucón</Masculino>
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bravucona</Femenino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Rey rdf:ID="Midas_I">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el rey Midas</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rey>
   <Giga rdf:ID="Gracion">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Gración</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gración</textoNombre>
   </Giga>
   <Hecatonquiro rdf:ID="ClassHecatonquiro">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >un hecatónquiro</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Hecatonquiro>
   <Ropa rdf:ID="Cinturon">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el cinturón</textoNombre>
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Ropa>
   <Animo rdf:ID="Embelesado">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >embeledado</Masculino>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >embelesada</Femenino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animo>
   <Noble rdf:ID="Critias">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Critias</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Critias</textoNombre>
   </Noble>
   <Animo rdf:ID="Conmovido">
+    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >conmovida</Femenino>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >conmovido</Masculino>
-    <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >conmovida</Femenino>
   </Animo>
   <Furia rdf:ID="Tisifone">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tisífone</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Tisífone</textoNombre>
   </Furia>
   <Actitud rdf:ID="Atrevido">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >atrevida</Femenino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >atrevido</Masculino>
   </Actitud>
@@ -3645,159 +3679,159 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Satiro>
   <Montaña rdf:ID="Etna">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el Etna</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Montaña>
   <PseudoTitan rdf:ID="Helios">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Helios</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Helios</textoNombre>
   </PseudoTitan>
   <Actitud rdf:ID="Firme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <Femenino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >firme</Femenino>
     <Masculino rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >firme</Masculino>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Actitud>
   <Musa rdf:ID="ClassMusa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una musa</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Musa>
   <Tesoro rdf:ID="Cofre">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >el cofre</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >el cofre</textoNombre>
   </Tesoro>
   <Centauro rdf:ID="Folo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Folo</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Centauro>
   <Rio rdf:ID="Maritsa">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el rio Maritsa</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Rio>
   <Olimpico rdf:ID="Artemisa">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Artemisa</textoNombre>
   </Olimpico>
   <Real rdf:ID="ClassReal">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >algún lugar de Grecia</textoNombre>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >algún lugar de Grecia</textoNombre>
   </Real>
   <Sentimiento rdf:ID="Estremecerse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >se estremeció</PasadoSingular>
     <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >se estremeció</PasadoSingular>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Sentimiento>
   <Animal rdf:ID="Caballo">
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el caballo</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Animal>
   <Hibrido rdf:ID="ClassHibrido">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una criatura híbrida</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
   </Hibrido>
   <Filosofo rdf:ID="Aristoteles">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Aristóteles</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Aristóteles</textoNombre>
   </Filosofo>
   <Relacion rdf:ID="Amigo">
-    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actor</TipoObjetoDirecto>
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >era amigo</PasadoSingular>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >de</PreposicionObjetoDirecto>
     <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >false</TieneObjetoIndirecto>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >era amigo</PasadoSingular>
+    <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actor</TipoObjetoDirecto>
   </Relacion>
   <Giga rdf:ID="Enfialtes">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Enfialtes</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Giga>
   <Soldado rdf:ID="Jantipo">
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Jantipo</textoNombre>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Masculino</GeneroObjeto>
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Jantipo</textoNombre>
   </Soldado>
   <Ancestral rdf:ID="ClassAncestral">
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >una deidad ancestral</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </Ancestral>
-  <NinfaMontaña rdf:ID="Britomartis">
-    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Britomartis</textoNombre>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Femenino</GeneroObjeto>
+  </Ancestral>
+  <NinfaMontaña rdf:ID="Britomartis">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Femenino</GeneroObjeto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Britomartis</textoNombre>
   </NinfaMontaña>
   <Meteco rdf:ID="Pausanias">
+    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Masculino</GeneroObjeto>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Pausanias</textoNombre>
-    <GeneroObjeto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Masculino</GeneroObjeto>
   </Meteco>
   <BastionCriatura rdf:ID="Rio_Estigia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <textoNombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >el rio Estigia</textoNombre>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </BastionCriatura>
   <BuenaAccion rdf:ID="Enamorarse">
-    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >se enamoró</PasadoSingular>
-    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >false</TieneObjetoIndirecto>
-    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >true</TieneObjetoDirecto>
-    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >de</PreposicionObjetoDirecto>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <TipoObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Actor</TipoObjetoDirecto>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <PasadoSingular rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >se enamoró</PasadoSingular>
+    <TieneObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >true</TieneObjetoDirecto>
+    <TieneObjetoIndirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >false</TieneObjetoIndirecto>
+    <PreposicionObjetoDirecto rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >de</PreposicionObjetoDirecto>
   </BuenaAccion>
 </rdf:RDF>
 

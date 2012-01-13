@@ -155,6 +155,7 @@ public abstract class AbstractEvaluator implements IEvaluator {
 			String eVariable = ePattern.getVariable(iAtt);
 			
 			if (eVariable == null) continue;
+			if (rElement == null) continue;
 			
 			if (!variables.containsKey(eVariable)) {
 				variables.put(eVariable, rElement);
