@@ -1,6 +1,7 @@
 package reader;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Random;
@@ -77,7 +78,7 @@ public class MindEvolver extends Observable {
 	 */
 	public MindEvolver(IEvaluator evaluator, CoherenceChecker coherenceChecker) {
 		maxMindExpansions = 3;
-		mindsQueue = new DoublePriorityQueue<ChangedMind>();
+		mindsQueue = new DoublePriorityQueue<ChangedMind>(ChangedMind.getGreaterComparator(), ChangedMind.getLowerComparator());
 		this.evaluator = evaluator;
 		this.coherenceChecker = coherenceChecker;
 		this.operatorApplicator = new OperatorApplicator();
@@ -94,7 +95,7 @@ public class MindEvolver extends Observable {
 	public ChangedMind evolveMind(Mind mind, Events events) {
 		
 		generatedMinds = new HashSet<Integer>();
-		mindsQueue = new DoublePriorityQueue<ChangedMind>();
+		mindsQueue = new DoublePriorityQueue<ChangedMind>(ChangedMind.getGreaterComparator(), ChangedMind.getLowerComparator());
 		//bestMind = new ChangedMind(mind);
 		bestMind = null;
 		//mindsQueue.add(bestMind);
@@ -138,6 +139,9 @@ public class MindEvolver extends Observable {
 		storyMinds.add(bestMind.getActualMind().hashCode());
 		recentRelations.updateWeights();
 		recentRelations.addAll(bestMind.getResultingRelations());
+		
+		//System.out.print("+");
+		
 		return bestMind; 
 	}
 	
