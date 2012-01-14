@@ -28,6 +28,10 @@ public abstract class AbstractEvaluator implements IEvaluator {
 		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
 			QuestionPattern qPattern = qPatterns.get(iPattern);
 			
+			if (getActualWeight(iPattern) <= 0.0f) {
+				continue;
+			}
+			
 			Collection<String> actions = qPattern.getActions();
 			Collection<String> negActions = qPattern.getNegActions();
 			HashMap<String, Iterable<Relation>> relations = m.getRelations(actions);

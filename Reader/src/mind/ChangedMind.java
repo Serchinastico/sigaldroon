@@ -180,11 +180,11 @@ public class ChangedMind implements Comparable<Object> {
 	 * Devuelve un comparador para ordenar ChangedMind de mayor a menor.
 	 * @return
 	 */
-	public Comparator<ChangedMind> getGreaterComparator() {
+	public static Comparator<ChangedMind> getGreaterComparator() {
 		Comparator<ChangedMind> gt = new Comparator<ChangedMind>() {
 			@Override
 			public int compare(ChangedMind o1, ChangedMind o2) {
-				return o1.compareTo(o2);
+				return -o1.compareTo(o2);
 			}
 		};
 		return gt;
@@ -194,11 +194,11 @@ public class ChangedMind implements Comparable<Object> {
 	 * Devuelve un comparador para ordenar ChangedMind de menor a mayor.
 	 * @return
 	 */
-	public Comparator<ChangedMind> getLowerComparator() {
+	public static Comparator<ChangedMind> getLowerComparator() {
 		Comparator<ChangedMind> lt = new Comparator<ChangedMind>() {
 			@Override
 			public int compare(ChangedMind o1, ChangedMind o2) {
-				return -o1.compareTo(o2);
+				return o1.compareTo(o2);
 			}
 		};
 		return lt;
