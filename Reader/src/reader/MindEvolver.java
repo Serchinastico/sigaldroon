@@ -1,7 +1,6 @@
 package reader;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Random;
@@ -140,7 +139,7 @@ public class MindEvolver extends Observable {
 		recentRelations.updateWeights();
 		recentRelations.addAll(bestMind.getResultingRelations());
 		
-		//System.out.print("+");
+		System.out.print("+");
 		
 		return bestMind; 
 	}

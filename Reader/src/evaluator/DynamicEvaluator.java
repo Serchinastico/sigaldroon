@@ -63,15 +63,29 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 	private String filePath;
 	
 	/**
+	 * Tipo de evaluador.
+	 */
+	private Type type;
+	
+	/**
+	 * Tipos de evaluador dinámico aleatorio o dinámico guiado.
+	 */
+	public enum Type {
+		RANDOM,
+		GUIDED
+	}
+	
+	/**
 	 * Crea un nuevo evaluador dinámico dado el número de divisiones a lo
 	 * largo de la historia y la ruta al fichero que tiene la lista de patrones.
 	 * @param storyBreaks Número de divisiones de la historia.
 	 * @param path Ruta al fichero con la lista de patrones. 
 	 * */
-	public DynamicEvaluator(int storyBreaks, String path) {
+	public DynamicEvaluator(int storyBreaks, String path, Type type) {
 		this.qPatterns = new ArrayList<QuestionPattern>();
 		this.weights = new ArrayList<float[]>();
 		this.storyBreaks = storyBreaks;
+		this.type = type;
 		
 		loadPatterns(path);
 		randomizeWeights();
@@ -110,6 +124,14 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String line;
 			
+			if ((line = br.readLine()) != null) {
+				if (line.trim().equals("RANDOM")) {
+					type = Type.RANDOM;
+				}
+				else if (line.trim().equals("GUIDED")) {
+					type = Type.GUIDED;
+				}
+			}
 			while ((line = br.readLine()) != null) {
 				loadPattern(line);
 			}
@@ -182,6 +204,7 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 			file = new FileWriter(filePath);
 			pw = new PrintWriter(file);
 			
+			pw.println(type);
 			for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
 				pw.print("[");
 				pw.print(qPatterns.get(iPattern).getMoment());
@@ -303,23 +326,29 @@ public class DynamicEvaluator extends AbstractEvaluator implements Observer {
 	public void randomizeWeights() {
 		Random random = new Random(System.currentTimeMillis());
 		
-		/*for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
-			this.weights.add(new float[storyBreaks]);
-			
-			//float center = random.nextFloat() * 9;
-			float center = nextNormalFloat(random, qPatterns.get(iPattern).getMoment());
-			float aperture = (random.nextFloat() * 9) + 1;
-			
-			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
-				float fy = (-1.0f / aperture) * ((iWeight - center) * (iWeight - center)) + 1;
-				this.weights.get(iPattern)[iWeight] = (fy < 0) ? 0.0f : fy;
+		switch (type) {
+		case RANDOM:
+			for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+				this.weights.add(new float[storyBreaks]);
+				for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
+					this.weights.get(iPattern)[iWeight] = random.nextFloat();
+				}
 			}
-		}*/
-		for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
-			this.weights.add(new float[storyBreaks]);
-			for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
-				this.weights.get(iPattern)[iWeight] = random.nextFloat();
+			break;
+		case GUIDED:
+			for (int iPattern = 0; iPattern < qPatterns.size(); iPattern++) {
+				this.weights.add(new float[storyBreaks]);
+				
+				//float center = random.nextFloat() * 9;
+				float center = nextNormalFloat(random, qPatterns.get(iPattern).getMoment());
+				float aperture = (random.nextFloat() * 9) + 1;
+				
+				for (int iWeight = 0; iWeight < this.weights.get(iPattern).length; iWeight++) {
+					float fy = (-1.0f / aperture) * ((iWeight - center) * (iWeight - center)) + 1;
+					this.weights.get(iPattern)[iWeight] = (fy < 0) ? 0.0f : fy;
+				}
 			}
+			break;
 		}
 	}
 	
