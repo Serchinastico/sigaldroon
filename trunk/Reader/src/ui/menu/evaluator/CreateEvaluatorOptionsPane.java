@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -42,6 +43,13 @@ public class CreateEvaluatorOptionsPane extends JPanel {
 	 */
 	private JTextField numStoryBreaksTextField;
 	
+	/**
+	 * Tipo del evaluador.
+	 */
+	@SuppressWarnings("rawtypes")
+	private JComboBox tipoEvaluadorComboBox; 
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public CreateEvaluatorOptionsPane() {
 		super();
 		
@@ -167,6 +175,31 @@ public class CreateEvaluatorOptionsPane extends JPanel {
         
         this.add(numStoryBreaksTextField, constrains);
         
+        JLabel tipoEvaluadorLabel = new JLabel("Tipo de evaluador:");
+		
+		constrains.gridx = 0;
+        constrains.gridy = 5;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 0.90;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.add(tipoEvaluadorLabel, constrains);
+        
+        String[] tipos = {"Dinámico aleatorio", "Dinámico guiado"};
+        tipoEvaluadorComboBox = new JComboBox(tipos);
+        
+        constrains.gridx = 1;
+        constrains.gridy = 5;
+        constrains.gridwidth = 1;
+        constrains.gridheight = 1;
+        constrains.weightx = 0.10;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.insets = new Insets(5, 5, 5, 5);
+        
+        this.add(tipoEvaluadorComboBox, constrains);
+        
         // Borde del panel
     	Border  border = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
     	TitledBorder titleBorder = BorderFactory.createTitledBorder(
@@ -185,6 +218,14 @@ public class CreateEvaluatorOptionsPane extends JPanel {
 	
 	public int getNumStoryBreaks() throws NumberFormatException {
 		return Integer.parseInt(numStoryBreaksTextField.getText());
+	}
+
+	public evaluator.DynamicEvaluator.Type getEvaluatorType() {
+		switch (tipoEvaluadorComboBox.getSelectedIndex()) {
+		case 0: return evaluator.DynamicEvaluator.Type.RANDOM;
+		case 1: return evaluator.DynamicEvaluator.Type.GUIDED;
+		default: return null;
+		}
 	}
 	
 }

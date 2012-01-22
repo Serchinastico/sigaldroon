@@ -48,7 +48,7 @@ public class CreateEvaluatorDialog extends JDialog {
     private void setConfiguration(JFrame owner) {
     	this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     	this.setTitle("Preferencias");
-    	this.setSize(310, 250);
+    	this.setSize(410, 300);
     	this.setResizable(false);
     	this.setLocationRelativeTo(owner);
     }
@@ -114,12 +114,15 @@ public class CreateEvaluatorDialog extends JDialog {
 			String patternsPath = null;
 			String evaluatorPath = null;
 			int numStoryBreaks = 10;
+			DynamicEvaluator.Type type = null;
 			boolean error = false;
 			
 			try {
 				patternsPath = optionsPane.getPatternsPath();
 				evaluatorPath = optionsPane.getEvaluatorPath();
 				numStoryBreaks = optionsPane.getNumStoryBreaks();
+				type = optionsPane.getEvaluatorType();
+				
 			} catch(Exception exc) {
 				JOptionPane.showMessageDialog(null, 
 						exc.getMessage(), 
@@ -129,7 +132,7 @@ public class CreateEvaluatorDialog extends JDialog {
 			}
 			
 			if (!error) {
-				DynamicEvaluator evaluator = new DynamicEvaluator(numStoryBreaks, patternsPath);
+				DynamicEvaluator evaluator = new DynamicEvaluator(numStoryBreaks, patternsPath, type);
 				frame.getObservableReader().setEvaluator(evaluator);
 				evaluator.setFilePath(evaluatorPath);
 				evaluator.save();

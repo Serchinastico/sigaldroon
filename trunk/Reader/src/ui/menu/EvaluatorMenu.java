@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import evaluator.DynamicEvaluator;
 import evaluator.IEvaluator;
+import evaluator.SimpleEvaluator;
 
 import ui.StoryJFrame;
 import ui.evaluator.EvaluatorJFrame;
@@ -51,6 +52,11 @@ public class EvaluatorMenu extends JMenu {
 	 * Opción del menú Evaluador para cargar un evaluador dinámico.
 	 */
 	private JMenuItem menuItemCargarEvaluador;
+	
+	/**
+	 * Opción del menú Evaluador para cargar el evaluador simple.
+	 */
+	private JMenuItem menuItemCargarEvaluadorSimple;
 	
 	/**
 	 * Opción del menú evaluador para reiniciar los pesos del evaluador dinámico.
@@ -110,6 +116,16 @@ public class EvaluatorMenu extends JMenu {
             }
         });
         this.add(menuItemCargarEvaluador);
+        
+		// Opción de cargar el evaluador simple
+		menuItemCargarEvaluadorSimple = new JMenuItem();
+		menuItemCargarEvaluadorSimple.setText("Cargar Evaluador Simple");
+		menuItemCargarEvaluadorSimple.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+            	frame.getObservableReader().setEvaluator(new SimpleEvaluator());
+            }
+        });
+        this.add(menuItemCargarEvaluadorSimple);
         
 	    // Opción de reiniciar el evaluador dinámico
         menuItemReiniciarEvaluador = new JMenuItem();
