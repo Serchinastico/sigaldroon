@@ -74,7 +74,7 @@ public class ExpectationPattern extends Relation {
 	/**
 	 * Devuelve la variable de la relación pedido por argumento según el índice,
 	 * ver constantes de la clase Relation.
-	 * @param numElem Índice de la variable de la relación.
+	 * @param numVar Índice de la variable de la relación.
 	 * @return La variable de la relación pedida: source, acción, target, place, direct object.
 	 */
 	public String getVariable(int numVar) {

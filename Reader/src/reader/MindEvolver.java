@@ -139,8 +139,6 @@ public class MindEvolver extends Observable {
 		recentRelations.updateWeights();
 		recentRelations.addAll(bestMind.getResultingRelations());
 		
-		System.out.print("+");
-		
 		return bestMind; 
 	}
 	
